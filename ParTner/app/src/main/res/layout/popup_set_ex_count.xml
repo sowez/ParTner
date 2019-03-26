@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tv_exerciseType"
+        android:id="@+id/tv_exType"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:gravity="center"
@@ -26,14 +26,14 @@
         android:gravity="center"
         android:orientation="horizontal">
         <EditText
-            android:id="@+id/mesgase"
+            android:id="@+id/et_exCount"
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:textColor="#000000"
             android:textSize="18sp"
             android:textAlignment="center"
             android:inputType="number"
-            android:hint="운동 횟수 입력"/>
+            android:hint="00"/>
         <TextView
             android:id="@+id/tv_countType"
             android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_exerciseCancel"
+            android:id="@+id/btn_exCancel"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_weight="1"
@@ -71,7 +71,7 @@
             android:background="#000000" />
 
         <Button
-            android:id="@+id/btn_exerciseStart"
+            android:id="@+id/btn_exStartonPopup"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_weight="1"

@@ -9,7 +9,7 @@
     >
 
     <Button
-        android:id="@+id/btn_exercise1"
+        android:id="@+id/btn_ex1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -19,7 +19,7 @@
         />
 
     <Button
-        android:id="@+id/btn_exercise2"
+        android:id="@+id/btn_ex2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -30,7 +30,7 @@
         />
 
     <Button
-        android:id="@+id/btn_exercise3"
+        android:id="@+id/btn_ex3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
