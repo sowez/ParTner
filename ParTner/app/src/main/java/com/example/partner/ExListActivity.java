@@ -1,11 +1,13 @@
 package com.example.partner;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.appcompat;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ExListActivity extends AppCompatActivity {
 
