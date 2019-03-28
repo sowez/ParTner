@@ -30,7 +30,6 @@ public class ExPreviewActivity extends AppCompatActivity {
 
         tv_title = findViewById(R.id.tv_exPreview);
         vv_preview = findViewById(R.id.vv_exPreview);
-        btn_st = findViewById(R.id.btn_exStartonPreview);
 
         setExPreview(exType,tv_title,vv_preview);
 
@@ -39,6 +38,7 @@ public class ExPreviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ExPreviewActivity.this,CameraActivity.class);
+//                Intent i = new Intent(ExPreviewActivity.this,ExHistoryActivity.class);
                 startActivity(i);
             }
         });
