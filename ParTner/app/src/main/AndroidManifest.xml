@@ -31,7 +31,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CameraActivity"/>
-        <activity android:name=".exStartPopup"/>
+        <activity android:name=".ExHistoryActivity"/>
         <activity android:name=".ExPreviewActivity" />
         <activity android:name=".ExListActivity" />
         <activity android:name=".MainActivity"
