@@ -5,6 +5,8 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -12,6 +14,7 @@ public class ExPreviewActivity extends AppCompatActivity {
 
     TextView tv_title;
     VideoView vv_preview;
+    Button btn_exStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,17 @@ public class ExPreviewActivity extends AppCompatActivity {
         tv_title = findViewById(R.id.tv_exPreview);
         vv_preview = findViewById(R.id.vv_exPreview);
         setExPreview(exType,tv_title,vv_preview);
+
+        btn_exStart = findViewById(R.id.btn_exStartonPreview);
+        btn_exStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // -------------- 일단은 달력 페이지로 연결 ----------------
+                Intent i = new Intent(ExPreviewActivity.this,ExHistoryActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     private void setExPreview(int exType, TextView tv, VideoView vv){
@@ -33,17 +47,17 @@ public class ExPreviewActivity extends AppCompatActivity {
         switch (exType){
             case 1:
                 exName = "플랭크";
-                video = Uri.parse("android.resource://" + getPackageName()+ "/"+R.raw.flank_preview);
+                video = Uri.parse("android.resource://" + getPackageName()+ "/"+R.raw.sqaut_preview);
                 vv.setVideoURI(video);
                 break;
             case 2:
                 exName = "스쿼트";
-                video = Uri.parse("android.resource://" + getPackageName()+ "/"+R.raw.flank_preview);
+                video = Uri.parse("android.resource://" + getPackageName()+ "/"+R.raw.sqaut_preview);
                 vv.setVideoURI(video);
                 break;
             case 3:
                 exName = "점핑잭";
-                video = Uri.parse("android.resource://" + getPackageName()+ "/"+R.raw.flank_preview);
+                video = Uri.parse("android.resource://" + getPackageName()+ "/"+R.raw.sqaut_preview);
                 vv.setVideoURI(video);
                 break;
                 default: break;

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".exStartPopup"></activity>
+        <activity android:name=".ExHistoryActivity"></activity>
+        <activity android:name=".exStartPopup" />
         <activity android:name=".ExPreviewActivity" />
         <activity android:name=".ExListActivity" />
         <activity android:name=".MainActivity">
