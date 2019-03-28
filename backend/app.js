@@ -3,11 +3,23 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const bodyParser = require('body-parser')
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+require('./db/mongo')
 
-var app = express();
+//Router 정의
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+
+const app = express();
+
+
+app.use((req, res, next) =>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+  res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type")
+  next()
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,6 +31,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
+
+
+//Route 정의
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
