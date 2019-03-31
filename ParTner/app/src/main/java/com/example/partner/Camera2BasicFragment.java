@@ -76,7 +76,7 @@ public class Camera2BasicFragment extends Fragment
     /** Tag for the {@link Log}. */
     private int nowHeight;
     private int nowWidth;
-    private static final String TAG = "butcher2";
+    private static final String TAG = "ParTner";
     private static final String FRAGMENT_DIALOG = "dialog";
     private static final String HANDLE_THREAD_NAME = "CameraBackground";
     private static final int PERMISSIONS_REQUEST_CODE = 1;
@@ -351,13 +351,18 @@ public class Camera2BasicFragment extends Fragment
         List<Size> notBigEnough = new ArrayList<>();
         int w = aspectRatio.getWidth();
         int h = aspectRatio.getHeight();
+        Log.e("texture camera size: ", textureViewHeight+" "+textureViewWidth);
+
+        Log.e("max camera size: ", maxHeight+" "+maxWidth);
         for (Size option : choices) {
+            Log.e("camera size: ", option.getHeight()+" "+option.getWidth());
             if (option.getWidth() <= maxWidth
                     && option.getHeight() <= maxHeight
-                    && option.getHeight() == option.getWidth() * h / w) {
+            ) {
                 if (option.getWidth() >= textureViewWidth && option.getHeight() >= textureViewHeight) {
                     bigEnough.add(option);
                 } else {
+                    Log.e("now camera size: ", option.getHeight()+" "+option.getWidth()+" "+textureViewHeight+" "+textureViewWidth);
                     notBigEnough.add(option);
                 }
             }
@@ -366,8 +371,10 @@ public class Camera2BasicFragment extends Fragment
         // Pick the smallest of those big enough. If there is no one big enough, pick the
         // largest of those not big enough.
         if (bigEnough.size() > 0) {
+            Log.e("optimal camera 1: ", Collections.min(bigEnough, new CompareSizesByArea()).getHeight()+" "+Collections.min(bigEnough, new CompareSizesByArea()).getWidth());
             return Collections.min(bigEnough, new CompareSizesByArea());
         } else if (notBigEnough.size() > 0) {
+            Log.e("optimal camera 2: ", Collections.max(notBigEnough, new CompareSizesByArea()).getHeight()+" "+Collections.max(notBigEnough, new CompareSizesByArea()).getWidth());
             return Collections.max(notBigEnough, new CompareSizesByArea());
         } else {
             Log.e(TAG, "Couldn't find any suitable preview size");
@@ -480,16 +487,22 @@ public class Camera2BasicFragment extends Fragment
                 textureView.setAspectRatio(nowWidth, nowHeight);
                 drawView.setAspectRatio(nowWidth, nowHeight);
 
+                nowWidth = View.MeasureSpec.getSize(nowWidth);
+                nowHeight = View.MeasureSpec.getSize(nowHeight);
+
+                //이미지 사이즈 조절 하기
                 FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) personImg.getLayoutParams();
-                params.width = nowWidth;
-                params.height = nowHeight;
+                params.width = width;
+                params.height = height;
                 if (0 != nowWidth && 0 != nowHeight) {
-                    if (nowWidth < nowHeight * nowWidth / nowHeight) {
+                    if (width < height * nowWidth / nowHeight) {
                         params.height = width * nowHeight / nowWidth;
                     } else {
                         params.width = height * nowWidth / nowHeight;
                     }
                 }
+
+                Log.e("camera preview size: ", "width: "+ params.width+" height"+ params.height);
                 personImg.setLayoutParams(params);
 
                 this.cameraId = cameraId;
@@ -521,6 +534,7 @@ public class Camera2BasicFragment extends Fragment
             if (!cameraOpenCloseLock.tryAcquire(2500, TimeUnit.MILLISECONDS)) {
                 throw new RuntimeException("Time out waiting to lock camera opening.");
             }
+//           1-> 전면 카메라, 0->후면 카메라
             manager.openCamera("1", stateCallback, backgroundHandler);
         } catch (CameraAccessException e) {
             Log.e(TAG, "Failed to open Camera", e);
