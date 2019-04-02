@@ -22,6 +22,7 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -51,9 +52,11 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -97,7 +100,10 @@ public class Camera2BasicFragment extends Fragment
     private ViewGroup layoutBottom;
     private ImageClassifier classifier;
 
+    private Button btn_endEx;
 
+    private int exType;
+    private int exCount;
 
     /**
      * {@link TextureView.SurfaceTextureListener} handles several lifecycle events on a {@link
@@ -105,7 +111,6 @@ public class Camera2BasicFragment extends Fragment
      */
     private final TextureView.SurfaceTextureListener surfaceTextureListener =
             new TextureView.SurfaceTextureListener() {
-
                 @Override
                 public void onSurfaceTextureAvailable(SurfaceTexture texture, int width, int height) {
                     openCamera(width, height);
@@ -136,6 +141,7 @@ public class Camera2BasicFragment extends Fragment
 
     /** The {@link Size} of camera preview. */
     private Size previewSize;
+
 
     /** {@link CameraDevice.StateCallback} is called when {@link CameraDevice} changes its state. */
     private final CameraDevice.StateCallback stateCallback =
@@ -253,7 +259,15 @@ public class Camera2BasicFragment extends Fragment
     /** Layout the preview and buttons. */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_camera2_basic, container, false);
+        View v = inflater.inflate(R.layout.fragment_camera2_basic, container, false);
+
+        Button btn_endEx = v.findViewById(R.id.btn_endEx);
+        btn_endEx.setOnClickListener(listner_exEnd);
+
+        exType = this.getArguments().getInt("exType");
+        exCount = this.getArguments().getInt("exCount");
+        Log.e("받아온거", exType+" "+exCount);
+        return v;
     }
 
     /** Connect the buttons to their event handler. */
@@ -269,6 +283,7 @@ public class Camera2BasicFragment extends Fragment
 //        layoutBottom = view.findViewById(R.id.layout_bottom);
 //
     }
+
 
     /** Load the model and labels. */
     @Override
@@ -316,6 +331,34 @@ public class Camera2BasicFragment extends Fragment
         classifier.close();
         super.onDestroy();
     }
+
+
+    View.OnClickListener listner_exEnd = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Log.e("pop up 전", exType+""+exCount);
+            ExEndPopup popup = new ExEndPopup(getActivity(), exType, exCount, new ExEndPopup.PopupEventListener() {
+                @Override
+                public void popupEvent(String result) {
+                    // 횟수 입력되었으면 운동 프리뷰 액티비티로 넘어가기
+                    if (result.equals("selectEx")){
+                        Toast.makeText(getActivity(), "go to select exercise page", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getActivity(),ExListActivity.class);
+//                        intent.putExtra("exCount",exCount);
+//                        intent.putExtra("exType",exType);
+                        startActivity(intent);
+                    }
+                    else if(result.equals("goCalander")){
+                        Toast.makeText(getActivity(), "go Calender", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getActivity(),ExHistoryActivity.class);
+//                        intent.putExtra("exCount",exCount);
+//                        intent.putExtra("exType",exType);
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
+    };
 
     /**
      * Resizes image.

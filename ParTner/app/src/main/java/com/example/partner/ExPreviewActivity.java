@@ -26,7 +26,7 @@ public class ExPreviewActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         int exType = intent.getExtras().getInt("exType");
-        int count = intent.getExtras().getInt("count");
+        int exCount = intent.getExtras().getInt("exCount");
 
         tv_title = findViewById(R.id.tv_exPreview);
         vv_preview = findViewById(R.id.vv_exPreview);
@@ -39,6 +39,8 @@ public class ExPreviewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(ExPreviewActivity.this,CameraActivity.class);
 //                Intent i = new Intent(ExPreviewActivity.this,ExHistoryActivity.class);
+                i.putExtra("exCount",exCount);
+                i.putExtra("exType",exType);
                 startActivity(i);
             }
         });

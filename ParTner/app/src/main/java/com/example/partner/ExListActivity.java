@@ -44,13 +44,13 @@ public class ExListActivity extends AppCompatActivity {
             }
             exStartPopup popup = new exStartPopup(ExListActivity.this, exType, new exStartPopup.PopupEventListener() {
                 @Override
-                public void popupEvent(String exCount) {
+                public void popupEvent(String result) {
                     // 횟수 입력되었으면 운동 프리뷰 액티비티로 넘어가기
-                    if (!exCount.equals("Cancel")){
-                        Toast.makeText(ExListActivity.this, "count: "+exCount, Toast.LENGTH_SHORT).show();
+                    if (!result.equals("Cancel")){
+                        Toast.makeText(ExListActivity.this, "count: "+result, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(ExListActivity.this,ExPreviewActivity.class);
-                        int count = Integer.parseInt(exCount);
-                        intent.putExtra("count",count);
+                        int exCount = Integer.parseInt(result);
+                        intent.putExtra("exCount",exCount);
                         intent.putExtra("exType",exType);
                         startActivity(intent);
                     }
