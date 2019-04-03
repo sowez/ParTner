@@ -99,6 +99,7 @@ public class Camera2BasicFragment extends Fragment
     private DrawView drawView;
     private ViewGroup layoutBottom;
     private ImageClassifier classifier;
+    private ImageView person_frame;
 
     private Button btn_endEx;
 
@@ -263,10 +264,13 @@ public class Camera2BasicFragment extends Fragment
 
         Button btn_endEx = v.findViewById(R.id.btn_endEx);
         btn_endEx.setOnClickListener(listner_exEnd);
+        person_frame = v.findViewById(R.id.person_frame);
 
         exType = this.getArguments().getInt("exType");
         exCount = this.getArguments().getInt("exCount");
         Log.e("받아온거", exType+" "+exCount);
+        if(exType == 1) person_frame.setImageResource(R.drawable.squart_red);
+        else if(exType == 3) person_frame.setImageResource(R.drawable.jumping_red);
         return v;
     }
 
@@ -754,7 +758,10 @@ public class Camera2BasicFragment extends Fragment
         classifier.classifyFrame(bitmap, textToShow);
         bitmap.recycle();
 
-        drawView.setDrawPoint(classifier.mPrintPointArray, 0.5f);
+        if(drawView.setDrawPoint(classifier.mPrintPointArray, 0.5f)==1){
+            person_frame.setImageResource(R.drawable.jumping_green);
+        }
+
         showToast(textToShow);
     }
 
