@@ -759,7 +759,17 @@ public class Camera2BasicFragment extends Fragment
         bitmap.recycle();
 
         if(drawView.setDrawPoint(classifier.mPrintPointArray, 0.5f)==1){
-            person_frame.setImageResource(R.drawable.jumping_green);
+
+            //thread의 UI 수정
+            final Activity activity = getActivity();
+            if (activity != null) {
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        person_frame.setImageResource(R.drawable.jumping_green);
+                    }
+                });
+            }
         }
 
         showToast(textToShow);
