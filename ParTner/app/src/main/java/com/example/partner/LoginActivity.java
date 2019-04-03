@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.app_toolbar);
         setSupportActionBar(toolbar);
+
         actionBar = getSupportActionBar();
 
         id = findViewById(R.id.login_id);
@@ -42,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signupButtonClickEvent(View v){
-        Intent SignUpMenuActivityIntent = new Intent(this, SignUpMenuActivity.class);
+        Intent SignUpMenuActivityIntent = new Intent(this, SignUpActivity.class);
         startActivity(SignUpMenuActivityIntent);
     }
 }

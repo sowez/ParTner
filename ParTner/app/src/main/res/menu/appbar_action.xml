@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_settings"
-        android:title="Settings"
-        app:showAsAction="never"/>
+        android:id="@+id/action_sidebar"
+        android:icon="@drawable/menu"
+        android:title="Sidebar"
+        app:showAsAction="always"/>
 </menu>
