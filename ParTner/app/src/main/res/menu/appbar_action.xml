@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_sidebar"
+        android:id="@+id/action_menu"
         android:icon="@drawable/menu"
-        android:title="Sidebar"
+        android:title="menu"
         app:showAsAction="always"/>
 </menu>
