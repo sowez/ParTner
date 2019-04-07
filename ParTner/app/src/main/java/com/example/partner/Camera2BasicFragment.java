@@ -758,19 +758,23 @@ public class Camera2BasicFragment extends Fragment
         classifier.classifyFrame(bitmap, textToShow);
         bitmap.recycle();
 
-        if(drawView.setDrawPoint(classifier.mPrintPointArray, 0.5f)==1){
+        //운동별로 나누기
 
-            //thread의 UI 수정
-            final Activity activity = getActivity();
-            if (activity != null) {
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
+        final Activity activity = getActivity();
+        if (activity != null) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if(drawView.setDrawPoint(classifier.mPrintPointArray, 0.5f)==1){
                         person_frame.setImageResource(R.drawable.jumping_green);
                     }
-                });
-            }
+                    else{
+                        person_frame.setImageResource(R.drawable.jumping_red);
+                    }
+                }
+            });
         }
+
 
         showToast(textToShow);
     }
