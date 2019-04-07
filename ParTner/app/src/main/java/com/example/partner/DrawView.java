@@ -17,7 +17,6 @@ public class DrawView extends View {
     private int mRatioHeight  = 0;
 
     private ArrayList<PointF> mDrawPoint = new ArrayList<PointF>();
-    ArrayList<PointF> mPointRatio = new ArrayList<PointF>();
     private int mWidth       = 0;
     private int mHeight      = 0;
     private float mRatioX    = 0;
@@ -97,29 +96,15 @@ public class DrawView extends View {
         mRatioY = (float)mImgHeight / (float)mHeight;
 
         mDrawPoint.clear();
-        mPointRatio.clear();
 
         float tempX;
         float tempY;
-        float rX, rY;
 
         for(int i = 0; i <= 13; i++) {
             tempX = point[0][i] / ratio / mRatioX;
             tempY = point[1][i] / ratio / mRatioY;
             PointF point_temp = new PointF(tempX,tempY);
             mDrawPoint.add(point_temp);
-
-            rX = (tempX/mWidth)*100;
-            rY = (tempY/mHeight)*100;
-//            Log.d("Ratttio", "temp: "+tempX+", "+tempY +", "+mWidth+", "+mHeight);
-            rX = Math.round(rX*100)/(float)100.0;
-            rY = Math.round(rY*100)/(float)100.0;
-
-            PointF point_ratio = new PointF(rX,rY);
-            mPointRatio.add(point_ratio);
-
-            Log.d("좌표확인", "point["+i+"] : "+ point[0][i] +", "+ point[1][i]);
-            Log.d("좌표확인", "mPointRatio: "+ point_ratio.x +", "+ point_ratio.y);
         }
         checkPoint(point);
 
@@ -140,28 +125,9 @@ public class DrawView extends View {
     public void checkPoint(float[][] point){
         for (int i = 0; i <= 13; i++) {
             Log.i("Point", time+"번째 "+i+"좌표: " + mDrawPoint.get(i).x + "," + mDrawPoint.get(i).y + "==" + point[0][i] + "," + point[1][i]);
-            Log.i("Ratio", time+"번째 "+i+"좌표 비율: "+ mPointRatio.get(i).x+", "+mPointRatio.get(i).y);
         }
 
         time++;
-    }
-
-    public void checkSquat(){
-        boolean isReady = true;
-        for(int i=0;i<=13;i++){
-            PointF tP = mPointRatio.get(i);
-            if (tP.x<35.0 || tP.x >65.0)
-                isReady = false;
-        }
-
-        if (isReady){
-            Log.d("Exercise", "준비됨");
-//            fragment.personImg.setImageResource(R.drawable.squart_green);
-        }
-        else {
-            Log.d("Exercise", "안됨");
-//            fragment.personImg.setImageResource(R.drawable.squart_red);
-        }
     }
 
     @Override
