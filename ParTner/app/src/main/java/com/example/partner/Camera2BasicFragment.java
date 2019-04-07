@@ -99,12 +99,18 @@ public class Camera2BasicFragment extends Fragment
     private DrawView drawView;
     private ViewGroup layoutBottom;
     private ImageClassifier classifier;
-    private ImageView person_frame;
+    private Squat squat;
+
 
     private Button btn_endEx;
 
     private int exType;
     private int exCount;
+
+    private int img_red;
+    private int img_green;
+
+    private int readyCounter = 0;
 
     /**
      * {@link TextureView.SurfaceTextureListener} handles several lifecycle events on a {@link
@@ -264,13 +270,34 @@ public class Camera2BasicFragment extends Fragment
 
         Button btn_endEx = v.findViewById(R.id.btn_endEx);
         btn_endEx.setOnClickListener(listner_exEnd);
-        person_frame = v.findViewById(R.id.person_frame);
+
+        personImg = v.findViewById(R.id.person_frame);
 
         exType = this.getArguments().getInt("exType");
         exCount = this.getArguments().getInt("exCount");
         Log.e("받아온거", exType+" "+exCount);
-        if(exType == 1) person_frame.setImageResource(R.drawable.squart_red);
-        else if(exType == 3) person_frame.setImageResource(R.drawable.jumping_red);
+
+        // 운동 종류에 따라 class, imgsrc 등 설정
+        switch (exType){
+            case 1:
+                img_red = R.drawable.flank_red;
+                img_green = R.drawable.flank_green;
+                break;
+            case 2:
+                img_red = R.drawable.squart_red;
+                img_green = R.drawable.squart_green;
+                break;
+            case 3:
+                img_red = R.drawable.jumping_red;
+                img_green = R.drawable.jumping_green;
+                break;
+            default: break;
+        }
+        personImg.setImageResource(img_red);
+
+        // Squat 객체 생성
+        squat = new Squat(exCount);
+
         return v;
     }
 
@@ -281,8 +308,7 @@ public class Camera2BasicFragment extends Fragment
         textView = view.findViewById(R.id.text);
 
         layoutFrame = view.findViewById(R.id.layout_frame);
-//        personFrame = view.findViewById(R.id.person_frame);
-        personImg = view.findViewById(R.id.person_frame);
+//        personImg = view.findViewById(R.id.person_frame);
         drawView = view.findViewById(R.id.drawview);
 //        layoutBottom = view.findViewById(R.id.layout_bottom);
 //
@@ -305,7 +331,10 @@ public class Camera2BasicFragment extends Fragment
             Log.e(TAG, "Failed to initialize an image classifier.", e);
         }
         startBackgroundThread();
+
     }
+
+
 
     @Override
     public void onResume() {
@@ -321,6 +350,7 @@ public class Camera2BasicFragment extends Fragment
         } else {
             textureView.setSurfaceTextureListener(surfaceTextureListener);
         }
+
     }
 
     @Override
@@ -363,6 +393,9 @@ public class Camera2BasicFragment extends Fragment
             });
         }
     };
+
+
+
 
     /**
      * Resizes image.
@@ -552,6 +585,7 @@ public class Camera2BasicFragment extends Fragment
                 Log.e("camera preview size: ", "width: "+ params.width+" height"+ params.height);
                 personImg.setLayoutParams(params);
 
+
                 this.cameraId = cameraId;
                 return;
             }
@@ -582,7 +616,7 @@ public class Camera2BasicFragment extends Fragment
                 throw new RuntimeException("Time out waiting to lock camera opening.");
             }
 //           1-> 전면 카메라, 0->후면 카메라
-            manager.openCamera("1", stateCallback, backgroundHandler);
+            manager.openCamera("0", stateCallback, backgroundHandler);
         } catch (CameraAccessException e) {
             Log.e(TAG, "Failed to open Camera", e);
         } catch (InterruptedException e) {
@@ -697,6 +731,7 @@ public class Camera2BasicFragment extends Fragment
                                 previewRequest = previewRequestBuilder.build();
                                 captureSession.setRepeatingRequest(
                                         previewRequest, captureCallback, backgroundHandler);
+
                             } catch (CameraAccessException e) {
                                 Log.e(TAG, "Failed to set up config to capture Camera", e);
                             }
@@ -766,10 +801,10 @@ public class Camera2BasicFragment extends Fragment
                 @Override
                 public void run() {
                     if(drawView.setDrawPoint(classifier.mPrintPointArray, 0.5f)==1){
-                        person_frame.setImageResource(R.drawable.jumping_green);
+                        personImg.setImageResource(R.drawable.jumping_green);
                     }
                     else{
-                        person_frame.setImageResource(R.drawable.jumping_red);
+                        personImg.setImageResource(R.drawable.jumping_red);
                     }
                 }
             });
@@ -777,6 +812,56 @@ public class Camera2BasicFragment extends Fragment
 
 
         showToast(textToShow);
+
+        if(readyCounter == 3) { // 운동 시작
+            // 운동 실행하는 함수 호출
+            startEx();
+            showToast("운동 시자아아악!!!");
+
+        } else { // 준비 안된 상태
+
+            // 여기에서 함수 호출해서 결과값 받아서 UI 변경
+            squat.setPoint(classifier.mPrintPointArray);
+            readyEx(squat.checkReady());
+            showToast("readyCounter: "+readyCounter);
+
+        }
+
+    }
+
+    private void readyEx(boolean isReady) {
+        final Activity activity = getActivity();
+        if (activity != null) {
+            activity.runOnUiThread(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            if (isReady){
+                                Log.d("Exercise", "준비됨");
+                                personImg.setImageResource(img_green);
+                                readyCounter++;
+                            }
+                            else {
+                                Log.d("Exercise", "안됨");
+                                personImg.setImageResource(img_red);
+                                readyCounter = 0;
+                            }
+                        }
+                    });
+        }
+    }
+
+    private void startEx() {
+        final Activity activity = getActivity();
+        if (activity != null) {
+            activity.runOnUiThread(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            personImg.setVisibility(View.INVISIBLE);
+                        }
+                    });
+        }
     }
 
     /** Compares two {@code Size}s based on their areas. */

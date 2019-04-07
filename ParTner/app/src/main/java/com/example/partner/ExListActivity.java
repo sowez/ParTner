@@ -47,7 +47,7 @@ public class ExListActivity extends AppCompatActivity {
                 public void popupEvent(String result) {
                     // 횟수 입력되었으면 운동 프리뷰 액티비티로 넘어가기
                     if (!result.equals("Cancel")){
-                        Toast.makeText(ExListActivity.this, "count: "+result, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(ExListActivity.this, "count: "+result, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(ExListActivity.this,ExPreviewActivity.class);
                         int exCount = Integer.parseInt(result);
                         intent.putExtra("exCount",exCount);

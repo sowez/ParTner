@@ -99,6 +99,7 @@ public class DrawView extends View {
         mRatioY = (float)mImgHeight / (float)mHeight;
 
         mDrawPoint.clear();
+
         float tempX;
         float tempY;
 
@@ -109,6 +110,7 @@ public class DrawView extends View {
             mDrawPoint.add(point_temp);
         }
         return checkPoint(point);
+//        checkPoint(point);
     }
 
     // アスペクト比を計算するメソッド
@@ -122,39 +124,41 @@ public class DrawView extends View {
     }
 
 
-    public int checkPoint(float[][] point){
+
+    public int checkPoint(float[][] point) {
         for (int i = 0; i <= 13; i++) {
-            Log.i("point", time+"번째"+i+"좌표: " + mDrawPoint.get(i).x + "," + mDrawPoint.get(i).y + "==" + point[0][i] + "," + point[1][i]);
+            Log.i("point", time + "번째" + i + "좌표: " + mDrawPoint.get(i).x + "," + mDrawPoint.get(i).y + "==" + point[0][i] + "," + point[1][i]);
         }
-        float [][][] jj_start_range = new float[14][2][2];
-        float [] range_num = {
-                48,65,8,18,
-                48,65,18,30,
+        float[][][] jj_start_range = new float[14][2][2];
+        float[] range_num = {
+                48, 65, 8, 18,
+                48, 65, 18, 30,
 
-                31,49,21,34,
-                28,50,34,46,
-                23,45,42,59,
+                31, 49, 21, 34,
+                28, 50, 34, 46,
+                23, 45, 42, 59,
 
-                62,80,21,34,
-                66,82,34,46,
-                66,82,42,59,
+                62, 80, 21, 34,
+                66, 82, 34, 46,
+                66, 82, 42, 59,
 
-                38,54,46,61,
-                43,52,66,85,
-                42,55,85,101,
+                38, 54, 46, 61,
+                43, 52, 66, 85,
+                42, 55, 85, 101,
 
-                54,70,46,61,
-                54,72,66,85,
-                50,66,85,101
+                54, 70, 46, 61,
+                54, 72, 66, 85,
+                50, 66, 85, 101
         };
         int now = 0;
-        for(int i=0;i<=13;i++){
-            for(int j=0;j<=1;j++){
-                for(int k = 0;k<=1;k++){
-                    jj_start_range[i][j][k]=range_num[now++];
-              }
+        for (int i = 0; i <= 13; i++) {
+            for (int j = 0; j <= 1; j++) {
+                for (int k = 0; k <= 1; k++) {
+                    jj_start_range[i][j][k] = range_num[now++];
+                }
             }
         }
+
 
         System.out.println(jj_start_range.toString());
 
@@ -176,6 +180,7 @@ public class DrawView extends View {
 
         return isright;
     }
+
     @Override
     public void onDraw(Canvas canvas) {
         //super.onDraw(canvas);
@@ -219,6 +224,10 @@ public class DrawView extends View {
             prePointF = mDrawPoint.get(i);
         }
 
+//        // 스쿼트 준비 영역 확인
+//        mPaint.setColor(0xff6fa8dc);
+//        canvas.drawLine(mWidth*(float)0.32,0,mWidth*(float)0.32,mHeight,mPaint);
+//        canvas.drawLine(mWidth*(float)0.67,0,mWidth*(float)0.67,mHeight,mPaint);
 
         for (int i = 0; i < mDrawPoint.size(); i++) {
             mPaint.setColor((int)mColorArray[i]);
