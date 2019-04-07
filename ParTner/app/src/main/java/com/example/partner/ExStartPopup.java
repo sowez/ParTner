@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class exStartPopup{
+public class ExStartPopup {
 
     public interface PopupEventListener {
         public void popupEvent(String exCount);
@@ -19,7 +19,7 @@ public class exStartPopup{
     private PopupEventListener listener;
     private Context context;
 
-    public exStartPopup(Context context, int exType, PopupEventListener popupEventListener){
+    public ExStartPopup(Context context, int exType, PopupEventListener popupEventListener){
         this.context = context;
         this.listener = popupEventListener;
         callFunction(exType);

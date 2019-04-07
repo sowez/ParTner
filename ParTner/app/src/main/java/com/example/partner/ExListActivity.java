@@ -42,7 +42,7 @@ public class ExListActivity extends AppCompatActivity {
                     break;
                     default:break;
             }
-            exStartPopup popup = new exStartPopup(ExListActivity.this, exType, new exStartPopup.PopupEventListener() {
+            ExStartPopup popup = new ExStartPopup(ExListActivity.this, exType, new ExStartPopup.PopupEventListener() {
                 @Override
                 public void popupEvent(String result) {
                     // 횟수 입력되었으면 운동 프리뷰 액티비티로 넘어가기
