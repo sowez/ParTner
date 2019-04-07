@@ -3,19 +3,19 @@ package com.example.partner;
 import android.util.Log;
 
 
-public class Squat {
+public class Squat extends Exercise{
 
     private float[][] point;
-    private int exCount;
+//    private int exCount;
 
     public Squat(int exCount){
-        this.exCount = exCount;
+        super(exCount);
     }
 
     // 스쿼트 준비자세 체크하는 함수
+    @Override
     public boolean checkReady(){
         boolean isReady = true;
-
         // 1. 모든 x좌표가 0.35~0.65 사이에 있어야 함(화면의 가운데에 서야 함)
         for(int i=0;i<=13;i++){
             float tX = point[0][i];
@@ -50,13 +50,14 @@ public class Squat {
 
 
     // 스쿼트 운동 동작 인식하는 함수
-    public void doSquat(){
+    @Override
+    public void doExercise(){
 
     }
 
 
-    // getter setter
-
+//    // getter setter
+//
     public float[][] getPoint() {
         return point;
     }
