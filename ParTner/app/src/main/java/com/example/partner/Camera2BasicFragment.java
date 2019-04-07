@@ -92,7 +92,7 @@ public class Camera2BasicFragment extends Fragment
     private boolean runClassifier = false;
     private boolean checkedPermissions = false;
     private AutoFitFrameLayout layoutFrame;
-    public ImageView personImg;
+    private ImageView personImg;
     private AutoFitTextureView textureView;
 
     private TextView textView;
