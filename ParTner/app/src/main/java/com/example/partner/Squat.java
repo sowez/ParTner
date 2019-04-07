@@ -16,10 +16,10 @@ public class Squat {
     public boolean checkReady(){
         boolean isReady = true;
 
-        // 1. 모든 x좌표가 0.35~0.65 사이에 있어야 함(화면의 가운데에 서야 함)
+        // 1. 모든 x좌표가 0.45~0.85 사이에 있어야 함
         for(int i=0;i<=13;i++){
             float tX = point[0][i];
-            if (tX<36.0 || tX >76.0) {
+            if (tX<45.0 || tX >85.0) {
                 isReady = false;
                 Log.d("Exercise", "그림에 맞춰 서세요");
             }

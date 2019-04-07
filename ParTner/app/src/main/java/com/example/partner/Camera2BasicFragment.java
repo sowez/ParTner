@@ -282,8 +282,8 @@ public class Camera2BasicFragment extends Fragment
                 img_green = R.drawable.flank_green;
                 break;
             case 2:
-                img_red = R.drawable.squart_red;
-                img_green = R.drawable.squart_green;
+                img_red = R.drawable.squat_red;
+                img_green = R.drawable.squat_green;
                 break;
             case 3:
                 img_red = R.drawable.jumping_red;
