@@ -34,17 +34,20 @@
 
 
     <RadioGroup
+        android:id="@+id/trainer_sex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
         android:orientation="horizontal">
 
         <RadioButton
+            android:id="@+id/trainer_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="남성" />
 
         <RadioButton
+            android:id="@+id/trainer_female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="여성" />
@@ -63,37 +66,44 @@
         android:layout_marginTop="370dp"
         android:text="운동 분야 선택" />
 
-    <LinearLayout android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginTop="400dp">
-    <android.support.v7.widget.AppCompatCheckBox
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="요가" />
+        android:layout_marginTop="400dp"
+        android:orientation="horizontal">
 
-    <android.support.v7.widget.AppCompatCheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="근력운동" />
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/check_yoga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="요가" />
 
-    <android.support.v7.widget.AppCompatCheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="필라테스" />
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/check_muscle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="근력운동" />
 
-    <android.support.v7.widget.AppCompatCheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="스트레칭" />
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/check_pilates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="필라테스" />
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/check_stretching"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="스트레칭" />
+
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_trainer_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="450dp"
         android:text="회원가입 완료!" />
-
 
 </RelativeLayout>

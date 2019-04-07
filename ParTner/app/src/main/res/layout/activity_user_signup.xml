@@ -34,17 +34,20 @@
 
 
     <RadioGroup
+        android:id="@+id/user_sex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="350dp">
 
         <RadioButton
+            android:id="@+id/user_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="남성" />
 
         <RadioButton
+            android:id="@+id/user_female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="여성" />
@@ -58,8 +61,8 @@
         android:hint="이름" />
 
 
-
     <Button
+        android:id="@+id/btn_user_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
