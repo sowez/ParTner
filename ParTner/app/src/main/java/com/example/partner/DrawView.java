@@ -93,7 +93,7 @@ public class DrawView extends View {
     }
 
     // 配列のデータをポイント型に変換して点群配列に追加する
-    public int setDrawPoint(float[][] point, float ratio){
+    public void setDrawPoint(float[][] point, float ratio){
 
         mRatioX = (float)mImgWidth / (float)mWidth;
         mRatioY = (float)mImgHeight / (float)mHeight;
@@ -109,8 +109,6 @@ public class DrawView extends View {
             PointF point_temp = new PointF(tempX,tempY);
             mDrawPoint.add(point_temp);
         }
-        return checkPoint(point);
-//        checkPoint(point);
     }
 
     // アスペクト比を計算するメソッド
@@ -121,64 +119,6 @@ public class DrawView extends View {
         mRatioWidth = width;
         mRatioHeight = height;
         requestLayout();
-    }
-
-
-
-    public int checkPoint(float[][] point) {
-        for (int i = 0; i <= 13; i++) {
-            Log.i("point", time + "번째" + i + "좌표: " + mDrawPoint.get(i).x + "," + mDrawPoint.get(i).y + "==" + point[0][i] + "," + point[1][i]);
-        }
-        float[][][] jj_start_range = new float[14][2][2];
-        float[] range_num = {
-                48, 65, 8, 18,
-                48, 65, 18, 30,
-
-                31, 49, 21, 34,
-                28, 50, 34, 46,
-                23, 45, 42, 59,
-
-                62, 80, 21, 34,
-                66, 82, 34, 46,
-                66, 82, 42, 59,
-
-                38, 54, 46, 61,
-                43, 52, 66, 85,
-                42, 55, 85, 101,
-
-                54, 70, 46, 61,
-                54, 72, 66, 85,
-                50, 66, 85, 101
-        };
-        int now = 0;
-        for (int i = 0; i <= 13; i++) {
-            for (int j = 0; j <= 1; j++) {
-                for (int k = 0; k <= 1; k++) {
-                    jj_start_range[i][j][k] = range_num[now++];
-                }
-            }
-        }
-
-
-        System.out.println(jj_start_range.toString());
-
-        int isright = 1;
-        for(int i=0;i<=13;i++){
-            for(int j=0;j<=1;j++){
-                if(jj_start_range[i][j][0]<=point[j][i] && point[j][i]<=jj_start_range[i][j][1]){
-                        continue;
-                }
-                else {
-                    Log.e("point error", i+","+j+"좌표: "+jj_start_range[i][j][0]+"<="+ point[j][i]+"<="+jj_start_range[i][j][1]);
-                    isright=0;
-                    break;
-                }
-            }
-            if(isright==0) break;
-        }
-        time++;
-
-        return isright;
     }
 
     @Override
