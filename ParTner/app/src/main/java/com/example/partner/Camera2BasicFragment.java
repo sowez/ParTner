@@ -99,7 +99,11 @@ public class Camera2BasicFragment extends Fragment
     private DrawView drawView;
     private ViewGroup layoutBottom;
     private ImageClassifier classifier;
-    private Squat squat;
+    private Exercise exercise;
+//    private Squat squat;
+//    private JumpingJack jumpingJack;
+//
+
 
     private Button btn_endEx;
 
@@ -269,6 +273,7 @@ public class Camera2BasicFragment extends Fragment
 
         Button btn_endEx = v.findViewById(R.id.btn_endEx);
         btn_endEx.setOnClickListener(listner_exEnd);
+
         personImg = v.findViewById(R.id.person_frame);
 
         exType = this.getArguments().getInt("exType");
@@ -276,16 +281,20 @@ public class Camera2BasicFragment extends Fragment
         Log.e("받아온거", exType+" "+exCount);
 
         // 운동 종류에 따라 class, imgsrc 등 설정
+        //exercise에 상속
         switch (exType){
             case 1:
+                exercise = new Flank(exCount);
                 img_red = R.drawable.flank_red;
                 img_green = R.drawable.flank_green;
                 break;
             case 2:
+                exercise = new Squat(exCount);
                 img_red = R.drawable.squat_red;
                 img_green = R.drawable.squat_green;
                 break;
             case 3:
+                exercise = new JumpingJack(exCount);
                 img_red = R.drawable.jumping_red;
                 img_green = R.drawable.jumping_green;
                 break;
@@ -293,8 +302,9 @@ public class Camera2BasicFragment extends Fragment
         }
         personImg.setImageResource(img_red);
 
-        // Squat 객체 생성
-        squat = new Squat(exCount);
+//        // Squat 객체 생성
+//        squat = new Squat(exCount);
+//        jumpingJack = new JumpingJack(exCount);
 
         return v;
     }
@@ -614,7 +624,7 @@ public class Camera2BasicFragment extends Fragment
                 throw new RuntimeException("Time out waiting to lock camera opening.");
             }
 //           1-> 전면 카메라, 0->후면 카메라
-            manager.openCamera("0", stateCallback, backgroundHandler);
+            manager.openCamera("1", stateCallback, backgroundHandler);
         } catch (CameraAccessException e) {
             Log.e(TAG, "Failed to open Camera", e);
         } catch (InterruptedException e) {
@@ -791,7 +801,8 @@ public class Camera2BasicFragment extends Fragment
         classifier.classifyFrame(bitmap, textToShow);
         bitmap.recycle();
 
-        drawView.setDrawPoint(classifier.mPrintPointArray, 0.5f);
+        //운동별로 나누기
+
         showToast(textToShow);
 
         if(readyCounter == 3) { // 운동 시작
@@ -802,8 +813,8 @@ public class Camera2BasicFragment extends Fragment
         } else { // 준비 안된 상태
 
             // 여기에서 함수 호출해서 결과값 받아서 UI 변경
-            squat.setPoint(classifier.mPrintPointArray);
-            readyEx(squat.checkReady());
+            exercise.setPoint(classifier.mPrintPointArray);
+            readyEx(exercise.checkReady());
             showToast("readyCounter: "+readyCounter);
 
         }

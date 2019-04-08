@@ -46,11 +46,10 @@
             android:layout_height="match_parent"
             android:src="@drawable/jumping_red"
             android:layout_gravity="center"
-            android:padding="25dp"
-            />
-
-
+            android:padding="25dp">
+        </ImageView>
     </com.example.partner.AutoFitFrameLayout>
+
     <!--<com.example.android.butcher2.AutoImageView-->
         <!--android:id="@+id/person_frame"-->
         <!--android:layout_width="wrap_content"-->

@@ -7,6 +7,7 @@ import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,8 @@ public class DrawView extends View {
     private int mImgWidth    = 0;
     private int mImgHeight   = 0;
     private int time = 0;
+
+    private ImageView person_frame;
 
     private int mColorArray[] = {
             getResources().getColor(R.color.color_top, null),
@@ -106,9 +109,6 @@ public class DrawView extends View {
             PointF point_temp = new PointF(tempX,tempY);
             mDrawPoint.add(point_temp);
         }
-        checkPoint(point);
-
-
     }
 
     // アスペクト比を計算するメソッド
@@ -119,15 +119,6 @@ public class DrawView extends View {
         mRatioWidth = width;
         mRatioHeight = height;
         requestLayout();
-    }
-
-    // 描写するメソッド
-    public void checkPoint(float[][] point){
-        for (int i = 0; i <= 13; i++) {
-            Log.i("Point", time+"번째 "+i+"좌표: " + mDrawPoint.get(i).x + "," + mDrawPoint.get(i).y + "==" + point[0][i] + "," + point[1][i]);
-        }
-
-        time++;
     }
 
     @Override

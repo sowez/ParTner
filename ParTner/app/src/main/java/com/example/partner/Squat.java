@@ -3,16 +3,17 @@ package com.example.partner;
 import android.util.Log;
 
 
-public class Squat {
+public class Squat extends Exercise{
 
     private float[][] point;
-    private int exCount;
+//    private int exCount;
 
     public Squat(int exCount){
-        this.exCount = exCount;
+        super(exCount);
     }
 
     // 스쿼트 준비자세 체크하는 함수
+    @Override
     public boolean checkReady(){
         boolean isReady = true;
 
@@ -50,13 +51,14 @@ public class Squat {
 
 
     // 스쿼트 운동 동작 인식하는 함수
-    public void doSquat(){
+    @Override
+    public void doExercise(){
 
     }
 
 
-    // getter setter
-
+//    // getter setter
+//
     public float[][] getPoint() {
         return point;
     }

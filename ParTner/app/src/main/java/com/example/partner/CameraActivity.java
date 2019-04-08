@@ -93,52 +93,6 @@ public class CameraActivity extends Activity{
 
     }
 
-//    @Override
-//    public void onConfigurationChanged(Configuration newConfig) {
-//        setContentView(R.layout.activity_camera);
-//        super.onConfigurationChanged(newConfig);
-//    }
-
-//    View.OnClickListener listner_exEnd = new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            switch (v.getId()){
-//                case R.id.btn_ex1:
-//                    exType = 1;
-//                    break;
-//                case R.id.btn_ex2:
-//                    exType = 2;
-//                    break;
-//                case R.id.btn_ex3:
-//                    exType = 3;
-//                    break;
-//                default:break;
-//            }
-//            ExEndPopup popup = new ExEndPopup(CameraActivity.this, exType, exCount, new ExEndPopup.PopupEventListener() {
-//                @Override
-//                public void popupEvent(String exCount) {
-//                    // 횟수 입력되었으면 운동 프리뷰 액티비티로 넘어가기
-//                    if (exCount.equals("selectEx")){
-//                        Toast.makeText(CameraActivity.this, "go to select exercise page", Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(CameraActivity.this,ExListActivity.class);
-////                        int count = Integer.parseInt(exCount);
-////                        intent.putExtra("count",count);
-////                        intent.putExtra("exType",exType);
-//                        startActivity(intent);
-//                    }
-//                    else if(exCount.equals("goCalander")){
-//                        Toast.makeText(CameraActivity.this, "go Calender", Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(CameraActivity.this,ExHistoryActivity.class);
-////                        int count = Integer.parseInt(exCount);
-////                        intent.putExtra("count",count);
-////                        intent.putExtra("exType",exType);
-//                        startActivity(intent);
-//                    }
-//                }
-//            });
-//        }
-//    };
-
     @Override
   public void onResume()
   {
