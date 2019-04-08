@@ -44,7 +44,9 @@
             android:id="@+id/person_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/person">
+            android:src="@drawable/jumping_red"
+            android:layout_gravity="center"
+            android:padding="25dp">
         </ImageView>
     </com.example.partner.AutoFitFrameLayout>
 

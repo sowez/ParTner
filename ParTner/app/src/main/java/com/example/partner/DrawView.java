@@ -164,10 +164,10 @@ public class DrawView extends View {
             prePointF = mDrawPoint.get(i);
         }
 
-//        // 스쿼트 준비 영역 확인
-//        mPaint.setColor(0xff6fa8dc);
-//        canvas.drawLine(mWidth*(float)0.32,0,mWidth*(float)0.32,mHeight,mPaint);
-//        canvas.drawLine(mWidth*(float)0.67,0,mWidth*(float)0.67,mHeight,mPaint);
+        // 스쿼트 준비 영역 확인
+        mPaint.setColor(0xff6fa8dc);
+        canvas.drawLine(mWidth*(float)0.40,0,mWidth*(float)0.40,mHeight,mPaint);
+        canvas.drawLine(mWidth*(float)0.76,0,mWidth*(float)0.76,mHeight,mPaint);
 
         for (int i = 0; i < mDrawPoint.size(); i++) {
             mPaint.setColor((int)mColorArray[i]);
