@@ -100,9 +100,6 @@ public class Camera2BasicFragment extends Fragment
     private ViewGroup layoutBottom;
     private ImageClassifier classifier;
     private Exercise exercise;
-//    private Squat squat;
-//    private JumpingJack jumpingJack;
-//
 
 
     private Button btn_endEx;
@@ -290,8 +287,8 @@ public class Camera2BasicFragment extends Fragment
                 break;
             case 2:
                 exercise = new Squat(exCount);
-                img_red = R.drawable.squart_red;
-                img_green = R.drawable.squart_green;
+                img_red = R.drawable.squat_red;
+                img_green = R.drawable.squat_green;
                 break;
             case 3:
                 exercise = new JumpingJack(exCount);
