@@ -26,6 +26,27 @@
         <activity android:name=".TrainerListActivity">
 
         </activity>
+        <activity android:name=".TrainerProfileEditActivity">
+
+        </activity>
+        <activity android:name=".TrainerCallHistoryActivity">
+
+        </activity>
+        <activity android:name=".PopupTrainerInfoActivity" android:theme="@style/popupTheme">
+
+        </activity>
+        <activity android:name=".PopupTrainFinishedActivity" android:theme="@style/popupTheme">
+
+        </activity>
+        <activity android:name=".UserProfileActivity">
+
+        </activity>
+        <activity android:name=".UserProfileEditActivity">
+
+        </activity>
+        <activity android:name=".UserCallHistoryActivity">
+
+        </activity>
 
     </application>
 
