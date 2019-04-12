@@ -99,35 +99,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_centerVertical="true"
-                android:text="프로필 수정"
-                android:textColor="#202735"/>
-
-            <ImageButton
-                android:id="@+id/trainer_side_profile"
-                android:layout_width="21dp"
-                android:layout_height="21dp"
-                android:layout_marginRight="15dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/arrow" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="0.7dp"
-                android:layout_alignParentBottom="true"
-                android:background="#202735"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_centerVertical="true"
                 android:text="통화 기록 조회"
                 android:textColor="#202735"/>
 

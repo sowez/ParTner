@@ -1,5 +1,6 @@
 package com.example.partner;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -52,7 +53,6 @@ public class UserSignUpActivity extends AppCompatActivity {
         ServerComm serverComm = new ServerComm();
         serverComm.init();
         serverComm.postSignUp(signUpData, this);
-
     }
 
 }

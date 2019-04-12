@@ -13,7 +13,7 @@ router.post('/signup', function (req, res, next) {
   if (req.body.type == "user") {
 
     userModel.find({ $or: [{ id: req.body.id }] }, function (err, existUser) {
-
+      // trainer 까지 id 중복체크
       if (existUser.length == 0) {
 
         var user = new userModel({

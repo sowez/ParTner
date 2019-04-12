@@ -1,6 +1,7 @@
 package com.example.partner;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class ServerComm {
 
     private String TAG ="TAG";
-    private String URL = "http://192.168.0.10:3000/";
+    private String URL = "http://192.168.0.6:3000/";
     private RetrofitCommnunication retrofitCommnunication;
 
     public void init() {
@@ -38,7 +39,8 @@ public class ServerComm {
 
     }
 
-    public void postSignUp(SignUpData signUpData, Context context) {
+    public boolean postSignUp(SignUpData signUpData, Context context) {
+        boolean result = false;
 
         retrofitCommnunication.postData(signUpData).enqueue(new Callback<SignUpData>() {
             @Override
@@ -56,13 +58,13 @@ public class ServerComm {
 
                     if(body.getId().equals("saved")){
                         Toast.makeText(context, "회원가입이 완료되었습니다!", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(context, LoginActivity.class);
+                        context.startActivity(intent);
+
                     }else if(body.getId().equals("exist")){
                         Toast.makeText(context, "이미 존재하는 아이디 입니다", Toast.LENGTH_LONG).show();
 
-
-
                     }
-
                 }
             }
 
@@ -71,6 +73,7 @@ public class ServerComm {
                 Log.e(TAG, "onFailure: error" + t.getMessage());
             }
         });
+        return result;
     }
 
     private static OkHttpClient createOkHttpClient() {

@@ -26,7 +26,6 @@ public class TrainerSideBarView extends RelativeLayout implements View.OnClickLi
 
         void btnLevel4();
 
-        void btnLevel5();
 
     }
 
@@ -39,7 +38,6 @@ public class TrainerSideBarView extends RelativeLayout implements View.OnClickLi
         LayoutInflater.from(getContext()).inflate(R.layout.trainer_sidebar, this, true);
         findViewById(R.id.trainer_side_cancel).setOnClickListener(this);
         findViewById(R.id.trainer_side_mypage).setOnClickListener(this);
-        findViewById(R.id.trainer_side_profile).setOnClickListener(this);
         findViewById(R.id.trainer_side_call).setOnClickListener(this);
         findViewById(R.id.trainer_side_logout).setOnClickListener(this);
         findViewById(R.id.trainer_side_setting).setOnClickListener(this);
@@ -59,17 +57,14 @@ public class TrainerSideBarView extends RelativeLayout implements View.OnClickLi
             case R.id.trainer_side_mypage:
                 listener.btnLevel1();
                 break;
-            case R.id.trainer_side_profile:
+            case R.id.trainer_side_call:
                 listener.btnLevel2();
                 break;
-            case R.id.trainer_side_call:
+            case R.id.trainer_side_logout:
                 listener.btnLevel3();
                 break;
-            case R.id.trainer_side_logout:
-                listener.btnLevel4();
-                break;
             case R.id.trainer_side_setting:
-                listener.btnLevel5();
+                listener.btnLevel4();
                 break;
 
             default:
