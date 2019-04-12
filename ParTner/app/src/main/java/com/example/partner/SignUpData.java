@@ -14,7 +14,7 @@ public class SignUpData {
         this.sex = sex;
         this.training_type = training_type;
     }
-
+//signupdata
     public String getType() {
         return type;
     }

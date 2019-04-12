@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 public class TrainerSideBarView extends RelativeLayout implements View.OnClickListener {
-
+//trainer
     public EventListener listener;
 
     public void setEventListener(EventListener eventListener) {

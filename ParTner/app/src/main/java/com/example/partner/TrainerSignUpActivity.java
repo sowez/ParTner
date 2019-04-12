@@ -44,7 +44,7 @@ public class TrainerSignUpActivity extends AppCompatActivity {
         btn_trainerSignUp = findViewById(R.id.btn_trainer_signup);
         btn_trainerSignUp.setOnClickListener(this::onClick);
     }
-
+//trainer
     public void onClick(View v) {
         String id = trainerId.getText().toString();
         String pw = trainerPw.getText().toString();

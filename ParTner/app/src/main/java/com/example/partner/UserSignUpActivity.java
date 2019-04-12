@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
+//user
 public class UserSignUpActivity extends AppCompatActivity {
 
     private EditText userId, userPw, userPw_check, userName;

@@ -41,7 +41,7 @@ public class ServerComm {
 
     public boolean postSignUp(SignUpData signUpData, Context context) {
         boolean result = false;
-
+//server
         retrofitCommnunication.postData(signUpData).enqueue(new Callback<SignUpData>() {
             @Override
             public void onResponse(Call<SignUpData> call, Response<SignUpData> response) {

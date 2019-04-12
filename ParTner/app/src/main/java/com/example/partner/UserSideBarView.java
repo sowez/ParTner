@@ -48,7 +48,7 @@ public class UserSideBarView extends RelativeLayout implements View.OnClickListe
         findViewById(R.id.user_side_setting).setOnClickListener(this);
 
     }
-
+//user
     public UserSideBarView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
