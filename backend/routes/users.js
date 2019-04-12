@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
 router.post('/signup', function (req, res, next) {
   console.log(req.body);
   if (req.body.type == "user") {
-
+//commit
     userModel.find({ $or: [{ id: req.body.id }] }, function (err, existUser) {
       // trainer 까지 id 중복체크
       if (existUser.length == 0) {
