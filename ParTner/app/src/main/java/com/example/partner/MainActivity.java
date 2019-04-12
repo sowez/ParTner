@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         btn1 = (Button) findViewById(R.id.trainer_btn);
         btn2 = (Button) findViewById(R.id.user_btn);
 
+        // 트레이너로 로그인 했을 때
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 사용자로 로그인 했을 때
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
