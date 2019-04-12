@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 
 require('./db/mongo')
 
-//Router ì •ì˜
+//Router Á¤ÀÇ
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
 
-//Route ì •ì˜
+//Route Á¤ÀÇ
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
