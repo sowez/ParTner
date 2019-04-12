@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
-
+        <!-- commit -->
         <ImageButton
             android:id="@+id/signup_trainer"
             android:layout_width="match_parent"
