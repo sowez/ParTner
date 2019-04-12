@@ -2,6 +2,8 @@ package com.example.partner;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
@@ -15,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,10 +36,40 @@ public class MainActivity extends AppCompatActivity {
     private Boolean isMenuShow = false;
     private Boolean isExitFlag = false;
 
+    private Button btn1;
+    private Button btn2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // // Toolbar 설정
+        // mToolbar = (Toolbar) findViewById(R.id.toolBar);
+        // setSupportActionBar(mToolbar);
+
+        btn1 = (Button) findViewById(R.id.trainer_btn);
+        btn2 = (Button) findViewById(R.id.user_btn);
+
+        // 트레이너로 로그인 했을 때
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), TrainerMainMenuActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // 사용자로 로그인 했을 때
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), UserMainMenuActivity.class);
+                startActivity(intent);
+            }
+        });
+
         init();
 
         addSideView();  //사이드바 add

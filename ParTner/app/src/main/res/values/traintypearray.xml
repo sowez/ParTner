@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="traintype">
+        <item>요가</item>
+        <item>필라테스</item>
+        <item>스트레칭</item>
+        <item>근력운동</item>
+        <item>코어운동</item>
+    </string-array>
+</resources>

@@ -13,7 +13,7 @@ router.post('/signup', function (req, res, next) {
   if (req.body.type == "user") {
 //commit
     userModel.find({ $or: [{ id: req.body.id }] }, function (err, existUser) {
-      // trainer ±îÁö id Áßº¹Ã¼Å©
+      // trainer ï¿½ï¿½ï¿½ï¿½ id ï¿½ßºï¿½Ã¼Å©
       if (existUser.length == 0) {
 
         var user = new userModel({

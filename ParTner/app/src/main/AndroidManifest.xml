@@ -20,12 +20,21 @@
             </intent-filter>
         </activity>
 
-
         <activity android:name=".LoginActivity"/>
         <activity android:name=".SignUpActivity"/>
         <activity android:name=".TrainerSignUpActivity"/>
         <activity android:name=".UserSignUpActivity"/>
         <activity android:name=".MainActivity" />
+        <activity android:name=".TrainerMainMenuActivity"/>
+        <activity android:name=".UserMainMenuActivity"/>
+        <activity android:name=".TrainerListActivity"/>
+        <activity android:name=".TrainerProfileEditActivity"/>
+        <activity android:name=".TrainerCallHistoryActivity"/>
+        <activity android:name=".PopupTrainerInfoActivity" android:theme="@style/popupTheme"/>
+        <activity android:name=".PopupTrainFinishedActivity" android:theme="@style/popupTheme"/>
+        <activity android:name=".UserProfileActivity"/>
+        <activity android:name=".UserProfileEditActivity"/>
+        <activity android:name=".UserCallHistoryActivity"/>
 
     </application>
 

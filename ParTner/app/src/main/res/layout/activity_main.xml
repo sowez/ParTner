@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff">
-    <!-- commit -->
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/toolbar"/>
+
     <RelativeLayout
         android:id="@+id/id_main"
         android:layout_width="match_parent"
@@ -38,11 +43,20 @@
 
     </FrameLayout>
 
-    <TextView
-        android:layout_height="wrap_content"
+        <Button
+        android:id="@+id/trainer_btn"
         android:layout_width="match_parent"
-        android:id="@+id/testsignup"
-        android:textSize="15dp"
-        android:textColor="#0033CC"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Trainer Main Menu"
+        android:background="#00ff00"/>
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/user_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="User Main Menu"
+        android:background="#0000ff"/>
+
+</LinearLayout>
