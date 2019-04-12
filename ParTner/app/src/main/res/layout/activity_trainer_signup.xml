@@ -97,7 +97,7 @@
             android:text="스트레칭" />
 
     </LinearLayout>
-
+    <!-- commit -->
     <Button
         android:id="@+id/btn_trainer_signup"
         android:layout_width="wrap_content"

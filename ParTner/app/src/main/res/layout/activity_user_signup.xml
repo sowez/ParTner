@@ -60,7 +60,7 @@
         android:layout_marginTop="400dp"
         android:hint="이름" />
 
-
+    <!-- commit -->
     <Button
         android:id="@+id/btn_user_signup"
         android:layout_width="wrap_content"

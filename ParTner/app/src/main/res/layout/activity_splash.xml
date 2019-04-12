@@ -6,5 +6,5 @@
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
     android:background="@drawable/splash">
-
+    <!-- commit -->
 </LinearLayout>
