@@ -18,14 +18,11 @@ public class TrainerSideBarView extends RelativeLayout implements View.OnClickLi
     public interface EventListener {
         void btnCancel();
 
-        void btnLevel1();
+        void btnCall();
 
-        void btnLevel2();
+        void btnLogout();
 
-        void btnLevel3();
-
-        void btnLevel4();
-
+        void btnSetting();
 
     }
 
@@ -37,7 +34,6 @@ public class TrainerSideBarView extends RelativeLayout implements View.OnClickLi
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.trainer_sidebar, this, true);
         findViewById(R.id.trainer_side_cancel).setOnClickListener(this);
-        findViewById(R.id.trainer_side_mypage).setOnClickListener(this);
         findViewById(R.id.trainer_side_call).setOnClickListener(this);
         findViewById(R.id.trainer_side_logout).setOnClickListener(this);
         findViewById(R.id.trainer_side_setting).setOnClickListener(this);
@@ -54,17 +50,14 @@ public class TrainerSideBarView extends RelativeLayout implements View.OnClickLi
             case R.id.trainer_side_cancel:
                 listener.btnCancel();
                 break;
-            case R.id.trainer_side_mypage:
-                listener.btnLevel1();
-                break;
             case R.id.trainer_side_call:
-                listener.btnLevel2();
+                listener.btnCall();
                 break;
             case R.id.trainer_side_logout:
-                listener.btnLevel3();
+                listener.btnLogout();
                 break;
             case R.id.trainer_side_setting:
-                listener.btnLevel4();
+                listener.btnSetting();
                 break;
 
             default:

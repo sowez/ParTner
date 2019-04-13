@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,12 +31,11 @@ public class MainActivity extends AppCompatActivity {
     private ViewGroup viewLayout;   //전체 감싸는 영역
     private ViewGroup sideLayout;   //사이드바만 감싸는 영역
 
-    private Toolbar toolbar;
-    private ActionBar actionBar;
+    private Toolbar mToolbar;
 
     private Boolean isMenuShow = false;
-    private Boolean isExitFlag = false;
 
+    private ImageButton menu_btn;
     private Button btn1;
     private Button btn2;
 
@@ -44,32 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // // Toolbar 설정
-        // mToolbar = (Toolbar) findViewById(R.id.toolBar);
-        // setSupportActionBar(mToolbar);
-
-        btn1 = (Button) findViewById(R.id.trainer_btn);
-        btn2 = (Button) findViewById(R.id.user_btn);
-
-        // 트레이너로 로그인 했을 때
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), TrainerMainMenuActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        // 사용자로 로그인 했을 때
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), UserMainMenuActivity.class);
-                startActivity(intent);
-            }
-        });
-
         init();
 
         addSideView();  //사이드바 add
@@ -78,33 +52,34 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
 
         mainLayout = findViewById(R.id.id_main);
-        viewLayout = findViewById(R.id.fl_silde);
-        sideLayout = findViewById(R.id.view_sildebar);
+        viewLayout = findViewById(R.id.fl_slide);
+        sideLayout = findViewById(R.id.view_slidebar);
 
-        toolbar = findViewById(R.id.app_toolbar);
-        setSupportActionBar(toolbar);
+        // // Toolbar 설정
+        mToolbar = findViewById(R.id.menu_toolBar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        actionBar = getSupportActionBar();
+        menu_btn = findViewById(R.id.toolbar_menu_btn);
+        menu_btn.setOnClickListener(view -> showMenu());
+
+        btn1 = findViewById(R.id.trainer_btn);
+        btn2 = findViewById(R.id.user_btn);
+
+        // 트레이너로 로그인 했을 때
+        btn1.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), TrainerMainMenuActivity.class);
+            startActivity(intent);
+        });
+
+        // 사용자로 로그인 했을 때
+        btn2.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), UserMainMenuActivity.class);
+            startActivity(intent);
+        });
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.appbar_action, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_menu :
-                showMenu();
-                return true ;
-            default :
-                return super.onOptionsItemSelected(item) ;
-        }
-    }
-//main
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
@@ -117,24 +92,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
         if (isMenuShow) {
             closeMenu();
-        } else {
-
-            if (isExitFlag) {
-                finish();
-            } else {
-
-                isExitFlag = true;
-                Toast.makeText(this, "뒤로가기를 한번더 누르시면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        isExitFlag = false;
-                    }
-                }, 2000);
-            }
         }
     }
 
@@ -143,11 +102,7 @@ public class MainActivity extends AppCompatActivity {
         UserSideBarView sidebar = new UserSideBarView(mContext);
         sideLayout.addView(sidebar);
 
-        viewLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
+        viewLayout.setOnClickListener(view -> {
         });
 
         sidebar.setEventListener(new UserSideBarView.EventListener() {
@@ -159,63 +114,56 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void btnLevel1() {
+            public void btnMyPage() {
                 Log.d(TAG, "btnLevel1");
                 closeMenu();
             }
 
             @Override
-            public void btnLevel2() {
+            public void btnTraining() {
                 Log.d(TAG, "btnLevel2");
-
                 closeMenu();
             }
 
             @Override
-            public void btnLevel3() {
+            public void btnCall() {
                 Log.d(TAG, "btnLevel3");
-
                 closeMenu();
             }
 
             @Override
-            public void btnLevel4() {
+            public void btnBookmark() {
                 Log.d(TAG, "btnLevel4");
                 closeMenu();
             }
 
             @Override
-            public void btnLevel5() {
+            public void btnLogout() {
                 Log.d(TAG, "btnLevel5");
                 closeMenu();
             }
 
             @Override
-            public void btnLevel6() {
+            public void btnSetting() {
                 Log.d(TAG, "btnLevel6");
                 closeMenu();
             }
         });
     }
 
-
     public void closeMenu() {
 
         isMenuShow = false;
-        Animation slide = AnimationUtils.loadAnimation(mContext, R.anim.sidebar_hidden);
+        Animation slide = AnimationUtils.loadAnimation(this, R.anim.sidebar_hidden);
         sideLayout.startAnimation(slide);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                viewLayout.setVisibility(View.GONE);
-                viewLayout.setEnabled(false);
-                mainLayout.setEnabled(true);
-            }
+        new Handler().postDelayed(() -> {
+            viewLayout.setVisibility(View.GONE);
+            viewLayout.setEnabled(false);
+            mainLayout.setEnabled(true);
         }, 450);
     }
 
     public void showMenu() {
-
         isMenuShow = true;
         Animation slide = AnimationUtils.loadAnimation(this, R.anim.sidebar_show);
         sideLayout.startAnimation(slide);

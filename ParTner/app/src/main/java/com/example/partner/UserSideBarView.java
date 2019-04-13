@@ -18,17 +18,17 @@ public class UserSideBarView extends RelativeLayout implements View.OnClickListe
     public interface EventListener {
         void btnCancel();
 
-        void btnLevel1();
+        void btnMyPage();
 
-        void btnLevel2();
+        void btnTraining();
 
-        void btnLevel3();
+        void btnCall();
 
-        void btnLevel4();
+        void btnBookmark();
 
-        void btnLevel5();
+        void btnLogout();
 
-        void btnLevel6();
+        void btnSetting();
 
     }
 
@@ -60,22 +60,22 @@ public class UserSideBarView extends RelativeLayout implements View.OnClickListe
                 listener.btnCancel();
                 break;
             case R.id.user_side_mypage:
-                listener.btnLevel1();
+                listener.btnMyPage();
                 break;
             case R.id.user_side_training:
-                listener.btnLevel2();
+                listener.btnTraining();
                 break;
             case R.id.user_side_call:
-                listener.btnLevel3();
+                listener.btnCall();
                 break;
             case R.id.user_side_bookmark:
-                listener.btnLevel4();
+                listener.btnBookmark();
                 break;
             case R.id.user_side_logout:
-                listener.btnLevel5();
+                listener.btnLogout();
                 break;
             case R.id.user_side_setting:
-                listener.btnLevel6();
+                listener.btnSetting();
                 break;
             default:
                 Log.e("TAG", "onClick: error!");

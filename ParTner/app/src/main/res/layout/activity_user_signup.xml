@@ -2,14 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/app_toolbar"
+    <include
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary" />
+        android:layout_height="wrap_content"
+        layout="@layout/toolbar"/>
 
     <EditText
         android:id="@+id/user_id"
@@ -23,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
+        android:inputType="textPassword"
         android:hint="비밀번호" />
 
     <EditText
@@ -30,6 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
+        android:inputType="textPassword"
         android:hint="비밀번호 재입력" />
 
 
@@ -60,7 +60,6 @@
         android:layout_marginTop="400dp"
         android:hint="이름" />
 
-    <!-- commit -->
     <Button
         android:id="@+id/btn_user_signup"
         android:layout_width="wrap_content"

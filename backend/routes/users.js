@@ -8,65 +8,63 @@ router.get('/', function (req, res, next) {
   res.send('respond with a resource');
 });
 
+router.post('/upload/image', function(req, res, next){
+  console.log(req);
+});
+
+/* 회원가입 */
 router.post('/signup', function (req, res, next) {
   console.log(req.body);
-  if (req.body.type == "user") {
-//commit
-    userModel.find({ $or: [{ id: req.body.id }] }, function (err, existUser) {
-      // trainer ���� id �ߺ�üũ
-      if (existUser.length == 0) {
 
-        var user = new userModel({
-          id: req.body.id,
-          pw: req.body.pw,
-          sex: req.body.sex,
-          name: req.body.name,
-        });
+  userModel.find({ $or: [{ id: req.body.id }] }, function (err, existUser) {
 
-        user.save(function (err) {
-          if (err) return console.log(err);
-          console.log('user information saved!')
-        })
-
-        req.body.id = 'saved'
-        res.send(req.body)
-
-      } else {
-        req.body.id = 'exist'
-        res.send(req.body)
-      }
-    });
-
-  } else if (req.body.type == "trainer") {
-    
     trainerModel.find({ $or: [{ id: req.body.id }] }, function (err, existTrainer) {
 
-      if (existTrainer.length == 0) {
+      if (existUser.length == 0 && existTrainer.length == 0) {
+        
+        switch (req.body.type) {
+          case "user": {
+            var user = new userModel({
+              id: req.body.id,
+              pw: req.body.pw,
+              sex: req.body.sex,
+              name: req.body.name,
+            });
 
-        var trainer = new trainerModel({
-          id: req.body.id,
-          pw: req.body.pw,
-          sex: req.body.sex,
-          name: req.body.name,
-          training_type : req.body.training_type,
-        });
+            user.save(function (err) {
+              if (err) return console.log(err);
+              console.log('user information saved!')
+            })
 
-        trainer.save(function (err) {
-          if (err) return console.log(err);
-          console.log('user information saved!')
-        })
+            break;
+          }
+          case "trainer": {
+            var trainer = new trainerModel({
+              id: req.body.id,
+              pw: req.body.pw,
+              sex: req.body.sex,
+              name: req.body.name,
+              training_type: req.body.training_type,
+            });
 
-        req.body.id = 'saved'
+            trainer.save(function (err) {
+              if (err) return console.log(err);
+              console.log('user information saved!')
+            })
+            break;
+          }
+        }
+
+        req.body.result = 'saved'
         res.send(req.body)
 
       } else {
-        req.body.id = 'exist'
+        req.body.result = 'exist'
         res.send(req.body)
       }
+
     });
-
-  }
-
+  });
 });
 
 module.exports = router;

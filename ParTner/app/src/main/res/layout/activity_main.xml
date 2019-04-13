@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:id="@+id/id_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:orientation="vertical">
 
     <include
+        layout="@layout/menu_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/toolbar"/>
+        android:layout_height="wrap_content" />
 
-    <RelativeLayout
-        android:id="@+id/id_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/app_toolbar"
+        <Button
+            android:id="@+id/trainer_btn"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:text="@string/app_name" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#00ff00"
+            android:text="Trainer Main Menu" />
 
-    </RelativeLayout>
+        <Button
+            android:id="@+id/user_btn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#0000ff"
+            android:text="User Main Menu" />
 
+    <!-- 사이드바 -->
     <FrameLayout
-        android:id="@+id/fl_silde"
+        android:id="@+id/fl_slide"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
@@ -34,29 +38,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:alpha="0.75"
-            android:background="#202735"/>
+            android:background="#202735" />
 
         <FrameLayout
-            android:id="@+id/view_sildebar"
-            android:layout_width="280dp"
+            android:id="@+id/view_slidebar"
+            android:layout_width="250dp"
             android:layout_height="match_parent" />
 
     </FrameLayout>
-
-        <Button
-        android:id="@+id/trainer_btn"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="Trainer Main Menu"
-        android:background="#00ff00"/>
-
-    <Button
-        android:id="@+id/user_btn"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="User Main Menu"
-        android:background="#0000ff"/>
 
 </LinearLayout>

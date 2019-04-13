@@ -1,5 +1,6 @@
 package com.example.partner;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -17,59 +18,64 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
+
+import java.util.ArrayList;
+
 public class LoginActivity extends AppCompatActivity {
     private String TAG = "TAG";
 
-    private Toolbar toolbar;
-    private ActionBar actionBar;
     private EditText id, pw;
     private Button loginButton, signupButton;
-    //login
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        permission();
+        init();
+    }
 
-        toolbar = findViewById(R.id.app_toolbar);
-        setSupportActionBar(toolbar);
-
-        actionBar = getSupportActionBar();
+    public void init() {
 
         id = findViewById(R.id.login_id);
         pw = findViewById(R.id.login_pw);
 
         loginButton = findViewById(R.id.loginbutton);
         signupButton = findViewById(R.id.signupbutton);
-        loginButton.setOnClickListener(this::loginButtonClickEvent);
-        signupButton.setOnClickListener(this::signupButtonClickEvent);
 
+        loginButton.setOnClickListener(view -> {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
+        signupButton.setOnClickListener(view -> {
+            Intent intent = new Intent(this, SignUpActivity.class);
+            startActivity(intent);
+        });
     }
 
-    private void loginButtonClickEvent(View v){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
+    private void permission(){
+        PermissionListener permissionListener = new PermissionListener() {
+            @Override
+            public void onPermissionGranted() {
+                // 권한 요청 성공
+                Log.e("TAG", "onPermissionGranted: 권한요청 성공");
+            }
 
-    private void signupButtonClickEvent(View v){
-        Intent intent = new Intent(this, SignUpActivity.class);
-        startActivity(intent);
-    }
+            @Override
+            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+                // 권한 요청 실패
+                Log.e("TAG", "onPermissionDenied: 권한요청 실패");
+            }
+        };
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.appbar_action, menu);
-        return true;
+        TedPermission.with(this)
+                .setPermissionListener(permissionListener)
+                .setRationaleMessage("[설정] > [권한] 에서 권한을 허용할 수 있습니다.")
+                .setDeniedMessage("사진 및 파일을 저장하기 위하여 접근 권한이 필요합니다.")
+                .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+                .check();
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_menu :
-                   return true ;
-            default :
-                return super.onOptionsItemSelected(item) ;
-        }
-    }
-
 
 }

@@ -4,12 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/app_toolbar"
+    <include
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:text="@string/app_name" />
+        android:layout_height="wrap_content"
+        layout="@layout/toolbar"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -36,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
-        <!-- commit -->
+
         <ImageButton
             android:id="@+id/signup_trainer"
             android:layout_width="match_parent"

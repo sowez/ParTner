@@ -1,8 +1,12 @@
 package com.example.partner;
 
+import android.net.Uri;
+
+import java.io.File;
 import java.util.ArrayList;
 
 public class SignUpData {
+    private String result = "fail";
     private String type, id, pw, name, sex;
     private ArrayList<String> training_type;
 
@@ -14,7 +18,9 @@ public class SignUpData {
         this.sex = sex;
         this.training_type = training_type;
     }
-//signupdata
+
+    public String getResult() { return result; }
+
     public String getType() {
         return type;
     }

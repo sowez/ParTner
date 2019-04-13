@@ -1,35 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/app_toolbar"
+    <include
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary" />
+        android:layout_height="wrap_content"
+        layout="@layout/toolbar"/>
 
     <EditText
         android:id="@+id/trainer_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:hint="아이디" />
 
     <EditText
         android:id="@+id/trainer_pw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:inputType="textPassword"
         android:hint="비밀번호" />
 
     <EditText
         android:id="@+id/trainer_pw_check"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:inputType="textPassword"
         android:hint="비밀번호 재입력" />
 
 
@@ -37,7 +35,6 @@
         android:id="@+id/trainer_sex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
         android:orientation="horizontal">
 
         <RadioButton
@@ -51,25 +48,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="여성" />
+
     </RadioGroup>
 
     <EditText
         android:id="@+id/trainer_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
         android:hint="이름" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="370dp"
         android:text="운동 분야 선택" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
         android:orientation="horizontal">
 
         <android.support.v7.widget.AppCompatCheckBox
@@ -95,15 +90,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="스트레칭" />
-
     </LinearLayout>
-    <!-- commit -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="프로필 이미지 업로드" />
+
+    <ImageView
+        android:id="@+id/signup_trainer_profile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/profile_image"/>
+
+    <Button
+        android:id="@+id/btn_gallery_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="갤러리에서 가져오기"/>
+
     <Button
         android:id="@+id/btn_trainer_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="10dp"
         android:text="회원가입 완료!" />
 
-</RelativeLayout>
+</LinearLayout>
