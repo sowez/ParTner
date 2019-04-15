@@ -802,6 +802,7 @@ public class Camera2BasicFragment extends Fragment
 
         showToast(textToShow);
 
+        
         if(readyCounter == 3) { // 운동 시작
             // 운동 실행하는 함수 호출
             startEx();
