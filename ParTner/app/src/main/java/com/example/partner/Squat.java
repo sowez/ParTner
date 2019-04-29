@@ -66,45 +66,59 @@ public class Squat extends Exercise{
     @Override
     public void doExercise(){
 
-        // 왼쪽 엉덩이-무릎-발목 사이의 각도 구하기
-        PointF left_hip, left_knee, left_ankle;
-        left_hip = dpPoint.get(8);
-        left_knee = dpPoint.get(9);
-        left_ankle = dpPoint.get(10);
-
-        double angle = getAngle(left_hip, left_ankle,left_knee);
-        Log.d("각도", "왼쪽: "+angle);
+//        // 왼쪽 엉덩이-무릎-발목 사이의 각도 구하기
+//        PointF left_hip, left_knee, left_ankle;
+//        left_hip = dpPoint.get(8);
+//        left_knee = dpPoint.get(9);
+//        left_ankle = dpPoint.get(10);
+//
+//        double angle = getAngle(left_hip, left_ankle,left_knee);
+//        Log.d("각도", "왼쪽: "+angle);
+//
+//        if (angle>=160){
+//            poseState = 0;
+//        } else if (angle >= 120){
+//            poseState = 1;
+//        } else if (angle >= 100){
+//            poseState = 2;
+//        } else if (angle >= 75){
+//            poseState = 3;
+//        } else {
+//            poseState = -1;
+//        }
+//
+//        Log.d("각도 및 상태", "state: "+poseState);
     }
 
     // 두 직선 사이의 각도
     // 출처 : https://gogorchg.tistory.com/entry/Android-두-선-사이의-각도-구하는-공식 [항상 초심으로]
-    public double getAngle(PointF start, PointF end, PointF cross) {
-       float [] line1 = {
-               cross.x, cross.y, 0,
-               start.x, start.y, 0
-       };
-        float [] line2 = {
-                cross.x, cross.y, 0,
-                end.x, end.y, 0
-        };
-
-        ByteBuffer buf1 = ByteBuffer.allocateDirect( line1.length * 4);
-        buf1.order(ByteOrder.nativeOrder());
-        FloatBuffer fbuf1 = buf1.asFloatBuffer();
-        fbuf1.clear();
-        fbuf1.put(line1);
-        fbuf1.position(0);
-
-        ByteBuffer buf2 = ByteBuffer.allocateDirect( line2.length * 4);
-        buf2.order(ByteOrder.nativeOrder());
-        FloatBuffer fbuf2 = buf2.asFloatBuffer();
-        fbuf2.clear();
-        fbuf2.put(line2);
-        fbuf2.position(0);
-
-        return VertexMath.getAngle(fbuf1,fbuf2);
-
-    }
+//    public double getAngle(PointF start, PointF end, PointF cross) {
+//       float [] line1 = {
+//               cross.x, cross.y, 0,
+//               start.x, start.y, 0
+//       };
+//        float [] line2 = {
+//                cross.x, cross.y, 0,
+//                end.x, end.y, 0
+//        };
+//
+//        ByteBuffer buf1 = ByteBuffer.allocateDirect( line1.length * 4);
+//        buf1.order(ByteOrder.nativeOrder());
+//        FloatBuffer fbuf1 = buf1.asFloatBuffer();
+//        fbuf1.clear();
+//        fbuf1.put(line1);
+//        fbuf1.position(0);
+//
+//        ByteBuffer buf2 = ByteBuffer.allocateDirect( line2.length * 4);
+//        buf2.order(ByteOrder.nativeOrder());
+//        FloatBuffer fbuf2 = buf2.asFloatBuffer();
+//        fbuf2.clear();
+//        fbuf2.put(line2);
+//        fbuf2.position(0);
+//
+//        return VertexMath.getAngle(fbuf1,fbuf2);
+//
+//    }
 
 
 //    // getter setter
