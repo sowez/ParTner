@@ -111,7 +111,9 @@ public class Camera2BasicFragment extends Fragment
     private int img_green;
 
     private int readyCounter = 0;
-    private int startCounter = 0;
+    private int exerciseCounter = 0;
+    private int exerciseStep = 0;
+    private int endStep = 0;
 
     /**
      * {@link TextureView.SurfaceTextureListener} handles several lifecycle events on a {@link
@@ -298,6 +300,7 @@ public class Camera2BasicFragment extends Fragment
                 break;
             default: break;
         }
+        endStep = exercise.getSteps();
         personImg.setImageResource(img_red);
 
         return v;
@@ -813,7 +816,7 @@ public class Camera2BasicFragment extends Fragment
         } else {
             // 운동 시작
             // 운동 실행하는 함수 호출
-            startEx();
+            startEx(exercise.doExercise(exerciseStep));
             showToast("운동 시자아아악!!!");
 
         }
@@ -842,7 +845,7 @@ public class Camera2BasicFragment extends Fragment
         }
     }
 
-    private void startEx() {
+    private void startEx(boolean isStepDone) {
         final Activity activity = getActivity();
         if (activity != null) {
             activity.runOnUiThread(
@@ -850,6 +853,19 @@ public class Camera2BasicFragment extends Fragment
                         @Override
                         public void run() {
                             personImg.setVisibility(View.INVISIBLE);
+                            if (isStepDone){
+                                Log.d("Exercise", "준비됨");
+                                personImg.setImageResource(img_green);
+                                exerciseStep++;
+                                if(exerciseStep==endStep){
+                                    exerciseCounter++;
+                                    exerciseStep=0;
+                                }
+                            }
+                            else {
+                                Log.d("Exercise", "안됨");
+                                //음성 처리해주기
+                            }
                         }
                     });
         }

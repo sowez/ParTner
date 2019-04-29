@@ -8,7 +8,6 @@ public class Exercise {
     private float[][] point;
     private int exCount;
     private ArrayList<PointF> dpPoint;
-
     public Exercise(int exCount){
         this.exCount = exCount;
     }
@@ -21,8 +20,9 @@ public class Exercise {
 
 
     //운동 동작 인식하는 함수
-    public void doExercise(){
+    public boolean doExercise(int currentStep){
 
+        return true;
     }
 
 
@@ -35,5 +35,15 @@ public class Exercise {
         this.point = point;
     }
 
+    public double getAngle(int ff, int fs, int sf, int ss){
+        double []v1 = {dpPoint.get(ff).x-dpPoint.get(fs).x,dpPoint.get(ff).y-dpPoint.get(fs).y};
+        double []v2 = {dpPoint.get(sf).x-dpPoint.get(ss).x,dpPoint.get(sf).y-dpPoint.get(ss).y};
+
+        double angle = 0;
+        angle = ((v1[0]*v2[0]+v1[1]*v2[1])/(Math.sqrt(v1[0]*v1[0] + v1[1]*v1[1])*Math.sqrt(v2[0]*v2[0] + v2[1]*v2[1])));
+        return Math.acos(angle)*180/Math.PI;
+    }
+
+    public int getSteps(){return 0;}
     public void setDpPoint(ArrayList<PointF> dpPoint) { this.dpPoint = dpPoint; }
 }
