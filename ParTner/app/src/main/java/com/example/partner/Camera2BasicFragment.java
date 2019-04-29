@@ -111,6 +111,7 @@ public class Camera2BasicFragment extends Fragment
     private int img_green;
 
     private int readyCounter = 0;
+    private int startCounter = 0;
 
     /**
      * {@link TextureView.SurfaceTextureListener} handles several lifecycle events on a {@link
@@ -803,17 +804,16 @@ public class Camera2BasicFragment extends Fragment
         showToast(textToShow);
 
         
-        if(readyCounter == 3) { // 운동 시작
-            // 운동 실행하는 함수 호출
-            startEx();
-            showToast("운동 시자아아악!!!");
-
-        } else { // 준비 안된 상태
-
+        if(readyCounter <= 3) {// 준비 안된 상태
             // 여기에서 함수 호출해서 결과값 받아서 UI 변경
             exercise.setPoint(classifier.mPrintPointArray);
             readyEx(exercise.checkReady());
             showToast("readyCounter: "+readyCounter);
+        } else {
+            // 운동 시작
+            // 운동 실행하는 함수 호출
+            startEx();
+            showToast("운동 시자아아악!!!");
 
         }
 
