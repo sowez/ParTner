@@ -17,7 +17,7 @@ public class DrawView extends View {
     private int mRatioWidth  = 0;
     private int mRatioHeight  = 0;
 
-    private ArrayList<PointF> mDrawPoint = new ArrayList<PointF>();
+    public ArrayList<PointF> mDrawPoint = new ArrayList<PointF>();
     private int mWidth       = 0;
     private int mHeight      = 0;
     private float mRatioX    = 0;

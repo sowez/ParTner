@@ -300,10 +300,6 @@ public class Camera2BasicFragment extends Fragment
         }
         personImg.setImageResource(img_red);
 
-//        // Squat 객체 생성
-//        squat = new Squat(exCount);
-//        jumpingJack = new JumpingJack(exCount);
-
         return v;
     }
 
@@ -622,7 +618,7 @@ public class Camera2BasicFragment extends Fragment
                 throw new RuntimeException("Time out waiting to lock camera opening.");
             }
 //           1-> 전면 카메라, 0->후면 카메라
-            manager.openCamera("1", stateCallback, backgroundHandler);
+            manager.openCamera("0", stateCallback, backgroundHandler);
         } catch (CameraAccessException e) {
             Log.e(TAG, "Failed to open Camera", e);
         } catch (InterruptedException e) {
@@ -799,14 +795,19 @@ public class Camera2BasicFragment extends Fragment
         classifier.classifyFrame(bitmap, textToShow);
         bitmap.recycle();
 
+        // 화면에 좌표그림 표시
+        drawView.setDrawPoint(classifier.mPrintPointArray, 0.5f);
+
         //운동별로 나누기
 
         showToast(textToShow);
 
-        
+
         if(readyCounter <= 3) {// 준비 안된 상태
+
             // 여기에서 함수 호출해서 결과값 받아서 UI 변경
             exercise.setPoint(classifier.mPrintPointArray);
+            exercise.setDpPoint(drawView.mDrawPoint);
             readyEx(exercise.checkReady());
             showToast("readyCounter: "+readyCounter);
         } else {

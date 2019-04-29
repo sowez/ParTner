@@ -1,8 +1,13 @@
 package com.example.partner;
 
+import android.graphics.PointF;
+
+import java.util.ArrayList;
+
 public class Exercise {
     private float[][] point;
     private int exCount;
+    private ArrayList<PointF> dpPoint;
 
     public Exercise(int exCount){
         this.exCount = exCount;
@@ -29,4 +34,6 @@ public class Exercise {
     public void setPoint(float[][] point) {
         this.point = point;
     }
+
+    public void setDpPoint(ArrayList<PointF> dpPoint) { this.dpPoint = dpPoint; }
 }
