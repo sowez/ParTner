@@ -1,11 +1,16 @@
 package com.example.partner;
 
+import android.graphics.PointF;
 import android.util.Log;
+
+import java.util.ArrayList;
 
 public class JumpingJack extends Exercise{
 
     private float[][] point;
 //    private int exCount;
+    private ArrayList<PointF> dpPoint;
+
 
 
     public JumpingJack(int exCount){
@@ -66,7 +71,7 @@ public class JumpingJack extends Exercise{
 
     // 점핑잭 운동 동작 인식하는 함수
     @Override
-    public void doExercise(){
+    public boolean doExercise(int now){
 
         // 운동 준비-> 정자세->팔 옆으로-> 정자세-> 팔 위로
 
@@ -98,16 +103,14 @@ public class JumpingJack extends Exercise{
         // 4. head-neck / shoulder-elbow -> 145~ 180도 (팔을 더 올려주세요)
         // 5. top 위치가 정자세보다 올라가야함 (뛰세요)
 
-
+        return true;
     }
-
-
 
     // getter setter
     public float[][] getPoint() {
         return point;
     }
-
+    public int getSteps(){return 5;}
     public void setPoint(float[][] point) {
         this.point = point;
     }
