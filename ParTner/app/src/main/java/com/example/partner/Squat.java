@@ -66,28 +66,29 @@ public class Squat extends Exercise{
     @Override
     public void doExercise(){
 
-//        // 왼쪽 엉덩이-무릎-발목 사이의 각도 구하기
+        // 왼쪽 엉덩이-무릎-발목 사이의 각도 구하기
+        double angle = getAngle(8,9,9,10);
 //        PointF left_hip, left_knee, left_ankle;
 //        left_hip = dpPoint.get(8);
 //        left_knee = dpPoint.get(9);
 //        left_ankle = dpPoint.get(10);
 //
 //        double angle = getAngle(left_hip, left_ankle,left_knee);
-//        Log.d("각도", "왼쪽: "+angle);
-//
-//        if (angle>=160){
-//            poseState = 0;
-//        } else if (angle >= 120){
-//            poseState = 1;
-//        } else if (angle >= 100){
-//            poseState = 2;
-//        } else if (angle >= 75){
-//            poseState = 3;
-//        } else {
-//            poseState = -1;
-//        }
-//
-//        Log.d("각도 및 상태", "state: "+poseState);
+        Log.d("각도", "왼쪽: "+angle);
+
+        if (angle>=160){
+            poseState = 0;
+        } else if (angle >= 120){
+            poseState = 1;
+        } else if (angle >= 100){
+            poseState = 2;
+        } else if (angle >= 75){
+            poseState = 3;
+        } else {
+            poseState = -1;
+        }
+
+        Log.d("각도 및 상태", "state: "+poseState);
     }
 
     // 두 직선 사이의 각도
