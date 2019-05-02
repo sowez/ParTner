@@ -29,11 +29,13 @@ public class TrainerSignUpActivity extends AppCompatActivity {
     private File profileImg;
     private Uri profileURI;
 
+    private boolean overlapCheck = false;
+
     private EditText trainerId, trainerPw, trainerPw_check, trainerName;
     private RadioGroup trainerSex;
     private RadioButton trainerMale, trainerFemale;
     private CheckBox yoga, muscle, pilates, stretching;
-    private Button btn_gallery, btn_trainerSignUp;
+    private Button btn_gallery, btn_trainerSignUp, btn_id_overlap_check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +62,12 @@ public class TrainerSignUpActivity extends AppCompatActivity {
 
         btn_gallery = findViewById(R.id.btn_gallery_signup);
         btn_gallery.setOnClickListener(this::onClickBtnGallery);
+
         btn_trainerSignUp = findViewById(R.id.btn_trainer_signup);
         btn_trainerSignUp.setOnClickListener(this::onClickBtnSignUp);
+
+        btn_id_overlap_check = findViewById(R.id.btn_id_overlap_check);
+        btn_id_overlap_check.setOnClickListener(this::onClickBtnOverlapCheck);
     }
 
     public void onClickBtnGallery(View v) {
@@ -118,6 +124,13 @@ public class TrainerSignUpActivity extends AppCompatActivity {
 
     }
 
+    public void onClickBtnOverlapCheck(View v){
+        String id = trainerId.getText().toString();
+        ServerComm serverComm = new ServerComm();
+        serverComm.init();
+        overlapCheck = serverComm.idOverlapCheck("trainer", id, this);
+    }
+
     public void onClickBtnSignUp(View v) {
         String id = trainerId.getText().toString();
         String pw = trainerPw.getText().toString();
@@ -145,14 +158,16 @@ public class TrainerSignUpActivity extends AppCompatActivity {
 
         //영어, 숫자, 특수문자 포함 6자리
         String pwPattern = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{6,}$";
-        if (Pattern.matches(pwPattern, pw) && pw.equals(pw_check)) {
+        if (Pattern.matches(pwPattern, pw) && pw.equals(pw_check)&& overlapCheck) {
             SignUpData signUpData = new SignUpData("trainer", id, pw, name, sex, trainingTypes);
             ServerComm serverComm = new ServerComm();
             serverComm.init();
-            serverComm.postUploadImg(profileImg);
             serverComm.postSignUp(signUpData, this);
+            serverComm.postUploadImg(profileImg, id, this);
         } else if (pw.equals(pw_check)) {
             Toast.makeText(this, "비밀번호는 영문자, 숫자, 특수문자를 포함하여 6자리 이상으로 만들어주세요", Toast.LENGTH_LONG).show();
+        } else if(overlapCheck){
+            Toast.makeText(this, "아이디 중복체크를 해주세요", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, "비밀번호와 비밀번호 재확인이 일치하지 않습니다.", Toast.LENGTH_LONG).show();
         }
