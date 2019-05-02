@@ -64,7 +64,7 @@ public class Squat extends Exercise{
 
     // 스쿼트 운동 동작 인식하는 함수
     @Override
-    public void doExercise(){
+    public boolean doExercise(int currentStep){
 
 //        // 왼쪽 엉덩이-무릎-발목 사이의 각도 구하기
 //        PointF left_hip, left_knee, left_ankle;
@@ -88,6 +88,7 @@ public class Squat extends Exercise{
 //        }
 //
 //        Log.d("각도 및 상태", "state: "+poseState);
+        return true;
     }
 
     // 두 직선 사이의 각도
@@ -122,7 +123,7 @@ public class Squat extends Exercise{
 
 
 //    // getter setter
-//
+
     public float[][] getPoint() {
         return point;
     }
@@ -131,5 +132,5 @@ public class Squat extends Exercise{
         this.point = point;
     }
 
-    public void setDpPoint(ArrayList<PointF> dpPoint) { this.dpPoint = dpPoint; }
+//    public void setDpPoint(ArrayList<PointF> dpPoint) { this.dpPoint = dpPoint; }
 }

@@ -1,6 +1,7 @@
 package com.example.partner;
 
 import android.graphics.PointF;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -39,8 +40,10 @@ public class Exercise {
         double []v1 = {dpPoint.get(ff).x-dpPoint.get(fs).x,dpPoint.get(ff).y-dpPoint.get(fs).y};
         double []v2 = {dpPoint.get(sf).x-dpPoint.get(ss).x,dpPoint.get(sf).y-dpPoint.get(ss).y};
 
+        Log.d("angle1", v1[0]+","+v1[1]+","+v2[0]+","+v2[1]);
         double angle = 0;
         angle = ((v1[0]*v2[0]+v1[1]*v2[1])/(Math.sqrt(v1[0]*v1[0] + v1[1]*v1[1])*Math.sqrt(v2[0]*v2[0] + v2[1]*v2[1])));
+        Log.d("angle 각도", Math.acos(angle)*180/Math.PI+"");
         return Math.acos(angle)*180/Math.PI;
     }
 

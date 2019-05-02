@@ -16,8 +16,9 @@ public class Flank extends Exercise{
 
     // 점핑잭 운동 동작 인식하는 함수
     @Override
-    public void doExercise(){
+    public boolean doExercise(int currentStep){
 
+        return true;
     }
 
     // getter setter
