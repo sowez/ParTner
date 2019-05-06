@@ -19,7 +19,9 @@ public class SignUpData {
         this.training_type = training_type;
     }
 
-    public String getResult() { return result; }
+    public String getResult() {
+        return result;
+    }
 
     public String getType() {
         return type;

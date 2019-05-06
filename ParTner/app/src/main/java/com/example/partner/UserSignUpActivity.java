@@ -14,13 +14,16 @@ import android.widget.Toast;
 
 import java.util.regex.Pattern;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 public class UserSignUpActivity extends AppCompatActivity {
 
     private EditText userId, userPw, userPw_check, userName;
     private RadioGroup userSex;
     private RadioButton userMale, userFemale;
-    private Button btn_userSignUp;
-
+    private Button btn_userSignUp, btn_idOverlapCheck;
+    private boolean overlapCheck = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,11 +42,35 @@ public class UserSignUpActivity extends AppCompatActivity {
         userFemale = findViewById(R.id.user_female);
         userSex = findViewById(R.id.user_sex);
         btn_userSignUp = findViewById(R.id.btn_user_signup);
-        btn_userSignUp.setOnClickListener(this::OnClick);
+        btn_userSignUp.setOnClickListener(this::onClickSignup);
+
+        btn_idOverlapCheck = findViewById(R.id.btn_userid_overlap_check);
+        btn_userSignUp.setOnClickListener(this::onClickOverlapCheck);
 
     }
 
-    private void OnClick(View view) {
+    private void onClickOverlapCheck(View v){
+        String id = userId.getText().toString();
+
+        ServerComm serverComm = new ServerComm();
+        RetrofitCommnunication retrofitComm = serverComm.init();
+        retrofitComm.getOverlapCheck("user", id)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(data->{
+                    String res = data.get("result").getAsString();
+                    if(res.equals("none")){
+                        overlapCheck = true;
+                        Toast.makeText(this, "사용할 수 있는 아이디입니다.", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(this, "중복되는 아이디 입니다.",Toast.LENGTH_SHORT).show();
+                    }
+                }, err->{
+                    Log.e("TAG", "onClickBtnOverlapCheck: error발생");
+                });
+    }
+
+    private void onClickSignup(View view) {
 
         String id = userId.getText().toString();
         String pw = userPw.getText().toString();

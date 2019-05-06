@@ -2,7 +2,8 @@ package com.example.partner;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
+import android.os.AsyncTask;
+import android.transition.Scene;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -10,32 +11,41 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class ServerComm {
 
     private String TAG = "TAG";
+    private Disposable disposable;
 
     // 현재 쓰고있는 wifi ip (핸드폰이랑 노트북 쓰는 와이파이 같아야함!!)
-    private String URL = "http://192.168.50.96:3000/";
+    private String URL = "http://192.168.0.10:3000/";
     private RetrofitCommnunication retrofitCommnunication;
 
-    public void init() {
+    public RetrofitCommnunication init() {
 
         Gson gson = new GsonBuilder()
                 .setLenient()
@@ -45,29 +55,12 @@ public class ServerComm {
                 .baseUrl(URL)
                 .client(createOkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
+
         retrofitCommnunication = retrofit.create(RetrofitCommnunication.class);
-
-    }
-
-    boolean check = false;
-    public boolean idOverlapCheck(String type, String id, Context context){
-        
-        retrofitCommnunication.getOverlapCheck(type, id).enqueue(new Callback<JsonObject>() {
-            @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Log.d(TAG, "onResponse: response" + response.message());
-                Toast.makeText(context,"중복체크가 완료되었습니다",Toast.LENGTH_LONG).show();
-                check = true;
-            }
-
-            @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
-                Log.d(TAG, "onFailure: overlap 실패");
-            }
-        });
-        return check;
+        return retrofitCommnunication;
     }
 
     public void postUploadImg(File profileImg, String trainerId, Context context) {
@@ -77,23 +70,18 @@ public class ServerComm {
 
         RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), profileImg);
         MultipartBody.Part body = MultipartBody.Part.createFormData("image", profileImg.getName(), requestFile);
-        RequestBody description = RequestBody.create(MediaType.parse("multipart/form-data"), trainerId);
-
-        try {
-            Log.d(TAG, "postUploadImg: desciption :>> " + description.contentLength());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        RequestBody description = RequestBody.create(MediaType.parse("text/plain"), trainerId);
 
         retrofitCommnunication.uploadFile(body, description).enqueue(new Callback<JsonObject>() {
 
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Log.d(TAG, "onResponse: 성공!!! response :>> " + response.message());
-//                if(response.message().equals("success")){
-                    Toast.makeText(context, "이미지를 업로드 하였습니다.", Toast.LENGTH_LONG).show();
-
-
+                JsonObject res = response.body();
+                if (res.get("result").getAsString().equals("success")) {
+                    Log.d(TAG, "onResponse: 이미지 업로드 성공");
+                }else{
+                    Log.d(TAG, "onResponse: 이미지 업로드 실패");
+                }
             }
 
             @Override
@@ -104,6 +92,7 @@ public class ServerComm {
     }
 
     public void postSignUp(SignUpData signUpData, Context context) {
+
         retrofitCommnunication.postData(signUpData).enqueue(new Callback<SignUpData>() {
             @Override
             public void onResponse(Call<SignUpData> call, Response<SignUpData> response) {

@@ -2,6 +2,11 @@ package com.example.partner;
 
 import com.google.gson.JsonObject;
 
+import org.json.JSONObject;
+
+import java.util.Observable;
+
+import io.reactivex.Single;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -19,7 +24,7 @@ import retrofit2.http.Path;
 public interface RetrofitCommnunication {
 
     @GET("/users/signup/overlap/{type}/{id}")
-    Call<JsonObject> getOverlapCheck(@Path("type") String type, @Path("id") String id);
+    Single<JsonObject> getOverlapCheck(@Path("type") String type, @Path("id") String id);
 
     @POST("/users/signup")
     Call<SignUpData> postData(@Body SignUpData param);

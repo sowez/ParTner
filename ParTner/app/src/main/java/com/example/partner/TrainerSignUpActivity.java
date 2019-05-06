@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -23,8 +24,13 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 public class TrainerSignUpActivity extends AppCompatActivity {
 
+    private String TAG = "TAG";
     private static final int PICK_FROM_ALBUM = 1;
     private File profileImg;
     private Uri profileURI;
@@ -66,7 +72,7 @@ public class TrainerSignUpActivity extends AppCompatActivity {
         btn_trainerSignUp = findViewById(R.id.btn_trainer_signup);
         btn_trainerSignUp.setOnClickListener(this::onClickBtnSignUp);
 
-        btn_id_overlap_check = findViewById(R.id.btn_id_overlap_check);
+        btn_id_overlap_check = findViewById(R.id.btn_trainerid_overlap_check);
         btn_id_overlap_check.setOnClickListener(this::onClickBtnOverlapCheck);
     }
 
@@ -124,11 +130,24 @@ public class TrainerSignUpActivity extends AppCompatActivity {
 
     }
 
-    public void onClickBtnOverlapCheck(View v){
+    public void onClickBtnOverlapCheck(View v) {
         String id = trainerId.getText().toString();
         ServerComm serverComm = new ServerComm();
-        serverComm.init();
-        overlapCheck = serverComm.idOverlapCheck("trainer", id, this);
+        RetrofitCommnunication retrofitComm = serverComm.init();
+        retrofitComm.getOverlapCheck("trainer", id)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(data->{
+                    String res = data.get("result").getAsString();
+                    if(res.equals("none")){
+                        overlapCheck = true;
+                        Toast.makeText(this, "사용할 수 있는 아이디입니다.", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(this, "중복되는 아이디 입니다.",Toast.LENGTH_SHORT).show();
+                    }
+                }, err->{
+                    Log.e("TAG", "onClickBtnOverlapCheck: error발생");
+                });
     }
 
     public void onClickBtnSignUp(View v) {
@@ -158,20 +177,18 @@ public class TrainerSignUpActivity extends AppCompatActivity {
 
         //영어, 숫자, 특수문자 포함 6자리
         String pwPattern = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{6,}$";
-        if (Pattern.matches(pwPattern, pw) && pw.equals(pw_check)&& overlapCheck) {
+        if (Pattern.matches(pwPattern, pw) && pw.equals(pw_check) && overlapCheck) {
             SignUpData signUpData = new SignUpData("trainer", id, pw, name, sex, trainingTypes);
             ServerComm serverComm = new ServerComm();
             serverComm.init();
-            serverComm.postSignUp(signUpData, this);
             serverComm.postUploadImg(profileImg, id, this);
-        } else if (pw.equals(pw_check)) {
+            serverComm.postSignUp(signUpData, this);
+        } else if (pw.equals(pw_check) && overlapCheck) {
             Toast.makeText(this, "비밀번호는 영문자, 숫자, 특수문자를 포함하여 6자리 이상으로 만들어주세요", Toast.LENGTH_LONG).show();
-        } else if(overlapCheck){
+        } else if (!overlapCheck) {
             Toast.makeText(this, "아이디 중복체크를 해주세요", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, "비밀번호와 비밀번호 재확인이 일치하지 않습니다.", Toast.LENGTH_LONG).show();
         }
     }
-
-
 }

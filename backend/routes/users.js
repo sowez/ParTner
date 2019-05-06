@@ -10,7 +10,7 @@ var fs = require('fs');
 
 /* id 중복 체크 */
 router.get('/signup/overlap/:type/:id', function (req, res, next) {
-  console.log("signup 아이디 중복체크" + req.body);
+  console.log("signup 아이디 중복체크");
 
   switch (req.params.type) {
     case 'sportsman': {
@@ -36,6 +36,7 @@ router.get('/signup/overlap/:type/:id', function (req, res, next) {
   }
 });
 
+
 /* 프로필 사진 저장 */
 router.post('/upload/image', function (req, res, next) {
 
@@ -48,8 +49,8 @@ router.post('/upload/image', function (req, res, next) {
     img_name = files.image.name
     img_path = files.image.path
 
-    console.log(fields.upload);
-    var trainer_id = fields.upload
+    console.log(fields.trainerId);
+    var trainer_id = fields.trainerId;
 
     var db_location = "/../db/resources/images/trainer_profile/"
 
@@ -58,16 +59,18 @@ router.post('/upload/image', function (req, res, next) {
       var new_img_name = new Date().valueOf() + img_name;
       var newpath = __dirname + db_location + new_img_name
 
+      
       fs.copyFile(img_path, newpath, function (err) {
-        if (err) { console.error(err) }
+        if (err) { console.error(err)} 
         else {
-          trainerModel.findOneAndUpdate({ id: trainer_id }, { profileImg: newpath }, function (err, trainer) {
-            if (err) {
-              console.error(err)
-              res.json({ "result": "error" });
-            } else {
-              console.log("upload success")
-              res.json({ "result": "success" })
+          console.log(newpath)
+          trainerModel.findOneAndUpdate({id:trainer_id},{profileImg : newpath} ,function(err, trainer){
+            if(err){
+              console.log(err)
+              res.json({"result":"error"})
+            }else{
+              console.log(trainer)
+              res.json({"result":"success"})
             }
           });
         }
@@ -82,7 +85,6 @@ router.post('/upload/image', function (req, res, next) {
 
 /* 회원가입 */
 router.post('/signup', function (req, res, next) {
-  console.log("signup" + req.body);
 
   switch (req.body.type) {
     case "user": {
@@ -100,15 +102,18 @@ router.post('/signup', function (req, res, next) {
 
       break;
     }
+
     case "trainer": {
+
       var trainer = new trainerModel({
         id: req.body.id,
         pw: req.body.pw,
         sex: req.body.sex,
         name: req.body.name,
         training_type: req.body.training_type,
+        profileImg: null
       });
-
+      
       trainer.save(function (err) {
         if (err) return console.log(err);
         console.log('user information saved!')
@@ -121,5 +126,12 @@ router.post('/signup', function (req, res, next) {
   res.send(req.body)
 
 });
+
+/* 로그인 */
+
+router.post('/login',function(req, res, next){
+  console.log(res.body)
+  
+})
 
 module.exports = router;

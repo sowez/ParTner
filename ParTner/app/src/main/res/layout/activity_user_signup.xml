@@ -9,12 +9,25 @@
         android:layout_height="wrap_content"
         layout="@layout/toolbar"/>
 
-    <EditText
-        android:id="@+id/user_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_marginTop="200dp"
-        android:hint="아이디" />
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+        <EditText
+            android:id="@+id/user_id"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="아이디" />
+
+        <Button
+            android:id="@+id/btn_userid_overlap_check"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="아이디 중복 체크"/>
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/user_pw"
