@@ -26,10 +26,12 @@ public class SignUpActivity extends AppCompatActivity {
     private void signupUserClickEvent(View v){
         Intent intent = new Intent(this, UserSignUpActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void signupTrainerClickEvent(View v){
         Intent intent = new Intent(this, TrainerSignUpActivity.class);
         startActivity(intent);
+        finish();
     }
 }

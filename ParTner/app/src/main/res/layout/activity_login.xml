@@ -28,6 +28,12 @@
         android:hint="Password"
         android:inputType="textPassword" />
 
+    <CheckBox
+        android:id="@+id/autologin"
+        android:text="자동로그인"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
+
     <Button
         android:id="@+id/loginbutton"
         android:layout_width="match_parent"

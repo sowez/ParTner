@@ -45,7 +45,7 @@ public class UserSignUpActivity extends AppCompatActivity {
         btn_userSignUp.setOnClickListener(this::onClickSignup);
 
         btn_idOverlapCheck = findViewById(R.id.btn_userid_overlap_check);
-        btn_userSignUp.setOnClickListener(this::onClickOverlapCheck);
+        btn_idOverlapCheck.setOnClickListener(this::onClickOverlapCheck);
 
     }
 
@@ -54,8 +54,8 @@ public class UserSignUpActivity extends AppCompatActivity {
 
         ServerComm serverComm = new ServerComm();
         RetrofitCommnunication retrofitComm = serverComm.init();
-        retrofitComm.getOverlapCheck("user", id)
-                .subscribeOn(Schedulers.newThread())
+        retrofitComm.getOverlapCheck("sportsman", id)
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(data->{
                     String res = data.get("result").getAsString();
@@ -86,10 +86,11 @@ public class UserSignUpActivity extends AppCompatActivity {
         //영어, 숫자, 특수문자 포함 6자리
         String pwPattern = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{6,}$";
         if (Pattern.matches(pwPattern, pw) && pw.equals(pw_check)) {
-            SignUpData signUpData = new SignUpData("user", id, pw, name, sex, null);
+            SignUpData signUpData = new SignUpData("sportsman", id, pw, name, sex, null);
             ServerComm serverComm = new ServerComm();
             serverComm.init();
             serverComm.postSignUp(signUpData, this);
+            finish();
         } else if (pw.equals(pw_check)) {
             Toast.makeText(this, "비밀번호는 영문자, 숫자, 특수문자를 포함하여 6자리 이상으로 만들어주세요", Toast.LENGTH_LONG).show();
         } else {

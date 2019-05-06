@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,18 +17,28 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.Toast;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
 import java.util.ArrayList;
 
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 public class LoginActivity extends AppCompatActivity {
     private String TAG = "TAG";
 
-    private EditText id, pw;
+    private EditText login_id, login_pw;
     private Button loginButton, signupButton;
+    private CheckBox autologinCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +50,81 @@ public class LoginActivity extends AppCompatActivity {
 
     public void init() {
 
-        id = findViewById(R.id.login_id);
-        pw = findViewById(R.id.login_pw);
+        login_id = findViewById(R.id.login_id);
+        login_pw = findViewById(R.id.login_pw);
+
+        autologinCheck = findViewById(R.id.autologin);
 
         loginButton = findViewById(R.id.loginbutton);
         signupButton = findViewById(R.id.signupbutton);
 
-        loginButton.setOnClickListener(view -> {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        });
+        loginButton.setOnClickListener(this::onClickLogin);
         signupButton.setOnClickListener(view -> {
             Intent intent = new Intent(this, SignUpActivity.class);
             startActivity(intent);
         });
     }
 
-    private void permission(){
+    private void onClickLogin(View v) {
+
+        String userId = login_id.getText().toString();
+        String userPw = login_pw.getText().toString();
+
+        ServerComm serverComm = new ServerComm();
+        RetrofitCommnunication retrofitComm = serverComm.init();
+        JsonObject logindata = new JsonObject();
+        logindata.addProperty("id", userId);
+        logindata.addProperty("pw", userPw);
+
+        retrofitComm.login(logindata)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(data -> {
+                    String loginResult = data.get("loginResult").getAsString();
+                    Log.d(TAG, "onClickLogin: " + loginResult);
+                    switch (loginResult) {
+                        case "fail": {
+                            Toast.makeText(this, "로그인에 실패하였습니다.아이디 또는 비밀번호를 다시 한번 입력해 주세요", Toast.LENGTH_SHORT).show();
+                            break;
+                        }
+                        case "diffrent": {
+                            Toast.makeText(this, "비밀번호가 일치하지않습니다.", Toast.LENGTH_SHORT).show();
+                            break;
+                        }
+                        case "login_success": {
+                            Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "onClickLogin: data" + data);
+                            String token = data.get("token").getAsString();
+                            String type = data.get("type").getAsString();
+
+                            boolean auto = autologinCheck.isChecked();
+
+                            SharedPreferenceData.saveToken(this, token, type, auto);
+
+                            if (type.equals("trainer")) {
+                                Intent intent = new Intent(this, TrainerMainMenuActivity.class);
+                                startActivity(intent);
+                                this.finish();
+                            }else{
+                                Intent intent = new Intent(this, UserMainMenuActivity.class);
+                                startActivity(intent);
+                                this.finish();
+                            }
+                            break;
+                        }
+                        default: {
+                            Toast.makeText(this, "로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                            break;
+                        }
+                    }
+
+                }, err -> {
+                    Log.d(TAG, "onClickLogin: error 발생");
+                    Log.d(TAG, "onClickLogin: " + err.getMessage());
+                });
+    }
+
+    private void permission() {
         PermissionListener permissionListener = new PermissionListener() {
             @Override
             public void onPermissionGranted() {

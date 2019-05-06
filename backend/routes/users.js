@@ -4,13 +4,15 @@ var router = express.Router();
 const sportsmanModel = require('../db/models/sportsman')
 const trainerModel = require('../db/models/trainer')
 
-
 var formidable = require('formidable')
 var fs = require('fs');
+var jwt = require('jsonwebtoken');
+
 
 /* id 중복 체크 */
 router.get('/signup/overlap/:type/:id', function (req, res, next) {
   console.log("signup 아이디 중복체크");
+  console.log(req.params)
 
   switch (req.params.type) {
     case 'sportsman': {
@@ -59,18 +61,18 @@ router.post('/upload/image', function (req, res, next) {
       var new_img_name = new Date().valueOf() + img_name;
       var newpath = __dirname + db_location + new_img_name
 
-      
+
       fs.copyFile(img_path, newpath, function (err) {
-        if (err) { console.error(err)} 
+        if (err) { console.error(err) }
         else {
           console.log(newpath)
-          trainerModel.findOneAndUpdate({id:trainer_id},{profileImg : newpath} ,function(err, trainer){
-            if(err){
+          trainerModel.findOneAndUpdate({ id: trainer_id }, { profileImg: newpath }, function (err, trainer) {
+            if (err) {
               console.log(err)
-              res.json({"result":"error"})
-            }else{
+              res.json({ "result": "error" })
+            } else {
               console.log(trainer)
-              res.json({"result":"success"})
+              res.json({ "result": "success" })
             }
           });
         }
@@ -87,15 +89,15 @@ router.post('/upload/image', function (req, res, next) {
 router.post('/signup', function (req, res, next) {
 
   switch (req.body.type) {
-    case "user": {
-      var user = new sportsmanModel({
+    case "sportsman": {
+      var sportsman = new sportsmanModel({
         id: req.body.id,
         pw: req.body.pw,
         sex: req.body.sex,
         name: req.body.name,
       });
 
-      user.save(function (err) {
+      sportsman.save(function (err) {
         if (err) return console.log(err);
         console.log('user information saved!')
       })
@@ -113,7 +115,7 @@ router.post('/signup', function (req, res, next) {
         training_type: req.body.training_type,
         profileImg: null
       });
-      
+
       trainer.save(function (err) {
         if (err) return console.log(err);
         console.log('user information saved!')
@@ -129,9 +131,82 @@ router.post('/signup', function (req, res, next) {
 
 /* 로그인 */
 
-router.post('/login',function(req, res, next){
-  console.log(res.body)
-  
+router.post('/login', function (req, res, next) {
+  console.log(req.body)
+
+  var userId = req.body.id;
+  var userPw = req.body.pw;
+
+  var secret = 'soweZ_ParTner';
+  var options = { expiresIn: 60 * 60 * 24 }
+
+  sportsmanModel.findOne({ id: userId }, function (err, sportsman) {
+
+    /* 운동인 로그인 */
+    if (sportsman != null) {
+
+      sportsmanExist = true;
+      console.log(sportsman)
+
+      if (userPw != sportsman.pw) {
+        res.json({ "loginResult": "diffrent" })
+      } else {
+
+        var payload = {
+          _id: sportsman._id,
+          id: sportsman.id,
+          type: "sportsman"
+        };
+
+        jwt.sign(payload, secret, options, function (err, token) {
+          if (err) return console.log(err);
+          res.json({
+            loginResult: "login_success",
+            token: token,
+            id: sportsman.id,
+            type: "sportsman"
+          });
+        });
+      }
+    } else {
+
+      /*트레이너 로그인 */
+      trainerModel.findOne({ id: userId }, function (err, trainer) {
+        if (trainer == null) {
+          res.json({ "loginResult": "fail" })
+        } else {
+          trainerExist = true;
+          if (userPw != trainer.pw) {
+            res.json({ "loginResult": "diffrent" })
+          } else {
+            var payload = {
+              _id: trainer._id,
+              id: trainer.id,
+              type: "trainer"
+            };
+
+            jwt.sign(payload, secret, options, function (err, token) {
+              if (err) return console.log(err);
+              res.json({
+                loginResult: "login_success",
+                token: token,
+                id: trainer.id,
+                type: "trainer"
+              });
+            });
+          }
+        }
+      });
+    }
+  });
 })
+
+router.post('/verify', function (req, res, next) {
+  var token = req.body.token
+  jwt.verify(token, 'soweZ_ParTner', function (err, decoded) {
+    console.log(decoded)
+    res.send(decoded)
+  });
+});
 
 module.exports = router;

@@ -27,21 +27,31 @@ public class UserMainMenuActivity extends AppCompatActivity {
         togetherButton = (Button)findViewById(R.id.trainer_btn);
 
         //test
-        aloneButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), UserCallHistoryActivity.class);
-                startActivity(intent);
-            }
+        aloneButton.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), UserCallHistoryActivity.class);
+            startActivity(intent);
         });
 
-        togetherButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), TrainerListActivity.class);
-                startActivity(intent);
-            }
+        togetherButton.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), TrainerListActivity.class);
+            startActivity(intent);
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(!SharedPreferenceData.getAutologinChecked(this)){
+            SharedPreferenceData.clearUserData(this);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(!SharedPreferenceData.getAutologinChecked(this)){
+            SharedPreferenceData.clearUserData(this);
+        }
     }
 
 }

@@ -33,21 +33,32 @@ public class TrainerMainMenuActivity extends AppCompatActivity {
         mRating = (RatingBar) findViewById(R.id.ratingbar);
         editImage = (ImageView) findViewById(R.id.edit);
 
-        mRating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+        //RatingBar ratingBar, float rating, boolean fromUser
+        mRating.setOnRatingBarChangeListener((ratingBar, rating, fromUser) -> {
 
-            }
         });
 
-        editImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TrainerProfileEditActivity.class);
-                startActivity(intent);
-            }
+        editImage.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), TrainerProfileEditActivity.class);
+            startActivity(intent);
         });
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(!SharedPreferenceData.getAutologinChecked(this)){
+            SharedPreferenceData.clearUserData(this);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(!SharedPreferenceData.getAutologinChecked(this)){
+            SharedPreferenceData.clearUserData(this);
+        }
     }
 
 }

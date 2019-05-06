@@ -33,4 +33,7 @@ public interface RetrofitCommnunication {
     @POST("/users/upload/image")
     Call<JsonObject> uploadFile(@Part MultipartBody.Part image, @Part("trainerId") RequestBody name);
 
+    @POST("/users/login")
+    Single<JsonObject> login(@Body JsonObject logindata);
+
 }
