@@ -7,6 +7,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,6 +47,8 @@ public class TrainerListActivity extends AppCompatActivity {
         // Toolbar 설정
         mToolbar = (Toolbar) findViewById(R.id.toolBar);
         setSupportActionBar(mToolbar);
+        // 제목 중복 없애기
+        getSupportActionBar().setTitle("");
 
         // 검색을 위한 spinner 설정
         trainSpinner = (Spinner) findViewById(R.id.training_type);
@@ -86,9 +89,19 @@ public class TrainerListActivity extends AppCompatActivity {
         search(name, trainType, gender);
 
 
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String trainType2 = trainSpinner.getSelectedItem().toString();
+//              if(trainType.equals("all")) trainType = null;
+                String gender2 = genderSpinner.getSelectedItem().toString();
+//              if(gender.equals("all")) gender = null;
+                String name2 = trainerNameEdittext.getText().toString();
+                if(name2.equals("")) name2 = "all";
 
-
-
+                search(name2, trainType2, gender2);
+            }
+        });
 //        Log.i("Received msg",trainerProfiles.get(0).getId());
 //        Log.i("Received msg",trainerProfiles.get(1).getId());
 
@@ -114,6 +127,8 @@ public class TrainerListActivity extends AppCompatActivity {
 
 
     }
+
+
 
     private void search(String name, String trainType, String gender) {
         // 버튼 누르면 검색.. 구현

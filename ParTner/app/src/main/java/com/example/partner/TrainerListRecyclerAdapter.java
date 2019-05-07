@@ -34,10 +34,11 @@ public class TrainerListRecyclerAdapter extends RecyclerView.Adapter<TrainerList
         holder.name.setText(listData.get(position).getName());
         holder.profile.setText(listData.get(position).getSelf_introduction());
         holder.sex.setText(listData.get(position).getSex());
-//        문제 발생 -- 스크롤하면 운동종류 계속해서 늘어남
-//        for(int i=0; i<listData.get(position).getTraining_type().length; i++){
-//            holder.training.append(listData.get(position).getTraining_type()[i]+" ");
-//        }
+        String train = "";
+        for(int i=0; i<listData.get(position).getTraining_type().size(); i++){
+            train = train + listData.get(position).getTraining_type().get(i) + " ";
+        }
+        holder.training.setText(train);
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
