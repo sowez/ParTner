@@ -18,8 +18,6 @@ public class UserSideBarView extends RelativeLayout implements View.OnClickListe
     public interface EventListener {
         void btnCancel();
 
-        void btnMyPage();
-
         void btnTraining();
 
         void btnCall();
@@ -58,9 +56,6 @@ public class UserSideBarView extends RelativeLayout implements View.OnClickListe
         switch (v.getId()) {
             case R.id.user_side_cancel:
                 listener.btnCancel();
-                break;
-            case R.id.user_side_mypage:
-                listener.btnMyPage();
                 break;
             case R.id.user_side_training:
                 listener.btnTraining();

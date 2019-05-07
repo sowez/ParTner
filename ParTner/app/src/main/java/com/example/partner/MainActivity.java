@@ -113,11 +113,6 @@ public class MainActivity extends AppCompatActivity {
                 closeMenu();
             }
 
-            @Override
-            public void btnMyPage() {
-                Log.d(TAG, "btnLevel1");
-                closeMenu();
-            }
 
             @Override
             public void btnTraining() {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_trainer_menu"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
@@ -10,7 +11,27 @@
     <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/toolbar"/>
+        layout="@layout/menu_toolbar"/>
+
+    <!-- 사이드바 -->
+    <FrameLayout
+        android:id="@+id/trainer_fl_slide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.75"
+            android:background="#202735" />
+
+        <FrameLayout
+            android:id="@+id/trainer_view_slidebar"
+            android:layout_width="250dp"
+            android:layout_height="match_parent" />
+        
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -160,4 +181,5 @@
 
         </RelativeLayout>
     </LinearLayout>
+
 </LinearLayout>

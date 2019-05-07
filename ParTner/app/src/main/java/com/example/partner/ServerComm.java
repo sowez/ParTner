@@ -42,7 +42,10 @@ public class ServerComm {
     private Disposable disposable;
 
     // 현재 쓰고있는 wifi ip (핸드폰이랑 노트북 쓰는 와이파이 같아야함!!)
-    private String URL = "http://192.168.0.10:3000/";
+    // 집 ip : http://192.168.0.10:3000/
+    // 프실 ip :
+    // 세미나실 ip : http://192.168.50.96:3000/
+    private String URL = "http://192.168.50.96:3000/";
     private RetrofitCommnunication retrofitCommnunication;
 
     public RetrofitCommnunication init() {
