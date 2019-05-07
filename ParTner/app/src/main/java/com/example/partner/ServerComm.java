@@ -8,6 +8,9 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -20,7 +23,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class ServerComm {
 
     private String TAG ="TAG";
-    private String URL = "http://192.168.0.6:3000/";
+    private String URL = "http://192.168.43.53:8000/";
     private RetrofitCommnunication retrofitCommnunication;
 
     public void init() {
@@ -74,6 +77,30 @@ public class ServerComm {
             }
         });
         return result;
+    }
+
+    // searching trainer list
+    List<TrainerProfile> trainerProfileList;
+    public List<TrainerProfile> searchTrainer(String name, String traintype, String sex, Context context) {
+
+        retrofitCommnunication.trainerList(name, traintype, sex).enqueue(new Callback<List<TrainerProfile>>() {
+            @Override
+            public void onResponse(Call<List<TrainerProfile>> call, Response<List<TrainerProfile>> response) {
+                if(response.isSuccessful()){
+                    trainerProfileList = response.body();
+                    Log.i(TAG, response.body().get(0).getId());
+                    Log.i(TAG, trainerProfileList.get(0).getId());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<TrainerProfile>> call, Throwable t) {
+                Toast.makeText(context, "데이터를 불러오는 데 실패하였습니다.", Toast.LENGTH_LONG).show();
+                Log.e(TAG, "onFailure: error getting trainerprofile" + t.getMessage());
+            }
+        });
+
+        return trainerProfileList;
     }
 
     private static OkHttpClient createOkHttpClient() {

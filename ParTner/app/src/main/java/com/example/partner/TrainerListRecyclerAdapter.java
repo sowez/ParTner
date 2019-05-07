@@ -13,14 +13,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TrainerListRecyclerAdapter extends RecyclerView.Adapter<TrainerListRecyclerAdapter.MyViewHolder>{
 
-    private ArrayList<TrainerProfile> listData = new ArrayList<>();
+    private List<TrainerProfile> listData = new ArrayList<>();
 
 
     /* 생성자 */
-    public  TrainerListRecyclerAdapter(ArrayList<TrainerProfile> list) { this.listData = list; }
+    public  TrainerListRecyclerAdapter(List<TrainerProfile> list) { this.listData = list; }
 
     /*
     * 넘겨 받은 데이터를 화면에 출력하는 역할

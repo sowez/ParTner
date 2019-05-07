@@ -1,5 +1,7 @@
 package com.example.partner;
 
+import java.util.ArrayList;
+
 public class TrainerProfile {
     private String id;
     private String pw;
@@ -7,16 +9,22 @@ public class TrainerProfile {
     private String name;
     private String self_introduction;
     private Integer star_rate;
-    private String[] training_type;
-    private String online;
+    private ArrayList<String> training_type;
+    private ArrayList<CallHistory> call_history;
+    private String state;
     private String img;
 
-    public TrainerProfile(String sex, String name, String self_introduction, Integer star_rate, String[] training_type) {
+    public TrainerProfile(String id, String pw, String sex, String name, String self_introduction, Integer star_rate, ArrayList<String> training_type, ArrayList<CallHistory> call_history, String state, String img) {
+        this.id = id;
+        this.pw = pw;
         this.sex = sex;
         this.name = name;
         this.self_introduction = self_introduction;
         this.star_rate = star_rate;
         this.training_type = training_type;
+        this.call_history = call_history;
+        this.state = state;
+        this.img = img;
     }
 
     public String getId() {
@@ -33,6 +41,14 @@ public class TrainerProfile {
 
     public void setPw(String pw) {
         this.pw = pw;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public String getSex() {
@@ -67,20 +83,28 @@ public class TrainerProfile {
         this.star_rate = star_rate;
     }
 
-    public String[] getTraining_type() {
+    public ArrayList<String> getTraining_type() {
         return training_type;
     }
 
-    public void setTraining_type(String[] training_type) {
+    public void setTraining_type(ArrayList<String> training_type) {
         this.training_type = training_type;
     }
 
+    public ArrayList<CallHistory> getCall_history() {
+        return call_history;
+    }
+
+    public void setCall_history(ArrayList<CallHistory> call_history) {
+        this.call_history = call_history;
+    }
+
     public String getOnline() {
-        return online;
+        return state;
     }
 
     public void setOnline(String online) {
-        this.online = online;
+        this.state = online;
     }
 
     public String getImg() {
