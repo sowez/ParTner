@@ -16,7 +16,10 @@ public class UserSideBarView extends RelativeLayout implements View.OnClickListe
     }
 
     public interface EventListener {
+
         void btnCancel();
+
+        void btnHome();
 
         void btnTraining();
 
@@ -38,7 +41,7 @@ public class UserSideBarView extends RelativeLayout implements View.OnClickListe
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.user_sidebar, this, true);
         findViewById(R.id.user_side_cancel).setOnClickListener(this);
-        findViewById(R.id.user_side_mypage).setOnClickListener(this);
+        findViewById(R.id.user_home).setOnClickListener(this);
         findViewById(R.id.user_side_training).setOnClickListener(this);
         findViewById(R.id.user_side_call).setOnClickListener(this);
         findViewById(R.id.user_side_bookmark).setOnClickListener(this);
@@ -46,7 +49,7 @@ public class UserSideBarView extends RelativeLayout implements View.OnClickListe
         findViewById(R.id.user_side_setting).setOnClickListener(this);
 
     }
-//user
+
     public UserSideBarView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
@@ -56,6 +59,9 @@ public class UserSideBarView extends RelativeLayout implements View.OnClickListe
         switch (v.getId()) {
             case R.id.user_side_cancel:
                 listener.btnCancel();
+                break;
+            case R.id.user_home:
+                listener.btnHome();
                 break;
             case R.id.user_side_training:
                 listener.btnTraining();

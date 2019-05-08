@@ -164,6 +164,7 @@ router.post('/login', function (req, res, next) {
             loginResult: "login_success",
             token: token,
             id: sportsman.id,
+            username: sportsman.name,
             type: "sportsman"
           });
         });
@@ -191,6 +192,7 @@ router.post('/login', function (req, res, next) {
                 loginResult: "login_success",
                 token: token,
                 id: trainer.id,
+                username: trainer.name,
                 type: "trainer"
               });
             });

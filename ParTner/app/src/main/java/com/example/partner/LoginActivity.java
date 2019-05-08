@@ -96,19 +96,20 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d(TAG, "onClickLogin: data" + data);
                             String token = data.get("token").getAsString();
                             String type = data.get("type").getAsString();
+                            String username = data.get("username").getAsString();
 
                             boolean auto = autologinCheck.isChecked();
 
-                            SharedPreferenceData.saveToken(this, token, type, auto);
+                            SharedPreferenceData.saveToken(this, token, username, type, auto);
 
                             if (type.equals("trainer")) {
                                 Intent intent = new Intent(this, TrainerMainMenuActivity.class);
                                 startActivity(intent);
-                                this.finish();
+                                finish();
                             }else{
                                 Intent intent = new Intent(this, UserMainMenuActivity.class);
                                 startActivity(intent);
-                                this.finish();
+                                finish();
                             }
                             break;
                         }

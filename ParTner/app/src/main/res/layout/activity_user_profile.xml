@@ -9,7 +9,7 @@
     <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/toolbar"/>
+        layout="@layout/menu_toolbar"/>
 
     <!-- 수정 버튼 -->
     <RelativeLayout

@@ -46,7 +46,7 @@ public class TrainerListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_trainer_list);
 
         // Toolbar 설정
-        mToolbar = (Toolbar) findViewById(R.id.toolBar);
+        mToolbar = (Toolbar) findViewById(R.id.menu_toolBar);
         setSupportActionBar(mToolbar);
         // 제목 중복 없애기
         getSupportActionBar().setTitle("");

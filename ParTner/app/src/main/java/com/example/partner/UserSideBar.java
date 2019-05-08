@@ -41,6 +41,11 @@ public class UserSideBar {
             }
 
             @Override
+            public void btnHome() {
+
+            }
+
+            @Override
             public void btnTraining() {
                 Log.d(TAG, "btnLevel btnTraining");
                 closeMenu();

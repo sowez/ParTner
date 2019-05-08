@@ -14,16 +14,18 @@ public class TrainerSideBar {
     private String TAG = "TAG";
 
     private Context context;
+    private boolean isMenuShow;
 
     private ViewGroup mainLayout;   //사이드 나왔을때 클릭방지할 영역
     private ViewGroup viewLayout;   //전체 감싸는 영역
     private ViewGroup sideLayout;   //사이드바만 감싸는 영역
 
-    public TrainerSideBar(Context context, ViewGroup mainLayout, ViewGroup viewLayout, ViewGroup sideLayout){
+    public TrainerSideBar(Context context){
         this.context = context;
-        this.mainLayout = mainLayout;
-        this.viewLayout = viewLayout;
-        this.sideLayout = sideLayout;
+        this.isMenuShow = false;
+        this.mainLayout = mainLayout.findViewById(R.id.id_trainer_menu);
+        this.viewLayout = viewLayout.findViewById(R.id.trainer_fl_slide);
+        this.sideLayout = sideLayout.findViewById(R.id.trainer_view_slidebar);
     }
 
     public void addSidebarView() {
@@ -40,6 +42,11 @@ public class TrainerSideBar {
             public void btnCancel() {
                 Log.d("TAG", "btnCancel");
                 closeMenu();
+            }
+
+            @Override
+            public void btnHome() {
+
             }
 
             @Override
@@ -62,24 +69,26 @@ public class TrainerSideBar {
         });
     }
 
-    public void closeMenu() {
-
+    public boolean closeMenu() {
+        isMenuShow = false;
         Animation slide = AnimationUtils.loadAnimation(context, R.anim.sidebar_hidden);
         sideLayout.startAnimation(slide);
         new Handler().postDelayed(() -> {
             viewLayout.setVisibility(View.GONE);
             viewLayout.setEnabled(false);
-            //mainLayout.setEnabled(true);
+            mainLayout.setEnabled(true);
         }, 450);
+        return isMenuShow;
     }
 
-    public void showMenu() {
-
+    public boolean showMenu() {
+        isMenuShow = true;
         Animation slide = AnimationUtils.loadAnimation(context, R.anim.sidebar_show);
         sideLayout.startAnimation(slide);
         viewLayout.setVisibility(View.VISIBLE);
         viewLayout.setEnabled(true);
-        //mainLayout.setEnabled(false);
+        mainLayout.setEnabled(false);
         Log.e("TAG", "메뉴버튼 클릭");
+        return isMenuShow;
     }
 }

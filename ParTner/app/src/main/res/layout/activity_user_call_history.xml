@@ -8,7 +8,7 @@
     <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/toolbar"/>
+        layout="@layout/menu_toolbar"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"

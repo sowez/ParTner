@@ -19,8 +19,9 @@ public class UserProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
         // Toolbar 설정
-        mToolbar = (Toolbar) findViewById(R.id.toolBar);
+        mToolbar = findViewById(R.id.menu_toolBar);
         setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("");
 
         editBtn = (ImageView) findViewById(R.id.edit);
 

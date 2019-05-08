@@ -20,8 +20,9 @@ public class UserMainMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_menu);
 
         // Toolbar 설정
-        mToolbar = (Toolbar) findViewById(R.id.toolBar);
+        mToolbar = findViewById(R.id.menu_toolBar);
         setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("");
 
         aloneButton = (Button)findViewById(R.id.user_btn);
         togetherButton = (Button)findViewById(R.id.trainer_btn);

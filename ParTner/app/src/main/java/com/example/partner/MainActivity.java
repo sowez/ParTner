@@ -113,6 +113,11 @@ public class MainActivity extends AppCompatActivity {
                 closeMenu();
             }
 
+            @Override
+            public void btnHome() {
+
+            }
+
 
             @Override
             public void btnTraining() {

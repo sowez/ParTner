@@ -25,8 +25,9 @@ public class UserCallHistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_call_history);
 
         // Toolbar 설정
-        mToolbar = (Toolbar) findViewById(R.id.toolBar);
+        mToolbar = findViewById(R.id.menu_toolBar);
         setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("");
 
         recyclerView = findViewById(R.id.recyclerView);
         linearLayoutManager = new LinearLayoutManager(this);
