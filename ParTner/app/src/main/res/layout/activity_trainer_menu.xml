@@ -30,7 +30,7 @@
             android:id="@+id/trainer_view_slidebar"
             android:layout_width="250dp"
             android:layout_height="match_parent" />
-        
+
     </FrameLayout>
 
     <LinearLayout

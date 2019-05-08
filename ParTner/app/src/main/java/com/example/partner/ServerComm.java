@@ -45,7 +45,8 @@ public class ServerComm {
     // 집 ip : http://192.168.0.10:3000/
     // 프실 ip :
     // 세미나실 ip : http://192.168.50.96:3000/
-    private String URL = "http://192.168.50.96:3000/";
+    // 범현사 : http://192.168.30.96:3000/
+    private String URL = "http://192.168.30.96:3000/";
     private RetrofitCommnunication retrofitCommnunication;
 
     public RetrofitCommnunication init() {
