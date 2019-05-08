@@ -201,6 +201,7 @@ router.post('/login', function (req, res, next) {
   });
 })
 
+/*토큰 유효 검사 */
 router.post('/verify', function (req, res, next) {
   var token = req.body.token
   jwt.verify(token, 'soweZ_ParTner', function (err, decoded) {
