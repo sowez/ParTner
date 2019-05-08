@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const userModel = require('../db/models/user')
+const userModel = require('../db/models/sportsman')
 const trainerModel = require('../db/models/trainer')
 
 /* ./trainer test */

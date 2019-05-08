@@ -7,6 +7,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -36,7 +37,7 @@ public class TrainerListActivity extends AppCompatActivity {
     private LinearLayoutManager linearLayoutManager;
     private TrainerListRecyclerAdapter recyclerAdapter;
 
-    private String URL = "http://192.168.43.53:8000/";
+    private String URL = "http://192.168.0.10:8000/";
     private Retrofit retrofit;
 
     @Override
@@ -154,6 +155,7 @@ public class TrainerListActivity extends AppCompatActivity {
             public void onFailure(Call<List<TrainerProfile>> call, Throwable t) {
                 Toast.makeText(TrainerListActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG)
                         .show();
+                Log.e("TAG", "onFailure: " + t.getMessage() );
             }
         });
 

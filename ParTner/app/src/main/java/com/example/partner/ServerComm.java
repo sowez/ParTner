@@ -45,14 +45,17 @@ public class ServerComm {
     private String TAG = "TAG";
     private Disposable disposable;
 
-    // 현재 쓰고있는 wifi ip (핸드폰이랑 노트북 쓰는 와이파이 같아야함!!)
-    // 집 ip : http://192.168.0.10:3000/
-    // 프실 ip :
-    // 세미나실 ip : http://192.168.50.96:3000/
+    /* 현재 쓰고있는 wifi ip (핸드폰이랑 노트북 쓰는 와이파이 같아야함!!) */
+    /* 성희가 쓰는 ip 입니당
+    * 집 : http://192.168.0.10:8000/
+    * 프실:
+    * 세미나실 : http://192.168.50.96:8000/
+    * 종합관 509 :  http://192.168.30.96:8000/
+    * */
+    private String URL = "http://192.168.0.10:8000/";
+
     // 수진이 핫스팟 : private String URL = "http://192.168.43.53:8000/";
-    private String URL = "http://192.168.50.96:3000/";
-    // 범현사 : http://192.168.30.96:3000/
-    // private String URL = "http://192.168.30.96:3000/";
+
     private RetrofitCommnunication retrofitCommnunication;
 
     public RetrofitCommnunication init() {
