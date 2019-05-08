@@ -15,8 +15,11 @@
 
         <activity android:name=".LoadingActivity"
             android:theme="@style/Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".LoginActivity"/>
@@ -27,11 +30,6 @@
         <activity android:name=".TrainerMainMenuActivity"/>
         <activity android:name=".UserMainMenuActivity"/>
         <activity android:name=".TrainerListActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".TrainerProfileEditActivity"/>
         <activity android:name=".TrainerCallHistoryActivity"/>
