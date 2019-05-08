@@ -21,12 +21,9 @@ const sportsmanSchema = new mongoose.Schema({
     trainer_bookmark :{
         
     },
-    call_history :{
+    call_history : [{ type : Number, ref: 'call_history' }],
 
-    },
-    training_history :{
-
-    }
+    training_history : [{ type : Number, ref: 'training_history' }],
 })
 
 

@@ -22,22 +22,25 @@ const trainerSchema = new mongoose.Schema({
         type: [String,]
     },
     star_rate: {
-        type: Number
+        type: Number,
+        default: 0
     },
     state: {
-        type: String
+        type: String,
+        default: "offline"
     }
     ,
-    self_instruction: {
-        type: String
+    self_introduction: {
+        type: String,
+        default: "Intro"
     },
     profileImg: {
-        type: String
+        type: String,
+        default: ""
     },
 
-    call_history: {
-
-    }
+    call_history: [{ type : Number, ref: 'call_history' }],
+    
 })
 
 
