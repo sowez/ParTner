@@ -183,7 +183,6 @@ public class TrainerSignUpActivity extends AppCompatActivity {
             serverComm.init();
             serverComm.postUploadImg(profileImg, id, this);
             serverComm.postSignUp(signUpData, this);
-            finish();
         } else if (pw.equals(pw_check) && overlapCheck) {
             Toast.makeText(this, "비밀번호는 영문자, 숫자, 특수문자를 포함하여 6자리 이상으로 만들어주세요", Toast.LENGTH_LONG).show();
         } else if (!overlapCheck) {

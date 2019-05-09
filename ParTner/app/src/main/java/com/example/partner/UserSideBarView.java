@@ -6,10 +6,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class UserSideBarView extends RelativeLayout implements View.OnClickListener {
 
     public EventListener listener;
+    private Context context;
 
     public void setEventListener(EventListener eventListener) {
         this.listener = eventListener;
@@ -35,11 +37,14 @@ public class UserSideBarView extends RelativeLayout implements View.OnClickListe
 
     public UserSideBarView(Context context) {
         this(context, null);
+        this.context = context;
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.user_sidebar, this, true);
+        TextView textView = findViewById(R.id.sidebar_user_name);
+        textView.setText(SharedPreferenceData.getUserName(context));
         findViewById(R.id.user_side_cancel).setOnClickListener(this);
         findViewById(R.id.user_home).setOnClickListener(this);
         findViewById(R.id.user_side_training).setOnClickListener(this);
