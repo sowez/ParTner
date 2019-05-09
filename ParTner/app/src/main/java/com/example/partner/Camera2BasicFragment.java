@@ -96,6 +96,8 @@ public class Camera2BasicFragment extends Fragment
     private AutoFitTextureView textureView;
 
     private TextView textView;
+    private TextView textView2;
+    private TextView textView3;
     private DrawView drawView;
     private ViewGroup layoutBottom;
     private ImageClassifier classifier;
@@ -266,6 +268,34 @@ public class Camera2BasicFragment extends Fragment
         }
     }
 
+    private void showToast2(String text) {
+        final Activity activity = getActivity();
+        if (activity != null) {
+            activity.runOnUiThread(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            textView2.setText(text);
+                            drawView.invalidate();
+                        }
+                    });
+        }
+    }
+
+    private void showToast3(String text) {
+        final Activity activity = getActivity();
+        if (activity != null) {
+            activity.runOnUiThread(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            textView3.setText(text);
+                            drawView.invalidate();
+                        }
+                    });
+        }
+    }
+
     /** Layout the preview and buttons. */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -311,6 +341,8 @@ public class Camera2BasicFragment extends Fragment
     public void onViewCreated(final View view, Bundle savedInstanceState) {
         textureView = view.findViewById(R.id.texture);
         textView = view.findViewById(R.id.text);
+        textView2 = view.findViewById(R.id.text2);
+        textView3 = view.findViewById(R.id.text3);
 
         layoutFrame = view.findViewById(R.id.layout_frame);
 //        personImg = view.findViewById(R.id.person_frame);
@@ -621,7 +653,7 @@ public class Camera2BasicFragment extends Fragment
                 throw new RuntimeException("Time out waiting to lock camera opening.");
             }
 //           1-> 전면 카메라, 0->후면 카메라
-            manager.openCamera("0", stateCallback, backgroundHandler);
+            manager.openCamera("1", stateCallback, backgroundHandler);
         } catch (CameraAccessException e) {
             Log.e(TAG, "Failed to open Camera", e);
         } catch (InterruptedException e) {
@@ -790,7 +822,7 @@ public class Camera2BasicFragment extends Fragment
     /** Classifies a frame from the preview stream. */
     private void classifyFrame() {
         if (classifier == null || getActivity() == null || cameraDevice == null) {
-            showToast("Uninitialized Classifier or invalid context.");
+//            showToast("Uninitialized Classifier or invalid context.");
             return;
         }
         String textToShow = "";
@@ -812,12 +844,17 @@ public class Camera2BasicFragment extends Fragment
             exercise.setPoint(classifier.mPrintPointArray);
             exercise.setDpPoint(drawView.mDrawPoint);
             readyEx(exercise.checkReady());
-            showToast("readyCounter: "+readyCounter);
+//            showToast("readyCounter: "+readyCounter);
         } else {
             // 운동 시작
             // 운동 실행하는 함수 호출
+            exercise.setPoint(classifier.mPrintPointArray);
+            exercise.setDpPoint(drawView.mDrawPoint);
             startEx(exercise.doExercise(exerciseStep));
-            showToast("운동 시자아아악!!!");
+
+            showToast("Step: "+ Integer.toString(exerciseStep)+", Count : "+Integer.toString(exerciseCounter));
+            showToast2(Double.toString(exercise.getAngle(9, 8, 9, 10)));
+            showToast3(Double.toString(exercise.getAngle(3,2, 3, 4)));
 
         }
 
@@ -854,8 +891,7 @@ public class Camera2BasicFragment extends Fragment
                         public void run() {
                             personImg.setVisibility(View.INVISIBLE);
                             if (isStepDone){
-                                Log.d("Exercise", "준비됨");
-                                personImg.setImageResource(img_green);
+                                Log.d("Exercise", "다음 step으로");
                                 exerciseStep++;
                                 if(exerciseStep==endStep){
                                     exerciseCounter++;
@@ -863,7 +899,7 @@ public class Camera2BasicFragment extends Fragment
                                 }
                             }
                             else {
-                                Log.d("Exercise", "안됨");
+                                Log.d("Exercise", "step 못 넘어감");
                                 //음성 처리해주기
                             }
                         }

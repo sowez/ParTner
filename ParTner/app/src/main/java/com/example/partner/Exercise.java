@@ -1,13 +1,14 @@
 package com.example.partner;
 
 import android.graphics.PointF;
+import android.util.Log;
 
 import java.util.ArrayList;
 
 public class Exercise {
     private float[][] point;
     private int exCount;
-    private ArrayList<PointF> dpPoint;
+    public ArrayList<PointF> dpPoint;
     public Exercise(int exCount){
         this.exCount = exCount;
     }
@@ -21,7 +22,6 @@ public class Exercise {
 
     //운동 동작 인식하는 함수
     public boolean doExercise(int currentStep){
-
         return true;
     }
 
@@ -40,11 +40,9 @@ public class Exercise {
     public float[][] getPoint() {
         return point;
     }
-
     public void setPoint(float[][] point) {
         this.point = point;
     }
-
     public int getSteps(){return 0;}
     public void setDpPoint(ArrayList<PointF> dpPoint) { this.dpPoint = dpPoint; }
 }

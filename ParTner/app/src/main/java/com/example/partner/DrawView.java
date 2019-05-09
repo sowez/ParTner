@@ -43,6 +43,8 @@ public class DrawView extends View {
             getResources().getColor(R.color.color_r_hip, null),
             getResources().getColor(R.color.color_r_knee, null),
             getResources().getColor(R.color.color_r_ankle, null),
+            getResources().getColor(R.color.color_background, null),
+            // 임시로 설정
             getResources().getColor(R.color.color_background, null)
     };
 
@@ -136,7 +138,7 @@ public class DrawView extends View {
         PointF p1 = mDrawPoint.get(1);
 
 
-        for (int i = 0; i < mDrawPoint.size(); i++) {
+        for (int i = 0; i < 13; i++) {
             if (i == 1) continue;
             switch (i) {
                 case 0:
@@ -164,12 +166,12 @@ public class DrawView extends View {
             prePointF = mDrawPoint.get(i);
         }
 
-        // 스쿼트 준비 영역 확인
-        mPaint.setColor(0xff6fa8dc);
-        canvas.drawLine(mWidth*(float)0.40,0,mWidth*(float)0.40,mHeight,mPaint);
-        canvas.drawLine(mWidth*(float)0.76,0,mWidth*(float)0.76,mHeight,mPaint);
+//        // 스쿼트 준비 영역 확인
+//        mPaint.setColor(0xff6fa8dc);
+//        canvas.drawLine(mWidth*(float)0.40,0,mWidth*(float)0.40,mHeight,mPaint);
+//        canvas.drawLine(mWidth*(float)0.76,0,mWidth*(float)0.76,mHeight,mPaint);
 
-        for (int i = 0; i < mDrawPoint.size(); i++) {
+        for (int i = 0; i < 13; i++) {
             mPaint.setColor((int)mColorArray[i]);
             canvas.drawCircle(mDrawPoint.get(i).x, mDrawPoint.get(i).y,circleRadius, mPaint);
         }
