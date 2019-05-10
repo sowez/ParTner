@@ -8,7 +8,6 @@ import java.util.ArrayList;
 public class JumpingJack extends Exercise {
     AngleResource angleResource = new AngleResource();
     private float[][] point;
-    private int[][] angleCheck = new int[8][8];
 //    private int exCount;
 //    private ArrayList<PointF> dpPoint;
 
@@ -49,9 +48,9 @@ public class JumpingJack extends Exercise {
             Log.d("angle here", angle[currentStep][i][0] + "," + angle[currentStep][i][1] + "," + angle[currentStep][i][2] + "," + angle[currentStep][i][3] + "," + angleRange[currentStep][i][0] + "," + angleRange[currentStep][i][1]);
             double currentAngle = getAngle(angle[currentStep][i][0], angle[currentStep][i][1], angle[currentStep][i][2], angle[currentStep][i][3]);
             if (currentAngle >= angleRange[currentStep][i][0] && currentAngle <= angleRange[currentStep][i][1]) {
-                Log.d("angle right", currentStep+"step, "+i+": "+currentAngle+" >= "+angleRange[currentStep][i][0] +"&&"+ currentAngle +"<="+ angleRange[currentStep][i][1]);
+                Log.d("angle right", currentStep+"step, "+i+": "+angleRange[currentStep][i][0]+"<="+currentAngle+"<="+ angleRange[currentStep][i][1]);
             } else {
-                Log.d("angle error", currentStep+"step, "+i+": "+currentAngle+" >= "+angleRange[currentStep][i][0] +"&&"+ currentAngle +"<="+ angleRange[currentStep][i][1]);
+                Log.d("angle error", currentStep+"step, "+i+": "+angleRange[currentStep][i][0]+"<="+currentAngle+"<="+ angleRange[currentStep][i][1]);
 
                 return false;
             }

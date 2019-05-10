@@ -621,7 +621,7 @@ public class Camera2BasicFragment extends Fragment
                 throw new RuntimeException("Time out waiting to lock camera opening.");
             }
 //           1-> 전면 카메라, 0->후면 카메라
-            manager.openCamera("1", stateCallback, backgroundHandler);
+            manager.openCamera("0", stateCallback, backgroundHandler);
         } catch (CameraAccessException e) {
             Log.e(TAG, "Failed to open Camera", e);
         } catch (InterruptedException e) {
@@ -819,7 +819,6 @@ public class Camera2BasicFragment extends Fragment
             exercise.setPoint(classifier.mPrintPointArray);
             exercise.setDpPoint(drawView.mDrawPoint);
             startEx(exercise.doExercise(exerciseStep));
-            showToast("운동 시자아아악!!!");
             showToast("exerciseCounter: "+exerciseCounter+", exerciseStep: "+exerciseStep);
         }
 
