@@ -8,27 +8,27 @@ public interface InstallCallbackInterface
     /**
      * New package installation is required.
      */
-    int NEW_INSTALLATION = 0;
+    static final int NEW_INSTALLATION = 0;
     /**
      * Current package installation is in progress.
      */
-    int INSTALLATION_PROGRESS = 1;
+    static final int INSTALLATION_PROGRESS = 1;
 
     /**
      * Target package name.
      * @return Return target package name.
      */
-    String getPackageName();
+    public String getPackageName();
     /**
      * Installation is approved.
      */
-    void install();
+    public void install();
     /**
      * Installation is canceled.
      */
-    void cancel();
+    public void cancel();
     /**
      * Wait for package installation.
      */
-    void wait_install();
-}
+    public void wait_install();
+};

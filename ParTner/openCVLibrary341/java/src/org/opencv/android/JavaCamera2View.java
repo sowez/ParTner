@@ -370,5 +370,5 @@ public class JavaCamera2View extends CameraBridgeViewBase {
         private Mat mRgba;
         private int mWidth;
         private int mHeight;
-    }
+    };
 }

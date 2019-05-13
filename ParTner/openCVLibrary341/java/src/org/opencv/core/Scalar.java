@@ -78,7 +78,8 @@ public class Scalar {
         if (this == obj) return true;
         if (!(obj instanceof Scalar)) return false;
         Scalar it = (Scalar) obj;
-        return java.util.Arrays.equals(val, it.val);
+        if (!java.util.Arrays.equals(val, it.val)) return false;
+        return true;
     }
 
     @Override
