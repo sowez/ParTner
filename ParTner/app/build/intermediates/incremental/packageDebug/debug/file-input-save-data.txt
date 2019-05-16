@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu May 16 20:30:44 KST 2019
+#Thu May 16 20:55:54 KST 2019
 2.base=/home/adman/capstone/ParTner/ParTner/app/build/intermediates/transforms/dexMerger/debug/25
 0.path=lib/armeabi-v7a/libopencv_java3.so
 2.baseType=DIRECTORY

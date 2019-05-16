@@ -6,23 +6,26 @@ import android.util.Log;
 import java.util.ArrayList;
 
 
-public class Squat extends Exercise{
+public class Squat extends Exercise {
 
     private float[][] point;
 //    private int exCount;
 
     private ArrayList<PointF> dpPoint; // 화면 상 좌표
 
-    private int poseState = 0;
+//    private int legState = -1;
+//    private boolean isArmStraight = false;
+//    private boolean isArmParallel = false;
 
 
-    public Squat(int exCount){
+
+    public Squat(int exCount) {
         super(exCount);
     }
 
     // 스쿼트 준비자세 체크하는 함수
     @Override
-    public boolean checkReady(){
+    public boolean checkReady() {
         boolean isReady = true;
 
         // 1. 모든 x좌표가 38.5~72.85 사이에 있어야 함(0<=x<=96)
@@ -40,6 +43,7 @@ public class Squat extends Exercise{
 //        Log.d("Exercise", "왼쪽을 보고 서세요");
 
         // 3. 머리, 목, 어깨가 위쪽에 있어야 함
+
         if (point[1][0]>34.3||point[1][1]>34.3||point[1][2]>34.3||point[1][5]>34.3){
             isReady = false;
             Log.d("Exercise", "핸드폰의 각도를 조절하세요");
@@ -73,7 +77,6 @@ public class Squat extends Exercise{
 
         // 지표면-왼쪽팔 각도(방향) 구하기
         double armDirection = getAngle(14, 15, 2, 4);
-
         Log.d("각도", "왼쪽 다리: " + legAngle);
         Log.d("각도", "팔각도: " + armAngle);
         Log.d("각도", "팔방향: " + armDirection);
@@ -149,7 +152,6 @@ public class Squat extends Exercise{
     }
 
 
-
 //    // getter setter
 
     public float[][] getPoint() {
@@ -164,6 +166,4 @@ public class Squat extends Exercise{
     public int getSteps() {
         return 5;
     }
-
-//    public void setDpPoint(ArrayList<PointF> dpPoint) { this.dpPoint = dpPoint; }
 }

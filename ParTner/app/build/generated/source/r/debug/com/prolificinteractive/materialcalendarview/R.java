@@ -49,11 +49,11 @@ public final class R {
         public static final int out_of_range = 0x7f080078;
         public static final int saturday = 0x7f080085;
         public static final int sunday = 0x7f0800aa;
-        public static final int thursday = 0x7f0800b4;
-        public static final int tuesday = 0x7f0800be;
-        public static final int vertical = 0x7f0800c6;
-        public static final int wednesday = 0x7f0800ca;
-        public static final int week = 0x7f0800cb;
+        public static final int thursday = 0x7f0800b5;
+        public static final int tuesday = 0x7f0800bf;
+        public static final int vertical = 0x7f0800c7;
+        public static final int wednesday = 0x7f0800cb;
+        public static final int week = 0x7f0800cc;
     }
     public static final class string {
         public static final int calendar = 0x7f0c0022;

@@ -75,16 +75,36 @@
             android:layout_marginEnd="18dp"
             android:text="전환" />
 
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#00FF00"
-            android:textSize="45sp"
-            android:textStyle="bold"
-            android:layout_marginTop="15dp"
-            tools:text="asd"/>
 
     </RelativeLayout>
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#1c000000"
+        android:textColor="#FFF"
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#1c000000"
+        android:textColor="#FFF"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#1c000000"
+        android:textColor="#FFF"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:layout_marginTop="100dp"/>
+
+>>>>>>> origin/won-squat
 </FrameLayout>

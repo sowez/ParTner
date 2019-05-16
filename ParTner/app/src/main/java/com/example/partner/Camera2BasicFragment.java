@@ -95,6 +95,8 @@ public class Camera2BasicFragment extends Fragment
     private AutoFitTextureView textureView;
     private AutoFitFrameLayout layoutFrame;
     private TextView textView;
+    private TextView textView2;
+    private TextView textView3;
     private DrawView drawView;
     private PoseEstimation classifier;
     private ImageView personImg;
@@ -346,6 +348,36 @@ public class Camera2BasicFragment extends Fragment
     /**
      * Layout the preview and buttons.
      */
+    private void showToast2(String text) {
+        final Activity activity = getActivity();
+        if (activity != null) {
+            activity.runOnUiThread(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            textView2.setText(text);
+                            drawView.invalidate();
+                        }
+                    });
+        }
+    }
+
+    private void showToast3(String text) {
+        final Activity activity = getActivity();
+        if (activity != null) {
+            activity.runOnUiThread(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            textView3.setText(text);
+                            drawView.invalidate();
+                        }
+                    });
+        }
+    }
+
+    /** Layout the preview and buttons. */
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -396,6 +428,9 @@ public class Camera2BasicFragment extends Fragment
     public void onViewCreated(final View view, Bundle savedInstanceState) {
         textureView = view.findViewById(R.id.texture);
         textView = view.findViewById(R.id.text);
+        textView2 = view.findViewById(R.id.text2);
+        textView3 = view.findViewById(R.id.text3);
+
         layoutFrame = view.findViewById(R.id.layout_frame);
         drawView = view.findViewById(R.id.drawview);
         personImg = view.findViewById(R.id.person_frame);
@@ -891,14 +926,18 @@ public class Camera2BasicFragment extends Fragment
             exercise.setPoint(classifier.mPrintPointArray);
             exercise.setDpPoint(drawView.mDrawPoint);
             readyEx(exercise.checkReady());
-            showToast("readyCounter: "+readyCounter);
+//            showToast("readyCounter: "+readyCounter);
         } else {
             // 운동 시작
             // 운동 실행하는 함수 호출
             exercise.setPoint(classifier.mPrintPointArray);
             exercise.setDpPoint(drawView.mDrawPoint);
             startEx(exercise.doExercise(exerciseStep));
-            showToast("exerciseCounter: "+exerciseCounter+"\nexerciseStep: "+exerciseStep);
+
+            showToast("Step: "+ Integer.toString(exerciseStep)+", Count : "+Integer.toString(exerciseCounter));
+            showToast2(Double.toString(exercise.getAngle(9, 8, 9, 10)));
+            showToast3(Double.toString(exercise.getAngle(3,2, 3, 4)));
+
         }
     }
 
@@ -935,7 +974,8 @@ public class Camera2BasicFragment extends Fragment
                         public void run() {
                             personImg.setVisibility(View.INVISIBLE);
                             if (isStepDone){
-                                Log.d("Exercise", "준비됨");
+
+                                Log.d("Exercise", "다음 step으로");
                                 resetStepCounter = 0;
                                 personImg.setImageResource(img_green);
                                 exerciseStep++;
@@ -948,7 +988,7 @@ public class Camera2BasicFragment extends Fragment
                                 }
                             }
                             else {
-                                Log.d("Exercise", "안됨");
+                                Log.d("Exercise", "step 못 넘어감");
                                 //음성 처리해주기
 
                                 // 너무 오랫동안 다음 Step으로 못넘어가는 경우 Step 초기화
