@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/wonjung/Desktop/CapD/android-demo/demo_mace/openCVLibrary341/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/home/wonjung/Desktop/CapD/android-demo/demo_mace/openCVLibrary341/src/debug/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/home/adman/capstone/ParTner/ParTner/openCVLibrary341/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/home/adman/capstone/ParTner/ParTner/openCVLibrary341/src/debug/jniLibs"/></dataSet></merger>

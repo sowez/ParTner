@@ -82,4 +82,6 @@ dependencies {
 //    compile 'org.tensorflow:tensorflow-lite:+'
     compile project(':macelibrary')
     testCompile 'junit:junit:4.12'
+    compile 'com.prolificinteractive:material-calendarview:1.4.3'
+//    compile 'com.applandeo:material-calendar-view:1.5.1'
 }

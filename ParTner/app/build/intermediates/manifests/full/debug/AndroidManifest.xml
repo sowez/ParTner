@@ -41,19 +41,19 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.CameraActivity"
+            android:name="com.example.partner.CameraActivity"
             android:theme="@style/Theme.AppCompat" />
         <activity
-            android:name="com.example.ExHistoryActivity"
+            android:name="com.example.partner.ExHistoryActivity"
             android:theme="@style/Theme.AppCompat" />
         <activity
-            android:name="com.example.ExPreviewActivity"
+            android:name="com.example.partner.ExPreviewActivity"
             android:theme="@style/Theme.AppCompat" />
         <activity
-            android:name="com.example.ExListActivity"
+            android:name="com.example.partner.ExListActivity"
             android:theme="@style/Theme.AppCompat" />
         <activity
-            android:name="com.example.MainActivity"
+            android:name="com.example.partner.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat" >
             <intent-filter>
