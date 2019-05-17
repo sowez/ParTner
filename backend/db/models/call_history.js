@@ -13,8 +13,8 @@ const training_historySchema = new mongoose.Schema({
         type:Number,
         required:true
     },
-    trainer:{},
-    user:{}
+    trainer: {type : Number, ref: 'trainer'},
+    user: {type : Number, ref: 'user'},
 })
 
 

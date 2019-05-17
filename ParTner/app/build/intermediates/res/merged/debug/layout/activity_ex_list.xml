@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:padding="25dp"
+    >
+
+    <Button
+        android:id="@+id/btn_ex1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#CECECE"
+        android:text="플랭크"
+        android:textSize="35sp"
+        />
+
+    <Button
+        android:id="@+id/btn_ex2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="25dp"
+        android:background="#CECECE"
+        android:text="스쿼트"
+        android:textSize="35sp"
+        />
+
+    <Button
+        android:id="@+id/btn_ex3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="25dp"
+        android:background="#CECECE"
+        android:text="점핑잭"
+        android:textSize="35sp"
+        />
+
+</LinearLayout>

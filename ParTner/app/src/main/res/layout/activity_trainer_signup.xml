@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/toolbar"/>
+
+    <LinearLayout android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+    <EditText
+        android:id="@+id/trainer_id"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="아이디" />
+
+    <Button
+        android:id="@+id/btn_trainerid_overlap_check"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="아이디 중복 체크"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/trainer_pw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="비밀번호" />
+
+    <EditText
+        android:id="@+id/trainer_pw_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="비밀번호 재입력" />
+
+
+    <RadioGroup
+        android:id="@+id/trainer_sex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/trainer_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="남성" />
+
+        <RadioButton
+            android:id="@+id/trainer_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여성" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/trainer_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="이름" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="운동 분야 선택" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/check_yoga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="요가" />
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/check_muscle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="근력운동" />
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/check_pilates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="필라테스" />
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/check_stretching"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="스트레칭" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="프로필 이미지 업로드" />
+
+    <ImageView
+        android:id="@+id/signup_trainer_profile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/profile_image"/>
+
+    <Button
+        android:id="@+id/btn_gallery_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="갤러리에서 가져오기"/>
+
+    <Button
+        android:id="@+id/btn_trainer_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="회원가입 완료!" />
+
+</LinearLayout>

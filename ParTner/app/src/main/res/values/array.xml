@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="traintype">
+        <item>all</item>
+        <item>yoga</item>
+        <item>muscle</item>
+        <item>pilates</item>
+        <item>stretching</item>
+    </string-array>
+    <string-array name="gendertype">
+        <item>all</item>
+        <item>male</item>
+        <item>female</item>
+    </string-array>
+</resources>

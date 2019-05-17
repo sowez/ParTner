@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/edd2fe881d339b946e535e57579d108b/res/drawable-anydpi-v21/design_ic_visibility.xml"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility_off.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/edd2fe881d339b946e535e57579d108b/res/drawable-anydpi-v21/design_ic_visibility_off.xml"
+    }
+]

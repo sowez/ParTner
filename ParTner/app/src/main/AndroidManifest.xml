@@ -19,8 +19,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.partner">
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature android:name="android.hardware.camera"/>
     <uses-feature android:name="android.hardware.camera.autofocus"/>
@@ -34,9 +35,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat">
+        <activity android:name=".LoadingActivity"
+            android:theme="@style/Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -50,6 +50,24 @@
             android:theme="@style/Theme.AppCompat"/>
         <activity android:name=".ExListActivity"
             android:theme="@style/Theme.AppCompat"/>
+
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".SignUpActivity"/>
+        <activity android:name=".TrainerSignUpActivity"/>
+        <activity android:name=".UserSignUpActivity"/>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".TrainerMainMenuActivity"/>
+        <activity android:name=".UserMainMenuActivity"/>
+        <activity android:name=".TrainerListActivity">
+        </activity>
+        <activity android:name=".TrainerProfileEditActivity"/>
+        <activity android:name=".TrainerCallHistoryActivity"/>
+        <activity android:name=".PopupTrainerInfoActivity" android:theme="@style/popupTheme"/>
+        <activity android:name=".PopupTrainFinishedActivity" android:theme="@style/popupTheme"/>
+        <activity android:name=".UserProfileActivity"/>
+        <activity android:name=".UserProfileEditActivity"/>
+        <activity android:name=".UserCallHistoryActivity"/>
+
     </application>
 
 </manifest>

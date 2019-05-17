@@ -15,10 +15,10 @@
  limitations under the License.
 -->
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
 
+    <color name="colorPrimary">#ffb31d</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#D81B60</color>
 
     <color name="control_background">#cc4285f4</color>
 
@@ -42,4 +42,7 @@
     <color name="color_r_knee">#268b01</color>
     <color name="color_r_ankle">#ff6a4d</color>
     <color name="color_background">#be9268</color>
+    <color name="titleTextColor">#FFFFFF</color>
+    <color name="transparent">#00ffffff</color>
+
 </resources>

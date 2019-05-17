@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri May 17 14:41:44 KST 2019
+#Fri May 17 15:43:04 KST 2019
 2.base=/home/adman/capstone/ParTner/ParTner/app/build/intermediates/transforms/stripDebugSymbol/debug/0
 0.path=lib/armeabi-v7a/libopencv_java3.so
 2.baseType=DIRECTORY
