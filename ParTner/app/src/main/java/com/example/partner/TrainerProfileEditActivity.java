@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.google.gson.JsonObject;
+
 import java.util.ArrayList;
 
 public class TrainerProfileEditActivity extends AppCompatActivity {
@@ -85,7 +87,11 @@ public class TrainerProfileEditActivity extends AppCompatActivity {
         editDoneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//                JsonObject update_data = new JsonObject();
+//                update_data.addProperty("name", userId);
+//                update_data.addProperty("self_introduction", userPw);
+//                update_data.addProperty("sex",);
+//                update_data.addProperty("training_type",);;
 
 
                 finish();
