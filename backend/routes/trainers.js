@@ -104,17 +104,16 @@ router.get('/list/:name', function (req, res, next) {
       }
     }
   }
-  // else (req.params.name == "all" && req.query.sex == "all") {
-  //   trainerModel.find({ $or:[{name: {$regex:req.params.name}}, {sex: req.query.sex},{training_type: req.query.traintype}] }, function(err, trainers) {
-  //     if(err){
-  //       return res.status(500).send({error: 'databasefailure'});
-  //     }
-  //     console.log(trainers);
-  //     res.json(trainers);
-  //   })  
-  // }
+});
 
-
+router.get('/profile', function (req, res, next) {
+  trainerModel.findOne({ id: req.query.id }, function(err, trainer) {
+    if(err){
+      return res.status(500).send({error: 'databasefailure'});
+    }
+    console.log(trainer);
+    res.json(trainer);
+  })
 });
 
 

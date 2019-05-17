@@ -46,6 +46,12 @@ public class TrainerListRecyclerAdapter extends RecyclerView.Adapter<TrainerList
 //                Toast.makeText(context, position+"", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(v.getContext(), PopupTrainerInfoActivity.class);
                 intent.putExtra("name",listData.get(position).getName());
+                intent.putExtra("id",listData.get(position).getId());
+                intent.putExtra("star_rate",listData.get(position).getStar_rate().toString());
+                intent.putExtra("img",listData.get(position).getProfileImg());
+                intent.putExtra("intro",listData.get(position).getSelf_introduction());
+                intent.putExtra("traintype", holder.training.getText().toString());
+
                 v.getContext().startActivity(intent);
             }
         });
