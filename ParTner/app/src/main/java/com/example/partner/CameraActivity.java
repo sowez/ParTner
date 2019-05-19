@@ -41,7 +41,7 @@ public class CameraActivity extends Activity {
 
     private int exType;
     private int exCount;
-    private String mCameraFacing="1";
+    private String mCameraFacing="0";
 
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
