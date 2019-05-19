@@ -1,6 +1,6 @@
 const { mongoose } = require('../mongo')
 
-const training_historySchema = new mongoose.Schema({
+const call_historySchema = new mongoose.Schema({
     start_time:{
         type:Date,
         required:true
@@ -19,4 +19,4 @@ const training_historySchema = new mongoose.Schema({
 
 
 
-module.exports = mongoose.model('training_history', training_historySchema)
+module.exports = mongoose.model('call_history', call_historySchema)

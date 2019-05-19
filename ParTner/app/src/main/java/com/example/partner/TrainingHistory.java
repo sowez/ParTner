@@ -4,19 +4,15 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class CallHistory {
-    private Date start_time;
-    private Date end_time;
-    private Integer call_duration;
-    private String trainer;
-    private String user;
+public class TrainingHistory {
+    private Date start_time, end_time;
+    private int ex_count, ex_type;
 
-    public CallHistory(Date start_time, Date end_time, Integer call_duration, String trainer, String user) {
+    public TrainingHistory(Date start_time, Date end_time, int ex_count, int ex_type){
         this.start_time = start_time;
         this.end_time = end_time;
-        this.call_duration = call_duration;
-        this.trainer = trainer;
-        this.user = user;
+        this.ex_count = ex_count;
+        this.ex_type = ex_type;
     }
 
     public Date getDate() {
@@ -46,27 +42,19 @@ public class CallHistory {
         this.end_time = end_time;
     }
 
-    public Integer getCall_duration() {
-        return call_duration;
+    public int getEx_count() {
+        return ex_count;
     }
 
-    public void setCall_duration(Integer call_duration) {
-        this.call_duration = call_duration;
+    public void setEx_count(int ex_count) {
+        this.ex_count = ex_count;
     }
 
-    public String getTrainer() {
-        return trainer;
+    public int getEx_type() {
+        return ex_type;
     }
 
-    public void setTrainer(String trainer) {
-        this.trainer = trainer;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
+    public void setEx_type(int ex_type) {
+        this.ex_type = ex_type;
     }
 }

@@ -1,6 +1,6 @@
-const { mongoose } = require('../mongo')
+const { mongoose } = require('../mongo');
 
-const call_historySchema = new mongoose.Schema({
+const training_historySchema = new mongoose.Schema({
     start_time:{
         type:Date,
         required:true
@@ -9,14 +9,14 @@ const call_historySchema = new mongoose.Schema({
         type:Date,
         required:true
     },
-    call_duration:{
+    ex_count:{
         type:Number,
         required:true
     },
-    trainer: {type : Number, ref: 'trainer'},
-    user: {type : Number, ref: 'user'}
-})
+    ex_type:{
+        type:Number,
+        required:true
+    }
+});
 
-
-
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('training_history', training_historySchema);
