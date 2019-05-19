@@ -37,11 +37,9 @@ public class CameraActivity extends Activity {
     }
 
     public static boolean isOpenCVInit = false;
-    private Button btn_endEx;
 
     private int exType;
     private int exCount;
-    private String mCameraFacing="0";
 
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
@@ -81,7 +79,6 @@ public class CameraActivity extends Activity {
             Bundle bundle = new Bundle();
             bundle.putInt("exType", exType);
             bundle.putInt("exCount", exCount);
-            bundle.putString("mCameraFacing", mCameraFacing);
             c2bf.setArguments(bundle);
 
             getFragmentManager()

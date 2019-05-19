@@ -10,15 +10,15 @@ public class Flank extends Exercise{
 
     @Override
     public boolean checkReady(){
-        boolean isReady = true;
+        boolean isReady = false;
         return isReady;
     }
 
-    // 점핑잭 운동 동작 인식하는 함수
+    // 플랭크 운동 동작 인식하는 함수
     @Override
     public boolean doExercise(int currentStep){
 
-        return true;
+        return false;
     }
 
     // getter setter

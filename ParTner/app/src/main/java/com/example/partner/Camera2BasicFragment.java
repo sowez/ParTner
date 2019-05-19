@@ -42,6 +42,7 @@ import android.hardware.camera2.CaptureResult;
 import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.ImageReader;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -392,7 +393,6 @@ public class Camera2BasicFragment extends Fragment
 
         exType = this.getArguments().getInt("exType");
         exCount = this.getArguments().getInt("exCount");
-        mCameraFacing = this.getArguments().getString("mCameraFacing");
 
         // 운동 종류에 따라 class, imgsrc 등 설정
         //exercise에 상속
@@ -516,17 +516,8 @@ public class Camera2BasicFragment extends Fragment
         public void onClick(View arg0) {
             if(mCameraFacing=="1") mCameraFacing="0";
             else mCameraFacing="1";
-            
-            Camera2BasicFragment c2bf = new Camera2BasicFragment();
-            Bundle bundle = new Bundle();
-            bundle.putInt("exType", exType);
-            bundle.putInt("exCount", exCount);
-            bundle.putString("mCameraFacing", mCameraFacing);
-            c2bf.setArguments(bundle);
-            getFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.container, c2bf)
-                    .commit();
+            closeCamera();
+            openCamera(textureView.getWidth(), textureView.getHeight());
         }
 
     };
