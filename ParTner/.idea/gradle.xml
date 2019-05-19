@@ -3,11 +3,23 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT" />
-        </compositeConfiguration>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/sample-chat" />
+            <option value="$PROJECT_DIR$/sample-content" />
+            <option value="$PROJECT_DIR$/sample-core" />
+            <option value="$PROJECT_DIR$/sample-custom-objects" />
+            <option value="$PROJECT_DIR$/sample-pushnotifications" />
+            <option value="$PROJECT_DIR$/sample-users" />
+            <option value="$PROJECT_DIR$/sample-videochat-conference" />
+            <option value="$PROJECT_DIR$/sample-videochat-kotlin" />
+            <option value="$PROJECT_DIR$/sample-videochat-webrtc" />
+            <option value="$PROJECT_DIR$/snippets" />
+          </set>
+        </option>
         <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>

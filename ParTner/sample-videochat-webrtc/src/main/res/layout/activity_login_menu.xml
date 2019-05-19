@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/id_partner_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ParTner.LoginActivity"
+    android:background="@color/white">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/toolbar"/>
+
+    <EditText
+        android:id="@+id/login_id"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="150dp"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:background="#ffffcc"
+        android:hint="ID" />
+
+    <EditText
+        android:id="@+id/login_pw"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorPrimary"
+        android:hint="Password"
+        android:textColorHint="@color/colorPrimary"
+        android:background="#ffffcc"
+        android:inputType="textPassword" />
+
+    <CheckBox
+        android:id="@+id/autologin"
+        android:text="자동로그인"
+        android:textColor="@color/colorPrimaryDark"
+        android:buttonTint="@color/colorPrimary"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
+
+    <Button
+        android:id="@+id/loginbutton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"
+        android:text="로그인" />
+
+    <Button
+        android:id="@+id/signupbutton"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"
+        android:text="회원가입" />
+
+
+</LinearLayout>
