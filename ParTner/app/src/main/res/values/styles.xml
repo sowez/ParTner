@@ -25,9 +25,9 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <!--Status Bar 배경색-->
-        <item name="android:statusBarColor">@color/transparent</item>
+        <!--<item name="android:statusBarColor">@color/transparent</item>-->
         <!--Status Bar 글자색깔-->
-        <item name="android:windowNoTitle">true</item>
+        <!--<item name="android:windowNoTitle">true</item>-->
 
     </style>
 

@@ -44,14 +44,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CameraActivity"
-            android:theme="@style/Theme.AppCompat"/>
-        <activity android:name=".ExHistoryActivity"
-            android:theme="@style/Theme.AppCompat"/>
-        <activity android:name=".ExPreviewActivity"
-            android:theme="@style/Theme.AppCompat"/>
-        <activity android:name=".ExListActivity"
-            android:theme="@style/Theme.AppCompat"/>
+        <activity android:name=".CameraActivity"/>
+        <activity android:name=".ExHistoryActivity"/>
+        <activity android:name=".ExPreviewActivity"/>
+        <activity android:name=".ExListActivity"/>
 
         <activity android:name=".LoginActivity"/>
         <activity android:name=".SignUpActivity"/>

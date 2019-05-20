@@ -2036,9 +2036,9 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         
-        <item name="android:statusBarColor">@color/transparent</item>
         
-        <item name="android:windowNoTitle">true</item>
+        
+        
 
     </style><style name="popupTheme" parent="Theme.AppCompat.DayNight.Dialog">
         <item name="colorPrimary">@color/colorPrimary</item>

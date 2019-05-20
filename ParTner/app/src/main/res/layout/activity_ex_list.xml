@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_user_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
-    android:padding="25dp"
-    >
+    android:orientation="vertical">
+    <include
+        layout="@layout/menu_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btn_ex1"
@@ -15,8 +16,7 @@
         android:layout_weight="1"
         android:background="#CECECE"
         android:text="플랭크"
-        android:textSize="35sp"
-        />
+        android:textSize="35sp" />
 
     <Button
         android:id="@+id/btn_ex2"

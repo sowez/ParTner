@@ -42,6 +42,7 @@ public class ExPreviewActivity extends AppCompatActivity {
                 i.putExtra("exCount",exCount);
                 i.putExtra("exType",exType);
                 startActivity(i);
+                finish();
             }
         });
 

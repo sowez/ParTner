@@ -55,6 +55,7 @@ public class ExListActivity extends AppCompatActivity {
                         intent.putExtra("exCount",exCount);
                         intent.putExtra("exType",exType);
                         startActivity(intent);
+                        finish();
                     }
                 }
             });

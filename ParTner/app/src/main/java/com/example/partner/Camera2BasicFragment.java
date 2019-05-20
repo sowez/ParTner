@@ -489,26 +489,6 @@ public class Camera2BasicFragment extends Fragment
         public void onClick(View v) {
             Log.e("pop up 전", exType+""+exCount);
             endEx();
-            ExEndPopup popup = new ExEndPopup(getActivity(), exType, exerciseCounter, new ExEndPopup.PopupEventListener() {
-                @Override
-                public void popupEvent(String result) {
-                    // 횟수 입력되었으면 운동 프리뷰 액티비티로 넘어가기
-                    if (result.equals("selectEx")){
-                        Toast.makeText(getActivity(), "go to select exercise page", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getActivity(),ExListActivity.class);
-                        intent.putExtra("exCount",exerciseCounter);
-                        intent.putExtra("exType",exType);
-                        startActivity(intent);
-                    }
-                    else if(result.equals("goCalander")){
-                        Toast.makeText(getActivity(), "go Calender", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getActivity(),ExHistoryActivity.class);
-                        intent.putExtra("exCount",exerciseCounter);
-                        intent.putExtra("exType",exType);
-                        startActivity(intent);
-                    }
-                }
-            });
         }
     };
     View.OnClickListener listner_changeView = new View.OnClickListener() {
@@ -525,16 +505,17 @@ public class Camera2BasicFragment extends Fragment
         ExEndPopup popup = new ExEndPopup(getActivity(), exType, exerciseCounter, new ExEndPopup.PopupEventListener() {
             @Override
             public void popupEvent(String result) {
-                // 횟수 입력되었으면 운동 프리뷰 액티비티로 넘어가기
                 if (result.equals("selectEx")){
                     Toast.makeText(getActivity(), "go to select exercise page", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(),ExListActivity.class);
                     startActivity(intent);
+                    getActivity().finish();
                 }
                 else if(result.equals("goCalander")){
                     Toast.makeText(getActivity(), "go Calender", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(),ExHistoryActivity.class);
                     startActivity(intent);
+                    getActivity().finish();
                 }
             }
         });
