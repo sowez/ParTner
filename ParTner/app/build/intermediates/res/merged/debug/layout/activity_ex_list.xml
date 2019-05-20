@@ -1,47 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/id_user_menu"
+    android:id="@+id/id_ex_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <include
         layout="@layout/menu_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/btn_ex1"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#CECECE"
-        android:text="플랭크"
-        android:textColor="@color/titleTextColor"
-        android:textSize="35sp"
-        />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_ex2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="25dp"
-        android:background="#CECECE"
-        android:text="스쿼트"
-        android:textColor="@color/titleTextColor"
-        android:textSize="35sp"
-        />
+        <FrameLayout
+            android:id="@+id/user_fl_slide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#59000000"
+            android:visibility="gone" />
 
-    <Button
-        android:id="@+id/btn_ex3"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="25dp"
-        android:background="#CECECE"
-        android:text="점핑잭"
-        android:textColor="@color/titleTextColor"
-        android:textSize="35sp"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/btn_ex1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="25dp"
+                android:background="#CECECE"
+                android:text="플랭크"
+                android:textColor="@color/titleTextColor"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@+id/btn_ex2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="25dp"
+                android:layout_weight="1"
+                android:background="#CECECE"
+                android:text="스쿼트"
+                android:textColor="@color/titleTextColor"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@+id/btn_ex3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="25dp"
+                android:layout_weight="1"
+                android:background="#CECECE"
+                android:text="점핑잭"
+                android:textColor="@color/titleTextColor"
+                android:textSize="35sp" />
+
+
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:id="@+id/user_view_slidebar"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+    </FrameLayout>
 
 </LinearLayout>

@@ -26,19 +26,19 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent">
 
-        <Button
-            android:id="@+id/user_btn"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="혼자 운동하기" />
+            <Button
+                android:id="@+id/user_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="혼자 운동하기" />
 
-        <Button
-            android:id="@+id/trainer_btn"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="트레이너와 함께 운동하기" />
+            <Button
+                android:id="@+id/trainer_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="트레이너와 함께 운동하기" />
 
         </LinearLayout>
 
