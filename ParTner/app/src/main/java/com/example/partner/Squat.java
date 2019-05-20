@@ -31,7 +31,7 @@ public class Squat extends Exercise {
         // 1. 모든 x좌표가 38.5~72.85 사이에 있어야 함(0<=x<=96)
         for(int i=0;i<=13;i++){
             float tX = point[0][i];
-            if (tX<38.5 || tX >72.85) {
+            if (tX<33.5 || tX >75.85) {
                 isReady = false;
                 Log.d("Exercise", "그림에 맞춰 서세요");
             }

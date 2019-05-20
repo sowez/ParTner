@@ -880,7 +880,7 @@ public class Camera2BasicFragment extends Fragment
      */
     private void classifyFrame() {
         if (classifier == null || getActivity() == null || cameraDevice == null) {
-            showToast("Uninitialized model or invalid context.");
+//            showToast("Uninitialized model or invalid context.");
             return;
         }
         Bitmap bitmap = textureView.getBitmap(classifier.getImageSizeX(), classifier.getImageSizeY());
@@ -907,8 +907,8 @@ public class Camera2BasicFragment extends Fragment
             startEx(exercise.doExercise(exerciseStep));
 
             showToast("Step: "+ Integer.toString(exerciseStep)+", Count : "+Integer.toString(exerciseCounter));
-            showToast2(Double.toString(exercise.getAngle(9, 8, 9, 10)));
-            showToast3(Double.toString(exercise.getAngle(3,2, 3, 4)));
+//            showToast2(Double.toString(exercise.getAngle(9, 8, 9, 10)));
+//            showToast3(Double.toString(exercise.getAngle(3,2, 3, 4)));
 
         }
     }

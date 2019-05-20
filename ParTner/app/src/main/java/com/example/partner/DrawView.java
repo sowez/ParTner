@@ -127,89 +127,90 @@ public class DrawView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        if (mPaint == null) {
-            mPaint = new Paint();
-            mPaint.setStyle(Paint.Style.FILL);
-            mPaint.setAntiAlias(true);
-        }
-
-        if (mDrawPoint.isEmpty()) {
-            return;
-        }
-
-        canvas.drawColor(Color.TRANSPARENT);
-
-//        for (PointF pointF : mDrawPoint) {
-        for (int colorIndex = 0;colorIndex<13;colorIndex++){
-//            if (pointF.x == 0 && pointF.y == 0) {
-//                colorIndex++;
-//                continue;
-//            }
-
-
-            mPaint.setColor(mColorArray[colorIndex]);
-            canvas.drawCircle(mDrawPoint.get(colorIndex).x, mDrawPoint.get(colorIndex).y, 8, mPaint);
-        }
-
-        mPaint.setColor(Color.parseColor("#6fa8dc"));
-        mPaint.setStrokeWidth(5);
-
-        if (mDrawPoint.size() <= 0)
-            return;
-
-        PointF p0 = mDrawPoint.get(0);
-        PointF p1 = mDrawPoint.get(1);
-        PointF p2 = mDrawPoint.get(2);
-        PointF p3 = mDrawPoint.get(3);
-        PointF p4 = mDrawPoint.get(4);
-        PointF p5 = mDrawPoint.get(5);
-        PointF p6 = mDrawPoint.get(6);
-        PointF p7 = mDrawPoint.get(7);
-        PointF p8 = mDrawPoint.get(8);
-        PointF p9 = mDrawPoint.get(9);
-        PointF p10 = mDrawPoint.get(10);
-        PointF p11 = mDrawPoint.get(11);
-        PointF p12 = mDrawPoint.get(12);
-        PointF p13 = mDrawPoint.get(13);
-
-        //0-1
-        canvas.drawLine(p0.x, p0.y, p1.x, p1.y, mPaint);
-
-        //1-2
-        canvas.drawLine(p1.x, p1.y, p2.x, p2.y, mPaint);
-
-        //2-3
-        canvas.drawLine(p2.x, p2.y, p3.x, p3.y, mPaint);
-
-        //3-4
-        canvas.drawLine(p3.x, p3.y, p4.x, p4.y, mPaint);
-
-        //1-5
-        canvas.drawLine(p1.x, p1.y, p5.x, p5.y, mPaint);
-
-        //5-6
-        canvas.drawLine(p5.x, p5.y, p6.x, p6.y, mPaint);
-
-        //6-7
-        canvas.drawLine(p6.x, p6.y, p7.x, p7.y, mPaint);
-
-        //1-11
-        canvas.drawLine(p1.x, p1.y, p11.x, p11.y, mPaint);
-
-        //11-12
-        canvas.drawLine(p11.x, p11.y, p12.x, p12.y, mPaint);
-
-        //12-13
-        canvas.drawLine(p12.x, p12.y, p13.x, p13.y, mPaint);
-
-        //1-8
-        canvas.drawLine(p1.x, p1.y, p8.x, p8.y, mPaint);
-
-        //8-9
-        canvas.drawLine(p8.x, p8.y, p9.x, p9.y, mPaint);
-
-        //9-10
-        canvas.drawLine(p9.x, p9.y, p10.x, p10.y, mPaint);
+//
+//        if (mPaint == null) {
+//            mPaint = new Paint();
+//            mPaint.setStyle(Paint.Style.FILL);
+//            mPaint.setAntiAlias(true);
+//        }
+//
+//        if (mDrawPoint.isEmpty()) {
+//            return;
+//        }
+//
+//        canvas.drawColor(Color.TRANSPARENT);
+//
+////        for (PointF pointF : mDrawPoint) {
+//        for (int colorIndex = 0;colorIndex<13;colorIndex++){
+////            if (pointF.x == 0 && pointF.y == 0) {
+////                colorIndex++;
+////                continue;
+////            }
+//
+//
+//            mPaint.setColor(mColorArray[colorIndex]);
+//            canvas.drawCircle(mDrawPoint.get(colorIndex).x, mDrawPoint.get(colorIndex).y, 8, mPaint);
+//        }
+//
+//        mPaint.setColor(Color.parseColor("#6fa8dc"));
+//        mPaint.setStrokeWidth(5);
+//
+//        if (mDrawPoint.size() <= 0)
+//            return;
+//
+//        PointF p0 = mDrawPoint.get(0);
+//        PointF p1 = mDrawPoint.get(1);
+//        PointF p2 = mDrawPoint.get(2);
+//        PointF p3 = mDrawPoint.get(3);
+//        PointF p4 = mDrawPoint.get(4);
+//        PointF p5 = mDrawPoint.get(5);
+//        PointF p6 = mDrawPoint.get(6);
+//        PointF p7 = mDrawPoint.get(7);
+//        PointF p8 = mDrawPoint.get(8);
+//        PointF p9 = mDrawPoint.get(9);
+//        PointF p10 = mDrawPoint.get(10);
+//        PointF p11 = mDrawPoint.get(11);
+//        PointF p12 = mDrawPoint.get(12);
+//        PointF p13 = mDrawPoint.get(13);
+//
+//        //0-1
+//        canvas.drawLine(p0.x, p0.y, p1.x, p1.y, mPaint);
+//
+//        //1-2
+//        canvas.drawLine(p1.x, p1.y, p2.x, p2.y, mPaint);
+//
+//        //2-3
+//        canvas.drawLine(p2.x, p2.y, p3.x, p3.y, mPaint);
+//
+//        //3-4
+//        canvas.drawLine(p3.x, p3.y, p4.x, p4.y, mPaint);
+//
+//        //1-5
+//        canvas.drawLine(p1.x, p1.y, p5.x, p5.y, mPaint);
+//
+//        //5-6
+//        canvas.drawLine(p5.x, p5.y, p6.x, p6.y, mPaint);
+//
+//        //6-7
+//        canvas.drawLine(p6.x, p6.y, p7.x, p7.y, mPaint);
+//
+//        //1-11
+//        canvas.drawLine(p1.x, p1.y, p11.x, p11.y, mPaint);
+//
+//        //11-12
+//        canvas.drawLine(p11.x, p11.y, p12.x, p12.y, mPaint);
+//
+//        //12-13
+//        canvas.drawLine(p12.x, p12.y, p13.x, p13.y, mPaint);
+//
+//        //1-8
+//        canvas.drawLine(p1.x, p1.y, p8.x, p8.y, mPaint);
+//
+//        //8-9
+//        canvas.drawLine(p8.x, p8.y, p9.x, p9.y, mPaint);
+//
+//        //9-10
+//        canvas.drawLine(p9.x, p9.y, p10.x, p10.y, mPaint);
     }
 
     @Override

@@ -82,8 +82,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#1c000000"
-        android:textColor="#FFF"
-        android:textSize="40sp"
+        android:textColor="#FF0000"
+        android:textSize="60sp"
         android:textStyle="bold" />
 
     <TextView
@@ -106,5 +106,4 @@
         android:textStyle="bold"
         android:layout_marginTop="100dp"/>
 
->>>>>>> origin/won-squat
 </FrameLayout>
