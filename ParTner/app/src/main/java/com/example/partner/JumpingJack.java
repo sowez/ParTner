@@ -99,8 +99,8 @@ public class JumpingJack extends Exercise {
         double l_legAngle = getAngle(1,0,11,12);
         double l_armAngle = getAngle(1,0,5,6);
 
-        if(r_hnaAngle>=150 && r_hnaAngle<=180 &&
-            l_hnaAngle>=150 && l_hnaAngle<=180 &&
+        if(r_hnaAngle>=100 && r_hnaAngle<=180 &&
+            l_hnaAngle>=100 && l_hnaAngle<=180 &&
             r_sewAngle>=100 && r_sewAngle<=180 &&
             l_sewAngle>=100 && l_sewAngle<=180){
             if(currentStep==0 || currentStep == 2){
@@ -122,8 +122,8 @@ public class JumpingJack extends Exercise {
             else{
                 if(r_legAngle>=130 && r_legAngle<=170 &&
                         l_legAngle>= 130 && l_legAngle<=170 &&
-                        r_armAngle<=70 &&
-                        l_armAngle<=70) {
+                        r_armAngle<=90 &&
+                        l_armAngle<=90) {
                     return true;
                 }
             }
