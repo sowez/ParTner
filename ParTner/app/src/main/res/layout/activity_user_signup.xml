@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="200dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+        <EditText
+            android:id="@+id/user_id"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="아이디" />
+
+        <Button
+            android:id="@+id/btn_userid_overlap_check"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="아이디 중복 체크"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/user_pw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:inputType="textPassword"
+        android:hint="비밀번호" />
+
+    <EditText
+        android:id="@+id/user_pw_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:inputType="textPassword"
+        android:hint="비밀번호 재입력" />
+
+
+    <RadioGroup
+        android:id="@+id/user_sex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="350dp">
+
+        <RadioButton
+            android:id="@+id/user_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="남성" />
+
+        <RadioButton
+            android:id="@+id/user_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여성" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:hint="이름" />
+
+    <Button
+        android:id="@+id/btn_user_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="450dp"
+        android:text="회원가입 완료!" />
+
+
+</RelativeLayout>

@@ -2,13 +2,15 @@
 
 buildscript {
     repositories {
-        google()
         jcenter()
-        
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
-        
+        classpath 'com.android.tools.build:gradle:3.0.1'
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -16,9 +18,26 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
         jcenter()
-        
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+    }
+}
+
+ext {
+    supportlib_version = '25.2.0'
+}
+
+subprojects {
+    project.configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'com.android.support'
+                    && !details.requested.name.contains('multidex') ) {
+                details.useVersion "$supportlib_version"
+            }
+        }
     }
 }
 

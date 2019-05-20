@@ -1,0 +1,4 @@
+#Mon May 20 16:06:55 KST 2019
+base.0=/home/adman/capstone/ParTner/ParTner/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
