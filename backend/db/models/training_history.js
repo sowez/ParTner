@@ -1,11 +1,11 @@
 const { mongoose } = require('../mongo');
 
 const training_historySchema = new mongoose.Schema({
-    start_time:{
-        type:Date,
-        required:true
+    id:{
+        type: String,
+        required: true
     },
-    end_time:{
+    start_time:{
         type:Date,
         required:true
     },

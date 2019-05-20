@@ -1,6 +1,10 @@
 const { mongoose } = require('../mongo')
 
 const call_historySchema = new mongoose.Schema({
+    id:{
+        type: String,
+        required: true
+    },
     start_time:{
         type:Date,
         required:true
