@@ -54,17 +54,17 @@ public class ExPreviewActivity extends AppCompatActivity {
         switch (exType){
             case 1:
                 exName = "플랭크";
-                video = Uri.parse("android.resource://" + getPackageName()+ "/"+R.raw.sqaut_preview);
+                video = Uri.parse("android.resource://" + getPackageName()+ "/"+R.raw.squat_preview);
                 vv.setVideoURI(video);
                 break;
             case 2:
                 exName = "스쿼트";
-                video = Uri.parse("android.resource://" + getPackageName()+ "/"+R.raw.sqaut_preview);
+                video = Uri.parse("android.resource://" + getPackageName()+ "/"+R.raw.squat_preview);
                 vv.setVideoURI(video);
                 break;
             case 3:
                 exName = "점핑잭";
-                video = Uri.parse("android.resource://" + getPackageName()+ "/"+R.raw.sqaut_preview);
+                video = Uri.parse("android.resource://" + getPackageName()+ "/"+R.raw.jumpingjack_preview);
                 vv.setVideoURI(video);
                 break;
                 default: break;

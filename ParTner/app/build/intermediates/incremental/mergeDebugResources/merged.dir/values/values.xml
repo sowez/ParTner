@@ -152,7 +152,7 @@
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorPrimary">#ffb31d</color>
+    <color name="colorPrimary">#F8B03A</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="color_background">#be9268</color>
     <color name="color_l_ankle">#2169f9</color>
@@ -222,7 +222,7 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
-    <color name="titleTextColor">#FFFFFF</color>
+    <color name="titleTextColor">#000000</color>
     <color name="top">#980000</color>
     <color name="transparent">#00ffffff</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode">
@@ -813,16 +813,16 @@
         <item name="android:windowExitAnimation">@anim/design_bottom_sheet_slide_out</item>
     </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+        
         <item name="titleTextColor">@color/titleTextColor</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <!--Status Bar 배경색-->
-        <!--<item name="android:statusBarColor">@color/transparent</item>-->
-        <!--Status Bar 글자색깔-->
-        <!--<item name="android:windowNoTitle">true</item>-->
+        
+        
+        
+        
 
     </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">

@@ -16,7 +16,9 @@
         android:layout_weight="1"
         android:background="#CECECE"
         android:text="플랭크"
-        android:textSize="35sp" />
+        android:textColor="@color/titleTextColor"
+        android:textSize="35sp"
+        />
 
     <Button
         android:id="@+id/btn_ex2"
@@ -26,6 +28,7 @@
         android:layout_marginTop="25dp"
         android:background="#CECECE"
         android:text="스쿼트"
+        android:textColor="@color/titleTextColor"
         android:textSize="35sp"
         />
 
@@ -37,6 +40,7 @@
         android:layout_marginTop="25dp"
         android:background="#CECECE"
         android:text="점핑잭"
+        android:textColor="@color/titleTextColor"
         android:textSize="35sp"
         />
 

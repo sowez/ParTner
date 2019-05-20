@@ -3,7 +3,8 @@
     android:id="@+id/id_user_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <include
         layout="@layout/menu_toolbar"
@@ -13,7 +14,15 @@
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         android:id="@+id/calender"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:mcv_calendarMode="month"
+        app:mcv_firstDayOfWeek="sunday"
+        app:mcv_arrowColor="@color/colorPrimary"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
 

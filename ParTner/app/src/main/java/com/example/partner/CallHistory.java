@@ -1,5 +1,7 @@
 package com.example.partner;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CallHistory {
@@ -15,6 +17,17 @@ public class CallHistory {
         this.call_duration = call_duration;
         this.trainer = trainer;
         this.user = user;
+    }
+
+    public Date getDate() {
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            date = dateFormat.parse(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(start_time));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
     }
 
     public Date getStart_time() {

@@ -20,6 +20,10 @@
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_ic_voice_search_api_material.xml"
     },
     {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/exhist_squat.png",
+        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/exhist_squat.png"
+    },
+    {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background.xml",
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_dialog_material_background.xml"
     },
