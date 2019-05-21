@@ -359,8 +359,10 @@ public class ExHistoryActivity extends AppCompatActivity {
 
             @Override
             public void btnTraining() {
-                Toast.makeText(context, "Training", Toast.LENGTH_LONG).show();
-                closeMenu();
+                isMenuShow = false;
+                Intent intent = new Intent(context, ExHistoryActivity.class);
+                startActivity(intent);
+                finish();
             }
 
             @Override
@@ -406,7 +408,6 @@ public class ExHistoryActivity extends AppCompatActivity {
             viewLayout.setEnabled(false);
             mainLayout.setEnabled(true);
             viewLayout.setOnTouchListener((v,event)->false);
-
         }, 450);
     }
 

@@ -136,8 +136,10 @@ public class UserMainMenuActivity extends AppCompatActivity {
 
             @Override
             public void btnTraining() {
-                Toast.makeText(context, "Training 화면", Toast.LENGTH_LONG).show();
-                closeMenu();
+                isMenuShow = false;
+                Intent intent = new Intent(context, ExHistoryActivity.class);
+                startActivity(intent);
+                finish();
             }
 
             @Override
