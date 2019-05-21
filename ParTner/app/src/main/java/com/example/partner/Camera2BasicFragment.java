@@ -63,15 +63,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.partner.R;
+import com.google.gson.JsonObject;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Basic fragments for the Camera.
@@ -111,6 +117,7 @@ public class Camera2BasicFragment extends Fragment
     private Button btn_changeView;
     private String mCameraFacing="1";
 
+    private String start_time;
     private int exType;
     private int exCount;
 
@@ -416,6 +423,7 @@ public class Camera2BasicFragment extends Fragment
         }
         endStep = exercise.getSteps();
         personImg.setImageResource(img_red);
+        start_time = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date());
 
         return v;
 //        return inflater.inflate(R.layout.fragment_camera2_basic, container, false);
@@ -502,6 +510,7 @@ public class Camera2BasicFragment extends Fragment
 
     };
     public void endEx(){
+        postHist();
         ExEndPopup popup = new ExEndPopup(getActivity(), exType, exerciseCounter, new ExEndPopup.PopupEventListener() {
             @Override
             public void popupEvent(String result) {
@@ -519,6 +528,27 @@ public class Camera2BasicFragment extends Fragment
                 }
             }
         });
+    }
+
+    private void postHist(){
+        // db에 저장
+        ServerComm serverComm = new ServerComm();
+        RetrofitCommnunication retrofitComm = serverComm.init();
+        JsonObject trainingHist = new JsonObject();
+        trainingHist.addProperty("id", "won");
+        trainingHist.addProperty("start_time", start_time);
+        trainingHist.addProperty("ex_count",exerciseCounter);
+        trainingHist.addProperty("ex_type",exType);
+
+        retrofitComm.postTrainingHist(trainingHist)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(data->{
+                    String histResult = data.get("result").getAsString();
+                    if (!histResult.equals("saved")){
+                        Log.d(TAG, "endEx: 운동기록 저장 실패");
+                    }
+                });
     }
 
     /**

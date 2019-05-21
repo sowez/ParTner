@@ -59,8 +59,7 @@ router.post('/create', function(req, res, next){
         console.log('training history saved!')
     });
 
-    req.body.result = 'saved'
-    res.send(req.body)
+    res.json({'result': 'saved'})
 });
 
 module.exports = router;
