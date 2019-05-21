@@ -1,19 +1,27 @@
 [
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/notification_bg.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/notification_bg.xml"
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/menu.jpg",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/drawable/menu.jpg"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/sidebar.jpg",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/drawable/sidebar.jpg"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_cab_background_internal_bg.xml"
     },
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_item_background_holo_dark.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/menu.jpg",
-        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/menu.jpg"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_btn_default_mtrl_shape.xml"
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ic_go_search_api_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_ic_go_search_api_material.xml"
     },
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ic_voice_search_api_material.xml",
@@ -28,60 +36,44 @@
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_dialog_material_background.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_track_material.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_seekbar_track_material.xml"
-    },
-    {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/navigation_empty_icon.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/edd2fe881d339b946e535e57579d108b/res/drawable/navigation_empty_icon.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/setting.jpg",
-        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/setting.jpg"
     },
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ic_go_search_api_material.xml",
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_ic_go_search_api_material.xml"
     },
     {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_btn_check_material.xml"
+    },
+    {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ic_ab_back_material.xml",
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_ic_ab_back_material.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_small_material.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_ratingbar_small_material.xml"
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/notification_bg_low.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/notification_bg_low.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/edd2fe881d339b946e535e57579d108b/res/drawable/design_fab_background.xml"
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/exhist_squat.png",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/drawable/exhist_squat.png"
     },
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_indicator_material.xml",
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_ratingbar_indicator_material.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_item_background_holo_light.xml"
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_item_background_holo_light.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/notification_icon_background.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/notification_icon_background.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_list_selector_holo_dark.xml"
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_list_selector_holo_dark.xml"
     },
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/sidebar.jpg",
         "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/sidebar.jpg"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/profile_image.jpg",
-        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/profile_image.jpg"
     },
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
@@ -92,28 +84,24 @@
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_list_selector_background_transition_holo_light.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_text_cursor_material.xml"
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/navigation_empty_icon.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/d6cc02502e2b8b0cd3db3719f6eab7f4/res/drawable/navigation_empty_icon.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/title.jpg",
-        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/title.jpg"
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/splash.JPG",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/drawable/splash.JPG"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_switch_thumb_material.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/signup_user.jpg",
-        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/signup_user.jpg"
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/home.jpg",
+        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/home.jpg"
     },
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ic_search_api_material.xml",
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_ic_search_api_material.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/home.jpg",
-        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/home.jpg"
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/signup_user.jpg",
+        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/signup_user.jpg"
     },
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/backspace.bmp",
@@ -128,8 +116,24 @@
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_vector_test.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_btn_check_material.xml"
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/notification_bg.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/notification_tile_bg.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ic_menu_overflow_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_track_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
@@ -138,6 +142,10 @@
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/notification_bg_low.xml",
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/arrow.BMP",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/drawable/arrow.BMP"
     },
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
@@ -160,28 +168,24 @@
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_ic_menu_overflow_material.xml"
     },
     {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_item_background_holo_dark.xml"
+    },
+    {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_textfield_search_material.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_btn_radio_material.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_spinner_textfield_background_material.xml"
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_tick_mark_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_seekbar_tick_mark_material.xml"
     },
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ic_arrow_drop_right_black_24dp.xml",
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_list_selector_holo_light.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_tab_indicator_material.xml"
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_tick_mark_material.xml",
@@ -200,15 +204,223 @@
         "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/arrow.BMP"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_material.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_ratingbar_material.xml"
-    },
-    {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/nav_menu_header_bg.png",
         "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/nav_menu_header_bg.png"
     },
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/signup_trainer.jpg",
         "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/signup_trainer.jpg"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/design_snackbar_background.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/d6cc02502e2b8b0cd3db3719f6eab7f4/res/drawable/design_snackbar_background.xml"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/notification_bg.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/menu.jpg",
+        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/menu.jpg"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/profile_image.jpg",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/drawable/profile_image.jpg"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_indicator_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_track_material.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/navigation_empty_icon.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/edd2fe881d339b946e535e57579d108b/res/drawable/navigation_empty_icon.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/setting.jpg",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/drawable/setting.jpg"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/setting.jpg",
+        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/setting.jpg"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_small_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/backspace.bmp",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/drawable/backspace.bmp"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/nav_menu_header_bg.png",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/drawable/nav_menu_header_bg.png"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_small_material.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/edd2fe881d339b946e535e57579d108b/res/drawable/design_fab_background.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ic_search_api_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_vector_test.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_vector_test.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ic_clear_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/notification_icon_background.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ic_ab_back_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ic_voice_search_api_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/profile_image.jpg",
+        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/profile_image.jpg"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/home.jpg",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/drawable/home.jpg"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/notification_icon_background.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/man.png",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/drawable/man.png"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/title.jpg",
+        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/drawable/title.jpg"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/d6cc02502e2b8b0cd3db3719f6eab7f4/res/drawable/design_fab_background.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/signup_trainer.jpg",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/drawable/signup_trainer.jpg"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/signup_user.jpg",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/drawable/signup_user.jpg"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_btn_borderless_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/drawable/abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/title.jpg",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/drawable/title.jpg"
+    },
+    {
+        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_material.xml",
+        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/drawable/abc_ratingbar_material.xml"
     }
 ]

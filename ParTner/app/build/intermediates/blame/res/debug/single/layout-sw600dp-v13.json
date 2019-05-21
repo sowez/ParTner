@@ -2,5 +2,9 @@
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/design_layout_snackbar.xml",
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/edd2fe881d339b946e535e57579d108b/res/layout-sw600dp-v13/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/design_layout_snackbar.xml",
+        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/d6cc02502e2b8b0cd3db3719f6eab7f4/res/layout-sw600dp-v13/design_layout_snackbar.xml"
     }
 ]

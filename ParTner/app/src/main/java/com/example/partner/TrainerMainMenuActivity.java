@@ -2,6 +2,8 @@ package com.example.partner;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.TabLayout;
@@ -15,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -23,6 +26,17 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TrainerMainMenuActivity extends AppCompatActivity {
 
@@ -38,9 +52,21 @@ public class TrainerMainMenuActivity extends AppCompatActivity {
     private Boolean isMenuShow = false;
     private Boolean isExitFlag = false;
 
+    private ArrayList<String> traintypeArrayList = new ArrayList<String>();
+
+    // 트레이너 프로필 정보
     private RatingBar mRating;
+    private ImageView profileImg;
     private ImageView editImage;
     private ImageButton menu_btn;
+    private TextView name;
+    private TextView selfIntroduction;
+    private TextView trainingType;
+    private TextView gender;
+
+    private URL url;
+    private Bitmap bitmap;
+    private String imgpath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,16 +89,29 @@ public class TrainerMainMenuActivity extends AppCompatActivity {
 
         mRating = (RatingBar) findViewById(R.id.ratingbar);
         editImage = (ImageView) findViewById(R.id.edit);
+        profileImg = (ImageView) findViewById(R.id.profile_img);
+        name = (TextView) findViewById(R.id.name);
+        selfIntroduction = (TextView) findViewById(R.id.self_introduction);
+        trainingType = (TextView) findViewById(R.id.training_type);
+        gender = (TextView) findViewById(R.id.sex);
 
-        //RatingBar ratingBar, float rating, boolean fromUser
-        mRating.setOnRatingBarChangeListener((ratingBar, rating, fromUser) -> {
 
-        });
+//        //RatingBar ratingBar, float rating, boolean fromUser
+//        mRating.setOnRatingBarChangeListener((ratingBar, rating, fromUser) -> {
+//
+//        });
+
 
         editImage.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), TrainerProfileEditActivity.class);
+            intent.putExtra("name", name.getText().toString());
+            intent.putExtra("intro", selfIntroduction.getText().toString());
+            intent.putStringArrayListExtra("traintype", traintypeArrayList);
+            intent.putExtra("gender", gender.getText().toString());
             startActivity(intent);
         });
+
+        getProfile();
 
     }
 
@@ -192,6 +231,77 @@ public class TrainerMainMenuActivity extends AppCompatActivity {
         viewLayout.setEnabled(true);
         mainLayout.setEnabled(false);
         Log.e("TAG", "메뉴버튼 클릭");
+    }
+
+    // GET profile
+    public void getProfile() {
+        String id = SharedPreferenceData.getId(this);
+
+        Log.i("UserID", id);
+
+        RetrofitCommnunication retrofitCommnunication = new ServerComm().init();
+
+        Call<TrainerProfile> trainerProfile = retrofitCommnunication.trainerProfile(id);
+
+        trainerProfile.enqueue(new Callback<TrainerProfile>() {
+            @Override
+            public void onResponse(Call<TrainerProfile> call, Response<TrainerProfile> response) {
+                TrainerProfile trainerProfile = response.body();
+
+                Log.i("Received", trainerProfile.getName());
+                Log.i("Received", trainerProfile.getSelf_introduction());
+                Log.i("Received", trainerProfile.getStar_rate().toString());
+
+                String traintypeList = "";
+                for(int i=0; i<trainerProfile.getTraining_type().size(); i++){
+                    traintypeList = traintypeList + trainerProfile.getTraining_type().get(i) + " ";
+                    traintypeArrayList.add(trainerProfile.getTraining_type().get(i));
+                }
+                name.setText(trainerProfile.getName());
+                selfIntroduction.setText(trainerProfile.getSelf_introduction());
+                trainingType.setText(traintypeList);
+                gender.setText(trainerProfile.getSex());
+                mRating.setRating(trainerProfile.getStar_rate());
+
+                imgpath = trainerProfile.getProfileImg();
+                ServerComm serverComm = new ServerComm();
+                imgpath = serverComm.getURL() + "db/resources/images/trainer_profile/" + imgpath;
+
+                Thread mThread = new Thread() {
+                    @Override
+                    public void run() {
+                        try {
+                            url = new URL(imgpath);
+                            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                            conn.setDoInput(true);
+                            conn.connect();
+                            InputStream is = conn.getInputStream();
+                            bitmap = BitmapFactory.decodeStream(is);
+                        } catch (MalformedURLException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                mThread.start();
+                try{
+                    mThread.join();
+                    profileImg.setImageBitmap(bitmap);
+                } catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<TrainerProfile> call, Throwable t) {
+                Toast.makeText(TrainerMainMenuActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG)
+                        .show();
+                Log.e("TAG", "onFailure: " + t.getMessage() );
+            }
+        });
+
     }
 
 }

@@ -34,8 +34,17 @@ public class PopupTrainerInfoActivity extends Activity {
         introduction = (TextView) findViewById(R.id.self_introduction);
 
         Intent intent = getIntent();
+
+        // 이미지도 넣어야함...
+        float starrate_data = Float.parseFloat(intent.getStringExtra("star_rate"));
         String name_data = intent.getStringExtra("name");
+        String train_data = intent.getStringExtra("traintype");
+        String intro_data = intent.getStringExtra("intro");
+
+        mRating.setRating(starrate_data);
         name.setText(name_data);
+        traingType.setText(train_data);
+        introduction.setText(intro_data);
     }
 
     public void mOnClose(View v) {

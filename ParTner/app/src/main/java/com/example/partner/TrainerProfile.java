@@ -12,9 +12,9 @@ public class TrainerProfile {
     private ArrayList<String> training_type;
     private ArrayList<CallHistory> call_history;
     private String state;
-    private String img;
+    private String profileImg;
 
-    public TrainerProfile(String id, String pw, String sex, String name, String self_introduction, Integer star_rate, ArrayList<String> training_type, ArrayList<CallHistory> call_history, String state, String img) {
+    public TrainerProfile(String id, String pw, String sex, String name, String self_introduction, Integer star_rate, ArrayList<String> training_type, ArrayList<CallHistory> call_history, String state, String profileImg) {
         this.id = id;
         this.pw = pw;
         this.sex = sex;
@@ -24,7 +24,7 @@ public class TrainerProfile {
         this.training_type = training_type;
         this.call_history = call_history;
         this.state = state;
-        this.img = img;
+        this.profileImg = profileImg;
     }
 
     public String getId() {
@@ -107,11 +107,11 @@ public class TrainerProfile {
         this.state = online;
     }
 
-    public String getImg() {
-        return img;
+    public String getProfileImg() {
+        return profileImg;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setProfileImg(String img) {
+        this.profileImg = profileImg;
     }
 }

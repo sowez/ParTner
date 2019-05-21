@@ -1,6 +1,36 @@
 {
     "logs": [
         {
+            "outputFile": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/values-v13/values-v13.xml",
+            "map": [
+                {
+                    "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/values-v13/values-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "58",
+                        "endOffsets": "109"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v13/values-v13.xml",
+            "map": [
+                {
+                    "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/values-v13/values-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "58",
+                        "endOffsets": "109"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/values-v13/values-v13.xml",
             "map": [
                 {
