@@ -103,10 +103,11 @@ public class LoginActivity extends AppCompatActivity {
                             String token = data.get("token").getAsString();
                             String type = data.get("type").getAsString();
                             String username = data.get("username").getAsString();
+                            String id = data.get("id").getAsString();
 
                             boolean auto = autologinCheck.isChecked();
 
-                            SharedPreferenceData.saveToken(this, token, username, type, auto);
+                            SharedPreferenceData.saveToken(this, id, token, username, type, auto);
 
                             if (type.equals("trainer")) {
                                 Intent intent = new Intent(this, TrainerMainMenuActivity.class);

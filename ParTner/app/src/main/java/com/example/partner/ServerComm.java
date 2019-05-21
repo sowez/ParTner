@@ -55,8 +55,8 @@ public class ServerComm {
     * 세미나실 : http://192.168.50.96:8000/
     * 종합관 509 :  http://192.168.30.96:8000/
     * */
-    private String URL = "http://192.168.43.53:8000/";
 
+    private String URL = "http://192.168.43.53:8000/";
 
     private RetrofitCommnunication retrofitCommnunication;
 
@@ -161,6 +161,9 @@ public class ServerComm {
 
         return trainerProfileList;
     }
+
+
+
 
     private static OkHttpClient createOkHttpClient() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
