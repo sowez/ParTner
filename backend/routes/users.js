@@ -212,4 +212,11 @@ router.post('/verify', function (req, res, next) {
   });
 });
 
+/* 프로필 정보 가져오기 */
+router.get('/profile', function (req, res, next) {
+    
+})
+
+
+
 module.exports = router;

@@ -510,7 +510,8 @@ public class Camera2BasicFragment extends Fragment
 
     };
     public void endEx(){
-        postHist();
+        if (exerciseCounter != 0)
+            postHist();
         ExEndPopup popup = new ExEndPopup(getActivity(), exType, exerciseCounter, new ExEndPopup.PopupEventListener() {
             @Override
             public void popupEvent(String result) {
@@ -535,7 +536,7 @@ public class Camera2BasicFragment extends Fragment
         ServerComm serverComm = new ServerComm();
         RetrofitCommnunication retrofitComm = serverComm.init();
         JsonObject trainingHist = new JsonObject();
-        trainingHist.addProperty("id", "won");
+        trainingHist.addProperty("id", SharedPreferenceData.getId(getActivity()));
         trainingHist.addProperty("start_time", start_time);
         trainingHist.addProperty("ex_count",exerciseCounter);
         trainingHist.addProperty("ex_type",exType);

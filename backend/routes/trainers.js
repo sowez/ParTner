@@ -104,29 +104,29 @@ router.get('/list/:name', function (req, res, next) {
       }
     }
   }
-  // else (req.params.name == "all" && req.query.sex == "all") {
-  //   trainerModel.find({ $or:[{name: {$regex:req.params.name}}, {sex: req.query.sex},{training_type: req.query.traintype}] }, function(err, trainers) {
-  //     if(err){
-  //       return res.status(500).send({error: 'databasefailure'});
-  //     }
-  //     console.log(trainers);
-  //     res.json(trainers);
-  //   })  
-  // }
-
-
 });
 
-// GET Trainer's name
-router.get('/name/:id', function(req, res, next){
-  trainerModel.findOne({id:req.params.id}, {name: true}, function(err, name) {
+/* 트레이너 프로필 가져오기 */
+router.get('/profile', function (req, res, next) {
+  trainerModel.findOne({ id: req.query.id }, function(err, trainer) {
     if(err){
       return res.status(500).send({error: 'databasefailure'});
     }
-    console.log(name);
-    res.json(name);
+    console.log(trainer);
+    res.json(trainer);
   })
 });
 
+/* 프로필 수정 */
+router.get('/profile/edit', function (req, res, next) {
+  trainerModel.findOneAndUpdate({ id: req.body.id }, function(err, trainer) {
+    if(err){
+      return res.status(500).send({error: 'databasefailure'});
+    }
+    console.log(trainer);
+    res.json(trainer);
+  })
+ });
+ 
 
 module.exports = router;

@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:text="이름"/>
     <EditText
+        android:id="@+id/edit_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
@@ -26,6 +27,7 @@
         android:paddingTop="10dp"
         android:text="프로필" />
     <EditText
+        android:id="@+id/edit_intro"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="top"

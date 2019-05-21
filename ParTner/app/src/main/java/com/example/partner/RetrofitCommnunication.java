@@ -47,4 +47,11 @@ public interface RetrofitCommnunication {
 
     @POST("/history/create")
     Single<JsonObject> postTrainingHist(@Body JsonObject trainingData);
+    
+    @GET("/trainers/profile")
+    Call<TrainerProfile> trainerProfile(@Query("id") String id);
+
+    @POST("trainers/profile/edit")
+    Call<JsonObject> trainerEditProfile(@Body TrainerEditData trainerEditData);
+
 }

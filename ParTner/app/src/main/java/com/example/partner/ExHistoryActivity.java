@@ -65,6 +65,7 @@ public class ExHistoryActivity extends AppCompatActivity {
     private ViewGroup sideLayout;
     private Boolean isMenuShow = false;
     private Boolean isExitFlag = false;
+    private String id;
 
     private ImageButton menu_btn;
 
@@ -129,7 +130,8 @@ public class ExHistoryActivity extends AppCompatActivity {
         String year = today.split("-")[0];
         String month = today.split("-")[1];
         Log.d("ExHistoryActivityyy", "<< "+month+"월 >>");
-        String id = "won";
+        Log.d("ExHistoryActivityyy", "id: "+id);
+        id = SharedPreferenceData.getId(this);
         searchTraining(id,year,month);
         searchCall(id,year,month);
 
@@ -155,7 +157,6 @@ public class ExHistoryActivity extends AppCompatActivity {
         calendarView.setOnMonthChangedListener(new OnMonthChangedListener() {
             @Override
             public void onMonthChanged(MaterialCalendarView widget, CalendarDay date) {
-                String id = "won";
                 String year = Integer.toString(date.getYear());
                 String month = Integer.toString(date.getMonth()+1);
                 Log.d("ExHistoryActivityyy", "<< "+month+"월 >>");

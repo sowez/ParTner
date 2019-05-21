@@ -11,8 +11,9 @@ public class SharedPreferenceData {
     }
 
     // 계정 정보 저장
-    public static void saveToken(Context context, String token, String username, String type, boolean autologinCheck) {
+    public static void saveToken(Context context, String id, String token, String username, String type, boolean autologinCheck) {
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
+        editor.putString("id", id);
         editor.putString("token", token);
         editor.putString("username", username);
         editor.putString("type", type);
@@ -21,6 +22,9 @@ public class SharedPreferenceData {
     }
 
     // 저장된 정보 가져오기
+    public static String getId(Context context) {
+        return getSharedPreferences(context).getString("id", "");
+    }
     public static String getToken(Context context) {
         return getSharedPreferences(context).getString("token", "");
     }
