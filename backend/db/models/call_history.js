@@ -1,7 +1,11 @@
 const { mongoose } = require('../mongo')
 
 const call_historySchema = new mongoose.Schema({
-    id:{
+    trainer_id:{
+        type: String,
+        required: true
+    },
+    user_id:{
         type: String,
         required: true
     },
@@ -16,9 +20,7 @@ const call_historySchema = new mongoose.Schema({
     call_duration:{
         type:Number,
         required:true
-    },
-    trainer: {type : Number, ref: 'trainer'},
-    user: {type : Number, ref: 'user'},
+    }
 })
 
 

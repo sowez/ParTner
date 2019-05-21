@@ -42,4 +42,7 @@ public interface RetrofitCommnunication {
     @GET("/trainers/list/{name}")
     Call<List<TrainerProfile>> trainerList( @Path("name") String name, @Query("traintype") String traintype, @Query("sex") String sex);
 
+    @GET("/history/training/{id}/{year}/{month}")
+    Call<List<TrainingHistory>> getTrainingHist( @Path("id") String id, @Path("year") String year, @Path("month") String month);
+
 }

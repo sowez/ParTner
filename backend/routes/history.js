@@ -4,12 +4,23 @@ var router = express.Router();
 const trainHistModel = require('../db/models/training_history');
 const callHistModel = require('../db/models/call_history');
 
+// ./history test
+router.get('/', function(req, res, next){
+    res.send('./history/');
+})
+
+// find all Training Histories
+router.get('/')
+
 // GET Training Histories
-router.get('training/:id/:year/:month',function(req, res, next){
+router.get('/training/:id/:year/:month',function(req, res, next){
     var s_d = req.params.year + '-' + req.params.month + '-01 00:00';
     var e_d = req.params.year + '-' + req.params.month + '-31 23:59';
+    console.log(s_d);
+    console.log(e_d);
     trainHistModel.find({id : req.params.id, 
-        start_time : {$gte: s_d,$lte: e_d}} , function(err, histories){
+        start_time : {$gte: s_d,$lte: e_d}
+    }, {start_time:true, ex_count:true, ex_type:true} , function(err, histories){
             if(err){
                 return res.status(500).send({error: 'databasefailure'});
             }
@@ -20,11 +31,12 @@ router.get('training/:id/:year/:month',function(req, res, next){
 });
 
 // GET Call Histories
-router.get('call/:id/:year/:month',function(req, res, next){
+router.get('/call/:id/:year/:month',function(req, res, next){
     var s_d = req.params.year + '-' + req.params.month + '-01 00:00';
     var e_d = req.params.year + '-' + req.params.month + '-31 23:59';
     callHistModel.find({id : req.params.id, 
-        start_time : {$gte: s_d,$lte: e_d}} , function(err, histories){
+        start_time : {$gte: s_d,$lte: e_d}
+    }, {trainer_id:true, start_time:true, call_duration:true}, function(err, histories){
             if(err){
                 return res.status(500).send({error: 'databasefailure'});
             }
