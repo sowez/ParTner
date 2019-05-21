@@ -58,6 +58,10 @@ public class ServerComm {
 
     private String URL = "http://192.168.43.53:8000/";
 
+    public String getURL() {
+        return URL;
+    }
+
     private RetrofitCommnunication retrofitCommnunication;
 
     public RetrofitCommnunication init() {
@@ -125,7 +129,7 @@ public class ServerComm {
                     if (body.getResult().equals("saved")) {
                         Toast.makeText(context, "회원가입이 완료되었습니다!", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(context, LoginActivity.class);
-                        context.startActivity(intent);
+//                        context.startActivity(intent);
                         ((Activity)context).finish();
                     }
                 }

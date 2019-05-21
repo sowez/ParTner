@@ -1,9 +1,11 @@
 package com.example.partner;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,12 +13,20 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TrainerProfileEditActivity extends AppCompatActivity {
+
+    private Context context = this;
 
     private Toolbar mToolbar;
 
@@ -83,20 +93,52 @@ public class TrainerProfileEditActivity extends AppCompatActivity {
         }
 
 
-        // 수정 완료 버튼 리스너
-        editDoneBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                JsonObject update_data = new JsonObject();
-//                update_data.addProperty("name", userId);
-//                update_data.addProperty("self_introduction", userPw);
-//                update_data.addProperty("sex",);
-//                update_data.addProperty("training_type",);;
-
-
-                finish();
-            }
-        });
+//        // 수정 완료 버튼 리스너
+//        editDoneBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ArrayList<String> trainingtype = new ArrayList<String>();
+//                TrainerEditData trainerEditData;
+//                if(yogaCheckBox.isChecked()) {
+//                    trainingtype.add("yoga");
+//                }
+//                if(muscleCheckBox.isChecked()) {
+//                    trainingtype.add("muscle");
+//                }
+//                if(pilatesCheckBox.isChecked()) {
+//                    trainingtype.add("pilates");
+//                }
+//                if(stretchingCheckBox.isChecked()) {
+//                    trainingtype.add("stretching");
+//                }
+//
+//                RadioButton selectedRdo = (RadioButton)findViewById(radioGroup.getCheckedRadioButtonId());
+//                if(selectedRdo.getText().toString().equals("남자")){
+//                    trainerEditData = new TrainerEditData(SharedPreferenceData.getId(context), nameEditText.getText().toString(), introEditText.getText().toString(), "male", trainingtype);
+//                }
+//                else {
+//                    trainerEditData = new TrainerEditData(SharedPreferenceData.getId(context), nameEditText.getText().toString(), introEditText.getText().toString(), "female", trainingtype);
+//                }
+//
+//                RetrofitCommnunication retrofitCommnunication = new ServerComm().init();
+//                Call<JsonObject> editProfile = retrofitCommnunication.trainerEditProfile(trainerEditData);
+//                editProfile.enqueue(new Callback<JsonObject>() {
+//                    @Override
+//                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+//                        Log.d("EditProfile", response.body().toString());
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<JsonObject> call, Throwable t) {
+//                        Toast.makeText(TrainerProfileEditActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG)
+//                                .show();
+//                        Log.e("TAG", "onFailure: " + t.getMessage() );
+//                    }
+//                });
+//
+//                finish();
+//            }
+//        });
 
     }
 }

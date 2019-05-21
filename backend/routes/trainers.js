@@ -106,6 +106,7 @@ router.get('/list/:name', function (req, res, next) {
   }
 });
 
+/* 트레이너 프로필 가져오기 */
 router.get('/profile', function (req, res, next) {
   trainerModel.findOne({ id: req.query.id }, function(err, trainer) {
     if(err){
@@ -116,5 +117,16 @@ router.get('/profile', function (req, res, next) {
   })
 });
 
+/* 프로필 수정 */
+router.get('/profile/edit', function (req, res, next) {
+  trainerModel.findOneAndUpdate({ id: req.body.id }, function(err, trainer) {
+    if(err){
+      return res.status(500).send({error: 'databasefailure'});
+    }
+    console.log(trainer);
+    res.json(trainer);
+  })
+ });
+ 
 
 module.exports = router;

@@ -66,7 +66,7 @@ router.post('/upload/image', function (req, res, next) {
         if (err) { console.error(err) }
         else {
           console.log(newpath)
-          trainerModel.findOneAndUpdate({ id: trainer_id }, { profileImg: newpath }, function (err, trainer) {
+          trainerModel.findOneAndUpdate({ id: trainer_id }, { profileImg: new_img_name }, function (err, trainer) {
             if (err) {
               console.log(err)
               res.json({ "result": "error" })

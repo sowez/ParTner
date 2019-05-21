@@ -2,6 +2,8 @@ package com.example.partner;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.TabLayout;
@@ -25,6 +27,11 @@ import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -49,6 +56,7 @@ public class TrainerMainMenuActivity extends AppCompatActivity {
 
     // 트레이너 프로필 정보
     private RatingBar mRating;
+    private ImageView profileImg;
     private ImageView editImage;
     private ImageButton menu_btn;
     private TextView name;
@@ -56,6 +64,9 @@ public class TrainerMainMenuActivity extends AppCompatActivity {
     private TextView trainingType;
     private TextView gender;
 
+    private URL url;
+    private Bitmap bitmap;
+    private String imgpath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +89,7 @@ public class TrainerMainMenuActivity extends AppCompatActivity {
 
         mRating = (RatingBar) findViewById(R.id.ratingbar);
         editImage = (ImageView) findViewById(R.id.edit);
+        profileImg = (ImageView) findViewById(R.id.profile_img);
         name = (TextView) findViewById(R.id.name);
         selfIntroduction = (TextView) findViewById(R.id.self_introduction);
         trainingType = (TextView) findViewById(R.id.training_type);
@@ -250,6 +262,36 @@ public class TrainerMainMenuActivity extends AppCompatActivity {
                 trainingType.setText(traintypeList);
                 gender.setText(trainerProfile.getSex());
                 mRating.setRating(trainerProfile.getStar_rate());
+
+                imgpath = trainerProfile.getProfileImg();
+                ServerComm serverComm = new ServerComm();
+                imgpath = serverComm.getURL() + "db/resources/images/trainer_profile/" + imgpath;
+
+                Thread mThread = new Thread() {
+                    @Override
+                    public void run() {
+                        try {
+                            url = new URL(imgpath);
+                            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                            conn.setDoInput(true);
+                            conn.connect();
+                            InputStream is = conn.getInputStream();
+                            bitmap = BitmapFactory.decodeStream(is);
+                        } catch (MalformedURLException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                mThread.start();
+                try{
+                    mThread.join();
+                    profileImg.setImageBitmap(bitmap);
+                } catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+
             }
 
             @Override
