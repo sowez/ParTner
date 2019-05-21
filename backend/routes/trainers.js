@@ -117,5 +117,16 @@ router.get('/list/:name', function (req, res, next) {
 
 });
 
+// GET Trainer's name
+router.get('/name/:id', function(req, res, next){
+  trainerModel.findOne({id:req.params.id}, {name: true}, function(err, name) {
+    if(err){
+      return res.status(500).send({error: 'databasefailure'});
+    }
+    console.log(name);
+    res.json(name);
+  })
+});
+
 
 module.exports = router;
