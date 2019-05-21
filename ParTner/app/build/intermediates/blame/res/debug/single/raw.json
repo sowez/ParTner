@@ -4,7 +4,15 @@
         "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/raw/jumpingjack_preview.mp4"
     },
     {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/raw/squat_preview.mp4",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/raw/squat_preview.mp4"
+    },
+    {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/raw/squat_preview.mp4",
         "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/raw/squat_preview.mp4"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/raw/jumpingjack_preview.mp4",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/raw/jumpingjack_preview.mp4"
     }
 ]

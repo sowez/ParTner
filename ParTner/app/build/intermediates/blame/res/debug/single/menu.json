@@ -2,5 +2,9 @@
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/menu/appbar_action.xml",
         "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/menu/appbar_action.xml"
+    },
+    {
+        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/menu/appbar_action.xml",
+        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/menu/appbar_action.xml"
     }
 ]

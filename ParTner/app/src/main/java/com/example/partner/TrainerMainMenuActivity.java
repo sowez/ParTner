@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -75,12 +76,12 @@ public class TrainerMainMenuActivity extends AppCompatActivity {
 
         addSidebar();
 
-        mRating = findViewById(R.id.ratingbar);
-        editImage = findViewById(R.id.edit);
-        name = findViewById(R.id.name);
-        selfIntroduction = findViewById(R.id.self_introduction);
-        trainingType = findViewById(R.id.training_type);
-        gender = findViewById(R.id.sex);
+        mRating = (RatingBar) findViewById(R.id.ratingbar);
+        editImage = (ImageView) findViewById(R.id.edit);
+        name = (TextView) findViewById(R.id.name);
+        selfIntroduction = (TextView) findViewById(R.id.self_introduction);
+        trainingType = (TextView) findViewById(R.id.training_type);
+        gender = (TextView) findViewById(R.id.sex);
 
 
 //        //RatingBar ratingBar, float rating, boolean fromUser
@@ -228,9 +229,9 @@ public class TrainerMainMenuActivity extends AppCompatActivity {
 
         RetrofitCommnunication retrofitCommnunication = new ServerComm().init();
 
-        Call<TrainerProfile> trianerProfile = retrofitCommnunication.trainerProfile(id);
+        Call<TrainerProfile> trainerProfile = retrofitCommnunication.trainerProfile(id);
 
-        trianerProfile.enqueue(new Callback<TrainerProfile>() {
+        trainerProfile.enqueue(new Callback<TrainerProfile>() {
             @Override
             public void onResponse(Call<TrainerProfile> call, Response<TrainerProfile> response) {
                 TrainerProfile trainerProfile = response.body();
