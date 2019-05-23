@@ -1,58 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".LoginActivity">
+    android:id="@+id/root_view_login_activity"
+    style="@style/MatchParent"
+    android:layout_marginLeft="@dimen/padding_start"
+    android:orientation="vertical">
 
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/toolbar"/>
+    <TextView
+        style="@style/MatchWidth"
+        android:paddingTop="@dimen/padding_actionbar"
+        android:text="@string/text_welcoming_message" />
 
     <EditText
-        android:id="@+id/login_id"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="150dp"
-        android:hint="ID" />
+        android:id="@+id/user_name"
+        style="@style/MatchWidth"
+        android:hint="@string/hint_user_name"
+        android:paddingTop="@dimen/padding_top"
+        android:singleLine="true"
+        android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/login_pw"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:hint="Password"
-        android:inputType="textPassword" />
-
-    <CheckBox
-        android:id="@+id/autologin"
-        android:text="자동로그인"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
-
-    <Button
-        android:id="@+id/loginbutton"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:text="로그인" />
-
-    <Button
-        android:id="@+id/signupbutton"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="회원가입" />
-
-    <Button
-        android:id="@+id/next"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="next" />
-
-
-
+        android:id="@+id/chat_room_name"
+        style="@style/MatchWidth"
+        android:hint="@string/hint_chat_room_name"
+        android:paddingTop="@dimen/padding_top"
+        android:singleLine="true"
+        android:textSize="16sp" />
 </LinearLayout>
