@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-72:12
-INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-72:12
-INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-72:12
-INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-72:12
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-159:12
+INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-159:12
+INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-159:12
+INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-159:12
 MERGED from [:tensorflow-lite:] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/tensorflow-lite.aar/f9584164b013bb00243a772b08984086/AndroidManifest.xml:2:1-6:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/3cbe6b87ca54faab583b35b06a787f29/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.material:material:1.0.0-rc01] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/AndroidManifest.xml:17:1-24:12
@@ -56,6 +56,7 @@ MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/chaesunghees/.gradle/c
 MERGED from [:openCVLibrary341] /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/openCVLibrary341/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-11:12
 MERGED from [:macelibrary] /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/macelibrary/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-11:12
 MERGED from [io.reactivex.rxjava2:rxandroid:2.0.2] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/rxandroid-2.0.2.aar/7382da8e265dd74c93be9a9cbb4b8e4a/AndroidManifest.xml:15:1-21:12
+MERGED from [com.navercorp.pulltorefresh:library:3.2.3] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/AndroidManifest.xml:2:1-11:12
 MERGED from [com.quickblox:quickblox-android-sdk-videochat-webrtc:3.9.1] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/quickblox-android-sdk-videochat-webrtc-3.9.1.aar/ca327fe1d932a63c1578c5ad33db484a/AndroidManifest.xml:2:1-9:12
 MERGED from [com.quickblox:quickblox-android-sdk-chat:3.9.1] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/quickblox-android-sdk-chat-3.9.1.aar/abfc879906d40fa464562a00134a1938/AndroidManifest.xml:2:1-14:12
 MERGED from [com.quickblox:quickblox-android-sdk-content:3.9.1] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/quickblox-android-sdk-content-3.9.1.aar/0592f62012c2a3897a1f65218d698b4f/AndroidManifest.xml:2:1-12:12
@@ -67,22 +68,22 @@ MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.4] /home/chaesungh
 MERGED from [com.crashlytics.sdk.android:answers:1.4.3] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-answers-1.4.3.aar/2926d3668c78c130aed8c2a844b44d1b/AndroidManifest.xml:2:1-13:12
 MERGED from [com.crashlytics.sdk.android:beta:1.2.10] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/beta-1.2.10.aar/e89b301197390d740ca8477a7387daa5/AndroidManifest.xml:2:1-13:12
 MERGED from [io.fabric.sdk.android:fabric:1.4.4] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/fabric-1.4.4.aar/51f592bc8980a31d32ca0d77a6cffa8f/AndroidManifest.xml:22:1-33:12
-INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-72:12
-INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-72:12
-INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-72:12
+INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-159:12
+INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-159:12
+INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-159:12
 	package
 		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:20:5-34
 		INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml
 		INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-72:12
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-159:12
 		INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:19:5-51
 	android:versionCode
 		INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-72:12
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:1-159:12
 		INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:18:11-69
@@ -134,20 +135,42 @@ uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:27:5-81
 	android:name
 		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:27:22-78
-uses-feature#android.hardware.camera
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:29:5-59
-	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:29:19-57
-uses-feature#android.hardware.camera.autofocus
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:30:5-69
-	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:30:19-67
 uses-permission#android.permission.VIBRATE
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:32:5-65
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:28:5-65
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:32:22-63
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:28:22-63
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:29:5-80
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:29:22-77
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:30:5-71
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:30:22-68
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:31:5-76
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:31:22-73
+uses-permission#android.permission.BLUETOOTH
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:32:5-68
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:32:22-65
+uses-feature#android.hardware.camera
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:34:5-59
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:34:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:35:5-69
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:35:19-67
+uses-feature#0x00020000
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:37:5-39:35
+	android:glEsVersion
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:38:9-41
+	android:required
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:39:9-32
 application
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:34:5-70:19
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:42:5-157:19
 MERGED from [:tensorflow-lite:] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/tensorflow-lite.aar/f9584164b013bb00243a772b08984086/AndroidManifest.xml:4:5-5:19
 MERGED from [:tensorflow-lite:] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/tensorflow-lite.aar/f9584164b013bb00243a772b08984086/AndroidManifest.xml:4:5-5:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/3cbe6b87ca54faab583b35b06a787f29/AndroidManifest.xml:9:5-20
@@ -186,6 +209,8 @@ MERGED from [androidx.core:core:1.0.0] /home/chaesunghees/.gradle/caches/transfo
 MERGED from [androidx.core:core:1.0.0] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/9062cee44377e436ff8c900df753f415/AndroidManifest.xml:22:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0.aar/50c7cfaaaa1e38cb91f987c45c1d7b6c/AndroidManifest.xml:22:5-23:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0.aar/50c7cfaaaa1e38cb91f987c45c1d7b6c/AndroidManifest.xml:22:5-23:19
+MERGED from [com.navercorp.pulltorefresh:library:3.2.3] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/AndroidManifest.xml:9:5-20
+MERGED from [com.navercorp.pulltorefresh:library:3.2.3] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/AndroidManifest.xml:9:5-20
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.5] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/crashlytics-2.9.5.aar/09f295fd7301463c4728eaeeb0030a65/AndroidManifest.xml:11:5-17:19
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.5] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/crashlytics-2.9.5.aar/09f295fd7301463c4728eaeeb0030a65/AndroidManifest.xml:11:5-17:19
 MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.4] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/crashlytics-core-2.6.4.aar/85c9fa82d345518c74d0986c4ff7de47/AndroidManifest.xml:54:5-20
@@ -199,111 +224,239 @@ MERGED from [io.fabric.sdk.android:fabric:1.4.4] /home/chaesunghees/.gradle/cach
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.0.0] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/9062cee44377e436ff8c900df753f415/AndroidManifest.xml:22:18-86
 	android:supportsRtl
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:38:9-35
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:47:9-35
 	android:label
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:37:9-41
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:46:9-41
 	tools:ignore
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:40:9-48
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:49:9-48
 	android:icon
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:36:9-45
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:45:9-45
 	android:allowBackup
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:35:9-36
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:44:9-36
 	android:theme
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:39:9-40
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:48:9-40
 	android:usesCleartextTraffic
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:41:9-44
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:50:9-44
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:43:9-44
 activity#com.example.partner.LoadingActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:43:9-49:20
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:53:9-61:20
+	android:screenOrientation
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:56:13-49
 	android:theme
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:44:13-42
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:55:13-42
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:43:19-50
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:54:13-44
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:45:13-48:29
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:57:13-60:29
 action#android.intent.action.MAIN
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:46:17-69
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:58:17-69
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:46:25-66
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:58:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:47:17-77
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:59:17-77
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:47:27-74
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:59:27-74
+activity#com.example.partner.GroupChatWebRTC.activities.LoginActivity
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:62:9-66:52
+	android:screenOrientation
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:66:13-49
+	android:configChanges
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:65:13-74
+	android:theme
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:63:13-54
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:64:13-69
+activity#com.example.partner.GroupChatWebRTC.activities.OpponentsActivity
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:68:9-73:52
+	android:screenOrientation
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:73:13-49
+	android:launchMode
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:72:13-44
+	android:configChanges
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:71:13-74
+	android:theme
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:69:13-54
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:70:13-73
+activity#com.example.partner.GroupChatWebRTC.activities.PermissionsActivity
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:74:9-84
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:74:19-81
+activity#com.example.partner.GroupChatWebRTC.activities.CallActivity
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:76:9-80:51
+	android:screenOrientation
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:79:13-49
+	android:configChanges
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:78:13-74
+	android:theme
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:80:13-48
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:77:13-68
+activity#com.example.partner.GroupChatWebRTC.activities.SettingsActivity
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:82:9-86:52
+	android:screenOrientation
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:86:13-49
+	android:configChanges
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:85:13-74
+	android:theme
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:83:13-54
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:84:13-72
 activity#com.example.partner.CameraActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:50:9-51
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:88:9-51
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:50:19-49
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:88:19-49
 activity#com.example.partner.ExHistoryActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:51:9-54
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:89:9-54
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:51:19-52
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:89:19-52
 activity#com.example.partner.ExPreviewActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:52:9-54
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:90:9-54
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:52:19-52
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:90:19-52
 activity#com.example.partner.ExListActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:53:9-51
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:91:9-51
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:53:19-49
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:91:19-49
 activity#com.example.partner.LoginActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:55:9-50
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:93:9-50
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:55:19-48
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:93:19-48
 activity#com.example.partner.SignUpActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:56:9-51
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:94:9-51
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:56:19-49
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:94:19-49
 activity#com.example.partner.TrainerSignUpActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:57:9-58
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:95:9-58
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:57:19-56
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:95:19-56
 activity#com.example.partner.UserSignUpActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:58:9-55
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:96:9-55
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:58:19-53
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:96:19-53
 activity#com.example.partner.TrainerMainMenuActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:59:9-60
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:97:9-60
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:59:19-58
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:97:19-58
 activity#com.example.partner.UserMainMenuActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:60:9-57
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:98:9-57
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:60:19-55
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:98:19-55
 activity#com.example.partner.TrainerListActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:61:9-56
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:99:9-56
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:61:19-54
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:99:19-54
 activity#com.example.partner.TrainerProfileEditActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:62:9-63
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:100:9-63
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:62:19-61
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:100:19-61
 activity#com.example.partner.TrainerCallHistoryActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:63:9-63
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:101:9-63
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:63:19-61
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:101:19-61
 activity#com.example.partner.PopupTrainerInfoActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:64:9-95
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:102:9-95
 	android:theme
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:64:60-93
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:102:60-93
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:64:19-59
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:102:19-59
 activity#com.example.partner.PopupTrainFinishedActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:65:9-97
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:103:9-97
 	android:theme
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:65:62-95
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:103:62-95
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:65:19-61
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:103:19-61
 activity#com.example.partner.UserProfileActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:66:9-56
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:104:9-56
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:66:19-54
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:104:19-54
 activity#com.example.partner.UserProfileEditActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:67:9-60
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:105:9-60
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:67:19-58
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:105:19-58
 activity#com.example.partner.UserCallHistoryActivity
-ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:68:9-60
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:106:9-60
 	android:name
-		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:68:19-58
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:106:19-58
+service#com.example.partner.GroupChatWebRTC.services.CallService
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:108:9-73
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:108:18-70
+receiver#com.google.android.gms.gcm.GcmReceiver
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:110:9-120:20
+	android:exported
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:112:13-36
+	android:permission
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:113:13-73
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:111:13-66
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+action:name:com.google.android.c2dm.intent.REGISTRATION+category:name:com.quickblox.sample.groupchatwebrtc
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:114:13-119:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:115:17-81
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:115:25-78
+action#com.google.android.c2dm.intent.REGISTRATION
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:116:17-86
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:116:25-83
+category#com.quickblox.sample.groupchatwebrtc
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:118:17-81
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:118:27-78
+service#com.example.partner.services.gcm.GcmPushListenerService
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:122:9-128:19
+	android:exported
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:124:13-37
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:123:13-64
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:125:13-127:29
+service#com.quickblox.messages.services.gcm.QBGcmPushInstanceIDService
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:130:9-136:19
+	android:exported
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:132:13-37
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:131:13-90
+intent-filter#action:name:com.google.android.gms.iid.InstanceID
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:133:13-135:29
+action#com.google.android.gms.iid.InstanceID
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:134:17-80
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:134:25-77
+meta-data#com.quickblox.messages.TYPE
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:138:9-140:35
+	android:value
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:140:13-32
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:139:13-55
+meta-data#com.quickblox.messages.SENDER_ID
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:142:9-144:49
+	android:value
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:144:13-46
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:143:13-60
+meta-data#com.quickblox.messages.QB_ENVIRONMENT
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:146:9-148:43
+	android:value
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:148:13-40
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:147:13-65
+meta-data#com.google.android.gms.version
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:150:9-152:69
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.0.1.aar/26a7ebb3e4c34c59494f4321bb4a017e/AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.0.1.aar/26a7ebb3e4c34c59494f4321bb4a017e/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:152:13-66
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:151:13-58
+meta-data#io.fabric.ApiKey
+ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:154:9-156:72
+	android:value
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:156:13-69
+	android:name
+		ADDED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml:155:13-44
 uses-sdk
 INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/AndroidManifest.xml
@@ -410,6 +563,8 @@ MERGED from [:macelibrary] /home/chaesunghees/AndroidStudioProjects/CD33/ParTner
 MERGED from [:macelibrary] /home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/macelibrary/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:7:5-9:41
 MERGED from [io.reactivex.rxjava2:rxandroid:2.0.2] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/rxandroid-2.0.2.aar/7382da8e265dd74c93be9a9cbb4b8e4a/AndroidManifest.xml:19:5-43
 MERGED from [io.reactivex.rxjava2:rxandroid:2.0.2] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/rxandroid-2.0.2.aar/7382da8e265dd74c93be9a9cbb4b8e4a/AndroidManifest.xml:19:5-43
+MERGED from [com.navercorp.pulltorefresh:library:3.2.3] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/AndroidManifest.xml:7:5-43
+MERGED from [com.navercorp.pulltorefresh:library:3.2.3] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/AndroidManifest.xml:7:5-43
 MERGED from [com.quickblox:quickblox-android-sdk-videochat-webrtc:3.9.1] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/quickblox-android-sdk-videochat-webrtc-3.9.1.aar/ca327fe1d932a63c1578c5ad33db484a/AndroidManifest.xml:5:5-7:41
 MERGED from [com.quickblox:quickblox-android-sdk-videochat-webrtc:3.9.1] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/quickblox-android-sdk-videochat-webrtc-3.9.1.aar/ca327fe1d932a63c1578c5ad33db484a/AndroidManifest.xml:5:5-7:41
 MERGED from [com.quickblox:quickblox-android-sdk-chat:3.9.1] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/quickblox-android-sdk-chat-3.9.1.aar/abfc879906d40fa464562a00134a1938/AndroidManifest.xml:5:5-7:41
@@ -520,12 +675,6 @@ ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/chaesunghees/.gradle/
 		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-firebase-iid-17.0.3.aar/d03633ca99fec0c3a029e5e70a5b1c3c/AndroidManifest.xml:40:13-73
 	android:name
 		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-firebase-iid-17.0.3.aar/d03633ca99fec0c3a029e5e70a5b1c3c/AndroidManifest.xml:38:13-78
-intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
-ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-firebase-iid-17.0.3.aar/d03633ca99fec0c3a029e5e70a5b1c3c/AndroidManifest.xml:41:13-43:29
-action#com.google.android.c2dm.intent.RECEIVE
-ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-firebase-iid-17.0.3.aar/d03633ca99fec0c3a029e5e70a5b1c3c/AndroidManifest.xml:42:17-81
-	android:name
-		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-firebase-iid-17.0.3.aar/d03633ca99fec0c3a029e5e70a5b1c3c/AndroidManifest.xml:42:25-78
 service#com.google.firebase.iid.FirebaseInstanceIdService
 ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-firebase-iid-17.0.3.aar/d03633ca99fec0c3a029e5e70a5b1c3c/AndroidManifest.xml:50:9-56:19
 	android:exported
@@ -558,12 +707,6 @@ ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/chaesunghees
 		ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/cb7ef1950ae61a25e286c8f52dbc9e17/AndroidManifest.xml:26:13-72
 	android:name
 		ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/cb7ef1950ae61a25e286c8f52dbc9e17/AndroidManifest.xml:24:13-79
-meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:16.0.1] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.0.1.aar/26a7ebb3e4c34c59494f4321bb4a017e/AndroidManifest.xml:23:9-25:69
-	android:value
-		ADDED from [com.google.android.gms:play-services-basement:16.0.1] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.0.1.aar/26a7ebb3e4c34c59494f4321bb4a017e/AndroidManifest.xml:25:13-66
-	android:name
-		ADDED from [com.google.android.gms:play-services-basement:16.0.1] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.0.1.aar/26a7ebb3e4c34c59494f4321bb4a017e/AndroidManifest.xml:24:13-58
 provider#com.crashlytics.android.CrashlyticsInitProvider
 ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.5] /home/chaesunghees/.gradle/caches/transforms-1/files-1.1/crashlytics-2.9.5.aar/09f295fd7301463c4728eaeeb0030a65/AndroidManifest.xml:12:9-16:38
 	android:authorities

@@ -68,12 +68,12 @@
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/layout/user_sidebar.xml"
     },
     {
-        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/fragment_item_screen_share.xml",
-        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/layout/fragment_item_screen_share.xml"
-    },
-    {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_custom.xml",
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/e6d6b038932fda3fec7ab925ec22ac01/res/layout/notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/fragment_item_screen_share.xml",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/layout/fragment_item_screen_share.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/mtrl_layout_snackbar_include.xml",
@@ -108,12 +108,12 @@
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/layout/activity_trainer_profile_edit.xml"
     },
     {
-        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
-        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/e6d6b038932fda3fec7ab925ec22ac01/res/layout/notification_template_big_media_narrow.xml"
-    },
-    {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/activity_user_signup.xml",
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/layout/activity_user_signup.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/e6d6b038932fda3fec7ab925ec22ac01/res/layout/notification_template_big_media_narrow.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
@@ -124,12 +124,12 @@
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/layout/design_layout_snackbar_include.xml"
     },
     {
-        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/activity_ex_preview.xml",
-        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/layout/activity_ex_preview.xml"
-    },
-    {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/layout/design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/activity_ex_preview.xml",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/layout/activity_ex_preview.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/exhistorylist_view.xml",
@@ -144,6 +144,10 @@
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/layout/fragment_pager.xml"
     },
     {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/pull_to_refresh_progress_google_style.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/res/layout/pull_to_refresh_progress_google_style.xml"
+    },
+    {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/activity_ex_history.xml",
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/layout/activity_ex_history.xml"
     },
@@ -156,12 +160,20 @@
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/layout/design_navigation_menu_item.xml"
     },
     {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/pull_to_refresh_header_google_style.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/res/layout/pull_to_refresh_header_google_style.xml"
+    },
+    {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/9062cee44377e436ff8c900df753f415/res/layout/notification_template_part_chronometer.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_title_material.xml",
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/layout/abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/pull_to_refresh_header_horizontal.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/res/layout/pull_to_refresh_header_horizontal.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/activity_user_call_history.xml",
@@ -186,6 +198,10 @@
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/activity_user_menu.xml",
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/layout/activity_user_menu.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/pulling_progress_layout.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/res/layout/pulling_progress_layout.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/activity_partner_login.xml",
@@ -374,6 +390,10 @@
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/layout/abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/pull_to_refresh_header_vertical.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/res/layout/pull_to_refresh_header_vertical.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout/fragment_camera2_basic.xml",

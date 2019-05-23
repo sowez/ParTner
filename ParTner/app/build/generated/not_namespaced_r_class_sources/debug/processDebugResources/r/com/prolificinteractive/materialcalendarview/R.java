@@ -39,38 +39,38 @@ public final class R {
     public static final class drawable {
         private drawable() {}
 
-        public static final int mcv_action_next = 0x7f0200aa;
-        public static final int mcv_action_previous = 0x7f0200ab;
+        public static final int mcv_action_next = 0x7f0200af;
+        public static final int mcv_action_previous = 0x7f0200b0;
     }
     public static final class id {
         private id() {}
 
-        public static final int all = 0x7f110063;
-        public static final int decorated_disabled = 0x7f11006e;
-        public static final int defaults = 0x7f11006f;
-        public static final int friday = 0x7f110073;
-        public static final int horizontal = 0x7f11007c;
-        public static final int match_parent = 0x7f110072;
-        public static final int mcv_pager = 0x7f110009;
-        public static final int monday = 0x7f110074;
-        public static final int month = 0x7f11007a;
-        public static final int none = 0x7f110039;
-        public static final int other_months = 0x7f110070;
-        public static final int out_of_range = 0x7f110071;
-        public static final int saturday = 0x7f110075;
-        public static final int sunday = 0x7f110076;
-        public static final int thursday = 0x7f110077;
-        public static final int tuesday = 0x7f110078;
-        public static final int vertical = 0x7f11007d;
-        public static final int wednesday = 0x7f110079;
-        public static final int week = 0x7f11007b;
+        public static final int all = 0x7f110066;
+        public static final int decorated_disabled = 0x7f110071;
+        public static final int defaults = 0x7f110072;
+        public static final int friday = 0x7f110076;
+        public static final int horizontal = 0x7f11007f;
+        public static final int match_parent = 0x7f110075;
+        public static final int mcv_pager = 0x7f11000a;
+        public static final int monday = 0x7f110077;
+        public static final int month = 0x7f11007d;
+        public static final int none = 0x7f11003c;
+        public static final int other_months = 0x7f110073;
+        public static final int out_of_range = 0x7f110074;
+        public static final int saturday = 0x7f110078;
+        public static final int sunday = 0x7f110079;
+        public static final int thursday = 0x7f11007a;
+        public static final int tuesday = 0x7f11007b;
+        public static final int vertical = 0x7f110080;
+        public static final int wednesday = 0x7f11007c;
+        public static final int week = 0x7f11007e;
     }
     public static final class string {
         private string() {}
 
-        public static final int calendar = 0x7f0a004e;
-        public static final int next = 0x7f0a0084;
-        public static final int previous = 0x7f0a00d7;
+        public static final int calendar = 0x7f0a0054;
+        public static final int next = 0x7f0a008a;
+        public static final int previous = 0x7f0a00dd;
     }
     public static final class style {
         private style() {}

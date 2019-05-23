@@ -48,9 +48,9 @@ public class PopupTrainerInfoActivity extends Activity {
     }
 
     public void mOnClose(View v) {
-//        Intent intent = new Intent();
-//        intent.putExtra("","");
-//        setResult(RESULT_OK, intent);
+        Intent intent = new Intent(this,com.example.partner.GroupChatWebRTC.activities.LoginActivity.class);
+        intent.putExtra("trainer_name", name.getText());
+        startActivity(intent);
         finish();
     }
 

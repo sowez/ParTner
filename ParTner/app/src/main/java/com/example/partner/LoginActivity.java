@@ -1,8 +1,11 @@
 package com.example.partner;
 
 import android.Manifest;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -10,22 +13,40 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.partner.Core.utils.SharedPrefsHelper;
+import com.example.partner.Core.utils.Toaster;
+import com.example.partner.GroupChatWebRTC.activities.BaseActivity;
+import com.example.partner.GroupChatWebRTC.services.CallService;
+import com.example.partner.GroupChatWebRTC.utils.Consts;
+import com.example.partner.GroupChatWebRTC.utils.QBEntityCallbackImpl;
+import com.example.partner.GroupChatWebRTC.utils.UsersUtils;
 import com.google.gson.JsonObject;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
+import com.quickblox.core.QBEntityCallback;
+import com.quickblox.core.exception.QBResponseException;
+import com.quickblox.core.helper.StringifyArrayList;
+import com.quickblox.core.helper.Utils;
+import com.quickblox.users.model.QBUser;
 
 import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
     private String TAG = "TAG";
 
     private EditText login_id, login_pw;
     private Button loginButton, signupButton, nextButton;
     private CheckBox autologinCheck;
+
+    private Context context = LoginActivity.this;
+    private QBUser userForSave;
+    private String userId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +54,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_partner_login);
         permission();
         init();
+    }
+
+    @Override
+    protected View getSnackbarAnchorView() {
+        return findViewById(R.id.id_partner_login);
     }
 
     public void init() {
@@ -51,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
 //            finish();
         });
-        nextButton.setOnClickListener(view->{
+        nextButton.setOnClickListener(view -> {
             Intent intent = new Intent(this, UserMainMenuActivity.class);
             startActivity(intent);
             finish();
@@ -60,14 +86,15 @@ public class LoginActivity extends AppCompatActivity {
 
     private void onClickLogin(View v) {
 
-        String userId = login_id.getText().toString();
-        String userPw = login_pw.getText().toString();
+        String loginId = login_id.getText().toString();
+        userId = loginId;
+        String loginPw = login_pw.getText().toString();
 
         ServerComm serverComm = new ServerComm();
         RetrofitCommnunication retrofitComm = serverComm.init();
         JsonObject logindata = new JsonObject();
-        logindata.addProperty("id", userId);
-        logindata.addProperty("pw", userPw);
+        logindata.addProperty("id", loginId);
+        logindata.addProperty("pw", loginPw);
 
         retrofitComm.login(logindata)
                 .subscribeOn(Schedulers.io())
@@ -97,10 +124,11 @@ public class LoginActivity extends AppCompatActivity {
                             SharedPreferenceData.saveToken(this, id, token, username, type, auto);
 
                             if (type.equals("trainer")) {
-                                Intent intent = new Intent(this, TrainerMainMenuActivity.class);
-                                startActivity(intent);
-                                finish();
-                            }else{
+//                                Intent intent = new Intent(this, TrainerMainMenuActivity.class);
+//                                startActivity(intent);
+//                                finish();
+                                startSignUpNewUser(createUserWithEnteredData());
+                            } else {
                                 Intent intent = new Intent(this, UserMainMenuActivity.class);
                                 startActivity(intent);
                                 finish();
@@ -119,6 +147,122 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+
+    /* 영상통화를 위한 로그인 */
+
+    private QBUser createUserWithEnteredData() {
+        return createQBUserWithCurrentData(userId, userId);
+    }
+
+    private QBUser createQBUserWithCurrentData(String userName, String chatRoomName) {
+        QBUser qbUser = null;
+        if (!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(chatRoomName)) {
+            StringifyArrayList<String> userTags = new StringifyArrayList<>();
+            userTags.add(chatRoomName);
+
+            qbUser = new QBUser();
+            qbUser.setFullName(userName);
+            qbUser.setLogin(Utils.generateDeviceId(this));
+            qbUser.setPassword(Consts.DEFAULT_USER_PASSWORD);
+            qbUser.setTags(userTags);
+        }
+
+        return qbUser;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Consts.EXTRA_LOGIN_RESULT_CODE) {
+            boolean isLoginSuccess = data.getBooleanExtra(Consts.EXTRA_LOGIN_RESULT, false);
+            String errorMessage = data.getStringExtra(Consts.EXTRA_LOGIN_ERROR_MESSAGE);
+
+            if (isLoginSuccess) {
+                saveUserData(userForSave);
+                signInCreatedUser(userForSave, false);
+            } else {
+                Toaster.longToast(getString(R.string.login_chat_login_error) + errorMessage);
+            }
+        }
+    }
+
+    private void saveUserData(QBUser qbUser) {
+        SharedPrefsHelper sharedPrefsHelper = SharedPrefsHelper.getInstance();
+        sharedPrefsHelper.save(Consts.PREF_CURREN_ROOM_NAME, qbUser.getTags().get(0));
+        sharedPrefsHelper.saveQbUser(qbUser);
+    }
+
+    private void startSignUpNewUser(final QBUser newUser) {
+
+        requestExecutor.signUpNewUser(newUser, new QBEntityCallback<QBUser>() {
+                    @Override
+                    public void onSuccess(QBUser result, Bundle params) {
+                        loginToChat(result);
+                    }
+
+                    @Override
+                    public void onError(QBResponseException e) {
+                        if (e.getHttpStatusCode() == Consts.ERR_LOGIN_ALREADY_TAKEN_HTTP_STATUS) {
+                            signInCreatedUser(newUser, true);
+                        } else {
+                            Toaster.longToast(R.string.sign_up_error);
+                        }
+                    }
+                }
+        );
+    }
+
+    private void loginToChat(final QBUser qbUser) {
+        qbUser.setPassword(Consts.DEFAULT_USER_PASSWORD);
+
+        userForSave = qbUser;
+        startLoginService(qbUser);
+    }
+
+    private void startLoginService(QBUser qbUser) {
+        Intent tempIntent = new Intent(this, CallService.class);
+        PendingIntent pendingIntent = createPendingResult(Consts.EXTRA_LOGIN_RESULT_CODE, tempIntent, 0);
+        CallService.start(this, qbUser, pendingIntent);
+    }
+
+    private void signInCreatedUser(final QBUser user, final boolean deleteCurrentUser) {
+        requestExecutor.signInUser(user, new QBEntityCallbackImpl<QBUser>() {
+            @Override
+            public void onSuccess(QBUser result, Bundle params) {
+                if (deleteCurrentUser) {
+                    removeAllUserData(result);
+                }else{
+                    Intent intent = new Intent(context, TrainerMainMenuActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    intent.putExtra(Consts.EXTRA_IS_STARTED_FOR_CALL, false);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+
+            @Override
+            public void onError(QBResponseException responseException) {
+                Toaster.longToast(R.string.sign_up_error);
+            }
+        });
+    }
+
+    private void removeAllUserData(final QBUser user) {
+        requestExecutor.deleteCurrentUser(user.getId(), new QBEntityCallback<Void>() {
+            @Override
+            public void onSuccess(Void aVoid, Bundle bundle) {
+                UsersUtils.removeUserData(getApplicationContext());
+                startSignUpNewUser(createUserWithEnteredData());
+            }
+
+            @Override
+            public void onError(QBResponseException e) {
+                Toaster.longToast(R.string.sign_up_error);
+            }
+        });
+    }
+
+    /* 권한 요청 */
     private void permission() {
         PermissionListener permissionListener = new PermissionListener() {
             @Override

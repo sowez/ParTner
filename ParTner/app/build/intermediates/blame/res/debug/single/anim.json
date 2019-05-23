@@ -28,12 +28,20 @@
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_slide_in_bottom.xml"
     },
     {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/slide_in_from_top.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/res/anim/slide_in_from_top.xml"
+    },
+    {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/design_snackbar_out.xml",
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/anim/design_snackbar_out.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/slide_out_to_bottom.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/res/anim/slide_out_to_bottom.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
@@ -60,7 +68,15 @@
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_popup_enter.xml"
     },
     {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/slide_in_from_bottom.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/res/anim/slide_in_from_bottom.xml"
+    },
+    {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/sidebar_show.xml",
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/anim/sidebar_show.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/slide_out_to_top.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/res/anim/slide_out_to_top.xml"
     }
 ]

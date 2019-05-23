@@ -12,15 +12,15 @@ public final class R {
     public static final class attr {
         private attr() {}
 
-        public static final int mainCoords = 0x7f0101bc;
-        public static final int mainMirror = 0x7f0101ba;
-        public static final int secondCoords = 0x7f0101bd;
-        public static final int secondMirror = 0x7f0101bb;
+        public static final int mainCoords = 0x7f0101e1;
+        public static final int mainMirror = 0x7f0101df;
+        public static final int secondCoords = 0x7f0101e2;
+        public static final int secondMirror = 0x7f0101e0;
     }
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] RTCGlView = { 0x7f0101ba, 0x7f0101bb, 0x7f0101bc, 0x7f0101bd };
+        public static final int[] RTCGlView = { 0x7f0101df, 0x7f0101e0, 0x7f0101e1, 0x7f0101e2 };
         public static final int RTCGlView_mainMirror = 0;
         public static final int RTCGlView_secondMirror = 1;
         public static final int RTCGlView_mainCoords = 2;

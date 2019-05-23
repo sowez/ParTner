@@ -1,4 +1,4 @@
-#Thu May 23 20:35:59 KST 2019
+#Fri May 24 01:58:12 KST 2019
 base.0=/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/transforms/dexMerger/debug/10
 path.0=classes.dex
 renamed.0=classes.dex

@@ -28,20 +28,20 @@
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/drawable/setting.jpg"
     },
     {
-        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/ic_refresh.png",
-        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/drawable/ic_refresh.png"
-    },
-    {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
     {
-        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/nav_menu_header_bg.png",
-        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/drawable/nav_menu_header_bg.png"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/ic_refresh.png",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/drawable/ic_refresh.png"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/selector_toggle_mic.xml",
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/drawable/selector_toggle_mic.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/nav_menu_header_bg.png",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/drawable/nav_menu_header_bg.png"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
@@ -60,12 +60,12 @@
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/drawable/abc_list_selector_holo_light.xml"
     },
     {
-        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_indicator_material.xml",
-        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/drawable/abc_ratingbar_indicator_material.xml"
-    },
-    {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_tick_mark_material.xml",
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/drawable/abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_indicator_material.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/drawable/abc_ratingbar_indicator_material.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/ic_call.png",
@@ -108,12 +108,12 @@
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/drawable/arrow.BMP"
     },
     {
-        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/ic_mic_off.xml",
-        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/drawable/ic_mic_off.xml"
-    },
-    {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/ic_microphone.png",
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/drawable/ic_microphone.png"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/ic_mic_off.xml",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/drawable/ic_mic_off.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
@@ -136,12 +136,20 @@
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/drawable/ic_group.png"
     },
     {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/progress_indeterminate_horizontal_holo.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/res/drawable/progress_indeterminate_horizontal_holo.xml"
+    },
+    {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light_normal.xml",
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/cb7ef1950ae61a25e286c8f52dbc9e17/res/drawable/common_google_signin_btn_icon_light_normal.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/abc_ic_search_api_material.xml",
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/drawable/abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/progress_horizontal_holo_light.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/res/drawable/progress_horizontal_holo_light.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/ic_volume_off.png",
@@ -220,6 +228,10 @@
         "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/indicator_bg_bottom.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/res/drawable/indicator_bg_bottom.xml"
+    },
+    {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/ic_call_end_sm.png",
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/drawable/ic_call_end_sm.png"
     },
@@ -242,6 +254,10 @@
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/ic_videocam.png",
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/drawable/ic_videocam.png"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/progress_horizontal_holo_light_right.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/res/drawable/progress_horizontal_holo_light_right.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/ic_screen_share.png",
@@ -282,6 +298,10 @@
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/ic_microphone_off.png",
         "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/drawable/ic_microphone_off.png"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/indicator_bg_top.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/library-3.2.3.aar/1a3c1ef8cde3567202e2d37d302a65b6/res/drawable/indicator_bg_top.xml"
     },
     {
         "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/drawable/ic_mtrl_chip_checked_circle.xml",

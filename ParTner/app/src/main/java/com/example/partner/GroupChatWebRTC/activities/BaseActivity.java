@@ -22,7 +22,7 @@ import androidx.annotation.StringRes;
  */
 public abstract class BaseActivity extends CoreBaseActivity {
 
-    SharedPrefsHelper sharedPrefsHelper;
+    protected SharedPrefsHelper sharedPrefsHelper;
     private ProgressDialog progressDialog;
     protected GooglePlayServicesHelper googlePlayServicesHelper;
     protected QBResRequestExecutor requestExecutor;
@@ -91,8 +91,7 @@ public abstract class BaseActivity extends CoreBaseActivity {
     protected void showErrorSnackbar(@StringRes int resId, Exception e,
                                      View.OnClickListener clickListener) {
         if (getSnackbarAnchorView() != null) {
-            ErrorUtils.showSnackbar(getSnackbarAnchorView(), resId, e,R.string.dlg_retry,clickListener);
-
+            ErrorUtils.showSnackbar(getSnackbarAnchorView(), resId, e, R.string.dlg_retry, clickListener);
         }
     }
 

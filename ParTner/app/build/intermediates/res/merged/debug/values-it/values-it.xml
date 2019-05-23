@@ -47,6 +47,9 @@
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Accedi con Google"</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Varie"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Varie"</string>
+    <string name="pull_to_refresh_pull_label">Tira per aggiornare…</string>
+    <string name="pull_to_refresh_refreshing_label">Caricamento…</string>
+    <string name="pull_to_refresh_release_label">Rilascia per aggionare…</string>
     <string msgid="146198913615257606" name="search_menu_title">"Ricerca"</string>
     <string msgid="7988687684186075107" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

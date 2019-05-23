@@ -25,6 +25,10 @@ public class CoreApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
+        initQBSessionManager();
+        initQbConfigs();
+        initCredentials();
         Fabric.with(this, new Crashlytics());
         instance = this;
         initQBSessionManager();

@@ -17,6 +17,10 @@ anim design_snackbar_in
 anim design_snackbar_out
 anim sidebar_hidden
 anim sidebar_show
+anim slide_in_from_bottom
+anim slide_in_from_top
+anim slide_out_to_bottom
+anim slide_out_to_top
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -455,6 +459,43 @@ attr preserveIconSpacing
 attr pressedTranslationZ
 attr progressBarPadding
 attr progressBarStyle
+attr ptrAdapterViewBackground
+attr ptrAnimationStyle
+attr ptrDrawable
+attr ptrDrawableBottom
+attr ptrDrawableEnd
+attr ptrDrawableStart
+attr ptrDrawableTop
+attr ptrFriction
+attr ptrGoogleProgressStyle
+attr ptrGoogleViewStyle
+attr ptrHeaderBackground
+attr ptrHeaderSubTextColor
+attr ptrHeaderTextAppearance
+attr ptrHeaderTextColor
+attr ptrHideRefeshableViewWhileRefreshingDuration
+attr ptrHideRefeshableViewWhileRefreshingEnabled
+attr ptrIndicatorStyle
+attr ptrListViewExtrasEnabled
+attr ptrMode
+attr ptrOverScroll
+attr ptrPullLabel
+attr ptrRefeshableViewProgressBarOnCenterHeight
+attr ptrRefeshableViewProgressBarOnCenterWidth
+attr ptrRefreshLabel
+attr ptrRefreshableViewBackground
+attr ptrReleaseLabel
+attr ptrRotateDrawableWhilePulling
+attr ptrScrollingWhileRefreshingEnabled
+attr ptrSetGoogleViewLayoutSizeToActionbarHeight
+attr ptrShowGoogleStyleViewAnimationDuration
+attr ptrShowGoogleStyleViewAnimationEnabled
+attr ptrShowIndicator
+attr ptrSmoothScrollDuration
+attr ptrSmoothScrollLongDuration
+attr ptrSubHeaderTextAppearance
+attr ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingDuration
+attr ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingEnabled
 attr queryBackground
 attr queryHint
 attr radioButtonStyle
@@ -995,6 +1036,9 @@ dimen fastscroll_default_thickness
 dimen fastscroll_margin
 dimen fastscroll_minimum_range
 dimen grid_item_divider
+dimen header_footer_left_right_padding
+dimen header_footer_top_bottom_padding
+dimen header_pull_to_refresh_image_padding
 dimen highlight_alpha_material_colored
 dimen highlight_alpha_material_dark
 dimen highlight_alpha_material_light
@@ -1005,6 +1049,9 @@ dimen hint_pressed_alpha_material_light
 dimen horizontal_page_margin
 dimen income_call_buttons_margin
 dimen incoming_call_type_text_size
+dimen indicator_corner_radius
+dimen indicator_internal_padding
+dimen indicator_right_padding
 dimen item_height
 dimen item_touch_helper_max_drag_scroll_per_frame
 dimen item_touch_helper_swipe_escape_max_velocity
@@ -1232,6 +1279,8 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable default_ptr_flip
+drawable default_ptr_rotate
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1287,6 +1336,9 @@ drawable ic_volume_medium_white_24dp
 drawable ic_volume_off
 drawable ic_volume_off_white_24dp
 drawable ic_volume_on
+drawable indicator_arrow
+drawable indicator_bg_bottom
+drawable indicator_bg_top
 drawable jumping_green
 drawable jumping_red
 drawable login_screen
@@ -1315,6 +1367,20 @@ drawable p2p
 drawable person
 drawable pres_img
 drawable profile_image
+drawable progress_bg_holo_light
+drawable progress_horizontal_holo_light
+drawable progress_horizontal_holo_light_right
+drawable progress_indeterminate_horizontal_holo
+drawable progress_primary_holo_light
+drawable progress_secondary_holo_light
+drawable progressbar_indeterminate_holo1
+drawable progressbar_indeterminate_holo2
+drawable progressbar_indeterminate_holo3
+drawable progressbar_indeterminate_holo4
+drawable progressbar_indeterminate_holo5
+drawable progressbar_indeterminate_holo6
+drawable progressbar_indeterminate_holo7
+drawable progressbar_indeterminate_holo8
 drawable qb_logo
 drawable selector_call_end
 drawable selector_call_take
@@ -1381,6 +1447,7 @@ id background
 id barrier
 id beginning
 id blocking
+id both
 id bottom
 id btn_changeView
 id btn_endEx
@@ -1445,6 +1512,7 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
+id disabled
 id drawview
 id edit
 id edit_intro
@@ -1466,6 +1534,8 @@ id fill_horizontal
 id fill_vertical
 id filled
 id fixed
+id fl_inner
+id fl_inner_for_google_style
 id forever
 id fragmentIncomeCall
 id fragmentOpponents
@@ -1475,7 +1545,9 @@ id front
 id gender_type
 id ghost_view
 id gone
+id google
 id grid_opponents
+id gridview
 id group_divider
 id groups
 id history_time
@@ -1491,6 +1563,7 @@ id id_ex_history
 id id_ex_list
 id id_ex_preview
 id id_input
+id id_partner_login
 id id_trainer_list
 id id_trainer_menu
 id id_user_call_history
@@ -1533,6 +1606,7 @@ id login_id
 id login_pw
 id loginbutton
 id man
+id manualOnly
 id masked
 id match_parent
 id mcv_pager
@@ -1586,11 +1660,23 @@ id progress_bar_adapter
 id progress_bar_show_image
 id progress_circular
 id progress_horizontal
+id pullDownFromTop
+id pullFromEnd
+id pullFromStart
+id pullUpFromBottom
+id pull_to_refresh_image
+id pull_to_refresh_progress
+id pull_to_refresh_sub_text
+id pull_to_refresh_text
+id pulling_left_progressbar
+id pulling_progress
+id pulling_right_progressbar
 id pw_input
 id radio
 id radioGroup1
 id ratingbar
 id recyclerView
+id refreshing_progress
 id remoteViewForGroupCall
 id remote_video_view
 id right
@@ -1609,6 +1695,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id scrollview
 id search_badge
 id search_bar
 id search_button
@@ -1760,6 +1847,7 @@ id vertical
 id view_offset_helper
 id visible
 id vv_exPreview
+id webview
 id wednesday
 id week
 id wide
@@ -1903,6 +1991,11 @@ layout notification_template_part_time
 layout popup_set_done_ex_count
 layout popup_set_ex_count
 layout preference_version
+layout pull_to_refresh_header_google_style
+layout pull_to_refresh_header_horizontal
+layout pull_to_refresh_header_vertical
+layout pull_to_refresh_progress_google_style
+layout pulling_progress_layout
 layout remote_video_view
 layout seekbar_preference
 layout select_dialog_item_material
@@ -2141,6 +2234,12 @@ string pref_videocodec_key
 string pref_videocodec_title
 string previous
 string project_id
+string pull_to_refresh_from_bottom_pull_label
+string pull_to_refresh_from_bottom_refreshing_label
+string pull_to_refresh_from_bottom_release_label
+string pull_to_refresh_pull_label
+string pull_to_refresh_refreshing_label
+string pull_to_refresh_release_label
 string request_permission
 string ringing
 string search_menu_title
@@ -2784,6 +2883,7 @@ styleable MenuView android_headerBackground android_horizontalDivider android_it
 styleable NavigationView android_background android_fitsSystemWindows android_maxWidth elevation headerLayout itemBackground itemHorizontalPadding itemIconPadding itemIconTint itemTextAppearance itemTextColor menu
 styleable PopupWindow android_popupAnimationStyle android_popupBackground overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
+styleable PullToRefresh ptrAdapterViewBackground ptrAnimationStyle ptrDrawable ptrDrawableBottom ptrDrawableEnd ptrDrawableStart ptrDrawableTop ptrFriction ptrGoogleProgressStyle ptrGoogleViewStyle ptrHeaderBackground ptrHeaderSubTextColor ptrHeaderTextAppearance ptrHeaderTextColor ptrHideRefeshableViewWhileRefreshingDuration ptrHideRefeshableViewWhileRefreshingEnabled ptrIndicatorStyle ptrListViewExtrasEnabled ptrMode ptrOverScroll ptrPullLabel ptrRefeshableViewProgressBarOnCenterHeight ptrRefeshableViewProgressBarOnCenterWidth ptrRefreshLabel ptrRefreshableViewBackground ptrReleaseLabel ptrRotateDrawableWhilePulling ptrScrollingWhileRefreshingEnabled ptrSetGoogleViewLayoutSizeToActionbarHeight ptrShowGoogleStyleViewAnimationDuration ptrShowGoogleStyleViewAnimationEnabled ptrShowIndicator ptrSmoothScrollDuration ptrSmoothScrollLongDuration ptrSubHeaderTextAppearance ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingDuration ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingEnabled
 styleable RTCGlView mainCoords mainMirror secondCoords secondMirror
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
 styleable RecyclerView android_descendantFocusability android_orientation fastScrollEnabled fastScrollHorizontalThumbDrawable fastScrollHorizontalTrackDrawable fastScrollVerticalThumbDrawable fastScrollVerticalTrackDrawable layoutManager reverseLayout spanCount stackFromEnd
@@ -2809,3 +2909,4 @@ styleable ViewBackgroundHelper android_background backgroundTint backgroundTintM
 styleable ViewStubCompat android_id android_inflatedId android_layout
 xml preferences
 xml provider_paths
+xml pulltorefresh

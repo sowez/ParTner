@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.example.partner.GroupChatWebRTC.utils.QBEntityCallbackImpl;
 import com.example.partner.GroupChatWebRTC.utils.UsersUtils;
 import com.example.partner.GroupChatWebRTC.utils.ValidationUtils;
 import com.example.partner.R;
+import com.example.partner.SharedPreferenceData;
 import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.core.helper.StringifyArrayList;
@@ -32,6 +34,8 @@ import androidx.annotation.Nullable;
 public class LoginActivity extends BaseActivity {
 
     private String TAG = LoginActivity.class.getSimpleName();
+
+    private Context context = LoginActivity.this;
 
     private EditText userNameEditText;
     private EditText chatRoomNameEditText;
@@ -58,11 +62,16 @@ public class LoginActivity extends BaseActivity {
 
     private void initUI() {
         setActionBarTitle(R.string.title_login_activity);
+
         userNameEditText = (EditText) findViewById(R.id.user_name);
-        userNameEditText.addTextChangedListener(new LoginEditTextWatcher(userNameEditText));
+        String user = SharedPreferenceData.getId(context);
+        Log.d("chatlogin", "initUI: " + user);
+        userNameEditText.setText(user);
 
         chatRoomNameEditText = (EditText) findViewById(R.id.chat_room_name);
-        chatRoomNameEditText.addTextChangedListener(new LoginEditTextWatcher(chatRoomNameEditText));
+        Intent intent = getIntent();
+        String trainer = intent.getStringExtra("trainer_name");
+        chatRoomNameEditText.setText(trainer);
     }
 
     @Override
