@@ -1,50 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/id_main"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
-    android:orientation="vertical">
+    android:keepScreenOn="true"
+    android:orientation="vertical"
+    tools:context="com.quickblox.sample.groupchatwebrtc.activities.CallActivity">
 
-    <include
-        layout="@layout/menu_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/trainer_btn"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#00ff00"
-            android:text="Trainer Main Menu" />
-
-        <Button
-            android:id="@+id/user_btn"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#0000ff"
-            android:text="User Main Menu" />
-
-    <!-- 사이드바 -->
     <FrameLayout
-        android:id="@+id/fl_slide"
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
+        android:layout_height="match_parent" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alpha="0.75"
-            android:background="#202735" />
-
-        <FrameLayout
-            android:id="@+id/view_slidebar"
-            android:layout_width="250dp"
-            android:layout_height="match_parent" />
-
-    </FrameLayout>
-
-</LinearLayout>
+    <include layout="@layout/toolbar_call" />
+</FrameLayout>
