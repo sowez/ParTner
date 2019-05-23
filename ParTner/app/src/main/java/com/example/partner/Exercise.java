@@ -21,8 +21,11 @@ public class Exercise {
 
 
     //운동 동작 인식하는 함수
-    public boolean doExercise(int currentStep){
-        return true;
+    public ArrayList<Integer> doExercise(int currentStep){
+        ArrayList<Integer> result= new ArrayList<>();
+
+        result.add(1);
+        return result;
     }
 
     //두 선분(네점)의 각도를 구하는 함수

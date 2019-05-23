@@ -1,6 +1,11 @@
 package com.example.partner;
 
+import android.graphics.PointF;
 import android.util.Log;
+import java.util.ArrayList;
+
+import static java.lang.Double.NaN;
+import static java.lang.Double.isNaN;
 
 public class JumpingJack extends Exercise {
     private float[][] point;
@@ -51,13 +56,18 @@ public class JumpingJack extends Exercise {
 
     // 점핑잭 운동 동작 인식하는 함수
     @Override
-    public boolean doExercise(int currentStep) {
+    public ArrayList<Integer> doExercise(int currentStep) {
         Log.d("step", currentStep + "");
 
-        //hip-knee-ankle 150~180도
-        //shoulder-elbow-wrist 100~180도
-        //다리 각도  120~180도 || 110~180도
-        //팔 각도 130~180도 || 0~110도
+        //hip-knee-ankle 160~180도
+        //shoulder-elbow-wrist 130~180도
+        //다리 각도  150~180도 || 140~165도
+        //팔 각도 150~180도 || 0~50도
+        //다리
+        ArrayList<Integer> result;
+        result = new ArrayList<Integer>();
+
+        super.dpPoint.add(new PointF((point[0][8]+point[0][11])/2, (point[1][8]+point[1][11])/2));   // dpPoint(14)
 
         double r_hnaAngle = getAngle(9,8,9,10);
         double r_sewAngle = getAngle(3,2,3,4);
@@ -67,38 +77,70 @@ public class JumpingJack extends Exercise {
         double l_sewAngle = getAngle(6,5,6,7);
         double l_legAngle = getAngle(1,0,11,12);
         double l_armAngle = getAngle(1,0,5,6);
+        double legAngle = getAngle(14,10,14,13);
+        double x = (point[0][8]+point[0][11])/2;
+        double y = (point[1][8]+point[1][11])/2;
+        Log.d("jumpingjack", x+""+y+""+point[0][12]+""+point[1][12]+""+point[0][9]+""+point[1][9]);
 
-        if(r_hnaAngle>=100 && r_hnaAngle<=180 &&
-            l_hnaAngle>=100 && l_hnaAngle<=180 &&
-            r_sewAngle>=100 && r_sewAngle<=180 &&
-            l_sewAngle>=100 && l_sewAngle<=180){
-            if(currentStep==0 || currentStep == 2){
-                if(r_legAngle>=150 && r_legAngle<=180 &&
-                    l_legAngle>= 150 && l_legAngle<=180 &&
-                    r_armAngle>=140 && r_armAngle<=180 &&
-                    l_armAngle>=140 && l_armAngle<=180) {
-                    return true;
+
+        if(isNaN(r_hnaAngle)|| isNaN(r_sewAngle) || isNaN(r_armAngle) || isNaN(l_hnaAngle) || isNaN(l_sewAngle) || isNaN(l_armAngle) ){
+            result.add(-1);
+            result.add(0);
+            Log.d("error", "0");
+            Log.d("error", r_hnaAngle+","+l_hnaAngle+","+r_sewAngle+","+l_sewAngle+","+r_legAngle+","+l_legAngle+","+r_armAngle+","+l_armAngle+","+legAngle+"");
+
+        }
+        else if(r_hnaAngle<160 || l_hnaAngle<160){
+            result.add(-1);
+            result.add(1);
+            Log.d("error", "1");
+        }
+        else if(r_sewAngle<130 || l_sewAngle < 130){
+            result.add(-1);
+            result.add(2);
+            Log.d("error", "2");
+        }
+        else {
+            if(currentStep==0) {
+                if(legAngle>15) {
+                    result.add(-1);
+                    result.add(5);
+                    Log.d("error", "5");
                 }
-            }
-            else if(currentStep==1){
-                if(r_legAngle>=130 && r_legAngle<=180 &&
-                        l_legAngle>= 130 && l_legAngle<=180 &&
-                        r_armAngle<=110 &&
-                        l_armAngle<=110) {
-                    return true;
+                else if(r_armAngle<150 || l_armAngle<150){
+                    result.add(-1);
+                    result.add(3);
+
+                    Log.d("error", "3");
                 }
             }
             else{
-                if(r_legAngle>=130 && r_legAngle<=170 &&
-                        l_legAngle>= 130 && l_legAngle<=170 &&
-                        r_armAngle<=90 &&
-                        l_armAngle<=90) {
-                    return true;
+                if(legAngle<8) {
+                    result.add(-1);
+                    result.add(6);
+                    Log.d("error", "6");
+                }
+                else if(legAngle>50){
+                    result.add(-1);
+                    result.add(5);
+
+                    Log.d("error", "5");
+                }
+                else if(r_armAngle>50 || l_armAngle>50){
+                    result.add(-1);
+                    result.add(4);
+                    Log.d("error", "4");
                 }
             }
         }
-        Log.d("jumpingjack", r_hnaAngle+","+l_hnaAngle+","+r_sewAngle+","+l_sewAngle+","+r_legAngle+","+l_legAngle+","+r_armAngle+","+l_armAngle+"");
-        return false;
+        Log.d("jumpingjack", r_hnaAngle+","+l_hnaAngle+","+r_sewAngle+","+l_sewAngle+","+r_legAngle+","+l_legAngle+","+r_armAngle+","+l_armAngle+","+legAngle+"");
+
+        if(result.size()==0 && r_hnaAngle!=NaN) {
+            result.add(1);
+
+            Log.d("error", "-1");
+        }
+        return result;
     }
 
     // getter setter

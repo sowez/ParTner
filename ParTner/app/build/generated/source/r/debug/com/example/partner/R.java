@@ -3893,7 +3893,8 @@ containing a value of this type.
     }
     public static final class raw {
         public static final int jumpingjack_preview=0x7f060000;
-        public static final int squat_preview=0x7f060001;
+        public static final int kyu=0x7f060001;
+        public static final int squat_preview=0x7f060002;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f070000;

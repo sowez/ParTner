@@ -65,7 +65,7 @@ public class Squat extends Exercise {
 
     // 스쿼트 운동 동작 인식하는 함수
     @Override
-    public boolean doExercise(int currentStep){
+    public ArrayList<Integer> doExercise(int currentStep){
 
         // 왼쪽 엉덩이-무릎-발목 사이의 각도 구하기
         double legAngle = getAngle(9, 8, 9, 10);
@@ -110,45 +110,49 @@ public class Squat extends Exercise {
         return gotoNextStep(currentStep,legState, isArmStraight, isArmParallel);
     }
 
-    private boolean gotoNextStep(int currentStep, int legState, boolean isArmStraight, boolean isArmParallel){
+    private ArrayList<Integer> gotoNextStep(int currentStep, int legState, boolean isArmStraight, boolean isArmParallel){
         Log.d("gotoNextStep", "currentStep: "+currentStep+", "+legState+", "+isArmStraight+", "+isArmParallel);
+
+        ArrayList<Integer> result = new ArrayList<>();
         switch (currentStep){
             case 0:
                 if (legState==0&&isArmStraight&&isArmParallel){
                     Log.d("gotoNextStep", "goto Step 1");
-                    return true;
+                    result.add(1);
                 }
                 break;
 
             case 1:
                 if (legState==1&&isArmStraight&&isArmParallel){
                     Log.d("gotoNextStep", "goto Step 2");
-                    return true;
+                    result.add(1);
                 }
                 break;
             case 2:
                 if (legState==2&&isArmStraight&&isArmParallel){
                     Log.d("gotoNextStep", "goto Step 3");
-                    return true;
+                    result.add(1);
                 }
                 break;
             case 3:
                 if (legState==1&&isArmStraight&&isArmParallel){
                     Log.d("gotoNextStep", "goto Step 4");
-                    return true;
+                    result.add(1);
                 }
                 break;
             case 4:
                 if (legState==0&&isArmStraight&&isArmParallel){
                     Log.d("gotoNextStep", "goto Step 5 and restart");
-                    return true;
+                    result.add(1);
                 }
                 break;
             default:
+                result.add(-1);
+                result.add(0);
                 break;
         }
         Log.d("gotoNextStep", "cannot go to next step");
-        return false;
+        return result;
     }
 
 

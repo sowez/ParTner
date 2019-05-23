@@ -1233,7 +1233,8 @@ int layout trainerlist_view 0x7f030057
 int layout user_sidebar 0x7f030058
 int menu appbar_action 0x7f0f0000
 int raw jumpingjack_preview 0x7f060000
-int raw squat_preview 0x7f060001
+int raw kyu 0x7f060001
+int raw squat_preview 0x7f060002
 int string abc_action_bar_home_description 0x7f070000
 int string abc_action_bar_home_description_format 0x7f070001
 int string abc_action_bar_home_subtitle_description_format 0x7f070002
