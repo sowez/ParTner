@@ -1,130 +1,66 @@
 [
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/sidebar_show.xml",
-        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/anim/sidebar_show.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_popup_exit.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/anim/abc_fade_in.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_slide_out_top.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/anim/abc_slide_in_bottom.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_tooltip_exit.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_tooltip_exit.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/anim/abc_slide_out_top.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_slide_in_top.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/sidebar_show.xml",
-        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/anim/sidebar_show.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/design_snackbar_in.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/anim/design_snackbar_in.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/anim/abc_slide_in_top.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_tooltip_enter.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_tooltip_enter.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/anim/abc_grow_fade_in_from_bottom.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_slide_in_bottom.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/anim/abc_fade_out.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/design_snackbar_out.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/anim/design_snackbar_out.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/design_fab_in.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/d6cc02502e2b8b0cd3db3719f6eab7f4/res/anim/design_fab_in.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_fade_in.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/design_snackbar_out.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/d6cc02502e2b8b0cd3db3719f6eab7f4/res/anim/design_snackbar_out.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_slide_out_bottom.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/sidebar_hidden.xml",
-        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/anim/sidebar_hidden.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/sidebar_hidden.xml",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/anim/sidebar_hidden.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/design_fab_in.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/edd2fe881d339b946e535e57579d108b/res/anim/design_fab_in.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_fade_out.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/design_snackbar_in.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/d6cc02502e2b8b0cd3db3719f6eab7f4/res/anim/design_snackbar_in.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/design_fab_out.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/edd2fe881d339b946e535e57579d108b/res/anim/design_fab_out.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_shrink_fade_out_from_bottom.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/anim/abc_slide_out_bottom.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/anim/abc_popup_enter.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/anim/abc_popup_exit.xml"
-    },
-    {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/anim/abc_slide_out_top.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/anim/abc_fade_out.xml"
-    },
-    {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/anim/abc_fade_in.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/sidebar_hidden.xml",
-        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/anim/sidebar_hidden.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/anim/abc_grow_fade_in_from_bottom.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/anim/abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/anim/abc_popup_exit.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/anim/abc_slide_out_bottom.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/design_snackbar_in.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/edd2fe881d339b946e535e57579d108b/res/anim/design_snackbar_in.xml"
-    },
-    {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/anim/abc_popup_enter.xml"
-    },
-    {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/anim/abc_slide_in_top.xml"
-    },
-    {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/anim/abc_slide_in_bottom.xml"
-    },
-    {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/design_fab_out.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/d6cc02502e2b8b0cd3db3719f6eab7f4/res/anim/design_fab_out.xml"
-    },
-    {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/anim/abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/anim/abc_popup_enter.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/design_snackbar_out.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/edd2fe881d339b946e535e57579d108b/res/anim/design_snackbar_out.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim/sidebar_show.xml",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/anim/sidebar_show.xml"
     }
 ]

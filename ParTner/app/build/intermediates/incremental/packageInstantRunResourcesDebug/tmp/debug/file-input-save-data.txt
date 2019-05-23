@@ -1,0 +1,11 @@
+#Internal package file, do not edit.
+#Thu May 23 20:55:35 KST 2019
+1.base=/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/merged_assets/debug/mergeDebugAssets/out
+0.baseType=DIRECTORY
+1.baseType=DIRECTORY
+count=2
+1.set=ASSET
+0.path=qb_config.json
+0.set=ASSET
+0.base=/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/merged_assets/debug/mergeDebugAssets/out
+1.path=crashlytics-build.properties

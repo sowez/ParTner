@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/interpolator-v21/mtrl_fast_out_slow_in.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/interpolator-v21/mtrl_fast_out_slow_in.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/interpolator-v21/mtrl_fast_out_linear_in.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/interpolator-v21/mtrl_fast_out_linear_in.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/interpolator-v21/mtrl_linear_out_slow_in.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/interpolator-v21/mtrl_linear_out_slow_in.xml"
+    }
+]

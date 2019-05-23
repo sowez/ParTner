@@ -79,25 +79,25 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <android.support.v7.widget.AppCompatCheckBox
+        <CheckBox
             android:id="@+id/check_yoga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="요가" />
 
-        <android.support.v7.widget.AppCompatCheckBox
+        <CheckBox
             android:id="@+id/check_muscle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="근력운동" />
 
-        <android.support.v7.widget.AppCompatCheckBox
+        <CheckBox
             android:id="@+id/check_pilates"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="필라테스" />
 
-        <android.support.v7.widget.AppCompatCheckBox
+        <CheckBox
             android:id="@+id/check_stretching"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

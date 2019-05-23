@@ -25,7 +25,6 @@
     <dimen name="element_fragment_margin_small">8dp</dimen>
 
     <dimen name="margin_common">16dp</dimen>
-    <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_very_small">3dp</dimen>
 
     <dimen name="text_size">20sp</dimen>

@@ -1,4 +1,4 @@
-#Thu May 09 18:49:09 KST 2019
-base.0=C\:\\Users\\Sujin\\Documents\\GitHub\\ParTner\\ParTner\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\8
+#Thu May 23 20:36:01 KST 2019
+base.0=/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/transforms/dexMerger/debug/8
 path.0=classes.dex
 renamed.0=classes.dex

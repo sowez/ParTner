@@ -2,11 +2,11 @@ package com.example.partner;
 
 import android.content.Context;
 import android.util.AttributeSet;
+
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.partner.R;
-//import android.support.v7.widget.AppCompat
 
 public class AutoImageView extends ImageView {
 

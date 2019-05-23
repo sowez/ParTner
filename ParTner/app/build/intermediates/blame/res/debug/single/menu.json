@@ -1,10 +1,26 @@
 [
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/menu/appbar_action.xml",
-        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/menu/appbar_action.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/menu/activity_selected_opponents.xml",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/menu/activity_selected_opponents.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/menu/appbar_action.xml",
-        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/menu/appbar_action.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/menu/appbar_action.xml",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/menu/appbar_action.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/menu/conversation_fragment.xml",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/menu/conversation_fragment.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/menu/activity_login.xml",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/menu/activity_login.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/menu/activity_opponents.xml",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/menu/activity_opponents.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/menu/screen_share_fragment.xml",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/menu/screen_share_fragment.xml"
     }
 ]

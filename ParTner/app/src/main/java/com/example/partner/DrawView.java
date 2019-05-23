@@ -20,10 +20,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PointF;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;

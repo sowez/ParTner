@@ -1,10 +1,29 @@
 {
     "logs": [
         {
-            "outputFile": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/values-v23/values-v23.xml",
+            "outputFile": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/values-v23/values-v23.xml",
+                    "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/cardview-1.0.0-rc01.aar/1f5a314f002457b4eaa75fede42fda24/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "200"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "2646",
+                        "endLines": "39",
+                        "endColumns": "12",
+                        "endOffsets": "2791"
+                    }
+                },
+                {
+                    "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -17,42 +36,29 @@
             ]
         },
         {
-            "outputFile": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
+            "outputFile": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/values-v23/values-v23.xml",
+                    "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/cardview-1.0.0-rc01.aar/1f5a314f002457b4eaa75fede42fda24/res/values-v23/values-v23.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,19,32,33,34,35,36",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,190,325,400,487,1277,2079,2206,2311,2426,2533",
-                        "endLines": "2,3,4,5,18,31,32,33,34,35,36",
-                        "endColumns": "134,134,74,86,12,12,126,104,114,106,112",
-                        "endOffsets": "185,320,395,482,1272,2074,2201,2306,2421,2528,2641"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "200"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "2646",
+                        "endLines": "39",
+                        "endColumns": "12",
+                        "endOffsets": "2791"
                     }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
-            "map": [
+                },
                 {
-                    "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/values-v23/values-v23.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,19,32,33,34,35,36",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,190,325,400,487,1277,2079,2206,2311,2426,2533",
-                        "endLines": "2,3,4,5,18,31,32,33,34,35,36",
-                        "endColumns": "134,134,74,86,12,12,126,104,114,106,112",
-                        "endOffsets": "185,320,395,482,1272,2074,2201,2306,2421,2528,2641"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/values-v23/values-v23.xml",
-            "map": [
-                {
-                    "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/values-v23/values-v23.xml",
+                    "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",

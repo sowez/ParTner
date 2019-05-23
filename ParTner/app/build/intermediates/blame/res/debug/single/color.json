@@ -1,194 +1,182 @@
 [
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_tint_switch_track.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_secondary_text_material_dark.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mcv_text_date_light.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/material-calendarview-1.4.3.aar/4a712759b8c7ba7f67e1f4c8ec09c5d1/res/color/mcv_text_date_light.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mcv_text_date_light.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-material-calendarview-1.4.3.aar/735847ecdc1e5bce1907e8005acc8458/res/color/mcv_text_date_light.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_dark.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_hint_foreground_material_dark.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_bottom_nav_item_tint.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_bottom_nav_item_tint.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mcv_text_date_dark.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/material-calendarview-1.4.3.aar/b5417df1357bcd75a0744d8ff68276c9/res/color/mcv_text_date_dark.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/switch_thumb_material_dark.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_primary_text_disable_only_material_light.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_seek_thumb.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_tint_seek_thumb.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_primary_text_disable_only_material_dark.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_tabs_legacy_text_color_selector.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_tabs_legacy_text_color_selector.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/design_tint_password_toggle.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/d6cc02502e2b8b0cd3db3719f6eab7f4/res/color/design_tint_password_toggle.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_search_url_text.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_tint_edittext.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/design_error.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/design_error.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_dark.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_hint_foreground_material_dark.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_dark.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/cb7ef1950ae61a25e286c8f52dbc9e17/res/color/common_google_signin_btn_text_dark.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_btn_colored_borderless_text_material.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_btn_colored_borderless_text_material.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_chip_close_icon_tint.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_chip_close_icon_tint.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_secondary_text_material_dark.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_btn_ripple_color.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_btn_ripple_color.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_tint_spinner.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/design_tint_password_toggle.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/design_tint_password_toggle.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_primary_text_disable_only_material_dark.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_primary_text_disable_only_material_dark.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/switch_thumb_material_dark.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_primary_text_disable_only_material_light.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_default.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_tint_default.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_chip_text_color.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_chip_text_color.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_btn_colored_text_material.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_btn_colored_text_material.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_secondary_text_material_light.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_primary_text_material_dark.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_tabs_ripple_color.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_tabs_ripple_color.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mcv_text_date_light.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/material-calendarview-1.4.3.aar/b5417df1357bcd75a0744d8ff68276c9/res/color/mcv_text_date_light.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_btn_text_btn_ripple_color.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_btn_text_btn_ripple_color.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_primary_text_material_light.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_chip_ripple_color.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_chip_ripple_color.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_btn_colored_text_material.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_btn_colored_text_material.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_light.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/cb7ef1950ae61a25e286c8f52dbc9e17/res/color/common_google_signin_btn_text_light.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_switch_thumb.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_tint_switch_thumb.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_primary_text_material_dark.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_light.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_hint_foreground_material_light.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_btn_stroke_color_selector.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_btn_stroke_color_selector.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_tint_btn_checkable.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_tabs_icon_color_selector.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_tabs_icon_color_selector.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_default.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_tint_default.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_default.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_tint_default.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/design_error.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/d6cc02502e2b8b0cd3db3719f6eab7f4/res/color/design_error.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_background_cache_hint_selector_material_dark.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_tint_btn_checkable.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_tint_edittext.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/switch_thumb_material_light.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_tint.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/cb7ef1950ae61a25e286c8f52dbc9e17/res/color/common_google_signin_btn_tint.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_btn_colored_borderless_text_material.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_btn_colored_borderless_text_material.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_light.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_hint_foreground_material_light.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_primary_text_material_dark.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_tabs_icon_color_selector_colored.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_tabs_icon_color_selector_colored.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_tint_edittext.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_btn_colored_text_material.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_btn_colored_text_material.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/switch_thumb_material_dark.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_tabs_colored_ripple_color.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_tabs_colored_ripple_color.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_seek_thumb.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_tint_seek_thumb.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_background_cache_hint_selector_material_light.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_search_url_text.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mcv_text_date_dark.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/jetified-material-calendarview-1.4.3.aar/735847ecdc1e5bce1907e8005acc8458/res/color/mcv_text_date_dark.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_light.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_hint_foreground_material_light.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_btn_text_color_selector.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_btn_text_color_selector.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_primary_text_material_light.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/switch_thumb_material_light.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_tint_switch_track.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_text_btn_text_color_selector.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_text_btn_text_color_selector.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_tint_spinner.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_btn_bg_color_selector.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_btn_bg_color_selector.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_seek_thumb.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_tint_seek_thumb.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_tint_btn_checkable.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_search_url_text.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_primary_text_material_light.xml"
     },
     {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_primary_text_disable_only_material_light.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_chip_background_color.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_chip_background_color.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_secondary_text_material_dark.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_dark.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_hint_foreground_material_dark.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/switch_thumb_material_light.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_fab_ripple_color.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_fab_ripple_color.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mcv_text_date_dark.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/material-calendarview-1.4.3.aar/4a712759b8c7ba7f67e1f4c8ec09c5d1/res/color/mcv_text_date_dark.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_tint_spinner.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_secondary_text_material_light.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/mtrl_bottom_nav_colored_item_tint.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/material-1.0.0-rc01.aar/c3d2e5147b06e51e677bdb9c8733a5b9/res/color/mtrl_bottom_nav_colored_item_tint.xml"
     },
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_switch_thumb.xml",
-        "source": "/home/sujin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/23b42fd62345b6b29d632a2a1b681373/res/color/abc_tint_switch_thumb.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/design_error.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/edd2fe881d339b946e535e57579d108b/res/color/design_error.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.2.0.aar/bc6e49bfff4f835f63e725b62721570b/res/color/abc_secondary_text_material_light.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/design_tint_password_toggle.xml",
-        "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/edd2fe881d339b946e535e57579d108b/res/color/design_tint_password_toggle.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
+        "source": "/home/chaesunghees/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/3096392a0c408f714934d27b8fc20b63/res/color/abc_tint_switch_track.xml"
     }
 ]

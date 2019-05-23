@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/xml/preferences.xml"
+    },
+    {
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/xml/provider_paths.xml",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/xml/provider_paths.xml"
+    }
+]

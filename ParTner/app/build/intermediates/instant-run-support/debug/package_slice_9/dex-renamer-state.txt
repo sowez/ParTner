@@ -1,4 +1,0 @@
-#Tue May 21 14:08:35 KST 2019
-base.0=/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/transforms/dexMerger/debug/10
-path.0=classes.dex
-renamed.0=classes.dex

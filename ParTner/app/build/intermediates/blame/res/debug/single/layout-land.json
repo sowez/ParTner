@@ -1,10 +1,6 @@
 [
     {
-        "merged": "/home/sujin/Desktop/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout-land/fragment_camera2_basic.xml",
-        "source": "/home/sujin/Desktop/ParTner/ParTner/app/src/main/res/layout-land/fragment_camera2_basic.xml"
-    },
-    {
-        "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout-land/fragment_camera2_basic.xml",
-        "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/layout-land/fragment_camera2_basic.xml"
+        "merged": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout-land/fragment_camera2_basic.xml",
+        "source": "/home/chaesunghees/AndroidStudioProjects/CD33/ParTner/ParTner/app/src/main/res/layout-land/fragment_camera2_basic.xml"
     }
 ]

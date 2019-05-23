@@ -1,4 +1,4 @@
-<Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/toolBar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -14,4 +14,4 @@
         android:id="@+id/toolbar_title"
         android:textSize="20sp" />
 
-</Toolbar>
+</androidx.appcompat.widget.Toolbar>
