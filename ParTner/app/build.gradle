@@ -1,7 +1,13 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
 
 android {
     compileSdkVersion 28
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.example.partner"
         minSdkVersion 22
@@ -36,6 +42,7 @@ dependencies {
         exclude group: 'org.json', module: 'json' //provided by Android natively
     }
 
+    // retrofit
     implementation "gun0912.ted:tedpermission:2.1.0"
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
@@ -43,6 +50,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit-converters:2.5.0"
     implementation "com.squareup.retrofit2:converter-gson:2.5.0"
 
+    //rxjava
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.13'
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.5.0"
@@ -51,4 +59,16 @@ dependencies {
 
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
+
+    //영상통화
+    implementation "com.quickblox:quickblox-android-sdk-chat:$rootProject.qbSdkVersion"
+    implementation "com.quickblox:quickblox-android-sdk-content:$rootProject.qbSdkVersion"
+    implementation "com.quickblox:quickblox-android-sdk-messages:$rootProject.qbSdkVersion"
+    implementation "com.quickblox:quickblox-android-sdk-customobjects:$rootProject.qbSdkVersion"
+    implementation("com.crashlytics.sdk.android:crashlytics:2.9.5@aar") {
+        transitive = true
+    }
 }
+
+apply plugin: 'com.google.gms.google-services'
+

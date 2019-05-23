@@ -44,7 +44,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class ServerComm {
 
     private String TAG = "TAG";
-    private Disposable disposable;
+
 
     /* 현재 쓰고있는 wifi ip (핸드폰이랑 노트북 쓰는 와이파이 같아야함!!) */
     // 수진이 핫스팟 : private String URL = "http://192.168.43.53:8000/";

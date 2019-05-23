@@ -2,9 +2,12 @@ package com.example.partner;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 //signup
 public class SignUpActivity extends AppCompatActivity {
 
