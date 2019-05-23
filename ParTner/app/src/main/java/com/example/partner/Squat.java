@@ -67,13 +67,18 @@ public class Squat extends Exercise {
     @Override
     public boolean doExercise(int currentStep){
 
+        // 두 점의 지표면과 평행한 선분 생성
+        super.dpPoint.add(new PointF(0, 0));   // -> dpPoint(14)
+        super.dpPoint.add(new PointF(100, 0)); // -> dpPoint(15)
+
         // 왼쪽 엉덩이-무릎-발목 사이의 각도 구하기
         double legAngle = getAngle(9, 8, 9, 10);
+
+        // 왼쪽 손-팔꿈치-어깨 각도 구하기
         double armAngle = getAngle(3, 2, 3, 4);
 
-        // 두 점으 지표면과 평행한 선분 생성
-        super.dpPoint.add(new PointF(0, 0));   // dpPoint(14)
-        super.dpPoint.add(new PointF(100, 0)); // dpPoint(15)로
+        // 지표현 - (머리-목) 각도 구하기
+        double headAngle = getAngle(14, 15, 0,1);
 
         // 지표면-왼쪽팔 각도(방향) 구하기
         double armDirection = getAngle(14, 15, 2, 4);
@@ -81,7 +86,7 @@ public class Squat extends Exercise {
         Log.d("각도", "팔각도: " + armAngle);
         Log.d("각도", "팔방향: " + armDirection);
 
-        int legState;
+        int legState, headState;
         boolean isArmStraight;
         boolean isArmParallel;
 
@@ -107,39 +112,68 @@ public class Squat extends Exercise {
         else
             isArmParallel = false;
 
-        return gotoNextStep(currentStep,legState, isArmStraight, isArmParallel);
+        // 머리 상태 저장
+        if (headAngle < 60)
+            headState = -1;
+        else if(headAngle > 100)
+            headState = 0;
+        else
+            headState = 1;
+
+
+        Log.d("headAngle", Double.toString(headAngle));
+
+        return gotoNextStep(currentStep,legState, headState, isArmStraight, isArmParallel);
     }
 
-    private boolean gotoNextStep(int currentStep, int legState, boolean isArmStraight, boolean isArmParallel){
+    private boolean gotoNextStep(int currentStep, int legState, int headState, boolean isArmStraight, boolean isArmParallel){
         Log.d("gotoNextStep", "currentStep: "+currentStep+", "+legState+", "+isArmStraight+", "+isArmParallel);
+        if (!isArmParallel){
+            Log.d("gotoNextStep", "팔을 앞으로 뻗으세요");
+            return false;
+        }
+        if (!isArmStraight){
+            Log.d("gotoNextStep", "팔을 구부리지 마세요");
+            return false;
+        }
+        if (headState == -1){
+            Log.d("gotoNextStep", "고개를 숙이지 말고 정면을 바라보세요");
+            return false;
+        }
+        else if (headState == 0){
+            Log.d("gotoNextStep", "정면을 바라보세요");
+            return false;
+        }
+
+
         switch (currentStep){
             case 0:
-                if (legState==0&&isArmStraight&&isArmParallel){
+                if (legState==0){
                     Log.d("gotoNextStep", "goto Step 1");
                     return true;
                 }
                 break;
 
             case 1:
-                if (legState==1&&isArmStraight&&isArmParallel){
+                if (legState==1){
                     Log.d("gotoNextStep", "goto Step 2");
                     return true;
                 }
                 break;
             case 2:
-                if (legState==2&&isArmStraight&&isArmParallel){
+                if (legState==2){
                     Log.d("gotoNextStep", "goto Step 3");
                     return true;
                 }
                 break;
             case 3:
-                if (legState==1&&isArmStraight&&isArmParallel){
+                if (legState==1){
                     Log.d("gotoNextStep", "goto Step 4");
                     return true;
                 }
                 break;
             case 4:
-                if (legState==0&&isArmStraight&&isArmParallel){
+                if (legState==0){
                     Log.d("gotoNextStep", "goto Step 5 and restart");
                     return true;
                 }

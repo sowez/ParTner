@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/wonjung/Desktop/CapD/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout-land/fragment_camera2_basic.xml",
+        "source": "/home/wonjung/Desktop/CapD/ParTner/ParTner/app/src/main/res/layout-land/fragment_camera2_basic.xml"
+    },
+    {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/layout-land/fragment_camera2_basic.xml",
         "source": "/home/adman/capstone/ParTner/ParTner/app/src/main/res/layout-land/fragment_camera2_basic.xml"
     }

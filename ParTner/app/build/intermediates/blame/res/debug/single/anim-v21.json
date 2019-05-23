@@ -1,7 +1,15 @@
 [
     {
+        "merged": "/home/wonjung/Desktop/CapD/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
+        "source": "/home/wonjung/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/7ac8f3f82d36fa21a909a2be24295550/res/anim-v21/design_bottom_sheet_slide_out.xml"
+    },
+    {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",
         "source": "/home/adman/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/edd2fe881d339b946e535e57579d108b/res/anim-v21/design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/home/wonjung/Desktop/CapD/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",
+        "source": "/home/wonjung/.gradle/caches/transforms-1/files-1.1/design-25.2.0.aar/7ac8f3f82d36fa21a909a2be24295550/res/anim-v21/design_bottom_sheet_slide_in.xml"
     },
     {
         "merged": "/home/adman/capstone/ParTner/ParTner/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
