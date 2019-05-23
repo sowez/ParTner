@@ -1,4 +1,0 @@
-#Thu May 23 19:51:22 KST 2019
-base.0=/home/wonjung/Desktop/CapD/ParTner/ParTner/app/build/intermediates/transforms/dexMerger/debug/0
-path.0=classes.dex
-renamed.0=classes.dex

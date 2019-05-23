@@ -41,11 +41,15 @@ import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.CaptureResult;
 import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
 import android.media.ImageReader;
+import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
 import android.support.v13.app.FragmentCompat;
 import android.support.v4.content.ContextCompat;
@@ -73,17 +77,19 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import static android.speech.tts.TextToSpeech.ERROR;
 
 /**
  * Basic fragments for the Camera.
  */
 public class Camera2BasicFragment extends Fragment
-        implements FragmentCompat.OnRequestPermissionsResultCallback {
+        implements FragmentCompat.OnRequestPermissionsResultCallback, TextToSpeech.OnInitListener{
 
     /**
      * Tag for the {@link Log}.
@@ -128,9 +134,21 @@ public class Camera2BasicFragment extends Fragment
     private int exerciseCounter = 0;
     private int resetStepCounter = 0;
     private int exerciseStep = 0;
+    private int exerciseResult[];
     private int endStep = 0;
     public static final int READY_BOUND = 15;
     public static final int RESET_STEP_BOUND = 50;
+    public TextToSpeech tts;
+//    AudioAttributes audioAttributes = new AudioAttributes.Builder()
+//            .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+//            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+//            .build();
+//
+//
+//    final SoundPool sp = new SoundPool.Builder().setAudioAttributes(audioAttributes).setMaxStreams(8).build();
+//
+//    final int soundID = sp.load(getActivity(),R.raw.kyu, 1);
+//
 
     /**
      * Max preview width that is guaranteed by Camera2 API
@@ -401,6 +419,9 @@ public class Camera2BasicFragment extends Fragment
         exType = this.getArguments().getInt("exType");
         exCount = this.getArguments().getInt("exCount");
 
+        tts= new TextToSpeech(getActivity().getApplicationContext(),this);
+
+
         // 운동 종류에 따라 class, imgsrc 등 설정
         //exercise에 상속
         switch (exType){
@@ -490,6 +511,12 @@ public class Camera2BasicFragment extends Fragment
     public void onDestroy() {
         classifier.close();
         super.onDestroy();
+
+        if(tts!=null){
+            tts.stop();
+            tts.shutdown();
+            tts=null;
+        }
     }
 
     View.OnClickListener listner_exEnd = new View.OnClickListener() {
@@ -968,7 +995,7 @@ public class Camera2BasicFragment extends Fragment
         }
     }
 
-    private void startEx(boolean isStepDone) {
+    private void startEx(ArrayList<Integer> isStepDone) {
         final Activity activity = getActivity();
         if (activity != null) {
             activity.runOnUiThread(
@@ -976,8 +1003,7 @@ public class Camera2BasicFragment extends Fragment
                         @Override
                         public void run() {
                             personImg.setVisibility(View.INVISIBLE);
-                            if (isStepDone){
-
+                            if (isStepDone.get(0)==1){
                                 Log.d("Exercise", "다음 step으로");
                                 resetStepCounter = 0;
                                 personImg.setImageResource(img_green);
@@ -996,6 +1022,9 @@ public class Camera2BasicFragment extends Fragment
 
                                 // 너무 오랫동안 다음 Step으로 못넘어가는 경우 Step 초기화
                                 if (++resetStepCounter > RESET_STEP_BOUND){
+                                    Log.d("error", isStepDone.get(0)+""+isStepDone.get(1));
+                                    showToast("error: "+ isStepDone.get(1));
+                                    ErrorSpeak(isStepDone.get(1));
                                     exerciseStep = 0;
                                     resetStepCounter = 0;
                                 }
@@ -1016,6 +1045,25 @@ public class Camera2BasicFragment extends Fragment
             return Long.signum(
                     (long) lhs.getWidth() * lhs.getHeight() - (long) rhs.getWidth() * rhs.getHeight());
         }
+    }
+
+    @Override
+    public void onInit(int i) {
+        tts.speak(" 이니",TextToSpeech.QUEUE_FLUSH,null);
+    }
+
+    private void ErrorSpeak(int i) {
+
+//        tts= new TextToSpeech(getActivity(), new TextToSpeech.OnInitListener() {
+//            @Override셜
+//            public void onInit(int status) {
+//                if(status!= ERROR){
+//                    tts.setLanguage(Locale.KOREAN);
+//                }
+//            }
+//        });
+        Log.d("error_s", "here");
+        tts.speak("이게 오류야 "+i+"번 ",TextToSpeech.QUEUE_FLUSH,null);
     }
 
     /**

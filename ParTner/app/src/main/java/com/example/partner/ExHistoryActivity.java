@@ -460,7 +460,6 @@ public class ExHistoryActivity extends AppCompatActivity {
             viewLayout.setEnabled(false);
             mainLayout.setEnabled(true);
             viewLayout.setOnTouchListener((v,event)->false);
-
         }, 450);
     }
 

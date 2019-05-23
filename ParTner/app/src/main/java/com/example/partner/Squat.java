@@ -65,7 +65,7 @@ public class Squat extends Exercise {
 
     // 스쿼트 운동 동작 인식하는 함수
     @Override
-    public boolean doExercise(int currentStep){
+    public ArrayList<Integer> doExercise(int currentStep){
 
         // 두 점의 지표면과 평행한 선분 생성
         super.dpPoint.add(new PointF(0, 0));   // -> dpPoint(14)
@@ -126,23 +126,26 @@ public class Squat extends Exercise {
         return gotoNextStep(currentStep,legState, headState, isArmStraight, isArmParallel);
     }
 
-    private boolean gotoNextStep(int currentStep, int legState, int headState, boolean isArmStraight, boolean isArmParallel){
+    private ArrayList<Integer>  gotoNextStep(int currentStep, int legState, int headState, boolean isArmStraight, boolean isArmParallel){
         Log.d("gotoNextStep", "currentStep: "+currentStep+", "+legState+", "+isArmStraight+", "+isArmParallel);
+
+        ArrayList<Integer> result = new ArrayList<>();
+        
         if (!isArmParallel){
             Log.d("gotoNextStep", "팔을 앞으로 뻗으세요");
-            return false;
+            result.add(-1);
         }
         if (!isArmStraight){
             Log.d("gotoNextStep", "팔을 구부리지 마세요");
-            return false;
+            result.add(-1);
         }
         if (headState == -1){
             Log.d("gotoNextStep", "고개를 숙이지 말고 정면을 바라보세요");
-            return false;
+            result.add(-1);
         }
         else if (headState == 0){
             Log.d("gotoNextStep", "정면을 바라보세요");
-            return false;
+            result.add(-1);
         }
 
 
@@ -150,39 +153,41 @@ public class Squat extends Exercise {
             case 0:
                 if (legState==0){
                     Log.d("gotoNextStep", "goto Step 1");
-                    return true;
+                    result.add(1);
                 }
                 break;
 
             case 1:
                 if (legState==1){
                     Log.d("gotoNextStep", "goto Step 2");
-                    return true;
+                    result.add(1);
                 }
                 break;
             case 2:
                 if (legState==2){
                     Log.d("gotoNextStep", "goto Step 3");
-                    return true;
+                    result.add(1);
                 }
                 break;
             case 3:
                 if (legState==1){
                     Log.d("gotoNextStep", "goto Step 4");
-                    return true;
+                    result.add(1);
                 }
                 break;
             case 4:
                 if (legState==0){
                     Log.d("gotoNextStep", "goto Step 5 and restart");
-                    return true;
+                    result.add(1);
                 }
                 break;
             default:
+                result.add(-1);
+                result.add(0);
                 break;
         }
         Log.d("gotoNextStep", "cannot go to next step");
-        return false;
+        return result;
     }
 
 
