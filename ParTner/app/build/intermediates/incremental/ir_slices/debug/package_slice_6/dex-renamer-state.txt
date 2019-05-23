@@ -1,0 +1,4 @@
+#Fri May 17 02:41:41 KST 2019
+base.0=C\:\\Users\\Sujin\\Documents\\GitHub\\ParTner\\ParTner\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\6
+path.0=classes.dex
+renamed.0=classes.dex
