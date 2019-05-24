@@ -173,8 +173,10 @@ public class ExPreviewActivity extends AppCompatActivity {
 
             @Override
             public void btnTraining() {
-                Toast.makeText(context, "Training", Toast.LENGTH_LONG).show();
-                closeMenu();
+                isMenuShow = false;
+                Intent intent = new Intent(context, ExHistoryActivity.class);
+                startActivity(intent);
+                finish();
             }
 
             @Override

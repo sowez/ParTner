@@ -166,8 +166,26 @@ public class ServerComm {
         return trainerProfileList;
     }
 
+    List<TrainingHistory> trainingHistoryList;
+    public List<TrainingHistory> searchTrainingHist(String id, String year, String month, Context context){
+        retrofitCommnunication.getTrainingHist(id, year, month).enqueue(new Callback<List<TrainingHistory>>() {
+            @Override
+            public void onResponse(Call<List<TrainingHistory>> call, Response<List<TrainingHistory>> response) {
+                if(response.isSuccessful()){
+                    trainingHistoryList = response.body();
+                    Log.d(TAG, "onResponse: ");
+                }
+            }
 
+            @Override
+            public void onFailure(Call<List<TrainingHistory>> call, Throwable t) {
+                Toast.makeText(context, "트레이닝 데이터를 불러오는 데 실패하였습니다.", Toast.LENGTH_LONG).show();
+                Log.e(TAG, "onFailure: error getting trainingHistory" + t.getMessage());
 
+            }
+        });
+        return trainingHistoryList;
+    }
 
     private static OkHttpClient createOkHttpClient() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();

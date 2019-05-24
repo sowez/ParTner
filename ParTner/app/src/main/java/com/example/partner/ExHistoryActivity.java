@@ -32,18 +32,26 @@ import com.prolificinteractive.materialcalendarview.spans.DotSpan;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ExHistoryActivity extends AppCompatActivity {
 
     MaterialCalendarView calendarView;
-    ArrayList<TrainingHistory> trainingHistories = new ArrayList<>();
-    ArrayList<CallHistory> callHistories = new ArrayList<>();
-    ArrayList<History> dayHistories = new ArrayList<>();
+    List<TrainingHistory> trainingHistories = new ArrayList<>();
+    List<CallHistory> callHistories = new ArrayList<>();
+    List<History> dayHistories = new ArrayList<>();
 
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
@@ -58,11 +66,12 @@ public class ExHistoryActivity extends AppCompatActivity {
     private ViewGroup sideLayout;
     private Boolean isMenuShow = false;
     private Boolean isExitFlag = false;
+    private String id;
 
     private ImageButton menu_btn;
 
     int[] dotColors = {
-            Color.rgb(255, 255, 0),
+            Color.rgb(255, 0, 0),
             Color.rgb(248, 176, 58)
     };
 
@@ -100,14 +109,6 @@ public class ExHistoryActivity extends AppCompatActivity {
         SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date date = new Date(); Date start = new Date(); Date end = new Date();
         try {
-            start = timeFormat.parse("2019-05-16 13:27");
-            end = timeFormat.parse("2019-05-16 13:41");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        trainingHistories.add(new TrainingHistory(start, end, 15, 2));
-
-        try {
             start = timeFormat.parse("2019-05-17 15:27");
             end = timeFormat.parse("2019-05-17 15:47");
         } catch (ParseException e) {
@@ -121,38 +122,19 @@ public class ExHistoryActivity extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        trainingHistories.add(new TrainingHistory(start, end, 60, 1));
         callHistories.add(new CallHistory(start, end,20, "트레이너1", "운동인1"));
 
         // --------------------------------------
 
-
-        // 각 날짜별로 dot 찍기
-        Collection<CalendarDay> trainingDates = new ArrayList<>();
-        Collection<CalendarDay> callDates = new ArrayList<>();
-        Collection<CalendarDay> bothDates = new ArrayList<>();
-
-        for (int i=0;i<trainingHistories.size();i++){
-            CalendarDay day = CalendarDay.from(trainingHistories.get(i).getDate());
-            if (!trainingDates.contains(day)){
-                trainingDates.add(day);
-            }
-        }
-        for (int i=0;i<callHistories.size();i++){
-            CalendarDay day = CalendarDay.from(callHistories.get(i).getDate());
-            if(!callDates.contains(day) && !trainingDates.contains(day) && !bothDates.contains(day)){
-                callDates.add(day);
-            }
-            else if(trainingDates.contains(day)){
-                trainingDates.remove(day);
-                bothDates.add(day);
-            }
-        }
-
-        // decorate 추가
-        calendarView.addDecorator(new EventDecorator(trainingDates, dotColors,1));
-        calendarView.addDecorator(new EventDecorator(callDates, dotColors,2));
-        calendarView.addDecorator(new EventDecorator(bothDates, dotColors,3));
+        // 현재 날짜 적용
+        String today = dateFormat.format(new Date());
+        String year = today.split("-")[0];
+        String month = today.split("-")[1];
+        Log.d("ExHistoryActivityyy", "<< "+month+"월 >>");
+        Log.d("ExHistoryActivityyy", "id: "+id);
+        id = SharedPreferenceData.getId(this);
+        searchTraining(id,year,month);
+        searchCall(id,year,month);
 
         // Recycler View 설정
         recyclerView = (RecyclerView) findViewById(R.id.rv_calendar);
@@ -176,11 +158,81 @@ public class ExHistoryActivity extends AppCompatActivity {
         calendarView.setOnMonthChangedListener(new OnMonthChangedListener() {
             @Override
             public void onMonthChanged(MaterialCalendarView widget, CalendarDay date) {
-
+                String year = Integer.toString(date.getYear());
+                String month = Integer.toString(date.getMonth()+1);
+                Log.d("ExHistoryActivityyy", "<< "+month+"월 >>");
+                searchTraining(id,year,month);
+                searchCall(id,year,month);
+                if (recyclerAdapter != null){
+                    recyclerAdapter.clear();
+                    recyclerView.setAdapter(recyclerAdapter);
+                }
             }
         });
 
 
+    }
+
+    private void searchTraining(String id, String year, String month) {
+        if (trainingHistories.size() != 0)
+            trainingHistories.clear();
+        RetrofitCommnunication retrofitCommnunication = new ServerComm().init();
+        Call<List<TrainingHistory>> trainingHist = retrofitCommnunication.getTrainingHist(id, year, month);
+        trainingHist.enqueue(new Callback<List<TrainingHistory>>() {
+            @Override
+            public void onResponse(Call<List<TrainingHistory>> call, Response<List<TrainingHistory>> response) {
+                trainingHistories = response.body();
+                Log.d("ExHistoryActivityyy", "trainingHist size onResponse: "+trainingHistories.size());
+                setDots();
+            }
+
+            @Override
+            public void onFailure(Call<List<TrainingHistory>> call, Throwable t) {
+                Toast.makeText(ExHistoryActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG)
+                        .show();
+                Log.e("TAG", "onFailure: " + t.getMessage() );
+            }
+        });
+
+    }
+
+    private void searchCall(String id, String year, String month){
+        // response 결과로
+        //        setDots();
+    }
+
+    private void setDots(){
+        // 각 날짜별로 dot 찍기
+        Collection<CalendarDay> trainingDates = new ArrayList<>();
+        Collection<CalendarDay> callDates = new ArrayList<>();
+        Collection<CalendarDay> bothDates = new ArrayList<>();
+
+        Log.d("ExHistoryActivityyy", "trainingHist size: "+trainingHistories.size());
+        Log.d("ExHistoryActivityyy", "callHist size: "+callHistories.size());
+
+        for (int i=0;i<trainingHistories.size();i++){
+            CalendarDay day = CalendarDay.from(trainingHistories.get(i).getDate());
+            Log.d("ExHistoryActivityyy", "trainingHist: "+day.toString());
+            if (!trainingDates.contains(day)){
+                trainingDates.add(day);
+            }
+        }
+        for (int i=0;i<callHistories.size();i++){
+            CalendarDay day = CalendarDay.from(callHistories.get(i).getDate());
+            Log.d("ExHistoryActivityyy", "callHist: "+day.toString());
+            if(!callDates.contains(day) && !trainingDates.contains(day) && !bothDates.contains(day)){
+                callDates.add(day);
+            }
+            else if(trainingDates.contains(day)){
+                trainingDates.remove(day);
+                bothDates.add(day);
+            }
+        }
+        // decorate 추가
+        calendarView.removeDecorators();
+        calendarView.addDecorator(new EventDecorator(trainingDates, dotColors,1));
+        calendarView.addDecorator(new EventDecorator(callDates, dotColors,2));
+        calendarView.addDecorator(new EventDecorator(bothDates, dotColors,3));
     }
 
     public ArrayList<History> findDailyHistory(Date date){
@@ -360,8 +412,10 @@ public class ExHistoryActivity extends AppCompatActivity {
 
             @Override
             public void btnTraining() {
-                Toast.makeText(context, "Training", Toast.LENGTH_LONG).show();
-                closeMenu();
+                isMenuShow = false;
+                Intent intent = new Intent(context, ExHistoryActivity.class);
+                startActivity(intent);
+                finish();
             }
 
             @Override
@@ -407,10 +461,8 @@ public class ExHistoryActivity extends AppCompatActivity {
             viewLayout.setEnabled(false);
             mainLayout.setEnabled(true);
             viewLayout.setOnTouchListener((v,event)->false);
-
         }, 450);
     }
-
 
     public void showMenu() {
         isMenuShow = true;

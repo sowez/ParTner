@@ -11,13 +11,14 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ExHistoryRecyclerAdapter extends RecyclerView.Adapter<ExHistoryRecyclerAdapter.MyViewHolder>{
 
     private String[] histType = {"call", "플랭크", "스쿼트", "점핑잭"};
-    private ArrayList<ExHistoryActivity.History> histories = new ArrayList<>();
+    private List<ExHistoryActivity.History> histories = new ArrayList<>();
 
-    public ExHistoryRecyclerAdapter(ArrayList<ExHistoryActivity.History> histories){
+    public ExHistoryRecyclerAdapter(List<ExHistoryActivity.History> histories){
         this.histories = histories;
     }
 
@@ -73,5 +74,11 @@ public class ExHistoryRecyclerAdapter extends RecyclerView.Adapter<ExHistoryRecy
             tv_count = (TextView) view.findViewById(R.id.tv_exhist_count);
             iv_exIcon = (ImageView) view.findViewById(R.id.iv_exHistoryType);
         }
+    }
+
+    public void clear() {
+        int size = histories.size();
+        histories.clear();
+        notifyItemRangeRemoved(0, size);
     }
 }
