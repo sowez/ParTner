@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: /home/wonjung/Desktop/CapD/ParTner/ParTner/openCVLibrary341/java/src/org/opencv/engine/OpenCVEngineInterface.aidl
+ * Original file: /home/adman/capstone/ParTner/ParTner/openCVLibrary341/java/src/org/opencv/engine/OpenCVEngineInterface.aidl
  */
 package org.opencv.engine;
 /**

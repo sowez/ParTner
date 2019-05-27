@@ -107,6 +107,7 @@ public class Camera2BasicFragment extends Fragment
     private boolean checkedPermissions = false;
     private AutoFitTextureView textureView;
     private AutoFitFrameLayout layoutFrame;
+    private ExCorrection exCorrection;
     private TextView textView;
     private TextView textView2;
     private TextView textView3;
@@ -114,8 +115,6 @@ public class Camera2BasicFragment extends Fragment
     private PoseEstimation classifier;
     private ImageView personImg;
     private Exercise exercise;
-    private ViewGroup layoutBottom;
-//    private ImageClassifier classifier;
     private int nowHeight;
     private int nowWidth;
 
@@ -134,21 +133,10 @@ public class Camera2BasicFragment extends Fragment
     private int exerciseCounter = 0;
     private int resetStepCounter = 0;
     private int exerciseStep = 0;
-    private int exerciseResult[];
     private int endStep = 0;
     public static final int READY_BOUND = 15;
     public static final int RESET_STEP_BOUND = 50;
     public TextToSpeech tts;
-//    AudioAttributes audioAttributes = new AudioAttributes.Builder()
-//            .setUsage(AudioAttributes.USAGE_NOTIFICATION)
-//            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-//            .build();
-//
-//
-//    final SoundPool sp = new SoundPool.Builder().setAudioAttributes(audioAttributes).setMaxStreams(8).build();
-//
-//    final int soundID = sp.load(getActivity(),R.raw.kyu, 1);
-//
 
     /**
      * Max preview width that is guaranteed by Camera2 API
@@ -420,6 +408,7 @@ public class Camera2BasicFragment extends Fragment
         exCount = this.getArguments().getInt("exCount");
 
         tts= new TextToSpeech(getActivity().getApplicationContext(),this);
+        exCorrection = new ExCorrection();
 
 
         // 운동 종류에 따라 class, imgsrc 등 설정
@@ -948,8 +937,6 @@ public class Camera2BasicFragment extends Fragment
 //        drawView.setDrawPoint(classifier.mPrintPointArray, 0.25f);
         drawView.setDrawPoint(classifier.mPrintPointArray, 0.5f);
 
-//        showToast(textToShow);
-
         if(readyCounter <= READY_BOUND) {// 준비 안된 상태
 
             // 여기에서 함수 호출해서 결과값 받아서 UI 변경
@@ -1053,17 +1040,8 @@ public class Camera2BasicFragment extends Fragment
     }
 
     private void ErrorSpeak(int i) {
-
-//        tts= new TextToSpeech(getActivity(), new TextToSpeech.OnInitListener() {
-//            @Override셜
-//            public void onInit(int status) {
-//                if(status!= ERROR){
-//                    tts.setLanguage(Locale.KOREAN);
-//                }
-//            }
-//        });
-        Log.d("error_s", "here");
-        tts.speak(i+"번 오류입니다", TextToSpeech.QUEUE_FLUSH,null);
+        String correction = exCorrection.getCorrection(exType, i);
+        tts.speak(correction, TextToSpeech.QUEUE_FLUSH,null);
     }
 
     /**

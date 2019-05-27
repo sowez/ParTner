@@ -1,5 +1,7 @@
 package com.example.partner;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class ExCorrection {
@@ -7,34 +9,39 @@ public class ExCorrection {
         ArrayList<String> correctionContents = new ArrayList<>();
         switch (exType){
             case 1:
-                correctionContents = flankCorrectionContents;
+                correctionContents = getFlankCorrectionContents();
                 break;
             case 2:
-                correctionContents = squatCorrectionContents;
+                correctionContents = getSquatCorrectionContents();
                 break;
             case 3:
-                correctionContents = jJCorrectionContents;
+                correctionContents = getJJCorrectionContents();
                 break;
         }
         return correctionContents.get(errorNo);
     }
 
 
-
-    private ArrayList<String> jJCorrectionContents;
-    public ArrayList<String> getjJCorrectionContents() {
-        jJCorrectionContents.add("");
-
+    public ArrayList<String> getJJCorrectionContents() {
+        ArrayList<String> jJCorrectionContents = new ArrayList<>();
+        jJCorrectionContents.add(1, "팔을 구부리지 마세요");
+        jJCorrectionContents.add(2, "다리를 구부리지 마세요");
+        jJCorrectionContents.add(3, "팔을 내려 주세요");
+        jJCorrectionContents.add(4, "발을 모아주세요");
+        jJCorrectionContents.add(5, "발을 벌려주세요");
+        jJCorrectionContents.add(6, "발을 벌려주세요");
         return jJCorrectionContents;
     }
-    private ArrayList<String> squatCorrectionContents;
+    private ArrayList<String> gesquatCorrectionContents;
     public ArrayList<String> getSquatCorrectionContents() {
+        ArrayList<String> squatCorrectionContents = new ArrayList<>();
         squatCorrectionContents.add("");
 
         return squatCorrectionContents;
     }
-    private ArrayList<String> flankCorrectionContents;
+    private ArrayList<String> getflankCorrectionContents;
     public ArrayList<String> getFlankCorrectionContents() {
+        ArrayList<String> flankCorrectionContents = new ArrayList<>();
         flankCorrectionContents.add("");
 
         return flankCorrectionContents;
