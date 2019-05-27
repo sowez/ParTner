@@ -153,7 +153,7 @@ public class Squat extends Exercise {
         }
 
         if (headState == -1){
-            Log.d(TAG, "E/고개를 숙이지 말고 정면을 바라보세요");
+            Log.d(TAG, "E/고개를 숙이지 마세요");
             result.add(-1);
             result.add(2);
             return result;
