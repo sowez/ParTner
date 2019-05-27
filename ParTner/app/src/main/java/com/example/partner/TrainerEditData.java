@@ -13,6 +13,7 @@ public class TrainerEditData {
     private ArrayList<String> training_type;
 
     public TrainerEditData(String id, String name, String self_introduction, String sex, ArrayList<String> training_type) {
+        this.id = id;
         this.name = name;
         this.self_introduction = self_introduction;
         this.sex = sex;

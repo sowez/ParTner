@@ -45,7 +45,7 @@ public class LoginActivity extends BaseActivity {
 
     private Context context = LoginActivity.this;
     private QBUser userForSave;
-    private String userId;
+    private String userName;
 
 
     @Override
@@ -87,7 +87,6 @@ public class LoginActivity extends BaseActivity {
     private void onClickLogin(View v) {
 
         String loginId = login_id.getText().toString();
-        userId = loginId;
         String loginPw = login_pw.getText().toString();
 
         ServerComm serverComm = new ServerComm();
@@ -117,6 +116,7 @@ public class LoginActivity extends BaseActivity {
                             String token = data.get("token").getAsString();
                             String type = data.get("type").getAsString();
                             String username = data.get("username").getAsString();
+                            userName = username;
                             String id = data.get("id").getAsString();
 
                             boolean auto = autologinCheck.isChecked();
@@ -151,7 +151,7 @@ public class LoginActivity extends BaseActivity {
     /* 영상통화를 위한 로그인 */
 
     private QBUser createUserWithEnteredData() {
-        return createQBUserWithCurrentData(userId, userId);
+        return createQBUserWithCurrentData(userName, userName);
     }
 
     private QBUser createQBUserWithCurrentData(String userName, String chatRoomName) {
@@ -181,7 +181,7 @@ public class LoginActivity extends BaseActivity {
                 saveUserData(userForSave);
                 signInCreatedUser(userForSave, false);
             } else {
-                Toaster.longToast(getString(R.string.login_chat_login_error) + errorMessage);
+                Toaster.longToast(getString(R.string.login_chat_login_error) + " / onActivityResult : " + errorMessage);
             }
         }
     }
@@ -205,7 +205,9 @@ public class LoginActivity extends BaseActivity {
                         if (e.getHttpStatusCode() == Consts.ERR_LOGIN_ALREADY_TAKEN_HTTP_STATUS) {
                             signInCreatedUser(newUser, true);
                         } else {
-                            Toaster.longToast(R.string.sign_up_error);
+                            Toaster.longToast(R.string.sign_up_error + " / startSignUpNewUser");
+                            Log.d("loginlogin", "onError: startSignUpNewUser :// " + e.getMessage());
+                            signInCreatedUser(newUser, true);
                         }
                     }
                 }
@@ -231,7 +233,7 @@ public class LoginActivity extends BaseActivity {
             public void onSuccess(QBUser result, Bundle params) {
                 if (deleteCurrentUser) {
                     removeAllUserData(result);
-                }else{
+                } else {
                     Intent intent = new Intent(context, TrainerMainMenuActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     intent.putExtra(Consts.EXTRA_IS_STARTED_FOR_CALL, false);
@@ -242,7 +244,7 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void onError(QBResponseException responseException) {
-                Toaster.longToast(R.string.sign_up_error);
+                Toaster.longToast(R.string.sign_up_error + " / SigninCreateUser");
             }
         });
     }
@@ -257,7 +259,7 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void onError(QBResponseException e) {
-                Toaster.longToast(R.string.sign_up_error);
+                Toaster.longToast(R.string.sign_up_error + " / removeAllUserData");
             }
         });
     }

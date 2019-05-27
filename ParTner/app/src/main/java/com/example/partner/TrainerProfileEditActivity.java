@@ -3,6 +3,7 @@ package com.example.partner;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -92,53 +93,50 @@ public class TrainerProfileEditActivity extends AppCompatActivity {
             womanRadioBtn.setChecked(true);
         }
 
+        // 수정 완료 버튼 리스너
+        editDoneBtn.setOnClickListener(v -> {
+            ArrayList<String> trainingtype = new ArrayList<String>();
+            TrainerEditData trainerEditData;
+            if(yogaCheckBox.isChecked()) {
+                trainingtype.add("yoga");
+            }
+            if(muscleCheckBox.isChecked()) {
+                trainingtype.add("muscle");
+            }
+            if(pilatesCheckBox.isChecked()) {
+                trainingtype.add("pilates");
+            }
+            if(stretchingCheckBox.isChecked()) {
+                trainingtype.add("stretching");
+            }
 
-//        // 수정 완료 버튼 리스너
-//        editDoneBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ArrayList<String> trainingtype = new ArrayList<String>();
-//                TrainerEditData trainerEditData;
-//                if(yogaCheckBox.isChecked()) {
-//                    trainingtype.add("yoga");
-//                }
-//                if(muscleCheckBox.isChecked()) {
-//                    trainingtype.add("muscle");
-//                }
-//                if(pilatesCheckBox.isChecked()) {
-//                    trainingtype.add("pilates");
-//                }
-//                if(stretchingCheckBox.isChecked()) {
-//                    trainingtype.add("stretching");
-//                }
-//
-//                RadioButton selectedRdo = (RadioButton)findViewById(radioGroup.getCheckedRadioButtonId());
-//                if(selectedRdo.getText().toString().equals("남자")){
-//                    trainerEditData = new TrainerEditData(SharedPreferenceData.getId(context), nameEditText.getText().toString(), introEditText.getText().toString(), "male", trainingtype);
-//                }
-//                else {
-//                    trainerEditData = new TrainerEditData(SharedPreferenceData.getId(context), nameEditText.getText().toString(), introEditText.getText().toString(), "female", trainingtype);
-//                }
-//
-//                RetrofitCommnunication retrofitCommnunication = new ServerComm().init();
-//                Call<JsonObject> editProfile = retrofitCommnunication.trainerEditProfile(trainerEditData);
-//                editProfile.enqueue(new Callback<JsonObject>() {
-//                    @Override
-//                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-//                        Log.d("EditProfile", response.body().toString());
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<JsonObject> call, Throwable t) {
-//                        Toast.makeText(TrainerProfileEditActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG)
-//                                .show();
-//                        Log.e("TAG", "onFailure: " + t.getMessage() );
-//                    }
-//                });
-//
-//                finish();
-//            }
-//        });
+            RadioButton selectedRdo = (RadioButton)findViewById(radioGroup.getCheckedRadioButtonId());
+            if(selectedRdo.getText().toString().equals("남자")){
+
+                trainerEditData = new TrainerEditData(SharedPreferenceData.getId(this), nameEditText.getText().toString(), introEditText.getText().toString(), "male", trainingtype);
+            }
+            else {
+                trainerEditData = new TrainerEditData(SharedPreferenceData.getId(this), nameEditText.getText().toString(), introEditText.getText().toString(), "female", trainingtype);
+            }
+
+            RetrofitCommnunication retrofitCommnunication = new ServerComm().init();
+            Call<JsonObject> editProfile = retrofitCommnunication.trainerEditProfile(trainerEditData);
+            editProfile.enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    Log.d("EditProfile", response.body().toString());
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    Toast.makeText(TrainerProfileEditActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG)
+                            .show();
+                    Log.e("TAG", "onFailure: " + t.getMessage() );
+                }
+            });
+
+            finish();
+        });
 
     }
 }

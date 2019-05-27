@@ -31,11 +31,27 @@ import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.crashlytics.android.Crashlytics;
+import com.example.partner.Core.utils.SharedPrefsHelper;
+import com.example.partner.GroupChatWebRTC.activities.BaseActivity;
+import com.example.partner.GroupChatWebRTC.activities.CallActivity;
+import com.example.partner.GroupChatWebRTC.db.QbUsersDbManager;
+import com.example.partner.GroupChatWebRTC.services.CallService;
+import com.example.partner.GroupChatWebRTC.utils.Consts;
+import com.example.partner.GroupChatWebRTC.utils.UsersUtils;
+import com.example.partner.GroupChatWebRTC.utils.WebRtcSessionManager;
+import com.quickblox.core.QBEntityCallback;
+import com.quickblox.core.exception.QBResponseException;
+import com.quickblox.messages.services.SubscribeService;
+import com.quickblox.users.model.QBUser;
+
+import io.fabric.sdk.android.Fabric;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TrainerMainMenuActivity extends AppCompatActivity {
+public class TrainerMainMenuActivity extends BaseActivity {
 
     private Context context = this;
 
@@ -65,11 +81,42 @@ public class TrainerMainMenuActivity extends AppCompatActivity {
     private Bitmap bitmap;
     private String imgpath;
 
+    // 영상통화
+
+    private QBUser currentUser;
+    private QbUsersDbManager dbManager;
+    private boolean isRunForCall;
+    private WebRtcSessionManager webRtcSessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_trainer_menu);
 
+        initFields();
+        init();
+
+    }
+
+    @Override
+    protected View getSnackbarAnchorView() {
+        return findViewById(R.id.id_trainer_menu);
+    }
+
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (intent.getExtras() != null) {
+            isRunForCall = intent.getExtras().getBoolean(Consts.EXTRA_IS_STARTED_FOR_CALL);
+            if (isRunForCall && webRtcSessionManager.getCurrentSession() != null) {
+                CallActivity.start(context, true);
+            }
+        }
+    }
+
+    private void init(){
         // Toolbar 설정
         mToolbar = (Toolbar) findViewById(R.id.menu_toolBar);
         setSupportActionBar(mToolbar);
@@ -93,12 +140,6 @@ public class TrainerMainMenuActivity extends AppCompatActivity {
         gender = (TextView) findViewById(R.id.sex);
 
 
-//        //RatingBar ratingBar, float rating, boolean fromUser
-//        mRating.setOnRatingBarChangeListener((ratingBar, rating, fromUser) -> {
-//
-//        });
-
-
         editImage.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), TrainerProfileEditActivity.class);
             intent.putExtra("name", name.getText().toString());
@@ -109,126 +150,8 @@ public class TrainerMainMenuActivity extends AppCompatActivity {
         });
 
         getProfile();
-
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (!SharedPreferenceData.getAutologinChecked(this)) {
-            SharedPreferenceData.clearUserData(this);
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (!SharedPreferenceData.getAutologinChecked(this)) {
-            SharedPreferenceData.clearUserData(this);
-        }
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            onBackPressed();
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (isMenuShow) {
-            closeMenu();
-        } else {
-
-            if (isExitFlag) {
-                finish();
-            } else {
-                isExitFlag = true;
-                Toast.makeText(this, "뒤로가기를 한번더 누르시면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show();
-                new Handler().postDelayed(() -> isExitFlag = false, 2000);
-            }
-        }
-
-    }
-
-    public void addSidebar() {
-
-        TrainerSideBarView sidebar = new TrainerSideBarView(this);
-        sideLayout.addView(sidebar);
-
-        viewLayout.setOnClickListener(view -> {
-        });
-
-        sidebar.setEventListener(new TrainerSideBarView.EventListener() {
-
-            @Override
-            public void btnCancel() {
-                Log.d("TAG", "btnCancel");
-                closeMenu();
-            }
-
-            @Override
-            public void btnHome() {
-                Log.d("TAG", "btnHome");
-                closeMenu();
-            }
-
-            @Override
-            public void btnCall() {
-                Log.d(TAG, "btnLevel btncall");
-                isMenuShow = false;
-                Intent intent = new Intent(context, TrainerCallHistoryActivity.class);
-                startActivity(intent);
-                finish();
-
-            }
-
-            @Override
-            public void btnLogout() {
-                Log.d(TAG, "btnLevel btnlogout");
-                SharedPreferenceData.clearUserData(context);
-                Toast.makeText(context, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show();
-                isMenuShow = false;
-                Intent intent = new Intent(context, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-
-            @Override
-            public void btnSetting() {
-                Log.d(TAG, "btnLevel btnsetting");
-                Toast.makeText(context, "설정버튼", Toast.LENGTH_LONG).show();
-                closeMenu();
-            }
-        });
-    }
-
-    public void closeMenu() {
-        isMenuShow = false;
-        Animation slide = AnimationUtils.loadAnimation(this, R.anim.sidebar_hidden);
-        sideLayout.startAnimation(slide);
-        sideLayout.setVisibility(View.GONE);
-        new Handler().postDelayed(() -> {
-            viewLayout.setVisibility(View.GONE);
-            viewLayout.setEnabled(false);
-            mainLayout.setEnabled(true);
-        }, 450);
-    }
-
-    public void showMenu() {
-        isMenuShow = true;
-        Animation slide = AnimationUtils.loadAnimation(this, R.anim.sidebar_show);
-        sideLayout.setVisibility(View.VISIBLE);
-        sideLayout.startAnimation(slide);
-        viewLayout.setVisibility(View.VISIBLE);
-        viewLayout.setEnabled(true);
-        mainLayout.setEnabled(false);
-        Log.e("TAG", "메뉴버튼 클릭");
-    }
 
     // GET profile
     public void getProfile() {
@@ -299,6 +222,149 @@ public class TrainerMainMenuActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void initFields() {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            isRunForCall = extras.getBoolean(Consts.EXTRA_IS_STARTED_FOR_CALL);
+        }
+
+        currentUser = sharedPrefsHelper.getQbUser();
+        dbManager = QbUsersDbManager.getInstance(getApplicationContext());
+        webRtcSessionManager = WebRtcSessionManager.getInstance(getApplicationContext());
+    }
+
+    private void startLoadUsers() {
+        String currentRoomName = SharedPrefsHelper.getInstance().get(Consts.PREF_CURREN_ROOM_NAME);
+        requestExecutor.loadUsersByTag(currentRoomName, new QBEntityCallback<ArrayList<QBUser>>() {
+            @Override
+            public void onSuccess(ArrayList<QBUser> result, Bundle params) {
+                dbManager.saveAllUsers(result, true);
+            }
+            @Override
+            public void onError(QBResponseException responseException) {
+                showErrorSnackbar(R.string.loading_users_error, responseException, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startLoadUsers();
+                    }
+                });
+            }
+        });
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            onBackPressed();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (isMenuShow) {
+            closeMenu();
+        } else {
+
+            if (isExitFlag) {
+                if (!SharedPreferenceData.getAutologinChecked(this)) {
+                    SharedPreferenceData.clearUserData(this);
+                }
+                finish();
+            } else {
+                isExitFlag = true;
+                Toast.makeText(this, "뒤로가기를 한번더 누르시면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show();
+                new Handler().postDelayed(() -> isExitFlag = false, 2000);
+            }
+        }
+
+    }
+
+    public void addSidebar() {
+
+        TrainerSideBarView sidebar = new TrainerSideBarView(this);
+        sideLayout.addView(sidebar);
+
+        viewLayout.setOnClickListener(view -> {
+        });
+
+        sidebar.setEventListener(new TrainerSideBarView.EventListener() {
+
+            @Override
+            public void btnCancel() {
+                Log.d("TAG", "btnCancel");
+                closeMenu();
+            }
+
+            @Override
+            public void btnHome() {
+                Log.d("TAG", "btnHome");
+                closeMenu();
+            }
+
+            @Override
+            public void btnCall() {
+                Log.d(TAG, "btnLevel btncall");
+                isMenuShow = false;
+                Intent intent = new Intent(context, TrainerCallHistoryActivity.class);
+                startActivity(intent);
+                finish();
+
+            }
+
+            @Override
+            public void btnLogout() {
+                Log.d(TAG, "btnLevel btnlogout");
+
+                SubscribeService.unSubscribeFromPushes(context);
+                CallService.logout(context);
+
+
+
+
+                SharedPreferenceData.clearUserData(context);
+                Toast.makeText(context, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show();
+                isMenuShow = false;
+                Intent intent = new Intent(context, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void btnSetting() {
+                Log.d(TAG, "btnLevel btnsetting");
+                Toast.makeText(context, "설정버튼", Toast.LENGTH_LONG).show();
+                closeMenu();
+            }
+        });
+    }
+
+    public void closeMenu() {
+        isMenuShow = false;
+        Animation slide = AnimationUtils.loadAnimation(this, R.anim.sidebar_hidden);
+        sideLayout.startAnimation(slide);
+        sideLayout.setVisibility(View.GONE);
+        new Handler().postDelayed(() -> {
+            viewLayout.setVisibility(View.GONE);
+            viewLayout.setEnabled(false);
+            mainLayout.setEnabled(true);
+        }, 450);
+    }
+
+    public void showMenu() {
+        isMenuShow = true;
+        Animation slide = AnimationUtils.loadAnimation(this, R.anim.sidebar_show);
+        sideLayout.setVisibility(View.VISIBLE);
+        sideLayout.startAnimation(slide);
+        viewLayout.setVisibility(View.VISIBLE);
+        viewLayout.setEnabled(true);
+        mainLayout.setEnabled(false);
+        Log.e("TAG", "메뉴버튼 클릭");
     }
 
 }

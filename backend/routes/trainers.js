@@ -127,6 +127,23 @@ router.get('/profile/edit', function (req, res, next) {
     res.json(trainer);
   })
  });
+
+ /* 프로필 수정 */
+router.post('/profile/edit', function (req, res, next) {
+  trainerModel.findOneAndUpdate({ id: req.body.id },{name: req.body.name, self_introduction: req.body.self_introduction, sex: req.body.sex, training_type: req.body.training_type}, function(err, trainer) {
+    console.log(req.body.id);
+    console.log(req.body.name);
+    console.log(req.body.self_introduction);
+    console.log(req.body.sex);
+    console.log(req.body.training_type);
+ 
+    if(err){
+      return res.status(500).send({error: 'databasefailure'});
+    }
+    console.log(trainer);
+    res.json({"editresult":"success"});
+  });
+ });
  
 
 module.exports = router;
