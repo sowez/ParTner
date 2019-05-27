@@ -130,8 +130,8 @@ public class ExHistoryActivity extends AppCompatActivity {
         String year = today.split("-")[0];
         String month = today.split("-")[1];
         Log.d("ExHistoryActivityyy", "<< "+month+"월 >>");
-        Log.d("ExHistoryActivityyy", "id: "+id);
         id = SharedPreferenceData.getId(this);
+        Log.d("ExHistoryActivityyy", "id: "+id);
         searchTraining(id,year,month);
         searchCall(id,year,month);
 

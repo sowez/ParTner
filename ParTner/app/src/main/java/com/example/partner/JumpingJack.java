@@ -10,7 +10,6 @@ import static java.lang.Double.isNaN;
 public class JumpingJack extends Exercise {
     private float[][] point;
 
-
     public JumpingJack(int exCount) {
         super(exCount);
     }

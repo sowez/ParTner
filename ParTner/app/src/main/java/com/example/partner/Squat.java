@@ -5,8 +5,12 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import static java.lang.Double.isNaN;
+
 
 public class Squat extends Exercise {
+
+    private static final String TAG = "Squat";
 
     private float[][] point;
 //    private int exCount;
@@ -82,13 +86,20 @@ public class Squat extends Exercise {
 
         // 지표면-왼쪽팔 각도(방향) 구하기
         double armDirection = getAngle(14, 15, 2, 4);
-        Log.d("각도", "왼쪽 다리: " + legAngle);
-        Log.d("각도", "팔각도: " + armAngle);
-        Log.d("각도", "팔방향: " + armDirection);
+        Log.d(TAG, "왼쪽 다리: " + legAngle);
+        Log.d(TAG, "팔각도: " + armAngle);
+        Log.d(TAG, "팔방향: " + armDirection);
 
         int legState, headState;
         boolean isArmStraight;
         boolean isArmParallel;
+
+        if (isNaN(legAngle)||isNaN(armAngle)||isNaN(headAngle)||isNaN(armDirection)){
+            ArrayList<Integer> result = new ArrayList<>();
+            result.add(-1);
+            result.add(0);
+            return result;
+        }
 
         // 다리 상태 저장
         if (legAngle >= 155) {
@@ -120,73 +131,79 @@ public class Squat extends Exercise {
         else
             headState = 1;
 
-
-        Log.d("headAngle", Double.toString(headAngle));
-
         return gotoNextStep(currentStep,legState, headState, isArmStraight, isArmParallel);
     }
 
     private ArrayList<Integer>  gotoNextStep(int currentStep, int legState, int headState, boolean isArmStraight, boolean isArmParallel){
-        Log.d("gotoNextStep", "currentStep: "+currentStep+", "+legState+", "+isArmStraight+", "+isArmParallel);
+        Log.d(TAG, "currentStep: "+currentStep+", "+legState+", "+isArmStraight+", "+isArmParallel);
 
         ArrayList<Integer> result = new ArrayList<>();
         
         if (!isArmParallel){
-            Log.d("gotoNextStep", "팔을 앞으로 뻗으세요");
+            Log.d(TAG, "E/팔을 앞으로 뻗으세요");
             result.add(-1);
+            result.add(0);
+            return result;
         }
         if (!isArmStraight){
-            Log.d("gotoNextStep", "팔을 구부리지 마세요");
+            Log.d(TAG, "E/팔을 구부리지 마세요");
             result.add(-1);
+            result.add(1);
+            return result;
         }
+
         if (headState == -1){
-            Log.d("gotoNextStep", "고개를 숙이지 말고 정면을 바라보세요");
+            Log.d(TAG, "E/고개를 숙이지 말고 정면을 바라보세요");
             result.add(-1);
+            result.add(2);
+            return result;
         }
         else if (headState == 0){
-            Log.d("gotoNextStep", "정면을 바라보세요");
+            Log.d(TAG, "E/정면을 바라보세요");
             result.add(-1);
+            result.add(3);
+            return result;
         }
 
 
         switch (currentStep){
             case 0:
                 if (legState==0){
-                    Log.d("gotoNextStep", "goto Step 1");
+                    Log.d(TAG, "goto Step 1");
                     result.add(1);
+                    break;
                 }
-                break;
 
             case 1:
                 if (legState==1){
-                    Log.d("gotoNextStep", "goto Step 2");
+                    Log.d(TAG, "goto Step 2");
                     result.add(1);
+                    break;
                 }
-                break;
             case 2:
                 if (legState==2){
-                    Log.d("gotoNextStep", "goto Step 3");
+                    Log.d(TAG, "goto Step 3");
                     result.add(1);
+                    break;
                 }
-                break;
             case 3:
                 if (legState==1){
-                    Log.d("gotoNextStep", "goto Step 4");
+                    Log.d(TAG, "goto Step 4");
                     result.add(1);
+                    break;
                 }
-                break;
             case 4:
                 if (legState==0){
-                    Log.d("gotoNextStep", "goto Step 5 and restart");
+                    Log.d(TAG, "goto Step 5 and restart");
                     result.add(1);
+                    break;
                 }
-                break;
             default:
                 result.add(-1);
-                result.add(0);
+                result.add(4);
                 break;
         }
-        Log.d("gotoNextStep", "cannot go to next step");
+        Log.d(TAG, "E/cannot go to next step"+result.get(0));
         return result;
     }
 

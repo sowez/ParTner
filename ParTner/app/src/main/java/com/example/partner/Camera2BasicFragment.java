@@ -1049,7 +1049,7 @@ public class Camera2BasicFragment extends Fragment
 
     @Override
     public void onInit(int i) {
-        tts.speak(" 이니",TextToSpeech.QUEUE_FLUSH,null);
+//        tts.speak(" 이니",TextToSpeech.QUEUE_FLUSH,null);
     }
 
     private void ErrorSpeak(int i) {
@@ -1063,7 +1063,7 @@ public class Camera2BasicFragment extends Fragment
 //            }
 //        });
         Log.d("error_s", "here");
-        tts.speak("이게 오류야 "+i+"번 ",TextToSpeech.QUEUE_FLUSH,null);
+        tts.speak(i+"번 오류입니다", TextToSpeech.QUEUE_FLUSH,null);
     }
 
     /**
