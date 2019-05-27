@@ -50,13 +50,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 
-// 추가 
 import android.speech.tts.TextToSpeech;
-import android.support.annotation.NonNull;
-import android.support.v13.app.FragmentCompat;
-import android.support.v4.content.ContextCompat;
-
-
 import android.util.Log;
 import android.util.Size;
 import android.view.LayoutInflater;
