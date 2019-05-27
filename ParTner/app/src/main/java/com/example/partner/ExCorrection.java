@@ -1,5 +1,7 @@
 package com.example.partner;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class ExCorrection {
@@ -13,19 +15,22 @@ public class ExCorrection {
                 correctionContents = getSquatCorrectionContents();
                 break;
             case 3:
-                correctionContents = getjJCorrectionContents();
+                correctionContents = getJJCorrectionContents();
                 break;
         }
         return correctionContents.get(errorNo);
     }
 
 
-
-
-    public ArrayList<String> getjJCorrectionContents() {
+    public ArrayList<String> getJJCorrectionContents() {
         ArrayList<String> jJCorrectionContents = new ArrayList<>();
-        jJCorrectionContents.add("");
-
+        jJCorrectionContents.add(0, "안돼");
+        jJCorrectionContents.add(1, "팔을 구부리지 마세요");
+        jJCorrectionContents.add(2, "다리를 구부리지 마세요");
+        jJCorrectionContents.add(3, "팔을 내려 주세요");
+        jJCorrectionContents.add(4, "발을 모아주세요");
+        jJCorrectionContents.add(5, "발을 벌려주세요");
+        jJCorrectionContents.add(6, "발을 벌려주세요");
         return jJCorrectionContents;
     }
     public ArrayList<String> getSquatCorrectionContents() {
