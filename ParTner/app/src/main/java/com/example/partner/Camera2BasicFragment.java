@@ -532,6 +532,7 @@ public class Camera2BasicFragment extends Fragment
     public void endEx(){
         if (exerciseCounter != 0)
             postHist();
+        closeCamera();
         ExEndPopup popup = new ExEndPopup(getActivity(), exType, exerciseCounter, new ExEndPopup.PopupEventListener() {
             @Override
             public void popupEvent(String result) {
