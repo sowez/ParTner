@@ -114,6 +114,7 @@ public class Camera2BasicFragment extends Fragment
     private PoseEstimation classifier;
     private ImageView personImg;
     private Exercise exercise;
+    private ExCorrection exCorrection;
     private ViewGroup layoutBottom;
 //    private ImageClassifier classifier;
     private int nowHeight;
@@ -418,6 +419,8 @@ public class Camera2BasicFragment extends Fragment
 
         exType = this.getArguments().getInt("exType");
         exCount = this.getArguments().getInt("exCount");
+
+        exCorrection = new ExCorrection();
 
         tts= new TextToSpeech(getActivity().getApplicationContext(),this);
 
@@ -1053,17 +1056,8 @@ public class Camera2BasicFragment extends Fragment
     }
 
     private void ErrorSpeak(int i) {
-
-//        tts= new TextToSpeech(getActivity(), new TextToSpeech.OnInitListener() {
-//            @Override셜
-//            public void onInit(int status) {
-//                if(status!= ERROR){
-//                    tts.setLanguage(Locale.KOREAN);
-//                }
-//            }
-//        });
-        Log.d("error_s", "here");
-        tts.speak(i+"번 오류입니다", TextToSpeech.QUEUE_FLUSH,null);
+        String correction = exCorrection.getCorrection(exType, i);
+        tts.speak(correction, TextToSpeech.QUEUE_FLUSH,null);
     }
 
     /**

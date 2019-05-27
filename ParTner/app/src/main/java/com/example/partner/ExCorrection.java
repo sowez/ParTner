@@ -7,13 +7,13 @@ public class ExCorrection {
         ArrayList<String> correctionContents = new ArrayList<>();
         switch (exType){
             case 1:
-                correctionContents = flankCorrectionContents;
+                correctionContents = getFlankCorrectionContents();
                 break;
             case 2:
-                correctionContents = squatCorrectionContents;
+                correctionContents = getSquatCorrectionContents();
                 break;
             case 3:
-                correctionContents = jJCorrectionContents;
+                correctionContents = getjJCorrectionContents();
                 break;
         }
         return correctionContents.get(errorNo);
@@ -21,20 +21,25 @@ public class ExCorrection {
 
 
 
-    private ArrayList<String> jJCorrectionContents;
+
     public ArrayList<String> getjJCorrectionContents() {
+        ArrayList<String> jJCorrectionContents = new ArrayList<>();
         jJCorrectionContents.add("");
 
         return jJCorrectionContents;
     }
-    private ArrayList<String> squatCorrectionContents;
     public ArrayList<String> getSquatCorrectionContents() {
-        squatCorrectionContents.add("");
+        ArrayList<String> squatCorrectionContents = new ArrayList<>();
+        squatCorrectionContents.add(0, "팔을 앞으로 뻗으세요");
+        squatCorrectionContents.add(1, "팔을 구부리지 마세요");
+        squatCorrectionContents.add(2, "고개를 숙이지 말고 정면을 바라보세요");
+        squatCorrectionContents.add(3, "정면을 바라보세요");
+        squatCorrectionContents.add(4, "다음 스텝으로 못 넘어감");
 
         return squatCorrectionContents;
     }
-    private ArrayList<String> flankCorrectionContents;
     public ArrayList<String> getFlankCorrectionContents() {
+        ArrayList<String> flankCorrectionContents = new ArrayList<>();
         flankCorrectionContents.add("");
 
         return flankCorrectionContents;
