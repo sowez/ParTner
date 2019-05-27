@@ -171,38 +171,38 @@ public class Squat extends Exercise {
                 if (legState==0){
                     Log.d(TAG, "goto Step 1");
                     result.add(1);
-                    break;
                 }
-
+                break;
             case 1:
                 if (legState==1){
                     Log.d(TAG, "goto Step 2");
                     result.add(1);
-                    break;
                 }
+                break;
             case 2:
                 if (legState==2){
                     Log.d(TAG, "goto Step 3");
                     result.add(1);
-                    break;
                 }
+                break;
             case 3:
                 if (legState==1){
                     Log.d(TAG, "goto Step 4");
                     result.add(1);
-                    break;
                 }
+                break;
             case 4:
                 if (legState==0){
                     Log.d(TAG, "goto Step 5 and restart");
                     result.add(1);
-                    break;
                 }
-            default:
-                result.add(-1);
-                result.add(4);
                 break;
         }
+        if (result.size() == 0){
+            result.add(-1);
+            result.add(4);
+        }
+
         Log.d(TAG, "E/cannot go to next step"+result.get(0));
         return result;
     }

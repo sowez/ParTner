@@ -35,7 +35,11 @@ public class ExCorrection {
     }
     public ArrayList<String> getSquatCorrectionContents() {
         ArrayList<String> squatCorrectionContents = new ArrayList<>();
-        squatCorrectionContents.add("");
+        squatCorrectionContents.add(0, "팔을 앞으로 뻗으세요");
+        squatCorrectionContents.add(1, "팔을 구부리지 마세요");
+        squatCorrectionContents.add(2, "고개를 숙이지 말고 정면을 바라보세요");
+        squatCorrectionContents.add(3, "정면을 바라보세요");
+        squatCorrectionContents.add(4, "다음 스텝으로 못 넘어감");
 
         return squatCorrectionContents;
     }

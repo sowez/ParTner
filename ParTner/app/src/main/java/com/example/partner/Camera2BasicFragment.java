@@ -115,6 +115,8 @@ public class Camera2BasicFragment extends Fragment
     private PoseEstimation classifier;
     private ImageView personImg;
     private Exercise exercise;
+    private ViewGroup layoutBottom;
+//    private ImageClassifier classifier;
     private int nowHeight;
     private int nowWidth;
 
@@ -406,6 +408,8 @@ public class Camera2BasicFragment extends Fragment
 
         exType = this.getArguments().getInt("exType");
         exCount = this.getArguments().getInt("exCount");
+
+        exCorrection = new ExCorrection();
 
         tts= new TextToSpeech(getActivity().getApplicationContext(),this);
         exCorrection = new ExCorrection();
