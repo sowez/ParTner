@@ -54,4 +54,13 @@ public interface RetrofitCommnunication {
     @POST("trainers/profile/edit")
     Call<JsonObject> trainerEditProfile(@Body TrainerEditData trainerEditData);
 
+    @POST("/sportsmans/bookmark/update")
+    Call<JsonObject> bookmarkUpdate(@Body JsonObject trainerId);
+
+    @POST("/sportsmans/bookmark/delete")
+    Call<JsonObject> bookmarkDelete(@Body JsonObject trainerId);
+
+    @GET("/sportsmans/bookmark/{id}")
+    Call<List<TrainerProfile>> getBookmark(@Path("id") String id);
+
 }

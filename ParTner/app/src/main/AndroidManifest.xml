@@ -104,6 +104,7 @@
         <activity android:name=".UserProfileActivity"/>
         <activity android:name=".UserProfileEditActivity"/>
         <activity android:name=".UserCallHistoryActivity"/>
+        <activity android:name=".UserBookmarkActivity"/>
 
         <service android:name=".GroupChatWebRTC.services.CallService" />
 

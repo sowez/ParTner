@@ -1,6 +1,5 @@
 package com.example.partner;
 
-import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +13,8 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.example.partner.Core.utils.SharedPrefsHelper;
 import com.example.partner.Core.utils.Toaster;
@@ -23,11 +24,16 @@ import com.example.partner.GroupChatWebRTC.services.CallService;
 import com.example.partner.GroupChatWebRTC.utils.Consts;
 import com.example.partner.GroupChatWebRTC.utils.QBEntityCallbackImpl;
 import com.example.partner.GroupChatWebRTC.utils.UsersUtils;
+import com.google.gson.JsonObject;
 import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.core.helper.StringifyArrayList;
 import com.quickblox.core.helper.Utils;
 import com.quickblox.users.model.QBUser;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PopupTrainerInfoActivity extends BaseActivity {
 
@@ -36,12 +42,13 @@ public class PopupTrainerInfoActivity extends BaseActivity {
     private TextView name;
     private TextView traingType;
     private TextView introduction;
+    private ToggleButton bookmarkBtn;
 
     // 영상통화
     private Context context = PopupTrainerInfoActivity.this;
     private QBUser userForSave;
-    private String userName;
-    private String trainerName;
+    private String userId;
+    private String trainerId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,11 +63,13 @@ public class PopupTrainerInfoActivity extends BaseActivity {
         name = (TextView) findViewById(R.id.name);
         traingType = (TextView) findViewById(R.id.training_type);
         introduction = (TextView) findViewById(R.id.self_introduction);
+        bookmarkBtn = findViewById(R.id.bookmark);
 
         Intent intent = getIntent();
 
         // 이미지도 넣어야함...
         float starrate_data = Float.parseFloat(intent.getStringExtra("star_rate"));
+        trainerId = intent.getStringExtra("id");
         String name_data = intent.getStringExtra("name");
         String train_data = intent.getStringExtra("traintype");
         String intro_data = intent.getStringExtra("intro");
@@ -69,6 +78,56 @@ public class PopupTrainerInfoActivity extends BaseActivity {
         name.setText(name_data);
         traingType.setText(train_data);
         introduction.setText(intro_data);
+
+        RetrofitCommnunication retrofitcomm = ServerComm.init();
+        bookmarkBtn.setOnClickListener(v -> {
+            if(bookmarkBtn.isChecked()){
+                bookmarkBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.icons_star_filled));
+
+                JsonObject bookmark = new JsonObject();
+                bookmark.addProperty("sportsmanID",SharedPreferenceData.getId(this));
+                bookmark.addProperty("trainerID", trainerId);
+
+                retrofitcomm.bookmarkUpdate(bookmark).enqueue(new Callback<JsonObject>() {
+                    @Override
+                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                        JsonObject res = response.body();
+                        if(res.get("result").getAsString().equals("success")){
+                            Toast.makeText(context, "트레이너 즐겨찾기가 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(context, "트레이너 즐겨찾기가 실패하었습니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
+                        Log.e("bookmark", "sportsman bookmark onFailure");
+                    }
+                });
+
+            }else{
+                bookmarkBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.icons_star));
+                JsonObject bookmark = new JsonObject();
+                bookmark.addProperty("sportsmanID",SharedPreferenceData.getId(this));
+                bookmark.addProperty("trainerID", trainerId);
+                retrofitcomm.bookmarkDelete(bookmark).enqueue(new Callback<JsonObject>() {
+                    @Override
+                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                        JsonObject res = response.body();
+                        if(res.get("result").getAsString().equals("success")){
+                            Toast.makeText(context, "트레이너 즐겨찾기가 해제되었습니다.", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(context, "트레이너 즐겨찾기 해제가 실패하었습니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
+                        Log.e("bookmark", "sportsman bookmark onFailure");
+                    }
+                });
+            }
+        });
     }
 
     @Override
@@ -84,15 +143,14 @@ public class PopupTrainerInfoActivity extends BaseActivity {
 
         /* 영상통화 로그인하기 */
         showProgressDialog(R.string.waiting_facetalk);
-        userName = SharedPreferenceData.getUserName(context);
-        trainerName = name.getText().toString();
+        userId = SharedPreferenceData.getId(context);
         startSignUpNewUser(createUserWithEnteredData());
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //바깥레이어 클릭시 안닫히게
-        if(event.getAction()==MotionEvent.ACTION_OUTSIDE){
+        if (event.getAction() == MotionEvent.ACTION_OUTSIDE) {
             return false;
         }
         return true;
@@ -107,7 +165,7 @@ public class PopupTrainerInfoActivity extends BaseActivity {
     /* 영상통화 로그인 */
 
     private QBUser createUserWithEnteredData() {
-        return createQBUserWithCurrentData(userName, trainerName);
+        return createQBUserWithCurrentData(userId, trainerId);
     }
 
     private QBUser createQBUserWithCurrentData(String userName, String chatRoomName) {

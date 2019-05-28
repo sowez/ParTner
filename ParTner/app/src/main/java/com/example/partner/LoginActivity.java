@@ -31,8 +31,6 @@ import com.quickblox.users.model.QBUser;
 
 import java.util.ArrayList;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -45,8 +43,7 @@ public class LoginActivity extends BaseActivity {
 
     private Context context = LoginActivity.this;
     private QBUser userForSave;
-    private String userName;
-
+    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,8 +112,8 @@ public class LoginActivity extends BaseActivity {
                             String token = data.get("token").getAsString();
                             String type = data.get("type").getAsString();
                             String username = data.get("username").getAsString();
-                            userName = username;
                             String id = data.get("id").getAsString();
+                            userId = id;
 
                             boolean auto = autologinCheck.isChecked();
 
@@ -151,7 +148,7 @@ public class LoginActivity extends BaseActivity {
     /* 영상통화를 위한 로그인 */
 
     private QBUser createUserWithEnteredData() {
-        return createQBUserWithCurrentData(userName, userName);
+        return createQBUserWithCurrentData(userId, userId);
     }
 
     private QBUser createQBUserWithCurrentData(String userName, String chatRoomName) {

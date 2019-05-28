@@ -155,8 +155,10 @@ public class UserCallHistoryActivity extends AppCompatActivity {
 
             @Override
             public void btnBookmark() {
-                Toast.makeText(context, "Trainer bookmark 화면", Toast.LENGTH_LONG).show();
-                closeMenu();
+                isMenuShow = false;
+                Intent intent = new Intent(context, UserBookmarkActivity.class);
+                startActivity(intent);
+                finish();
             }
 
             @Override

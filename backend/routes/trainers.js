@@ -117,16 +117,6 @@ router.get('/profile', function (req, res, next) {
   })
 });
 
-/* 프로필 수정 */
-router.get('/profile/edit', function (req, res, next) {
-  trainerModel.findOneAndUpdate({ id: req.body.id }, function(err, trainer) {
-    if(err){
-      return res.status(500).send({error: 'databasefailure'});
-    }
-    console.log(trainer);
-    res.json(trainer);
-  })
- });
 
  /* 프로필 수정 */
 router.post('/profile/edit', function (req, res, next) {

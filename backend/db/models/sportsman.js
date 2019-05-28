@@ -1,29 +1,29 @@
 const { mongoose } = require('../mongo')
 
 const sportsmanSchema = new mongoose.Schema({
-    id:{
+    id: {
         type: String,
         required: true,
         unique: true
     },
-    pw:{
+    pw: {
         type: String,
         required: true
     },
-    sex:{
+    sex: {
         type: String,
         required: true
     },
-    name:{
+    name: {
         type: String,
         required: true
     },
-    trainer_bookmark :{
-        
-    },
-    call_history : [{ type : Number, ref: 'call_history' }],
+    
+    trainer_bookmark:[{ type: mongoose.Schema.Types.ObjectId, ref: 'trainer' }],
 
-    training_history : [{ type : Number, ref: 'training_history' }],
+    call_history: [{ type: Number, ref: 'call_history' }],
+
+    training_history: [{ type: Number, ref: 'training_history' }],
 })
 
 

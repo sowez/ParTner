@@ -56,15 +56,15 @@ public class ServerComm {
     * 종합관 509 :  http://192.168.30.96:8000/
     * */
 
-    private String URL = "http://192.168.51.146:8000/";
+    private static String URL = "http://192.168.51.146:8000/";
 
     public String getURL() {
         return URL;
     }
 
-    private RetrofitCommnunication retrofitCommnunication;
+    private static RetrofitCommnunication retrofitCommnunication;
 
-    public RetrofitCommnunication init() {
+    public static RetrofitCommnunication init() {
 
         Gson gson = new GsonBuilder()
                 .setLenient()
