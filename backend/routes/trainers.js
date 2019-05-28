@@ -12,8 +12,6 @@ router.get('/', function (req, res, next) {
 /* GET trainers list. */
 router.get('/list/:userId/:trainerName', function (req, res, next) {
 
-  console.log(req.params)
-
   sportsmanModel.findOne({ id: req.params.userId }, function (err, sportsman) {
     if (req.params.trainerName == "all") {
       if (req.query.sex == "all") {

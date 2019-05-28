@@ -271,6 +271,11 @@ public class TrainerMainMenuActivity extends BaseActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getProfile();
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
