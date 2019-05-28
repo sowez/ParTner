@@ -6,17 +6,17 @@
     <item
         android:id="@+id/update_opponents_list"
         android:icon="@drawable/ic_refresh"
-        android:title="@string/action_update_opponens_list"
+        android:title="새로고침"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
 
     <item
         android:id="@+id/settings"
-        android:title="@string/action_settings"
+        android:title="설정"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/log_out"
-        android:title="@string/action_logout"
+        android:title="영상통화 방나가기"
         app:showAsAction="never" />
 </menu>

@@ -3,11 +3,13 @@ package com.example.partner.GroupChatWebRTC.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
 import com.example.partner.Core.utils.SharedPrefsHelper;
@@ -22,6 +24,7 @@ import com.example.partner.GroupChatWebRTC.utils.PushNotificationSender;
 import com.example.partner.GroupChatWebRTC.utils.UsersUtils;
 import com.example.partner.GroupChatWebRTC.utils.WebRtcSessionManager;
 import com.example.partner.R;
+import com.example.partner.SharedPreferenceData;
 import com.quickblox.chat.QBChatService;
 import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.exception.QBResponseException;
@@ -86,6 +89,12 @@ public class OpponentsActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         initUsersList();
+    }
+
+    @Override
+    public void onBackPressed() {
+        logOut();
+        finish();
     }
 
     @Override
@@ -299,7 +308,7 @@ public class OpponentsActivity extends BaseActivity {
         unsubscribeFromPushes();
         startLogoutCommand();
         removeAllUserData();
-        startLoginActivity();
+        finish();
     }
 
     private void startLogoutCommand() {

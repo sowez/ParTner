@@ -56,7 +56,7 @@ public class ServerComm {
     * 종합관 509 :  http://192.168.30.96:8000/
     * */
 
-    private String URL = "http://192.168.0.6:8000/";
+    private String URL = "http://192.168.51.146:8000/";
 
     public String getURL() {
         return URL;

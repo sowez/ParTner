@@ -82,7 +82,6 @@ public class TrainerMainMenuActivity extends BaseActivity {
     private String imgpath;
 
     // 영상통화
-
     private QBUser currentUser;
     private QbUsersDbManager dbManager;
     private boolean isRunForCall;
@@ -95,6 +94,7 @@ public class TrainerMainMenuActivity extends BaseActivity {
         setContentView(R.layout.activity_trainer_menu);
 
         initFields();
+        startLoadUsers();
         init();
 
     }
@@ -254,6 +254,21 @@ public class TrainerMainMenuActivity extends BaseActivity {
         });
     }
 
+    private void removeAllUserData() {
+        UsersUtils.removeUserData(getApplicationContext());
+        requestExecutor.deleteCurrentUser(currentUser.getId(), new QBEntityCallback<Void>() {
+            @Override
+            public void onSuccess(Void aVoid, Bundle bundle) {
+                Log.d(TAG, "Current user was deleted from QB");
+            }
+
+            @Override
+            public void onError(QBResponseException e) {
+                Log.e(TAG, "Current user wasn't deleted from QB " + e);
+            }
+        });
+    }
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -323,9 +338,7 @@ public class TrainerMainMenuActivity extends BaseActivity {
 
                 SubscribeService.unSubscribeFromPushes(context);
                 CallService.logout(context);
-
-
-
+                removeAllUserData();
 
                 SharedPreferenceData.clearUserData(context);
                 Toast.makeText(context, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show();

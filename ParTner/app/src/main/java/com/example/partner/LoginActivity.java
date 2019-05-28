@@ -75,7 +75,6 @@ public class LoginActivity extends BaseActivity {
         signupButton.setOnClickListener(view -> {
             Intent intent = new Intent(this, SignUpActivity.class);
             startActivity(intent);
-//            finish();
         });
         nextButton.setOnClickListener(view -> {
             Intent intent = new Intent(this, UserMainMenuActivity.class);
@@ -127,6 +126,7 @@ public class LoginActivity extends BaseActivity {
 //                                Intent intent = new Intent(this, TrainerMainMenuActivity.class);
 //                                startActivity(intent);
 //                                finish();
+                                showProgressDialog(R.string.waiting_facetalk);
                                 startSignUpNewUser(createUserWithEnteredData());
                             } else {
                                 Intent intent = new Intent(this, UserMainMenuActivity.class);
@@ -234,6 +234,7 @@ public class LoginActivity extends BaseActivity {
                 if (deleteCurrentUser) {
                     removeAllUserData(result);
                 } else {
+                    hideProgressDialog();
                     Intent intent = new Intent(context, TrainerMainMenuActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     intent.putExtra(Consts.EXTRA_IS_STARTED_FOR_CALL, false);

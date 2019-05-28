@@ -59,7 +59,7 @@ public abstract class BaseActivity extends CoreBaseActivity {
             actionBar.setSubtitle(null);
     }
 
-    void showProgressDialog(@StringRes int messageId) {
+    protected void showProgressDialog(@StringRes int messageId) {
         if (progressDialog == null) {
             progressDialog = new ProgressDialog(this);
             progressDialog.setIndeterminate(true);
@@ -82,7 +82,7 @@ public abstract class BaseActivity extends CoreBaseActivity {
 
     }
 
-    void hideProgressDialog() {
+    protected void hideProgressDialog() {
         if (progressDialog != null) {
             progressDialog.dismiss();
         }

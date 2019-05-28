@@ -127,33 +127,7 @@ public class TrainerListActivity extends AppCompatActivity {
                 search(name2, trainType2, gender2);
             }
         });
-//        Log.i("Received msg",trainerProfiles.get(0).getId());
-//        Log.i("Received msg",trainerProfiles.get(1).getId());
-
-//        List<TrainerProfile> trainerProfiles2 = new ArrayList<>();
-//        ArrayList list = new ArrayList<String>();
-//        list.add("요가");
-//        list.add("필라테스");
-//        trainerProfiles2.add(new TrainerProfile("1", "female", "name1","intro", 5, list,"online", "img1"));
-//        trainerProfiles2.add(new TrainerProfile("2", "female", "name2","intro", 5, list,"online", "img1"));
-//        trainerProfiles2.add(new TrainerProfile("3", "female", "name3","intro", 5, list,"online", "img1"));
-//        trainerProfiles2.add(new TrainerProfile("4", "female", "name4","intro", 5, list,"online", "img1"));
-//        trainerProfiles2.add(new TrainerProfile("5", "female", "name5","intro", 5, list,"online", "img1"));
-//        trainerProfiles2.add(new TrainerProfile("6", "female", "name6","intro", 5, list,"online", "img1"));
-//        trainerProfiles2.add(new TrainerProfile("7", "female", "name7","intro", 5, list,"online", "img1"));
-//        trainerProfiles2.add(new TrainerProfile("8", "female", "name8","intro", 5, list,"online", "img1"));
-//        trainerProfiles2.add(new TrainerProfile("9", "female", "name9","intro", 5, list,"online", "img1"));
-//        trainerProfiles2.add(new TrainerProfile("10", "female", "name10","intro", 5, list,"online", "img1"));
-//        trainerProfiles2.add(new TrainerProfile("11", "female", "name11","intro", 5, list,"online", "img1"));
-//        trainerProfiles2.add(new TrainerProfile("12", "female", "name12","intro", 5, list,"online", "img1"));
-//        trainerProfiles2.add(new TrainerProfile("13", "female", "name13","intro", 5, list,"online", "img1"));
-//        trainerProfiles2.add(new TrainerProfile("14", "female", "name14","intro", 5, list,"online", "img1"));
-//        recyclerAdapter = new TrainerListRecyclerAdapter(trainerProfiles2);
-
-
     }
-
-
 
     private void search(String name, String trainType, String gender) {
 
@@ -181,22 +155,6 @@ public class TrainerListActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        if(!SharedPreferenceData.getAutologinChecked(this)){
-            SharedPreferenceData.clearUserData(this);
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if(!SharedPreferenceData.getAutologinChecked(this)){
-            SharedPreferenceData.clearUserData(this);
-        }
-    }
-
-    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -213,6 +171,9 @@ public class TrainerListActivity extends AppCompatActivity {
         } else {
 
             if (isExitFlag) {
+                if(!SharedPreferenceData.getAutologinChecked(this)){
+                    SharedPreferenceData.clearUserData(this);
+                }
                 finish();
             } else {
                 isExitFlag = true;
