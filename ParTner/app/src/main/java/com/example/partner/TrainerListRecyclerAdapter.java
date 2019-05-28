@@ -51,6 +51,7 @@ public class TrainerListRecyclerAdapter extends RecyclerView.Adapter<TrainerList
                 intent.putExtra("img",listData.get(position).getProfileImg());
                 intent.putExtra("intro",listData.get(position).getSelf_introduction());
                 intent.putExtra("traintype", holder.training.getText().toString());
+                intent.putExtra("bookmark", listData.get(position).getBookmarked());
 
                 v.getContext().startActivity(intent);
             }

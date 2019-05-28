@@ -39,8 +39,8 @@ public interface RetrofitCommnunication {
     @POST("/users/login")
     Single<JsonObject> login(@Body JsonObject logindata);
 
-    @GET("/trainers/list/{name}")
-    Call<List<TrainerProfile>> trainerList( @Path("name") String name, @Query("traintype") String traintype, @Query("sex") String sex);
+    @GET("/trainers/list/{userId}/{trainerName}")
+    Call<JsonObject> trainerList( @Path("userId") String id, @Path("trainerName") String name, @Query("traintype") String traintype, @Query("sex") String sex);
 
     @GET("/history/training/{id}/{year}/{month}")
     Call<List<TrainingHistory>> getTrainingHist( @Path("id") String id, @Path("year") String year, @Path("month") String month);
@@ -51,7 +51,7 @@ public interface RetrofitCommnunication {
     @GET("/trainers/profile")
     Call<TrainerProfile> trainerProfile(@Query("id") String id);
 
-    @POST("trainers/profile/edit")
+    @POST("/trainers/profile/edit")
     Call<JsonObject> trainerEditProfile(@Body TrainerEditData trainerEditData);
 
     @POST("/sportsmans/bookmark/update")

@@ -3,6 +3,7 @@ package com.example.partner;
 import java.util.ArrayList;
 
 public class TrainerProfile {
+    private String _id;
     private String id;
     private String pw;
     private String sex;
@@ -13,8 +14,10 @@ public class TrainerProfile {
     private ArrayList<CallHistory> call_history;
     private String state;
     private String profileImg;
+    private boolean isBookmarked = false;
 
-    public TrainerProfile(String id, String pw, String sex, String name, String self_introduction, Integer star_rate, ArrayList<String> training_type, ArrayList<CallHistory> call_history, String state, String profileImg) {
+    public TrainerProfile(String _id, String id, String pw, String sex, String name, String self_introduction, Integer star_rate, ArrayList<String> training_type, ArrayList<CallHistory> call_history, String state, String profileImg) {
+        this._id = _id;
         this.id = id;
         this.pw = pw;
         this.sex = sex;
@@ -26,6 +29,8 @@ public class TrainerProfile {
         this.state = state;
         this.profileImg = profileImg;
     }
+
+    public String get_id(){return _id;}
 
     public String getId() {
         return id;
@@ -114,4 +119,8 @@ public class TrainerProfile {
     public void setProfileImg(String img) {
         this.profileImg = profileImg;
     }
+
+    public boolean getBookmarked() {return this.isBookmarked; }
+
+    public void setBookmarked(boolean checked) { this.isBookmarked = checked; }
 }

@@ -66,14 +66,16 @@ public class PopupTrainerInfoActivity extends BaseActivity {
         bookmarkBtn = findViewById(R.id.bookmark);
 
         Intent intent = getIntent();
-
         // 이미지도 넣어야함...
         float starrate_data = Float.parseFloat(intent.getStringExtra("star_rate"));
         trainerId = intent.getStringExtra("id");
         String name_data = intent.getStringExtra("name");
         String train_data = intent.getStringExtra("traintype");
         String intro_data = intent.getStringExtra("intro");
-
+        if(intent.getBooleanExtra("bookmark",false)){
+            bookmarkBtn.setChecked(true);
+            bookmarkBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.icons_star_filled));
+        }
         mRating.setRating(starrate_data);
         name.setText(name_data);
         traingType.setText(train_data);

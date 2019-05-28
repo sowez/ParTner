@@ -19,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +27,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -50,6 +57,10 @@ public class TrainerListActivity extends AppCompatActivity {
     private Spinner genderSpinner;
     private EditText trainerNameEdittext;
     private Button searchBtn;
+
+    private String trainType;
+    private String gender;
+    private String name;
 
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
@@ -92,23 +103,23 @@ public class TrainerListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         // 트레이닝 타입 스피너
-        String[] trainTypes  = getResources().getStringArray(R.array.traintype);
+        String[] trainTypes = getResources().getStringArray(R.array.traintype);
         ArrayAdapter<String> trainAdapter = new ArrayAdapter<String>(getBaseContext(), R.layout.support_simple_spinner_dropdown_item, trainTypes);
         trainAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         trainSpinner.setAdapter(trainAdapter);
 
         // 성별 스피너
-        String[] genderTypes  = getResources().getStringArray(R.array.gendertype);
+        String[] genderTypes = getResources().getStringArray(R.array.gendertype);
         ArrayAdapter<String> genderAdapter = new ArrayAdapter<String>(getBaseContext(), R.layout.support_simple_spinner_dropdown_item, genderTypes);
         genderAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         genderSpinner.setAdapter(genderAdapter);
 
-        String trainType = trainSpinner.getSelectedItem().toString();
+        trainType = trainSpinner.getSelectedItem().toString();
 //        if(trainType.equals("all")) trainType = null;
-        String gender = genderSpinner.getSelectedItem().toString();
+        gender = genderSpinner.getSelectedItem().toString();
 //        if(gender.equals("all")) gender = null;
-         String name = trainerNameEdittext.getText().toString();
-        if(name.equals("")) name = "all";
+        name = trainerNameEdittext.getText().toString();
+        if (name.equals("")) name = "all";
 
 
         search(name, trainType, gender);
@@ -122,7 +133,7 @@ public class TrainerListActivity extends AppCompatActivity {
                 String gender2 = genderSpinner.getSelectedItem().toString();
 //              if(gender.equals("all")) gender = null;
                 String name2 = trainerNameEdittext.getText().toString();
-                if(name2.equals("")) name2 = "all";
+                if (name2.equals("")) name2 = "all";
 
                 search(name2, trainType2, gender2);
             }
@@ -133,24 +144,43 @@ public class TrainerListActivity extends AppCompatActivity {
 
         RetrofitCommnunication retrofitCommnunication = new ServerComm().init();
 
-        Call<List<TrainerProfile>> trainerProfiles = retrofitCommnunication.trainerList(name, trainType, gender);
-
-        trainerProfiles.enqueue(new Callback<List<TrainerProfile>>() {
+        retrofitCommnunication.trainerList(SharedPreferenceData.getId(this), name, trainType, gender).enqueue(new Callback<JsonObject>() {
             @Override
-            public void onResponse(Call<List<TrainerProfile>> call, Response<List<TrainerProfile>> response) {
-                List<TrainerProfile> trainerProfiles = response.body();
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                Gson gson = new Gson();
+                JsonObject res = response.body();
+                Log.d("bookmarkchecked", "onResponse: " + res);
+                List<String> bookmark_trainers = gson.fromJson(res.get("bookmark"), new TypeToken<List<String>>() {
+                }.getType());
+                List<TrainerProfile> trainerProfiles = gson.fromJson(res.get("trainerProfiles"), new TypeToken<List<TrainerProfile>>() {
+                }.getType());
 
+                for (int i = 0; i < trainerProfiles.size(); i++) {
+                    for (int j = 0; j < bookmark_trainers.size(); j++) {
+                        if (trainerProfiles.get(i).get_id().equals(bookmark_trainers.get(j))) {
+                            Log.d("bookmarkchecked", "onResponse: trainer bookmark >> " + bookmark_trainers.get(j));
+                            trainerProfiles.get(i).setBookmarked(true);
+                            break;
+                        }
+                    }
+                }
                 recyclerAdapter = new TrainerListRecyclerAdapter(trainerProfiles);
                 recyclerView.setAdapter(recyclerAdapter);
             }
 
             @Override
-            public void onFailure(Call<List<TrainerProfile>> call, Throwable t) {
+            public void onFailure(Call<JsonObject> call, Throwable t) {
                 Toast.makeText(TrainerListActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG)
                         .show();
-                Log.e("TAG", "onFailure: " + t.getMessage() );
+                Log.e("TAG", "onFailure: " + t.getMessage());
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        search(name, trainType, gender);
     }
 
 
@@ -171,7 +201,7 @@ public class TrainerListActivity extends AppCompatActivity {
         } else {
 
             if (isExitFlag) {
-                if(!SharedPreferenceData.getAutologinChecked(this)){
+                if (!SharedPreferenceData.getAutologinChecked(this)) {
                     SharedPreferenceData.clearUserData(this);
                 }
                 finish();

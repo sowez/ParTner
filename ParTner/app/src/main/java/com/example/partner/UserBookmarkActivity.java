@@ -88,6 +88,9 @@ public class UserBookmarkActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<TrainerProfile>> call, Response<List<TrainerProfile>> response) {
                 List<TrainerProfile> trainerProfiles = response.body();
+                for(int i = 0; i<trainerProfiles.size();i++){
+                    trainerProfiles.get(i).setBookmarked(true);
+                }
                 recyclerAdapter = new TrainerListRecyclerAdapter(trainerProfiles);
                 recyclerView.setAdapter(recyclerAdapter);
             }
@@ -98,6 +101,11 @@ public class UserBookmarkActivity extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getBookmark();
     }
 
     @Override

@@ -23,9 +23,6 @@ router.get('/bookmark/:id', function (req, res, next) {
   });
 });
 
-
-
-
 router.post('/bookmark/update', function (req, res, next) {
   console.log(req.body);
   var sportsmanID = req.body.sportsmanID;
@@ -46,7 +43,6 @@ router.post('/bookmark/update', function (req, res, next) {
       });
     });
   });
-
 });
 
 router.post('/bookmark/delete', function (req, res, next) {

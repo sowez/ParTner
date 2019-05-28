@@ -56,7 +56,7 @@ public class ServerComm {
     * 종합관 509 :  http://192.168.30.96:8000/
     * */
 
-    private static String URL = "http://192.168.51.146:8000/";
+    private static String URL = "http://192.168.0.10:8000/";
 
     public String getURL() {
         return URL;
@@ -140,30 +140,6 @@ public class ServerComm {
                 Log.e(TAG, "onFailure: error" + t.getMessage());
             }
         });
-    }
-
-    // searching trainer list
-    List<TrainerProfile> trainerProfileList;
-    public List<TrainerProfile> searchTrainer(String name, String traintype, String sex, Context context) {
-
-        retrofitCommnunication.trainerList(name, traintype, sex).enqueue(new Callback<List<TrainerProfile>>() {
-            @Override
-            public void onResponse(Call<List<TrainerProfile>> call, Response<List<TrainerProfile>> response) {
-                if(response.isSuccessful()){
-                    trainerProfileList = response.body();
-                    Log.i(TAG, response.body().get(0).getId());
-                    Log.i(TAG, trainerProfileList.get(0).getId());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<TrainerProfile>> call, Throwable t) {
-                Toast.makeText(context, "데이터를 불러오는 데 실패하였습니다.", Toast.LENGTH_LONG).show();
-                Log.e(TAG, "onFailure: error getting trainerprofile" + t.getMessage());
-            }
-        });
-
-        return trainerProfileList;
     }
 
     List<TrainingHistory> trainingHistoryList;
