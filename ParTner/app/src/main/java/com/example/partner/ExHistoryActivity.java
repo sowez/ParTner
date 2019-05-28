@@ -97,8 +97,7 @@ public class ExHistoryActivity extends AppCompatActivity {
         addSideBar();
 
 
-
-        calendarView = (MaterialCalendarView)findViewById(R.id.calender);
+        calendarView = (MaterialCalendarView) findViewById(R.id.calender);
 
         calendarView.setDynamicHeightEnabled(true);
 //        calendarView.setTopbarVisible(false);
@@ -107,14 +106,16 @@ public class ExHistoryActivity extends AppCompatActivity {
         // --------------------------------------
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        Date date = new Date(); Date start = new Date(); Date end = new Date();
+        Date date = new Date();
+        Date start = new Date();
+        Date end = new Date();
         try {
             start = timeFormat.parse("2019-05-17 15:27");
             end = timeFormat.parse("2019-05-17 15:47");
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        callHistories.add(new CallHistory(start, end,20, "트레이너2", "운동인1"));
+        callHistories.add(new CallHistory(start, end, 20, "트레이너2", "운동인1"));
 
         try {
             start = timeFormat.parse("2019-05-17 13:27");
@@ -122,7 +123,7 @@ public class ExHistoryActivity extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        callHistories.add(new CallHistory(start, end,20, "트레이너1", "운동인1"));
+        callHistories.add(new CallHistory(start, end, 20, "트레이너1", "운동인1"));
 
         // --------------------------------------
 
@@ -130,11 +131,11 @@ public class ExHistoryActivity extends AppCompatActivity {
         String today = dateFormat.format(new Date());
         String year = today.split("-")[0];
         String month = today.split("-")[1];
-        Log.d("ExHistoryActivityyy", "<< "+month+"월 >>");
-        Log.d("ExHistoryActivityyy", "id: "+id);
+        Log.d("ExHistoryActivityyy", "<< " + month + "월 >>");
+        Log.d("ExHistoryActivityyy", "id: " + id);
         id = SharedPreferenceData.getId(this);
-        searchTraining(id,year,month);
-        searchCall(id,year,month);
+        searchTraining(id, year, month);
+        searchCall(id, year, month);
 
         // Recycler View 설정
         recyclerView = (RecyclerView) findViewById(R.id.rv_calendar);
@@ -159,11 +160,11 @@ public class ExHistoryActivity extends AppCompatActivity {
             @Override
             public void onMonthChanged(MaterialCalendarView widget, CalendarDay date) {
                 String year = Integer.toString(date.getYear());
-                String month = Integer.toString(date.getMonth()+1);
-                Log.d("ExHistoryActivityyy", "<< "+month+"월 >>");
-                searchTraining(id,year,month);
-                searchCall(id,year,month);
-                if (recyclerAdapter != null){
+                String month = Integer.toString(date.getMonth() + 1);
+                Log.d("ExHistoryActivityyy", "<< " + month + "월 >>");
+                searchTraining(id, year, month);
+                searchCall(id, year, month);
+                if (recyclerAdapter != null) {
                     recyclerAdapter.clear();
                     recyclerView.setAdapter(recyclerAdapter);
                 }
@@ -182,7 +183,7 @@ public class ExHistoryActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<TrainingHistory>> call, Response<List<TrainingHistory>> response) {
                 trainingHistories = response.body();
-                Log.d("ExHistoryActivityyy", "trainingHist size onResponse: "+trainingHistories.size());
+                Log.d("ExHistoryActivityyy", "trainingHist size onResponse: " + trainingHistories.size());
                 setDots();
             }
 
@@ -190,66 +191,65 @@ public class ExHistoryActivity extends AppCompatActivity {
             public void onFailure(Call<List<TrainingHistory>> call, Throwable t) {
                 Toast.makeText(ExHistoryActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG)
                         .show();
-                Log.e("TAG", "onFailure: " + t.getMessage() );
+                Log.e("TAG", "onFailure: " + t.getMessage());
             }
         });
 
     }
 
-    private void searchCall(String id, String year, String month){
+    private void searchCall(String id, String year, String month) {
         // response 결과로
         //        setDots();
     }
 
-    private void setDots(){
+    private void setDots() {
         // 각 날짜별로 dot 찍기
         Collection<CalendarDay> trainingDates = new ArrayList<>();
         Collection<CalendarDay> callDates = new ArrayList<>();
         Collection<CalendarDay> bothDates = new ArrayList<>();
 
-        Log.d("ExHistoryActivityyy", "trainingHist size: "+trainingHistories.size());
-        Log.d("ExHistoryActivityyy", "callHist size: "+callHistories.size());
+        Log.d("ExHistoryActivityyy", "trainingHist size: " + trainingHistories.size());
+        Log.d("ExHistoryActivityyy", "callHist size: " + callHistories.size());
 
-        for (int i=0;i<trainingHistories.size();i++){
+        for (int i = 0; i < trainingHistories.size(); i++) {
             CalendarDay day = CalendarDay.from(trainingHistories.get(i).getDate());
-            Log.d("ExHistoryActivityyy", "trainingHist: "+day.toString());
-            if (!trainingDates.contains(day)){
+            Log.d("ExHistoryActivityyy", "trainingHist: " + day.toString());
+            if (!trainingDates.contains(day)) {
                 trainingDates.add(day);
             }
         }
-        for (int i=0;i<callHistories.size();i++){
+        for (int i = 0; i < callHistories.size(); i++) {
             CalendarDay day = CalendarDay.from(callHistories.get(i).getDate());
-            Log.d("ExHistoryActivityyy", "callHist: "+day.toString());
-            if(!callDates.contains(day) && !trainingDates.contains(day) && !bothDates.contains(day)){
+            Log.d("ExHistoryActivityyy", "callHist: " + day.toString());
+            if (!callDates.contains(day) && !trainingDates.contains(day) && !bothDates.contains(day)) {
                 callDates.add(day);
-            }
-            else if(trainingDates.contains(day)){
+            } else if (trainingDates.contains(day)) {
                 trainingDates.remove(day);
                 bothDates.add(day);
             }
         }
         // decorate 추가
         calendarView.removeDecorators();
-        calendarView.addDecorator(new EventDecorator(trainingDates, dotColors,1));
-        calendarView.addDecorator(new EventDecorator(callDates, dotColors,2));
-        calendarView.addDecorator(new EventDecorator(bothDates, dotColors,3));
+        calendarView.addDecorator(new EventDecorator(trainingDates, dotColors, 1));
+        calendarView.addDecorator(new EventDecorator(callDates, dotColors, 2));
+        calendarView.addDecorator(new EventDecorator(bothDates, dotColors, 3));
     }
 
-    public ArrayList<History> findDailyHistory(Date date){
+    public ArrayList<History> findDailyHistory(Date date) {
         ArrayList<History> histories = new ArrayList<>();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String thisDate = df.format(date);
 
-        for (TrainingHistory hist: trainingHistories){
+        for (TrainingHistory hist : trainingHistories) {
             String histDate = df.format(hist.getDate());
-            if (histDate.equals(thisDate)){
-                histories.add(new History(hist.getEx_type(),hist.getDate(), hist.getStart_time(), hist.getEx_count()));
+            if (histDate.equals(thisDate)) {
+                histories.add(new History(hist.getEx_type(), hist.getDate(), hist.getStart_time(), hist.getEx_count()));
             }
         }
-        for (CallHistory hist: callHistories){
+        for (CallHistory hist : callHistories) {
             String histDate = df.format(hist.getDate());
-            if (histDate.equals(thisDate)){
-                histories.add(new History(0,hist.getDate(), hist.getStart_time(), hist.getTrainer(), hist.getCall_duration()));
+            if (histDate.equals(thisDate)) {
+                histories.add(new History(0, hist.getDate(), hist.getStart_time(), hist.getTrainer(), hist.getCall_duration()));
             }
         }
         Collections.sort(histories, new Comparator<History>() {
@@ -281,13 +281,16 @@ public class ExHistoryActivity extends AppCompatActivity {
 
         @Override
         public void decorate(DayViewFacade view) {
-            switch (type){
+            switch (type) {
                 case 1:
-                    view.addSpan(new DotSpan(5,colors[0])); break;
+                    view.addSpan(new DotSpan(5, colors[0]));
+                    break;
                 case 2:
-                    view.addSpan(new DotSpan(5, colors[1])); break;
+                    view.addSpan(new DotSpan(5, colors[1]));
+                    break;
                 case 3:
-                    view.addSpan((new CustmMultipleDotSpan(5,colors))); break;
+                    view.addSpan((new CustmMultipleDotSpan(5, colors)));
+                    break;
             }
         }
 
@@ -298,7 +301,7 @@ public class ExHistoryActivity extends AppCompatActivity {
         private String date, time, name;
         private int count, type;
 
-        public History(int type, Date date, Date start_time, String name, int count){
+        public History(int type, Date date, Date start_time, String name, int count) {
             this.type = type;
             this.date = new SimpleDateFormat("yyyy/MM/dd").format(date);
             this.time = new SimpleDateFormat("HH : mm").format(start_time);
@@ -306,7 +309,7 @@ public class ExHistoryActivity extends AppCompatActivity {
             this.count = count;
         }
 
-        public History(int type, Date date, Date start_time, int count){
+        public History(int type, Date date, Date start_time, int count) {
             this.type = type;
             this.date = new SimpleDateFormat("yyyy/MM/dd").format(date);
             this.time = new SimpleDateFormat("HH : mm").format(start_time);
@@ -356,7 +359,6 @@ public class ExHistoryActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
@@ -390,10 +392,12 @@ public class ExHistoryActivity extends AppCompatActivity {
     private void addSideBar() {
 
         UserSideBarView sidebar = new UserSideBarView(context);
-
         sideLayout.addView(sidebar);
-        viewLayout.setOnTouchListener((v, event) -> true);
-        mainLayout.setOnTouchListener((v, event) -> true);
+
+        viewLayout.setOnClickListener(v -> {
+            closeMenu();
+        });
+
 
         sidebar.setEventListener(new UserSideBarView.EventListener() {
 
@@ -460,7 +464,7 @@ public class ExHistoryActivity extends AppCompatActivity {
             viewLayout.setVisibility(View.GONE);
             viewLayout.setEnabled(false);
             mainLayout.setEnabled(true);
-            viewLayout.setOnTouchListener((v,event)->false);
+            viewLayout.setOnTouchListener((v, event) -> false);
         }, 450);
     }
 
@@ -473,12 +477,7 @@ public class ExHistoryActivity extends AppCompatActivity {
         viewLayout.setVisibility(View.VISIBLE);
         viewLayout.setEnabled(true);
         mainLayout.setEnabled(false);
-        mainLayout.setOnTouchListener((v, event) -> true);
-
-        viewLayout.setOnClickListener(v -> {
-        });
-        viewLayout.setOnTouchListener((v,event)->true);
-        Log.e("TAG", "메뉴버튼 클릭");
+        mainLayout.setClickable(false);
     }
 
 }

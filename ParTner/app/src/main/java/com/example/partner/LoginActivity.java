@@ -181,6 +181,7 @@ public class LoginActivity extends BaseActivity {
                 saveUserData(userForSave);
                 signInCreatedUser(userForSave, false);
             } else {
+                hideProgressDialog();
                 Toaster.longToast(getString(R.string.login_chat_login_error) + " / onActivityResult : " + errorMessage);
             }
         }
@@ -205,6 +206,7 @@ public class LoginActivity extends BaseActivity {
                         if (e.getHttpStatusCode() == Consts.ERR_LOGIN_ALREADY_TAKEN_HTTP_STATUS) {
                             signInCreatedUser(newUser, true);
                         } else {
+                            hideProgressDialog();
                             Toaster.longToast(R.string.sign_up_error + " / startSignUpNewUser");
                             Log.d("loginlogin", "onError: startSignUpNewUser :// " + e.getMessage());
                             signInCreatedUser(newUser, true);
@@ -245,6 +247,7 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void onError(QBResponseException responseException) {
+                hideProgressDialog();
                 Toaster.longToast(R.string.sign_up_error + " / SigninCreateUser");
             }
         });
@@ -260,6 +263,7 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void onError(QBResponseException e) {
+                hideProgressDialog();
                 Toaster.longToast(R.string.sign_up_error + " / removeAllUserData");
             }
         });

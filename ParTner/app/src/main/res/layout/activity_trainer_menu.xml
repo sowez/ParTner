@@ -17,12 +17,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <FrameLayout
-            android:id="@+id/trainer_fl_slide"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
-
         <LinearLayout
             android:id="@+id/layout"
             android:layout_width="match_parent"
@@ -172,6 +166,13 @@
 
             </RelativeLayout>
         </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/trainer_fl_slide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#59000000"
+            android:visibility="gone" />
 
         <FrameLayout
             android:id="@+id/trainer_view_slidebar"

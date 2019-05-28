@@ -15,17 +15,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <FrameLayout
-            android:id="@+id/user_fl_slide"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#F0F0F0" />
+
+        <FrameLayout
+            android:id="@+id/user_fl_slide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#59000000"
+            android:visibility="gone" />
 
         <FrameLayout
             android:id="@+id/user_view_slidebar"

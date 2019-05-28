@@ -82,24 +82,6 @@ public class UserCallHistoryActivity extends AppCompatActivity {
         recyclerView.setAdapter(recyclerAdapter);
     }
 
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if(!SharedPreferenceData.getAutologinChecked(this)){
-            SharedPreferenceData.clearUserData(this);
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if(!SharedPreferenceData.getAutologinChecked(this)){
-            SharedPreferenceData.clearUserData(this);
-        }
-    }
-
-
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
@@ -117,6 +99,9 @@ public class UserCallHistoryActivity extends AppCompatActivity {
         } else {
 
             if (isExitFlag) {
+                if(!SharedPreferenceData.getAutologinChecked(this)){
+                    SharedPreferenceData.clearUserData(this);
+                }
                 finish();
             } else {
                 isExitFlag = true;
@@ -134,6 +119,7 @@ public class UserCallHistoryActivity extends AppCompatActivity {
 
 
         viewLayout.setOnClickListener(view -> {
+            closeMenu();
         });
 
         sidebar.setEventListener(new UserSideBarView.EventListener() {
@@ -212,6 +198,6 @@ public class UserCallHistoryActivity extends AppCompatActivity {
         viewLayout.setVisibility(View.VISIBLE);
         viewLayout.setEnabled(true);
         mainLayout.setEnabled(false);
-        Log.e("TAG", "메뉴버튼 클릭");
+        mainLayout.setClickable(false);
     }
 }

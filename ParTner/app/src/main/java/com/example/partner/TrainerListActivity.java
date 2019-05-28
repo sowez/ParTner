@@ -191,6 +191,7 @@ public class TrainerListActivity extends AppCompatActivity {
 
 
         viewLayout.setOnClickListener(view -> {
+            closeMenu();
         });
 
         sidebar.setEventListener(new UserSideBarView.EventListener() {
@@ -269,6 +270,6 @@ public class TrainerListActivity extends AppCompatActivity {
         viewLayout.setVisibility(View.VISIBLE);
         viewLayout.setEnabled(true);
         mainLayout.setEnabled(false);
-        Log.e("TAG", "메뉴버튼 클릭");
+        mainLayout.setClickable(false);
     }
 }

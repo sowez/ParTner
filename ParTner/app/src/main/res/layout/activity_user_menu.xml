@@ -15,11 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <FrameLayout
-            android:id="@+id/user_fl_slide"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -41,6 +36,13 @@
                 android:text="트레이너와 함께 운동하기" />
 
         </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/user_fl_slide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#59000000"
+            android:visibility="gone" />
 
         <FrameLayout
             android:id="@+id/user_view_slidebar"

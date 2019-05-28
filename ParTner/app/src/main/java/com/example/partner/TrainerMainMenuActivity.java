@@ -149,6 +149,7 @@ public class TrainerMainMenuActivity extends BaseActivity {
             startActivity(intent);
         });
 
+        showProgressDialog(R.string.waiting_facetalk);
         getProfile();
     }
 
@@ -207,6 +208,7 @@ public class TrainerMainMenuActivity extends BaseActivity {
                 mThread.start();
                 try{
                     mThread.join();
+                    hideProgressDialog();
                     profileImg.setImageBitmap(bitmap);
                 } catch (InterruptedException e){
                     e.printStackTrace();
@@ -306,6 +308,7 @@ public class TrainerMainMenuActivity extends BaseActivity {
         sideLayout.addView(sidebar);
 
         viewLayout.setOnClickListener(view -> {
+            closeMenu();
         });
 
         sidebar.setEventListener(new TrainerSideBarView.EventListener() {
@@ -377,6 +380,7 @@ public class TrainerMainMenuActivity extends BaseActivity {
         viewLayout.setVisibility(View.VISIBLE);
         viewLayout.setEnabled(true);
         mainLayout.setEnabled(false);
+        mainLayout.setClickable(false);
         Log.e("TAG", "메뉴버튼 클릭");
     }
 

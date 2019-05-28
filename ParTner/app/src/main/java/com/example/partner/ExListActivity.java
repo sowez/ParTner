@@ -58,9 +58,9 @@ public class ExListActivity extends AppCompatActivity {
 
         addSideBar();
 
-        btn_ex1 = (Button)findViewById(R.id.btn_ex1);
-        btn_ex2 = (Button)findViewById(R.id.btn_ex2);
-        btn_ex3 = (Button)findViewById(R.id.btn_ex3);
+        btn_ex1 = (Button) findViewById(R.id.btn_ex1);
+        btn_ex2 = (Button) findViewById(R.id.btn_ex2);
+        btn_ex3 = (Button) findViewById(R.id.btn_ex3);
         btn_ex1.setOnClickListener(listner_exList);
         btn_ex2.setOnClickListener(listner_exList);
         btn_ex3.setOnClickListener(listner_exList);
@@ -69,7 +69,7 @@ public class ExListActivity extends AppCompatActivity {
     View.OnClickListener listner_exList = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.btn_ex1:
                     exType = 1;
                     break;
@@ -79,18 +79,19 @@ public class ExListActivity extends AppCompatActivity {
                 case R.id.btn_ex3:
                     exType = 3;
                     break;
-                    default:break;
+                default:
+                    break;
             }
             ExStartPopup popup = new ExStartPopup(ExListActivity.this, exType, new ExStartPopup.PopupEventListener() {
                 @Override
                 public void popupEvent(String result) {
                     // 횟수 입력되었으면 운동 프리뷰 액티비티로 넘어가기
-                    if (!result.equals("Cancel")){
+                    if (!result.equals("Cancel")) {
 //                        Toast.makeText(ExListActivity.this, "count: "+result, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ExListActivity.this,ExPreviewActivity.class);
+                        Intent intent = new Intent(ExListActivity.this, ExPreviewActivity.class);
                         int exCount = Integer.parseInt(result);
-                        intent.putExtra("exCount",exCount);
-                        intent.putExtra("exType",exType);
+                        intent.putExtra("exCount", exCount);
+                        intent.putExtra("exType", exType);
                         startActivity(intent);
                         finish();
                     }
@@ -135,6 +136,10 @@ public class ExListActivity extends AppCompatActivity {
         UserSideBarView sidebar = new UserSideBarView(context);
 
         sideLayout.addView(sidebar);
+
+        viewLayout.setOnClickListener(v -> {
+           closeMenu();
+        });
 
         sidebar.setEventListener(new UserSideBarView.EventListener() {
 
@@ -201,7 +206,7 @@ public class ExListActivity extends AppCompatActivity {
             viewLayout.setVisibility(View.GONE);
             viewLayout.setEnabled(false);
             mainLayout.setEnabled(true);
-            viewLayout.setOnTouchListener((v,event)->false);
+            viewLayout.setOnTouchListener((v, event) -> false);
 
         }, 450);
     }
@@ -216,11 +221,6 @@ public class ExListActivity extends AppCompatActivity {
         viewLayout.setVisibility(View.VISIBLE);
         viewLayout.setEnabled(true);
         mainLayout.setEnabled(false);
-        mainLayout.setOnTouchListener((v, event) -> true);
-
-        viewLayout.setOnClickListener(v -> {
-        });
-
-
+        mainLayout.setClickable(false);
     }
 }
