@@ -995,32 +995,39 @@ public class Camera2BasicFragment extends Fragment
                         @Override
                         public void run() {
                             personImg.setVisibility(View.INVISIBLE);
-                            if (isStepDone.get(0)==1){
-                                Log.d("Exercise", "다음 step으로");
-                                resetStepCounter = 0;
-                                personImg.setImageResource(img_green);
-                                exerciseStep++;
-                                if(exerciseStep == endStep){
-                                    exerciseCounter++;
-                                    if (exerciseCounter == exCount)
-                                        endEx();
-                                    else
-                                        exerciseStep = 0;
+                            if (!isStepDone.isEmpty()){
+                                if (isStepDone.get(0)==1){
+                                    Log.d("Exercise", "다음 step으로");
+                                    resetStepCounter = 0;
+//                                personImg.setImageResource(img_green);
+                                    exerciseStep++;
+                                    if(exerciseStep == endStep){
+                                        exerciseCounter++;
+                                        CountSpeak(exerciseCounter);
+                                        if (exerciseCounter == exCount)
+                                            endEx();
+                                        else
+                                            exerciseStep = 0;
+                                    }
                                 }
-                            }
-                            else {
-                                Log.d("Exercise", "step 못 넘어감");
-                                //음성 처리해주기
-
-                                // 너무 오랫동안 다음 Step으로 못넘어가는 경우 Step 초기화
-                                if (++resetStepCounter > RESET_STEP_BOUND){
-                                    Log.d("error", isStepDone.get(0)+""+isStepDone.get(1));
-                                    showToast("error: "+ isStepDone.get(1));
+                                else if (isStepDone.get(0) == -1){
+                                    Log.d("Exercise", "step 못 넘어감");
+                                    // 너무 오랫동안 다음 Step으로 못넘어가는 경우 Step 초기화
+                                    if (++resetStepCounter > RESET_STEP_BOUND){
+                                        Log.d("error", isStepDone.get(0)+""+isStepDone.get(1));
+                                        showToast("error: "+ isStepDone.get(1));
+                                        ErrorSpeak(isStepDone.get(1));
+                                        exerciseStep = 0;
+                                        resetStepCounter = 0;
+                                    }
+                                } else if (isStepDone.get(0) == -2){
+                                    // 바로 피드백 해주는 오류
                                     ErrorSpeak(isStepDone.get(1));
                                     exerciseStep = 0;
                                     resetStepCounter = 0;
                                 }
                             }
+
                         }
                     });
         }
@@ -1046,7 +1053,11 @@ public class Camera2BasicFragment extends Fragment
 
     private void ErrorSpeak(int i) {
         String correction = exCorrection.getCorrection(exType, i);
-        tts.speak(correction, TextToSpeech.QUEUE_FLUSH,null);
+        tts.speak(correction, TextToSpeech.QUEUE_ADD,null);
+    }
+
+    private void CountSpeak(int count){
+        tts.speak(Integer.toString(count), TextToSpeech.QUEUE_ADD,null);
     }
 
     /**
