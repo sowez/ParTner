@@ -2,13 +2,21 @@ package com.example.partner;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +27,9 @@ public class TrainerListRecyclerAdapter extends RecyclerView.Adapter<TrainerList
 
     private List<TrainerProfile> listData = new ArrayList<>();
 
+    private URL url;
+    private Bitmap bitmap;
+    private String imgpath;
 
     /* 생성자 */
     public  TrainerListRecyclerAdapter(List<TrainerProfile> list) { this.listData = list; }
@@ -39,6 +50,36 @@ public class TrainerListRecyclerAdapter extends RecyclerView.Adapter<TrainerList
             train = train + listData.get(position).getTraining_type().get(i) + " ";
         }
         holder.training.setText(train);
+
+        imgpath = listData.get(position).getProfileImg();
+        ServerComm serverComm = new ServerComm();
+        imgpath = serverComm.getURL() + "db/resources/images/trainer_profile/" + imgpath;
+
+        Thread mThread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    url = new URL(imgpath);
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    conn.setDoInput(true);
+                    conn.connect();
+                    InputStream is = conn.getInputStream();
+                    bitmap = BitmapFactory.decodeStream(is);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        mThread.start();
+        try{
+            mThread.join();
+            holder.profileImg.setImageBitmap(bitmap);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +116,7 @@ public class TrainerListRecyclerAdapter extends RecyclerView.Adapter<TrainerList
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
+        public ImageView profileImg;
         public RatingBar ratingBar;
         public TextView name;
         public TextView profile;
@@ -85,6 +127,7 @@ public class TrainerListRecyclerAdapter extends RecyclerView.Adapter<TrainerList
         public MyViewHolder(View view){
             super(view);
             mView = view;
+            profileImg = (ImageView)view.findViewById(R.id.profile_img_small);
             ratingBar = (RatingBar)view.findViewById(R.id.ratingbar);
             name = (TextView)view.findViewById(R.id.profile_name);
             profile = (TextView)view.findViewById(R.id.profile_text);

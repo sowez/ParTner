@@ -5,7 +5,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +24,10 @@ public class TrainerCallHistoryRecyclerAdapter extends RecyclerView.Adapter<Trai
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.username.setText(listData.get(position).getUser());
         holder.time.setText(listData.get(position).getCall_duration().toString());
+
+        SimpleDateFormat dateFormat = new  SimpleDateFormat("yyyy년 MM월 dd일 HH:mm:ss");
+        String date = dateFormat.format(listData.get(position).getStart_time());
+        holder.startTime.setText(date);
     }
 
     @Override
@@ -39,11 +45,13 @@ public class TrainerCallHistoryRecyclerAdapter extends RecyclerView.Adapter<Trai
     public class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView username;
         public TextView time;
+        public TextView startTime;
 
         MyViewHolder(View view){
             super(view);
             username = (TextView)view.findViewById(R.id.history_user_name);
             time = (TextView)view.findViewById(R.id.history_time);
+            startTime = (TextView)view.findViewById(R.id.history_start_date);
         }
     }
 }

@@ -71,17 +71,16 @@ public class TrainerCallHistoryActivity extends AppCompatActivity {
 
         // 통화 기록 데이터 추가
         ArrayList<CallHistory> callHistories = new ArrayList<>();
-        callHistories.add(new CallHistory(from, to, new Integer(33), "김수진", "코코"));
-        callHistories.add(new CallHistory(from, to, new Integer(34), "김수진", "코코"));
-        callHistories.add(new CallHistory(from, to, new Integer(35), "김수진", "코코"));
-        callHistories.add(new CallHistory(from, to, new Integer(36), "김수진", "코코"));
+        callHistories.add(new CallHistory(from, to, new Integer(33), "도경수", "강동원"));
+        callHistories.add(new CallHistory(from, to, new Integer(34), "도경수", "이혁재"));
+        callHistories.add(new CallHistory(from, to, new Integer(35), "도경수", "이승기"));
+        callHistories.add(new CallHistory(from, to, new Integer(36), "도경수", "이홍기"));
 
         recyclerAdapter = new TrainerCallHistoryRecyclerAdapter(callHistories);
         recyclerView.setAdapter(recyclerAdapter);
     }
 
     private void setRecyclerView() {
-
 
 
     }
