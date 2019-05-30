@@ -47,6 +47,8 @@ public class TrainerListRecyclerAdapter extends RecyclerView.Adapter<TrainerList
                 Intent intent = new Intent(v.getContext(), PopupTrainerInfoActivity.class);
                 intent.putExtra("name",listData.get(position).getName());
                 intent.putExtra("id",listData.get(position).getId());
+                intent.putExtra("state", listData.get(position).getState());
+                intent.putExtra("qb_id", listData.get(position).getQb_id());
                 intent.putExtra("star_rate",listData.get(position).getStar_rate().toString());
                 intent.putExtra("img",listData.get(position).getProfileImg());
                 intent.putExtra("intro",listData.get(position).getSelf_introduction());

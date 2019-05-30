@@ -296,6 +296,9 @@ public class TrainerMainMenuActivity extends BaseActivity {
             if (isExitFlag) {
                 if (!SharedPreferenceData.getAutologinChecked(this)) {
                     SharedPreferenceData.clearUserData(this);
+                    SubscribeService.unSubscribeFromPushes(context);
+                    CallService.logout(context);
+                    removeAllUserData();
                 }
                 finish();
             } else {

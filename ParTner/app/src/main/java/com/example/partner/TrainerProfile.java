@@ -15,8 +15,9 @@ public class TrainerProfile {
     private String state;
     private String profileImg;
     private boolean isBookmarked = false;
+    private String qb_id;
 
-    public TrainerProfile(String _id, String id, String pw, String sex, String name, String self_introduction, Integer star_rate, ArrayList<String> training_type, ArrayList<CallHistory> call_history, String state, String profileImg) {
+    public TrainerProfile(String _id, String id, String pw, String sex, String name, String self_introduction, Integer star_rate, ArrayList<String> training_type, ArrayList<CallHistory> call_history, String state, String profileImg, String qb_id) {
         this._id = _id;
         this.id = id;
         this.pw = pw;
@@ -28,9 +29,12 @@ public class TrainerProfile {
         this.call_history = call_history;
         this.state = state;
         this.profileImg = profileImg;
+        this.qb_id = qb_id;
     }
 
-    public String get_id(){return _id;}
+    public String get_id() {
+        return _id;
+    }
 
     public String getId() {
         return id;
@@ -120,7 +124,15 @@ public class TrainerProfile {
         this.profileImg = profileImg;
     }
 
-    public boolean getBookmarked() {return this.isBookmarked; }
+    public boolean getBookmarked() {
+        return this.isBookmarked;
+    }
 
-    public void setBookmarked(boolean checked) { this.isBookmarked = checked; }
+    public void setBookmarked(boolean checked) {
+        this.isBookmarked = checked;
+    }
+
+    public String getQb_id() {
+        return this.qb_id;
+    }
 }

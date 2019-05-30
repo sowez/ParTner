@@ -9,13 +9,14 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 public class PopupTrainFinishedActivity extends Activity {
 
     private TextView trainTime;
     private TextView trainerName;
     private RatingBar mRating;
-    private ImageView favorites;
+    private ToggleButton favorites;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +25,19 @@ public class PopupTrainFinishedActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_trainfinished_popup);
 
-        trainTime = (TextView) findViewById(R.id.training_time);
-        trainerName = (TextView) findViewById(R.id.name);
-        mRating = (RatingBar) findViewById(R.id.ratingbar);
-        favorites = (ImageView) findViewById(R.id.favorites);
+        trainTime = (TextView) findViewById(R.id.popup_finish_training_time);
+        trainerName = (TextView) findViewById(R.id.popup_finish_trainer_name);
+        mRating = (RatingBar) findViewById(R.id.popup_finish_ratingbar);
+        favorites = (ToggleButton) findViewById(R.id.popup_finish_bookmark);
 
-        // 값 넘겨 받기
-//        Intent intent = getIntent();
-//        String name_data = intent.getStringExtra("name");
-//        trainerName.setText(name_data);
     }
 
     public void mOk(View v) {
-//        Intent intent = new Intent();
-//        intent.putExtra("","");
-//        setResult(RESULT_OK, intent);
+
         // 평가 안하면 안닫히도록
-        finish();
+        if(mRating.getRating() > 0){
+            finish();
+        }
     }
 
     @Override

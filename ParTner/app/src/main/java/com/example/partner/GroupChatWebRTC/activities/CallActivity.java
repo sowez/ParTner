@@ -117,6 +117,7 @@ public class CallActivity extends BaseActivity implements QBRTCClientSessionCall
         intent.putExtra(Consts.EXTRA_IS_INCOMING_CALL, isIncomingCall);
 
         context.startActivity(intent);
+
     }
 
     @Override

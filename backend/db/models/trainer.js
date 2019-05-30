@@ -38,6 +38,10 @@ const trainerSchema = new mongoose.Schema({
         type: String,
         default: ""
     },
+    qb_id:{
+        type: String,
+        default: ""
+    },
 
     call_history: [{ type : Number, ref: 'call_history' }],
     
