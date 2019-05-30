@@ -119,6 +119,8 @@ public class LoginActivity extends BaseActivity {
 
                             SharedPreferenceData.saveToken(this, id, token, username, type, auto);
 
+
+
                             if (type.equals("trainer")) {
 //                                Intent intent = new Intent(this, TrainerMainMenuActivity.class);
 //                                startActivity(intent);
