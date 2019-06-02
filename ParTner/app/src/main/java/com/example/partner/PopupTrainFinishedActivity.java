@@ -3,12 +3,20 @@ package com.example.partner;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.gson.JsonObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PopupTrainFinishedActivity extends Activity {
 
@@ -16,6 +24,8 @@ public class PopupTrainFinishedActivity extends Activity {
     private TextView trainerName;
     private RatingBar mRating;
     private ImageView favorites;
+
+    private String trainerID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,18 +39,49 @@ public class PopupTrainFinishedActivity extends Activity {
         mRating = (RatingBar) findViewById(R.id.ratingbar);
         favorites = (ImageView) findViewById(R.id.favorites);
 
-        // 값 넘겨 받기
-//        Intent intent = getIntent();
-//        String name_data = intent.getStringExtra("name");
-//        trainerName.setText(name_data);
+        trainerID = CallData.getInstance().getCallReceiverName();
+
+        trainerName.setText(trainerID);
+//      trainTime.setText(CallData.getInstance().getCalltime());
+
     }
 
     public void mOk(View v) {
-//        Intent intent = new Intent();
-//        intent.putExtra("","");
-//        setResult(RESULT_OK, intent);
-        // 평가 안하면 안닫히도록
-        finish();
+
+        if(mRating.getRating() < 1) {
+            Toast.makeText(PopupTrainFinishedActivity.this, "별점을 1점이상 입력해 주세요.", Toast.LENGTH_LONG)
+                    .show();
+        }
+        else {
+            // 평가 결과 서버에 올리기
+            // 평가 안하면 버튼 안눌리도록
+            ServerComm serverComm = new ServerComm();
+            RetrofitCommnunication retrofitCommnunication = serverComm.init();
+            JsonObject ratedata = new JsonObject();
+            ratedata.addProperty("trainerID", trainerID);
+            ratedata.addProperty("star_rate", mRating.getRating());
+
+            Call<JsonObject> editStarRate = retrofitCommnunication.trainerStarRate(ratedata);
+            editStarRate.enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    Log.d("EditProfile", response.body().toString());
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    Toast.makeText(PopupTrainFinishedActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG)
+                            .show();
+                    Log.e("TAG", "onFailure: " + t.getMessage() );
+                }
+            });
+
+
+            // 통화 하고 평가했다 것을 표시기
+            CallData.getInstance().setCalled(false);
+
+            finish();
+        }
     }
 
     @Override

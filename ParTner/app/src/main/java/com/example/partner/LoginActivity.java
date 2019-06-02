@@ -107,6 +107,7 @@ public class LoginActivity extends BaseActivity {
                             break;
                         }
                         case "login_success": {
+                            CallData.getInstance().setCalled(false);
                             Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show();
                             Log.d(TAG, "onClickLogin: data" + data);
                             String token = data.get("token").getAsString();

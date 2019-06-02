@@ -138,5 +138,19 @@ router.post('/profile/edit', function (req, res, next) {
   });
 });
 
+/* 별점 변경 */
+router.post('/starrate', function (req, res, next) {
+  trainerModel.findOneAndUpdate({ id: req.body.trainerID }, { $inc: { star_rate: req.body.star_rate, star_rate_num: 1 } }, function (err, trainer) {
+
+    console.log(req.body.trainerID);
+    console.log(req.body.star_rate);
+
+    if (err) {
+      return res.status(500).send({ error: 'databasefailure' });
+    }
+    console.log(trainer);
+    res.json({ "editresult": "success" });
+  });
+});
 
 module.exports = router;

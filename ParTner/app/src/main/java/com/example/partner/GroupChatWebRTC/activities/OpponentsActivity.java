@@ -283,6 +283,9 @@ public class OpponentsActivity extends BaseActivity {
 
         CallActivity.start(this, false);
         Log.d(TAG, "conferenceType = " + conferenceType);
+
+        // 전화 걸면 opponentsactivity는 종료되도록
+        finish();
     }
 
     private void initActionBarWithSelectedUsers(int countSelectedUsers) {

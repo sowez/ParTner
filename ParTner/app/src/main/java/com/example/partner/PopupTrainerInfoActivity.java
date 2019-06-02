@@ -49,6 +49,9 @@ public class PopupTrainerInfoActivity extends BaseActivity {
     private QBUser userForSave;
     private String userId;
     private String trainerId;
+    private String name_data;
+    private String train_data;
+    private String intro_data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +70,15 @@ public class PopupTrainerInfoActivity extends BaseActivity {
 
         Intent intent = getIntent();
         // 이미지도 넣어야함...
-        float starrate_data = Float.parseFloat(intent.getStringExtra("star_rate"));
+        float starrate = Float.parseFloat(intent.getStringExtra("star_rate"));
+        float starrate_num = Float.parseFloat(intent.getStringExtra("star_rate_num"));
+        float starrate_data = starrate/starrate_num;
+
         trainerId = intent.getStringExtra("id");
-        String name_data = intent.getStringExtra("name");
-        String train_data = intent.getStringExtra("traintype");
-        String intro_data = intent.getStringExtra("intro");
+        name_data = intent.getStringExtra("name");
+        train_data = intent.getStringExtra("traintype");
+        intro_data = intent.getStringExtra("intro");
+
         if(intent.getBooleanExtra("bookmark",false)){
             bookmarkBtn.setChecked(true);
             bookmarkBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.icons_star_filled));
@@ -147,6 +154,13 @@ public class PopupTrainerInfoActivity extends BaseActivity {
         showProgressDialog(R.string.waiting_facetalk);
         userId = SharedPreferenceData.getId(context);
         startSignUpNewUser(createUserWithEnteredData());
+
+        // 통화 기록 남기
+        CallData.getInstance().setCalled(true);
+        CallData.getInstance().setCallReceiverID(trainerId);
+        CallData.getInstance().setCallReceiverName(name_data);
+        Toast.makeText(PopupTrainerInfoActivity.this, "CallData에 저장"+trainerId, Toast.LENGTH_LONG)
+                .show();
     }
 
     @Override

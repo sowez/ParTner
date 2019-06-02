@@ -25,6 +25,10 @@ const trainerSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+    star_rate_num: {
+        type: Number,
+        default: 1
+    },
     state: {
         type: String,
         default: "offline"
