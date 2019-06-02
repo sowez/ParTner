@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.example.partner.CallData;
 import com.example.partner.GroupChatWebRTC.activities.CallActivity;
 import com.example.partner.GroupChatWebRTC.db.QbUsersDbManager;
 import com.example.partner.GroupChatWebRTC.utils.CollectionsUtils;
@@ -211,6 +212,7 @@ public abstract class BaseConversationFragment extends BaseToolBarFragment imple
     private void stopTimer() {
         if (timerChronometer != null) {
             timerChronometer.stop();
+            CallData.getInstance().setCallTime((SystemClock.elapsedRealtime()-timerChronometer.getBase())/1000);
             isStarted = false;
         }
     }

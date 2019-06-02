@@ -26,6 +26,7 @@ public class PopupTrainFinishedActivity extends Activity {
     private ImageView favorites;
 
     private String trainerID;
+    private long exerciseTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +41,10 @@ public class PopupTrainFinishedActivity extends Activity {
         favorites = (ImageView) findViewById(R.id.favorites);
 
         trainerID = CallData.getInstance().getCallReceiverName();
+        exerciseTime = CallData.getInstance().getCallTime();
 
         trainerName.setText(trainerID);
-//      trainTime.setText(CallData.getInstance().getCalltime());
+        trainTime.setText(Long.toString(exerciseTime));
 
     }
 
@@ -57,6 +59,7 @@ public class PopupTrainFinishedActivity extends Activity {
             // 평가 안하면 버튼 안눌리도록
             ServerComm serverComm = new ServerComm();
             RetrofitCommnunication retrofitCommnunication = serverComm.init();
+
             JsonObject ratedata = new JsonObject();
             ratedata.addProperty("trainerID", trainerID);
             ratedata.addProperty("star_rate", mRating.getRating());

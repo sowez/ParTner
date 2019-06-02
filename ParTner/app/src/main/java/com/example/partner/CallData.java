@@ -5,7 +5,7 @@ public class CallData {
     private boolean Called;
     private String callReceiverID;
     private String callReceiverName;
-    private int Calltime;
+    private long callTime;
 
 
     public boolean isCalled() {
@@ -32,12 +32,12 @@ public class CallData {
         this.callReceiverName = callReceiverName;
     }
 
-    public int getCalltime() {
-        return Calltime;
+    public long getCallTime() {
+        return callTime;
     }
 
-    public void setCalltime(int calltime) {
-        Calltime = calltime;
+    public void setCallTime(long callTime) {
+        this.callTime = callTime;
     }
 
     private static CallData instance = null;

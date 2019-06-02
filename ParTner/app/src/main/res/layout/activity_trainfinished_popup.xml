@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="분 운동 완료"
+                android:text="초 운동 완료"
                 android:textColor="#585858"
                 android:textSize="18sp" />
 
