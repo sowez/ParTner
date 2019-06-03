@@ -3,3 +3,9 @@ ParTner/build/
 ParTner/app/build/
 ParTner/openCVLibrary341/build/
 
+ParTner/openCVLibrary341/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml
+ParTner/openCVLibrary341/build/intermediates/incremental/mergeDebugShaders/merger.xml
+ParTner/openCVLibrary341/build/intermediates/incremental/packageDebugAssets/merger.xml
+ParTner/openCVLibrary341/build/intermediates/incremental/packageDebugResources/compile-file-map.properties
+ParTner/openCVLibrary341/build/intermediates/incremental/packageDebugResources/merger.xml
+ParTner/openCVLibrary341/build/outputs/logs/manifest-merger-debug-report.txt

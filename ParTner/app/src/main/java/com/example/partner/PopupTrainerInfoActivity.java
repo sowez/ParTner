@@ -215,8 +215,7 @@ public class PopupTrainerInfoActivity extends BaseActivity {
         // 통화 기록 남기
         CallData.getInstance().setCallReceiverID(trainerId);
         CallData.getInstance().setCallReceiverName(name_data);
-        Toast.makeText(PopupTrainerInfoActivity.this, "CallData에 저장"+trainerId, Toast.LENGTH_LONG)
-                .show();
+        Toast.makeText(PopupTrainerInfoActivity.this, "CallData에 저장"+trainerId, Toast.LENGTH_LONG).show();
     }
 
     @Override

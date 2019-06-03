@@ -167,6 +167,7 @@ public abstract class BaseConversationFragment extends BaseToolBarFragment imple
         Toast.makeText(getActivity(), "통화종료료료 - ondestroy", Toast.LENGTH_SHORT).show();
 
         if(SharedPreferenceData.getType(getContext()).equals("trainer")) {
+            CallData.getInstance().setCallReceiverName(CollectionsUtils.makeStringFromUsersFullNames(opponents));
             Intent intent = new Intent(getContext(), PopupTrainerTrainFinishedActivity.class);
             startActivity(intent);
         }
