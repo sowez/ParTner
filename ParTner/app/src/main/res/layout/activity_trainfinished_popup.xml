@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_popup_user_train_finish"
     android:layout_width="350dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"

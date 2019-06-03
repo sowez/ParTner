@@ -121,6 +121,7 @@ public class PopupTrainerInfoActivity extends BaseActivity {
             bookmarkBtn.setChecked(true);
             bookmarkBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.icons_star_filled));
         }
+        mRating.setClickable(false);
         mRating.setRating(starrate_data);
         name.setText(name_data);
         traingType.setText(train_data);

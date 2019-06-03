@@ -23,7 +23,7 @@ const trainerSchema = new mongoose.Schema({
     },
     star_rate: {
         type: Number,
-        default: 0
+        default: 1
     },
     star_rate_num: {
         type: Number,

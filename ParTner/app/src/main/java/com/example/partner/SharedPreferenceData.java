@@ -4,6 +4,14 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Set;
+
 public class SharedPreferenceData {
 
     static SharedPreferences getSharedPreferences(Context context) {
@@ -17,7 +25,7 @@ public class SharedPreferenceData {
         editor.putString("token", token);
         editor.putString("username", username);
         editor.putString("type", type);
-        editor.putBoolean("auto",autologinCheck);
+        editor.putBoolean("auto", autologinCheck);
         editor.commit();
     }
 
@@ -25,9 +33,11 @@ public class SharedPreferenceData {
     public static String getId(Context context) {
         return getSharedPreferences(context).getString("id", "");
     }
+
     public static String getToken(Context context) {
         return getSharedPreferences(context).getString("token", "");
     }
+
     public static String getUserName(Context context) {
         return getSharedPreferences(context).getString("username", "");
     }
