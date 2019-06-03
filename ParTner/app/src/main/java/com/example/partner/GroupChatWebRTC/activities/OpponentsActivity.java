@@ -80,6 +80,7 @@ public class OpponentsActivity extends BaseActivity {
 
         if (isRunForCall && webRtcSessionManager.getCurrentSession() != null) {
             CallActivity.start(OpponentsActivity.this, true);
+            finish();
         }
 
         checker = new PermissionsChecker(getApplicationContext());
