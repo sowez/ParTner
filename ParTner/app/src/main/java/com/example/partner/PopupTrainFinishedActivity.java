@@ -50,11 +50,10 @@ public class PopupTrainFinishedActivity extends Activity {
 
     public void mOk(View v) {
 
-        if(mRating.getRating() < 1) {
+        if (mRating.getRating() < 1) {
             Toast.makeText(PopupTrainFinishedActivity.this, "별점을 1점이상 입력해 주세요.", Toast.LENGTH_LONG)
                     .show();
-        }
-        else {
+        } else {
             // 평가 결과 서버에 올리기
             // 평가 안하면 버튼 안눌리도록
             ServerComm serverComm = new ServerComm();
@@ -75,7 +74,7 @@ public class PopupTrainFinishedActivity extends Activity {
                 public void onFailure(Call<JsonObject> call, Throwable t) {
                     Toast.makeText(PopupTrainFinishedActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG)
                             .show();
-                    Log.e("TAG", "onFailure: " + t.getMessage() );
+                    Log.e("TAG", "onFailure: " + t.getMessage());
                 }
             });
 
@@ -83,9 +82,10 @@ public class PopupTrainFinishedActivity extends Activity {
             // 통화 하고 평가했다 것을 표시기
             CallData.getInstance().setCalled(false);
 
-        // 평가 안하면 안닫히도록
-        if(mRating.getRating() > 0){
-            finish();
+            // 평가 안하면 안닫히도록
+            if (mRating.getRating() > 0) {
+                finish();
+            }
         }
     }
 
