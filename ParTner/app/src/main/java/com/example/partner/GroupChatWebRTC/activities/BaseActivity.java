@@ -36,6 +36,14 @@ public abstract class BaseActivity extends CoreBaseActivity {
         googlePlayServicesHelper = new GooglePlayServicesHelper();
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (progressDialog != null) {
+            progressDialog.dismiss();
+        }
+    }
+
     public void initDefaultActionBar() {
         String currentUserFullName = "";
         String currentRoomName = sharedPrefsHelper.get(Consts.PREF_CURREN_ROOM_NAME, "");

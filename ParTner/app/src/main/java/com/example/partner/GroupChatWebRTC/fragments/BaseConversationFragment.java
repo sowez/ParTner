@@ -1,6 +1,8 @@
 package com.example.partner.GroupChatWebRTC.fragments;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -11,6 +13,7 @@ import android.widget.Chronometer;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.partner.CallData;
@@ -20,7 +23,10 @@ import com.example.partner.GroupChatWebRTC.utils.CollectionsUtils;
 import com.example.partner.GroupChatWebRTC.utils.Consts;
 import com.example.partner.GroupChatWebRTC.utils.UsersUtils;
 import com.example.partner.GroupChatWebRTC.utils.WebRtcSessionManager;
+import com.example.partner.PopupTrainerInfoActivity;
+import com.example.partner.PopupTrainerTrainFinishedActivity;
 import com.example.partner.R;
+import com.example.partner.SharedPreferenceData;
 import com.quickblox.chat.QBChatService;
 import com.quickblox.users.model.QBUser;
 import com.quickblox.videochat.webrtc.QBRTCSession;
@@ -51,6 +57,7 @@ public abstract class BaseConversationFragment extends BaseToolBarFragment imple
     protected TextView ringingTextView;
     protected QBUser currentUser;
 
+
     public static BaseConversationFragment newInstance(BaseConversationFragment baseConversationFragment, boolean isIncomingCall) {
         Log.d(TAG, "isIncomingCall =  " + isIncomingCall);
         Bundle args = new Bundle();
@@ -78,6 +85,7 @@ public abstract class BaseConversationFragment extends BaseToolBarFragment imple
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         conversationFragmentCallbackListener.addCurrentCallStateCallback(this);
+
     }
 
     @Nullable
@@ -156,6 +164,13 @@ public abstract class BaseConversationFragment extends BaseToolBarFragment imple
     public void onDestroy() {
         conversationFragmentCallbackListener.removeCurrentCallStateCallback(this);
         super.onDestroy();
+        Toast.makeText(getActivity(), "통화종료료료 - ondestroy", Toast.LENGTH_SHORT).show();
+
+        if(SharedPreferenceData.getType(getContext()).equals("trainer")) {
+            Intent intent = new Intent(getContext(), PopupTrainerTrainFinishedActivity.class);
+            startActivity(intent);
+        }
+
     }
 
     protected void initViews(View view) {
@@ -172,7 +187,8 @@ public abstract class BaseConversationFragment extends BaseToolBarFragment imple
 
     protected void initButtonsListener() {
 
-        micToggleVideoCall.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        micToggleVideoCall
+                .setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 conversationFragmentCallbackListener.onSetAudioEnabled(isChecked);
@@ -205,6 +221,7 @@ public abstract class BaseConversationFragment extends BaseToolBarFragment imple
             timerChronometer.setVisibility(View.VISIBLE);
             timerChronometer.setBase(SystemClock.elapsedRealtime());
             timerChronometer.start();
+            CallData.getInstance().setCalled(true);
             isStarted = true;
         }
     }
@@ -236,6 +253,7 @@ public abstract class BaseConversationFragment extends BaseToolBarFragment imple
         }
         stopTimer();
         actionButtonsEnabled(false);
+        Toast.makeText(getActivity(), "통화종료료료 - oncallstopped", Toast.LENGTH_SHORT).show();
     }
 
     @Override

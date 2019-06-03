@@ -684,11 +684,6 @@ public class CallActivity extends BaseActivity implements QBRTCClientSessionCall
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
 
     ////////////////////////////// ConversationFragmentCallbackListener ////////////////////////////
 

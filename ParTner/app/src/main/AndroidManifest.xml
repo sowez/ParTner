@@ -105,6 +105,7 @@
         <activity android:name=".UserProfileEditActivity"/>
         <activity android:name=".UserCallHistoryActivity"/>
         <activity android:name=".UserBookmarkActivity"/>
+        <activity android:name=".PopupTrainerTrainFinishedActivity" android:theme="@style/popupTheme"/>
 
         <service android:name=".GroupChatWebRTC.services.CallService" />
 

@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.example.partner.CallData;
 import com.example.partner.Core.utils.Toaster;
 import com.example.partner.GroupChatWebRTC.adapters.OpponentsFromCallAdapter;
 import com.example.partner.R;
@@ -149,6 +150,7 @@ public class VideoConversationFragment extends BaseConversationFragment implemen
         actionBar.setTitle(currentUser.getFullName());
         if (isPeerToPeerCall) {
             actionBar.setSubtitle(getString(R.string.opponent, opponents.get(0).getFullName()));
+            CallData.getInstance().setCallReceiverID(opponents.get(0).getFullName());
         } else {
             actionBar.setSubtitle(getString(R.string.opponents, amountOpponents));
         }
