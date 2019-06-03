@@ -56,6 +56,11 @@ public interface RetrofitCommnunication {
 
     @POST("/trainers/starrate")
     Call<JsonObject> trainerStarRate(@Body JsonObject trainerStarRateData);
+    @POST("/trainers/qb/id")
+    Call<JsonObject> signupQB(@Body JsonObject qbid);
+
+    @POST("/trainers/offline")
+    Call<JsonObject> trainerOffline(@Body JsonObject trainer_id);
 
     @POST("/sportsmans/bookmark/update")
     Call<JsonObject> bookmarkUpdate(@Body JsonObject trainerId);

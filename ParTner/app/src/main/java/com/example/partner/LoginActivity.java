@@ -33,6 +33,9 @@ import java.util.ArrayList;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends BaseActivity {
     private String TAG = "TAG";
@@ -237,11 +240,30 @@ public class LoginActivity extends BaseActivity {
                     removeAllUserData(result);
                 } else {
                     hideProgressDialog();
-                    Intent intent = new Intent(context, TrainerMainMenuActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                    intent.putExtra(Consts.EXTRA_IS_STARTED_FOR_CALL, false);
-                    startActivity(intent);
-                    finish();
+
+                    JsonObject qbid = new JsonObject();
+                    qbid.addProperty("id", userId);
+                    qbid.addProperty("qb_id", Integer.toString(result.getId()));
+                    ServerComm.init().signupQB(qbid).enqueue(new Callback<JsonObject>() {
+                        @Override
+                        public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                            JsonObject res = response.body();
+                            if (res.get("result").getAsString().equals("success")) {
+                                Intent intent = new Intent(context, TrainerMainMenuActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                                intent.putExtra(Consts.EXTRA_IS_STARTED_FOR_CALL, false);
+                                startActivity(intent);
+                                finish();
+                            }else{
+                                Log.d(TAG, "onResponse: 외않되???ㅋㅋㅋㅋㅋㅋㅋㅋㅋ");
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<JsonObject> call, Throwable t) {
+                            Log.e(TAG, "onFailure: qb_id 등록실패");
+                        }
+                    });
                 }
             }
 

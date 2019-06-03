@@ -90,6 +90,14 @@ public abstract class BaseActivity extends CoreBaseActivity {
 
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (progressDialog != null) {
+            progressDialog.dismiss();
+        }
+    }
+
     protected void hideProgressDialog() {
         if (progressDialog != null) {
             progressDialog.dismiss();

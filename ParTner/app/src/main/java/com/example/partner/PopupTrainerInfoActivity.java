@@ -1,8 +1,10 @@
 package com.example.partner;
 
+import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.text.TextUtils;
@@ -10,6 +12,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -19,17 +22,31 @@ import android.widget.ToggleButton;
 import com.example.partner.Core.utils.SharedPrefsHelper;
 import com.example.partner.Core.utils.Toaster;
 import com.example.partner.GroupChatWebRTC.activities.BaseActivity;
+import com.example.partner.GroupChatWebRTC.activities.CallActivity;
 import com.example.partner.GroupChatWebRTC.activities.OpponentsActivity;
+import com.example.partner.GroupChatWebRTC.activities.PermissionsActivity;
+import com.example.partner.GroupChatWebRTC.db.QbUsersDbManager;
 import com.example.partner.GroupChatWebRTC.services.CallService;
+import com.example.partner.GroupChatWebRTC.utils.CollectionsUtils;
 import com.example.partner.GroupChatWebRTC.utils.Consts;
+import com.example.partner.GroupChatWebRTC.utils.PermissionsChecker;
+import com.example.partner.GroupChatWebRTC.utils.PushNotificationSender;
 import com.example.partner.GroupChatWebRTC.utils.QBEntityCallbackImpl;
 import com.example.partner.GroupChatWebRTC.utils.UsersUtils;
+import com.example.partner.GroupChatWebRTC.utils.WebRtcSessionManager;
 import com.google.gson.JsonObject;
+import com.quickblox.chat.QBChatService;
 import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.core.helper.StringifyArrayList;
 import com.quickblox.core.helper.Utils;
 import com.quickblox.users.model.QBUser;
+import com.quickblox.videochat.webrtc.QBRTCClient;
+import com.quickblox.videochat.webrtc.QBRTCSession;
+import com.quickblox.videochat.webrtc.QBRTCTypes;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,8 +60,9 @@ public class PopupTrainerInfoActivity extends BaseActivity {
     private TextView traingType;
     private TextView introduction;
     private ToggleButton bookmarkBtn;
+    private Button callBtn;
 
-    // 영상통화
+    // 영상통화 로그인
     private Context context = PopupTrainerInfoActivity.this;
     private QBUser userForSave;
     private String userId;
@@ -52,6 +70,14 @@ public class PopupTrainerInfoActivity extends BaseActivity {
     private String name_data;
     private String train_data;
     private String intro_data;
+    private String trainer_qb_id;
+
+    // 영상통화 call
+    private QBUser currentUser;
+    private QbUsersDbManager dbManager;
+    private boolean isRunForCall;
+    private WebRtcSessionManager webRtcSessionManager;
+    private PermissionsChecker checker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +87,19 @@ public class PopupTrainerInfoActivity extends BaseActivity {
         setContentView(R.layout.activity_trainerinfo_popup);
 
 
+        if (isRunForCall && webRtcSessionManager.getCurrentSession() != null) {
+            CallActivity.start(context, true);
+        }
+        checker = new PermissionsChecker(getApplicationContext());
+
         profileImage = (ImageView) findViewById(R.id.profile_img);
         mRating = (RatingBar) findViewById(R.id.ratingbar);
         name = (TextView) findViewById(R.id.name);
         traingType = (TextView) findViewById(R.id.training_type);
         introduction = (TextView) findViewById(R.id.self_introduction);
         bookmarkBtn = findViewById(R.id.bookmark);
+        callBtn = findViewById(R.id.call_btn);
+        callBtn.setOnClickListener(this::mOnClose);
 
         Intent intent = getIntent();
         // 이미지도 넣어야함...
@@ -79,6 +112,11 @@ public class PopupTrainerInfoActivity extends BaseActivity {
         train_data = intent.getStringExtra("traintype");
         intro_data = intent.getStringExtra("intro");
 
+        trainer_qb_id = intent.getStringExtra("qb_id");
+        Log.d("qbid", "startCall: " + trainer_qb_id);
+        String name_data = intent.getStringExtra("name");
+        String train_data = intent.getStringExtra("traintype");
+        String intro_data = intent.getStringExtra("intro");
         if(intent.getBooleanExtra("bookmark",false)){
             bookmarkBtn.setChecked(true);
             bookmarkBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.icons_star_filled));
@@ -87,6 +125,12 @@ public class PopupTrainerInfoActivity extends BaseActivity {
         name.setText(name_data);
         traingType.setText(train_data);
         introduction.setText(intro_data);
+
+        String trainer_state = intent.getStringExtra("state");
+        if(trainer_state.equals("offline")){
+            callBtn.setClickable(false);
+            callBtn.setBackgroundColor(Color.rgb(72,72,72));
+        }
 
         RetrofitCommnunication retrofitcomm = ServerComm.init();
         bookmarkBtn.setOnClickListener(v -> {
@@ -144,6 +188,17 @@ public class PopupTrainerInfoActivity extends BaseActivity {
         return findViewById(R.id.id_trainer_info_popup);
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (intent.getExtras() != null) {
+            isRunForCall = intent.getExtras().getBoolean(Consts.EXTRA_IS_STARTED_FOR_CALL);
+            if (isRunForCall && webRtcSessionManager.getCurrentSession() != null) {
+                CallActivity.start(context, true);
+            }
+        }
+    }
+
     public void mOnClose(View v) {
         // 영상통화 하는 부분으로 그냥 넘겨줌
 //        Intent intent = new Intent(this,com.example.partner.GroupChatWebRTC.activities.LoginActivity.class);
@@ -151,6 +206,7 @@ public class PopupTrainerInfoActivity extends BaseActivity {
 //        startActivity(intent);
 
         /* 영상통화 로그인하기 */
+
         showProgressDialog(R.string.waiting_facetalk);
         userId = SharedPreferenceData.getId(context);
         startSignUpNewUser(createUserWithEnteredData());
@@ -262,13 +318,21 @@ public class PopupTrainerInfoActivity extends BaseActivity {
             @Override
             public void onSuccess(QBUser result, Bundle params) {
                 if (deleteCurrentUser) {
-                    removeAllUserData(result);
+                    loginRemoveAllUserData(result);
                 } else {
                     hideProgressDialog();
-                    Intent intent = new Intent(context, OpponentsActivity.class);
+
+                    Intent intent = new Intent(context, PopupTrainerInfoActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     intent.putExtra(Consts.EXTRA_IS_STARTED_FOR_CALL, false);
-                    startActivity(intent);
+
+                    if (isLoggedInChat()) {
+                        initFields();
+                        startLoadUsers();
+                    }
+                    if (checker.lacksPermissions(Consts.PERMISSIONS)) {
+                            PermissionsActivity.startActivity((Activity) context, false, Consts.PERMISSIONS);
+                    }
                     finish();
                 }
             }
@@ -281,7 +345,82 @@ public class PopupTrainerInfoActivity extends BaseActivity {
         });
     }
 
-    private void removeAllUserData(final QBUser user) {
+    private boolean isLoggedInChat() {
+        if (!QBChatService.getInstance().isLoggedIn()) {
+            Toaster.shortToast(R.string.dlg_signal_error);
+            tryReLoginToChat();
+            return false;
+        }
+        return true;
+    }
+
+    private void tryReLoginToChat() {
+        if (sharedPrefsHelper.hasQbUser()) {
+            QBUser qbUser = sharedPrefsHelper.getQbUser();
+            CallService.start(this, qbUser);
+        }
+    }
+
+    private void startCall(boolean isVideoCall) {
+        Log.d("popup_trainer_info", "startCall()");
+        Log.d("qbid", "startCall: " + trainer_qb_id);
+
+        Integer trainerID = Integer.parseInt(trainer_qb_id);
+        ArrayList<QBUser> trainer_qb_data = new ArrayList<>();
+        trainer_qb_data.add(dbManager.getUserById(trainerID));
+        ArrayList<Integer> opponentsList = CollectionsUtils.getIdsSelectedOpponents(trainer_qb_data);
+        Log.d("qbdb", "startCall: " + dbManager.getAllUsers());
+        opponentsList.remove(userForSave);
+
+        QBRTCTypes.QBConferenceType conferenceType = isVideoCall
+                ? QBRTCTypes.QBConferenceType.QB_CONFERENCE_TYPE_VIDEO
+                : QBRTCTypes.QBConferenceType.QB_CONFERENCE_TYPE_AUDIO;
+
+        QBRTCClient qbrtcClient = QBRTCClient.getInstance(getApplicationContext());
+
+        QBRTCSession newQbRtcSession = qbrtcClient.createNewSessionWithOpponents(opponentsList, conferenceType);
+
+        WebRtcSessionManager.getInstance(this).setCurrentSession(newQbRtcSession);
+
+        PushNotificationSender.sendPushMessage(opponentsList, userForSave.getFullName());
+
+        CallActivity.start(this, false);
+        Log.d("popup_trainer_info", "conferenceType = " + conferenceType);
+    }
+
+
+    private void initFields() {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            isRunForCall = extras.getBoolean(Consts.EXTRA_IS_STARTED_FOR_CALL);
+        }
+
+        currentUser = sharedPrefsHelper.getQbUser();
+        dbManager = QbUsersDbManager.getInstance(getApplicationContext());
+        webRtcSessionManager = WebRtcSessionManager.getInstance(getApplicationContext());
+    }
+
+    private void startLoadUsers() {
+        String currentRoomName = SharedPrefsHelper.getInstance().get(Consts.PREF_CURREN_ROOM_NAME);
+        requestExecutor.loadUsersByTag(currentRoomName, new QBEntityCallback<ArrayList<QBUser>>() {
+            @Override
+            public void onSuccess(ArrayList<QBUser> result, Bundle params) {
+                dbManager.saveAllUsers(result, true);
+                startCall(true);
+            }
+            @Override
+            public void onError(QBResponseException responseException) {
+                showErrorSnackbar(R.string.loading_users_error, responseException, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startLoadUsers();
+                    }
+                });
+            }
+        });
+    }
+
+    private void loginRemoveAllUserData(final QBUser user) {
         requestExecutor.deleteCurrentUser(user.getId(), new QBEntityCallback<Void>() {
             @Override
             public void onSuccess(Void aVoid, Bundle bundle) {

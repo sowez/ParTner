@@ -41,6 +41,7 @@ import com.example.partner.GroupChatWebRTC.services.CallService;
 import com.example.partner.GroupChatWebRTC.utils.Consts;
 import com.example.partner.GroupChatWebRTC.utils.UsersUtils;
 import com.example.partner.GroupChatWebRTC.utils.WebRtcSessionManager;
+import com.google.gson.JsonObject;
 import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.messages.services.SubscribeService;
@@ -116,7 +117,7 @@ public class TrainerMainMenuActivity extends BaseActivity {
         }
     }
 
-    private void init(){
+    private void init() {
         // Toolbar 설정
         mToolbar = (Toolbar) findViewById(R.id.menu_toolBar);
         setSupportActionBar(mToolbar);
@@ -174,7 +175,7 @@ public class TrainerMainMenuActivity extends BaseActivity {
                 Log.i("Received", trainerProfile.getStar_rate().toString());
 
                 String traintypeList = "";
-                for(int i=0; i<trainerProfile.getTraining_type().size(); i++){
+                for (int i = 0; i < trainerProfile.getTraining_type().size(); i++) {
                     traintypeList = traintypeList + trainerProfile.getTraining_type().get(i) + " ";
                     traintypeArrayList.add(trainerProfile.getTraining_type().get(i));
                 }
@@ -206,11 +207,11 @@ public class TrainerMainMenuActivity extends BaseActivity {
                     }
                 };
                 mThread.start();
-                try{
+                try {
                     mThread.join();
                     hideProgressDialog();
                     profileImg.setImageBitmap(bitmap);
-                } catch (InterruptedException e){
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
@@ -220,7 +221,7 @@ public class TrainerMainMenuActivity extends BaseActivity {
             public void onFailure(Call<TrainerProfile> call, Throwable t) {
                 Toast.makeText(TrainerMainMenuActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG)
                         .show();
-                Log.e("TAG", "onFailure: " + t.getMessage() );
+                Log.e("TAG", "onFailure: " + t.getMessage());
             }
         });
 
@@ -244,6 +245,7 @@ public class TrainerMainMenuActivity extends BaseActivity {
             public void onSuccess(ArrayList<QBUser> result, Bundle params) {
                 dbManager.saveAllUsers(result, true);
             }
+
             @Override
             public void onError(QBResponseException responseException) {
                 showErrorSnackbar(R.string.loading_users_error, responseException, new View.OnClickListener() {
@@ -296,6 +298,9 @@ public class TrainerMainMenuActivity extends BaseActivity {
             if (isExitFlag) {
                 if (!SharedPreferenceData.getAutologinChecked(this)) {
                     SharedPreferenceData.clearUserData(this);
+                    SubscribeService.unSubscribeFromPushes(context);
+                    CallService.logout(context);
+                    removeAllUserData();
                 }
                 finish();
             } else {
@@ -348,12 +353,36 @@ public class TrainerMainMenuActivity extends BaseActivity {
                 CallService.logout(context);
                 removeAllUserData();
 
+                JsonObject t_id = new JsonObject();
+                t_id.addProperty("trainerID", SharedPreferenceData.getId(context));
+
                 SharedPreferenceData.clearUserData(context);
                 Toast.makeText(context, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show();
                 isMenuShow = false;
                 Intent intent = new Intent(context, LoginActivity.class);
                 startActivity(intent);
                 finish();
+
+//                ServerComm.init().trainerOffline(t_id).enqueue(new Callback<JsonObject>() {
+//                    @Override
+//                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+//                        if (response.body().get("result").equals("success")) {
+//                            SharedPreferenceData.clearUserData(context);
+//                            Toast.makeText(context, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show();
+//                            isMenuShow = false;
+//                            Intent intent = new Intent(context, LoginActivity.class);
+//                            startActivity(intent);
+//                            finish();
+//                        } else{
+//                            Log.d(TAG, "onResponse: 실패 ");
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<JsonObject> call, Throwable t) {
+//
+//                    }
+//                });
             }
 
             @Override

@@ -150,6 +150,12 @@ router.post('/starrate', function (req, res, next) {
     }
     console.log(trainer);
     res.json({ "editresult": "success" });
+    
+/* quickblox id 등록 및 온오프라인 변경 */
+router.post('/qb/id', function(req, res, next){
+  trainerModel.findOneAndUpdate({id:req.body.id}, { state:"online" , qb_id:req.body.qb_id},function(err, trainer){
+    if(err) console.log(err)
+    res.json({"result":"success"});
   });
 });
 
