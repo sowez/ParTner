@@ -46,6 +46,7 @@ public class Flank extends Exercise{
         double shkAngle = getAngle(8, 2, 8, 9);
         double hkaAngle = getAngle(9, 8, 9, 10);
         double sewAngle = getAngle(3, 2, 3, 4);
+
         Log.d("jumpingjack", hnsAngle+","+nshAngle+","+shkAngle+","+hkaAngle+","+sewAngle);
 
 

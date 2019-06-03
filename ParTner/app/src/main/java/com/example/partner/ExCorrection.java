@@ -24,13 +24,20 @@ public class ExCorrection {
 
     public ArrayList<String> getJJCorrectionContents() {
         ArrayList<String> jJCorrectionContents = new ArrayList<>();
-        jJCorrectionContents.add(0, "안돼");
+        jJCorrectionContents.add(0, "화면 안으로 들어오세요");
         jJCorrectionContents.add(1, "팔을 구부리지 마세요");
         jJCorrectionContents.add(2, "다리를 구부리지 마세요");
-        jJCorrectionContents.add(3, "팔을 내려 주세요");
-        jJCorrectionContents.add(4, "발을 모아주세요");
-        jJCorrectionContents.add(5, "발을 벌려주세요");
+        jJCorrectionContents.add(3, "팔을 올려 주세요");
+        jJCorrectionContents.add(4, "팔을 내려 주세요");
+        jJCorrectionContents.add(5, "발을 모아주세요");
         jJCorrectionContents.add(6, "발을 벌려주세요");
+        jJCorrectionContents.add(7, "");
+        jJCorrectionContents.add(8, "뛰어주세요");
+//        jJCorrectionContents.add(9,  "발을 벌려주세요");
+        jJCorrectionContents.add(9, "운동을 시작하세요");
+
+
+
         return jJCorrectionContents;
     }
     public ArrayList<String> getSquatCorrectionContents() {
