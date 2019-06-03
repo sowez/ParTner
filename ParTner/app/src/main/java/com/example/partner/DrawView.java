@@ -141,7 +141,7 @@ public class DrawView extends View {
         canvas.drawColor(Color.TRANSPARENT);
 
 //        for (PointF pointF : mDrawPoint) {
-        for (int colorIndex = 0;colorIndex<13;colorIndex++){
+        for (int colorIndex = 0;colorIndex<=13;colorIndex++){
 //            if (pointF.x == 0 && pointF.y == 0) {
 //                colorIndex++;
 //                continue;

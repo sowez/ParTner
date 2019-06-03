@@ -20,13 +20,13 @@ public class ExEndPopup {
     private PopupEventListener listener;
     private Context context;
 
-    public ExEndPopup(Context context, int exType,int exCount, PopupEventListener popupEventListener){
+    public ExEndPopup(Context context, int exType,int exCount, double exAccuracy, PopupEventListener popupEventListener){
         this.context = context;
         this.listener = popupEventListener;
-        callFunction(exType, exCount);
+        callFunction(exType, exCount, exAccuracy);
     }
 
-    public void callFunction(final int exType, final int exCount) {
+    public void callFunction(final int exType, final int exCount, final double exAccuracy) {
 
         // 운동 종류에 따라 dialog 다르게 설정
         String exName = "Exercise";
@@ -55,12 +55,14 @@ public class ExEndPopup {
         final TextView tv_title = dig.findViewById(R.id.tv_exType);
         final TextView tv_done_ex_count = dig.findViewById(R.id.tv_done_ex_count);
         final TextView tv_done_ex_countType = dig.findViewById(R.id.tv_done_ex_countType);
+        final TextView tv_done_ex_accourancy_value = dig.findViewById((R.id.tv_done_ex_accuracy_value));
         final Button btn_exEnd_exSelect = dig.findViewById(R.id.btn_exEnd_exSelect);
         final Button btn_exEnd_Cal = dig.findViewById(R.id.btn_exEnd_Cal);
 
         tv_title.setText(exName);
         tv_done_ex_count.setText(""+exCount);
         tv_done_ex_countType.setText(countType);
+        tv_done_ex_accourancy_value.setText(""+(int)exAccuracy);
 
         btn_exEnd_exSelect.setOnClickListener(new View.OnClickListener() {
             @Override

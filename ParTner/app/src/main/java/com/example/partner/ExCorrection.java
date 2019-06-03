@@ -31,8 +31,8 @@ public class ExCorrection {
         jJCorrectionContents.add(4, "팔을 내려 주세요");
         jJCorrectionContents.add(5, "발을 모아주세요");
         jJCorrectionContents.add(6, "발을 벌려주세요");
-        jJCorrectionContents.add(7, "");
-        jJCorrectionContents.add(8, "뛰어주세요");
+        jJCorrectionContents.add(7, "뛰어주세요");
+        jJCorrectionContents.add(8, "");
 //        jJCorrectionContents.add(9,  "발을 벌려주세요");
         jJCorrectionContents.add(9, "운동을 시작하세요");
 

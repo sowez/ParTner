@@ -139,6 +139,9 @@ public class Camera2BasicFragment extends Fragment
     public static final int READY_BOUND = 15;
     public static final int RESET_STEP_BOUND = 50;
     public TextToSpeech tts;
+    private ArrayList<Integer> errorHistory = new ArrayList<>();
+    private double exAccuracy;
+    private int[] exResult = {0,0};
 
     /**
      * Max preview width that is guaranteed by Camera2 API
@@ -533,7 +536,8 @@ public class Camera2BasicFragment extends Fragment
         if (exerciseCounter != 0)
             postHist();
         closeCamera();
-        ExEndPopup popup = new ExEndPopup(getActivity(), exType, exerciseCounter, new ExEndPopup.PopupEventListener() {
+        exAccuracy = ((double)exResult[0]/((double)exResult[0]+(double)exResult[1]))*100;
+        ExEndPopup popup = new ExEndPopup(getActivity(), exType, exerciseCounter, exAccuracy, new ExEndPopup.PopupEventListener() {
             @Override
             public void popupEvent(String result) {
                 if (result.equals("selectEx")){
@@ -1009,16 +1013,35 @@ public class Camera2BasicFragment extends Fragment
                                         else
                                             exerciseStep = 0;
                                     }
+                                    exResult[0]++;
                                 }
                                 else if (isStepDone.get(0) == -1){
-                                    Log.d("Exercise", "step 못 넘어감");
+                                    Log.d("Exercise", "step 못 넘어감"+ isStepDone.get(1));
+                                    if(isStepDone.size()>1) errorHistory.add(isStepDone.get(1));
                                     // 너무 오랫동안 다음 Step으로 못넘어가는 경우 Step 초기화
                                     if (++resetStepCounter > RESET_STEP_BOUND){
-                                        Log.d("error", isStepDone.get(0)+""+isStepDone.get(1));
-                                        showToast("error: "+ isStepDone.get(1));
-                                        ErrorSpeak(isStepDone.get(1));
+                                        exResult[1]++;
                                         exerciseStep = 0;
                                         resetStepCounter = 0;
+                                        int[] errorList = new int[10];
+                                        int maxNum = 0;
+                                        int maxWhi = -1;
+                                        for(int i=0;i<10;i++)errorList[i]=0;
+                                        for(int i=0;i<errorHistory.size();i++){
+                                            errorList[errorHistory.get(i)]++;
+                                        }
+                                        for(int i=0;i<10;i++){
+                                            if(errorList[i]>maxNum) {
+                                                maxNum = errorList[i];
+                                                maxWhi=i;
+                                            }
+                                        }
+                                        errorHistory.clear();
+
+                                        Log.d("error", isStepDone.get(0)+""+isStepDone.get(1));
+                                        showToast("error: "+ maxWhi);
+                                        ErrorSpeak(maxWhi);
+
                                     }
                                 } else if (isStepDone.get(0) == -2){
                                     // 바로 피드백 해주는 오류
