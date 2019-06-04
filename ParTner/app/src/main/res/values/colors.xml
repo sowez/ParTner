@@ -20,6 +20,11 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="color_ParTner_main">#0011B9</color>
+    <color name="color_ParTner_mainsub">#5D66BA</color>
+    <color name="color_ParTner_sub">#5D66BA</color>
+
+
     <color name="control_background">#cc4285f4</color>
 
     <color name="top">#980000</color>

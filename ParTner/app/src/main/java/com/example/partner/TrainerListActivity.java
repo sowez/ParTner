@@ -132,6 +132,7 @@ public class TrainerListActivity extends AppCompatActivity {
                 search(name2, trainType2, gender2);
             }
         });
+
     }
 
     private void search(String name, String trainType, String gender) {

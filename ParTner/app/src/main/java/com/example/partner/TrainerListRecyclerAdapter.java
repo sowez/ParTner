@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,12 +46,39 @@ public class TrainerListRecyclerAdapter extends RecyclerView.Adapter<TrainerList
         holder.ratingBar.setRating(rate_score);
         holder.name.setText(listData.get(position).getName());
         holder.profile.setText(listData.get(position).getSelf_introduction());
-        holder.sex.setText(listData.get(position).getSex());
+        if(listData.get(position).getSex().equals("male")){
+            holder.sex.setText("남성");
+        }else{
+            holder.sex.setText("여성");
+        }
         String train = "";
+        String temp = "";
         for(int i=0; i<listData.get(position).getTraining_type().size(); i++){
-            train = train + listData.get(position).getTraining_type().get(i) + " ";
+            switch (listData.get(position).getTraining_type().get(i)){
+                case "pilates":{
+                    temp = "필라테스";
+                    break;
+                }
+                case "stretching":{
+                    temp = "스트레칭";
+                    break;
+                }
+                case "muscle":{
+                    temp="근력운동";
+                    break;
+                }
+                case "yoga":{
+                    temp="요가";
+                    break;
+                }
+            }
+            train = train + temp + " ";
         }
         holder.training.setText(train);
+
+        if(listData.get(position).getState().equals("offline")){
+            holder.state.setBackground(holder.mView.getResources().getDrawable(R.drawable.call_gray));
+        }
 
         imgpath = listData.get(position).getProfileImg();
         ServerComm serverComm = new ServerComm();
@@ -128,6 +156,7 @@ public class TrainerListRecyclerAdapter extends RecyclerView.Adapter<TrainerList
         public TextView sex;
         public TextView training;
         public final View mView;
+        public ImageView state;
 
         public MyViewHolder(View view){
             super(view);
@@ -138,6 +167,7 @@ public class TrainerListRecyclerAdapter extends RecyclerView.Adapter<TrainerList
             profile = (TextView)view.findViewById(R.id.profile_text);
             sex = (TextView)view.findViewById(R.id.profile_sex);
             training = (TextView)view.findViewById(R.id.profile_train);
+            state = view.findViewById(R.id.trainer_call_state);
         }
     }
 }

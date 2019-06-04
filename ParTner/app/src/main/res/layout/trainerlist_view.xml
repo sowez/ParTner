@@ -5,6 +5,12 @@
     android:orientation="horizontal"
     android:padding="5dp">
 
+    <ImageView
+        android:id="@+id/trainer_call_state"
+        android:layout_height="30px"
+        android:layout_width="30px"
+        android:background="@drawable/call_green"/>
+
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -25,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/profile_img_small"
             android:layout_centerHorizontal="true"
+            android:theme="@style/RatingBar"
             android:rating="3"
             android:stepSize="0.5" />
 

@@ -125,4 +125,13 @@
         <item name="colorAccent">@color/colorMoreTurbid</item>
     </style>
 
+    <style name="CheckTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/color_ParTner_main</item>
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlNormal">@color/text_color_medium_grey</item>
+        <item name="colorControlActivated">@color/color_ParTner_main</item>
+    </style>
+
 </resources>

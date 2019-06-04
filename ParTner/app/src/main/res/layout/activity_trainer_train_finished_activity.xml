@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="00"
-                android:textColor="#232323"
+                android:textColor="@color/color_ParTner_main"
                 android:textSize="18sp" />
 
             <TextView
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="( 이름 )"
-                android:textColor="#585858"
+                android:textColor="@color/color_ParTner_main"
                 android:textSize="18sp" />
 
             <TextView
@@ -105,7 +105,7 @@
             android:id="@+id/call_btn"
             android:layout_width="match_parent"
             android:layout_height="53dp"
-            android:background="#999999"
+            android:background="@color/colorTurbid"
             android:gravity="center"
             android:padding="16dp"
             android:text="확인"

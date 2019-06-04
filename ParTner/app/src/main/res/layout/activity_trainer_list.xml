@@ -22,26 +22,34 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <Spinner
                     android:id="@+id/training_type"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3" />
+                    android:layout_weight="5" />
 
                 <Spinner
                     android:id="@+id/gender_type"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2" />
+                    android:layout_weight="5" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/trainer_name"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
+                    android:layout_weight="6"
                     android:theme="@style/EditTheme"
                     android:hint="이름 검색" />
 
@@ -50,8 +58,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
+                    android:backgroundTint="@color/color_ParTner_mainsub"
+                    android:textColor="@color/white"
                     android:text="검색" />
-
 
             </LinearLayout>
 

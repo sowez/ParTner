@@ -7,8 +7,8 @@
 
     <ImageButton
         android:id="@+id/toolbar_menu_btn"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:background="@drawable/icons_menu"/>
 
     <TextView

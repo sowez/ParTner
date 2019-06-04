@@ -65,12 +65,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:theme="@style/CheckTheme"
             android:text="남성" />
 
         <RadioButton
             android:id="@+id/trainer_female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:theme="@style/CheckTheme"
             android:text="여성" />
 
     </RadioGroup>
@@ -101,24 +103,28 @@
             android:id="@+id/check_yoga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:theme="@style/CheckTheme"
             android:text="요가" />
 
         <CheckBox
             android:id="@+id/check_muscle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:theme="@style/CheckTheme"
             android:text="근력운동" />
 
         <CheckBox
             android:id="@+id/check_pilates"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:theme="@style/CheckTheme"
             android:text="필라테스" />
 
         <CheckBox
             android:id="@+id/check_stretching"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:theme="@style/CheckTheme"
             android:text="스트레칭" />
     </LinearLayout>
 

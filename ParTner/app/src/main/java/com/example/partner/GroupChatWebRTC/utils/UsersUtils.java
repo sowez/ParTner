@@ -20,6 +20,7 @@ public class UsersUtils {
             return String.valueOf(userId);
         }
 
+
         String fullName = qbUser.getFullName();
 
         return TextUtils.isEmpty(fullName) ? String.valueOf(userId) : fullName;

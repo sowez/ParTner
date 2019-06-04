@@ -33,7 +33,7 @@ public class UserMainMenuActivity extends AppCompatActivity {
 
     private ImageButton menu_btn;
 
-    private Button aloneButton, togetherButton;
+    private ImageButton aloneButton, togetherButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +54,8 @@ public class UserMainMenuActivity extends AppCompatActivity {
 
         addSideBar();
 
-        aloneButton = (Button)findViewById(R.id.user_btn);
-        togetherButton = (Button)findViewById(R.id.trainer_btn);
+        aloneButton = findViewById(R.id.user_btn);
+        togetherButton = findViewById(R.id.trainer_btn);
 
         //test
         aloneButton.setOnClickListener(view -> {
