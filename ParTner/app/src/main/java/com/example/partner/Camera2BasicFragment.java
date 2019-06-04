@@ -1044,7 +1044,7 @@ public class Camera2BasicFragment extends Fragment
                                         if (exerciseStep >= endStep) {
                                             exerciseCounter++;
                                             CountSpeak(exerciseCounter);
-                                            if (exerciseCounter >= exCount)
+                                            if (exerciseCounter == exCount)
                                                 endEx();
                                             else
                                                 exerciseStep -= endStep;

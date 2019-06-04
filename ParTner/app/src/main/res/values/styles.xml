@@ -21,7 +21,9 @@
         <item name="titleTextColor">@color/titleTextColor</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorMain</item>
+        <item name="android:fontFamily">@font/hanmaum</item>
+        <item name="android:seekBarStyle">@style/SeekBarPreferenceTitle</item>
 
         <!--Status Bar 배경색-->
         <!--<item name="android:statusBarColor">@color/transparent</item>-->
@@ -33,7 +35,7 @@
     <style name="popupTheme" parent="Theme.AppCompat.DayNight.Dialog">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorMain</item>
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -118,6 +120,9 @@
         <item name="android:singleLine">true</item>
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:colorControlActivated">@color/colorMain</item>
+        <item name="android:progressTint">@color/colorTurbid</item>
+        <item name="android:progressBackgroundTint">@color/colorMoreTurbid</item>
         <item name="android:textSize">16sp</item>
     </style>
 

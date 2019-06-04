@@ -184,8 +184,9 @@ public class Squat extends Exercise {
                     } else{ // 운동 시작했는데 계속 서있음 -> 일단 에러처리 안하고 그냥 놔두자
                         Log.d(TAG, "doExercise: step 1, 안움직이는 중, legAngle2: "+pointNAngle.legAngle2);
                         pointHistory.add(pointNAngle);
-                        res.add(-1);
-                        res.add(9);
+                        res.add(0);
+//                        res.add(-1);
+//                        res.add(9);
                     }
                 } else if (legState == 1){    // 운동 시작했고 다리 굽혀진 상태 -> 좌표 계속 저장 & 최소 다리각도 업데이트
                     Log.d(TAG, "doExercise: step 1, 운동 중, legAngle2: "+pointNAngle.legAngle2);

@@ -14,47 +14,107 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:padding="10dp"
+            android:rowCount="3"
+            android:columnCount="2">
 
-
-            <Button
-                android:id="@+id/btn_ex1"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/iv_ex1"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_marginTop="25dp"
-                android:background="#CECECE"
-                android:text="플랭크"
-                android:textColor="@color/titleTextColor"
-                android:textSize="35sp" />
-
-            <Button
-                android:id="@+id/btn_ex2"
-                android:layout_width="match_parent"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:padding="10dp"
+                android:src="@drawable/exlist_flank"/>
+            <ImageView
+                android:id="@+id/iv_ex2"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginTop="25dp"
-                android:layout_weight="1"
-                android:background="#CECECE"
-                android:text="스쿼트"
-                android:textColor="@color/titleTextColor"
-                android:textSize="35sp" />
-
-            <Button
-                android:id="@+id/btn_ex3"
-                android:layout_width="match_parent"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:padding="10dp"
+                android:src="@drawable/exlist_squat"/>
+            <ImageView
+                android:id="@+id/iv_ex3"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginTop="25dp"
-                android:layout_weight="1"
-                android:background="#CECECE"
-                android:text="점핑잭"
-                android:textColor="@color/titleTextColor"
-                android:textSize="35sp" />
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:padding="10dp"
+                android:src="@drawable/exlist_jj"/>
+            <ImageView
+                android:id="@+id/iv_ex4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:padding="10dp"
+                android:src="@drawable/exlist_lunge"/>
+            <ImageView
+                android:id="@+id/iv_ex5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:padding="10dp"
+                android:src="@drawable/exlist_bridge"/>
+            <ImageView
+                android:id="@+id/iv_ex6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:padding="10dp"
+                android:src="@drawable/exlist_pushup"/>
 
 
-        </LinearLayout>
+
+        </GridLayout>
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical">-->
+
+
+            <!--<Button-->
+                <!--android:id="@+id/btn_ex1"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_marginTop="25dp"-->
+                <!--android:background="#CECECE"-->
+                <!--android:text="플랭크"-->
+                <!--android:textColor="@color/titleTextColor"-->
+                <!--android:textSize="35sp" />-->
+
+            <!--<Button-->
+                <!--android:id="@+id/btn_ex2"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginTop="25dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="#CECECE"-->
+                <!--android:text="스쿼트"-->
+                <!--android:textColor="@color/titleTextColor"-->
+                <!--android:textSize="35sp" />-->
+
+            <!--<Button-->
+                <!--android:id="@+id/btn_ex3"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginTop="25dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="#CECECE"-->
+                <!--android:text="점핑잭"-->
+                <!--android:textColor="@color/titleTextColor"-->
+                <!--android:textSize="35sp" />-->
+
+
+        <!--</LinearLayout>-->
 
 
         <FrameLayout

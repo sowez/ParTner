@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginBottom="39dp"
-                android:background="@drawable/sidebar" />
+                android:background="@drawable/partner_logo2" />
 
         </FrameLayout>
 

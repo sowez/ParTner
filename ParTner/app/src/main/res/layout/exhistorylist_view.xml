@@ -55,7 +55,7 @@
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:padding="3dp"
-        android:src="@drawable/exhist_squat"/>
+        android:src="@drawable/icon_squat"/>
 
 
 </LinearLayout>
