@@ -73,7 +73,7 @@
                     android:layout_centerHorizontal="true"
                     android:isIndicator="true"
                     android:rating="3"
-                    android:stepSize="0.1" />
+                    android:stepSize="0.5" />
 
             </RelativeLayout>
 
