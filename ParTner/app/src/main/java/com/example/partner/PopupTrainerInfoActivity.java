@@ -133,53 +133,17 @@ public class PopupTrainerInfoActivity extends BaseActivity {
             callBtn.setBackgroundColor(Color.rgb(72,72,72));
         }
 
-        RetrofitCommnunication retrofitcomm = ServerComm.init();
         bookmarkBtn.setOnClickListener(v -> {
             if(bookmarkBtn.isChecked()){
                 bookmarkBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.icons_star_filled));
-
-                JsonObject bookmark = new JsonObject();
-                bookmark.addProperty("sportsmanID",SharedPreferenceData.getId(this));
-                bookmark.addProperty("trainerID", trainerId);
-
-                retrofitcomm.bookmarkUpdate(bookmark).enqueue(new Callback<JsonObject>() {
-                    @Override
-                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                        JsonObject res = response.body();
-                        if(res.get("result").getAsString().equals("success")){
-                            Toast.makeText(context, "트레이너 즐겨찾기가 완료되었습니다.", Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(context, "트레이너 즐겨찾기가 실패하었습니다.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<JsonObject> call, Throwable t) {
-                        Log.e("bookmark", "sportsman bookmark onFailure");
-                    }
-                });
-
+                ServerComm serverComm = new ServerComm();
+                serverComm.init();
+                serverComm.updateSportsmanBookmarkList(SharedPreferenceData.getId(this),trainerId, context);
             }else{
                 bookmarkBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.icons_star));
-                JsonObject bookmark = new JsonObject();
-                bookmark.addProperty("sportsmanID",SharedPreferenceData.getId(this));
-                bookmark.addProperty("trainerID", trainerId);
-                retrofitcomm.bookmarkDelete(bookmark).enqueue(new Callback<JsonObject>() {
-                    @Override
-                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                        JsonObject res = response.body();
-                        if(res.get("result").getAsString().equals("success")){
-                            Toast.makeText(context, "트레이너 즐겨찾기가 해제되었습니다.", Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(context, "트레이너 즐겨찾기 해제가 실패하었습니다.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<JsonObject> call, Throwable t) {
-                        Log.e("bookmark", "sportsman bookmark onFailure");
-                    }
-                });
+                ServerComm serverComm = new ServerComm();
+                serverComm.init();
+                serverComm.deleteSportsmanBookmarkList(SharedPreferenceData.getId(this),trainerId, context);
             }
         });
     }

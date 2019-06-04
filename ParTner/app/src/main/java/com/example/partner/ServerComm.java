@@ -184,6 +184,54 @@ public class ServerComm {
         });
     }
 
+    public void updateSportsmanBookmarkList(String sportsman_id, String trainer_id, Context context){
+        JsonObject bookmark = new JsonObject();
+        bookmark.addProperty("sportsmanID", sportsman_id);
+        bookmark.addProperty("trainerID", trainer_id);
+
+        retrofitCommnunication.bookmarkUpdate(bookmark).enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                JsonObject res = response.body();
+                if(res.get("result").getAsString().equals("success")){
+                    Toast.makeText(context, "트레이너 즐겨찾기가 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(context, "트레이너 즐겨찾기가 실패하었습니다.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                Log.e("bookmark", "sportsman bookmark onFailure");
+            }
+        });
+    }
+
+    public void deleteSportsmanBookmarkList(String sportsman_id, String trainer_id, Context context){
+        JsonObject bookmark = new JsonObject();
+        bookmark.addProperty("sportsmanID", sportsman_id);
+        bookmark.addProperty("trainerID", trainer_id);
+
+        retrofitCommnunication.bookmarkDelete(bookmark).enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                JsonObject res = response.body();
+                if(res.get("result").getAsString().equals("success")){
+                    Toast.makeText(context, "트레이너 즐겨찾기가 해제되었습니다.", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(context, "트레이너 즐겨찾기 해제가 실패하었습니다.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                Log.e("bookmark", "sportsman bookmark onFailure");
+            }
+        });
+    }
+
+
+
     List<TrainingHistory> trainingHistoryList;
     public List<TrainingHistory> searchTrainingHist(String id, String year, String month, Context context){
         retrofitCommnunication.getTrainingHist(id, year, month).enqueue(new Callback<List<TrainingHistory>>() {
