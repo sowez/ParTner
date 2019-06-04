@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -45,6 +47,11 @@ import com.quickblox.videochat.webrtc.QBRTCClient;
 import com.quickblox.videochat.webrtc.QBRTCSession;
 import com.quickblox.videochat.webrtc.QBRTCTypes;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -71,6 +78,9 @@ public class PopupTrainerInfoActivity extends BaseActivity {
     private String train_data;
     private String intro_data;
     private String trainer_qb_id;
+    private URL url;
+    private Bitmap bitmap;
+    private String imgpath;
 
     // 영상통화 call
     private QBUser currentUser;
@@ -111,6 +121,8 @@ public class PopupTrainerInfoActivity extends BaseActivity {
         name_data = intent.getStringExtra("name");
         train_data = intent.getStringExtra("traintype");
         intro_data = intent.getStringExtra("intro");
+        imgpath = intent.getStringExtra("imgpath");
+
 
         trainer_qb_id = intent.getStringExtra("qb_id");
         Log.d("qbid", "startCall: " + trainer_qb_id);
@@ -182,6 +194,36 @@ public class PopupTrainerInfoActivity extends BaseActivity {
                 });
             }
         });
+
+        ServerComm serverComm = new ServerComm();
+        imgpath = serverComm.getURL() + "db/resources/images/trainer_profile/" + imgpath;
+
+        Thread mThread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    url = new URL(imgpath);
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    conn.setDoInput(true);
+                    conn.connect();
+                    InputStream is = conn.getInputStream();
+                    bitmap = BitmapFactory.decodeStream(is);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        mThread.start();
+        try {
+            mThread.join();
+            hideProgressDialog();
+            profileImage.setImageBitmap(bitmap);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
