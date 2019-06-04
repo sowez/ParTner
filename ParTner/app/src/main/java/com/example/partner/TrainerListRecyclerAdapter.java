@@ -41,7 +41,7 @@ public class TrainerListRecyclerAdapter extends RecyclerView.Adapter<TrainerList
     * */
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
-        int rate_score = listData.get(position).getStar_rate() / listData.get(position).getStar_rate_num();
+        float rate_score = listData.get(position).getStar_rate() / listData.get(position).getStar_rate_num();
         holder.ratingBar.setRating(rate_score);
         holder.name.setText(listData.get(position).getName());
         holder.profile.setText(listData.get(position).getSelf_introduction());

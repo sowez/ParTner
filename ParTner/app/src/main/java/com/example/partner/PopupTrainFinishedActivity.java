@@ -96,15 +96,22 @@ public class PopupTrainFinishedActivity extends BaseActivity {
             });
 
 
-//            JsonObject callData = new JsonObject();
-//            callData.addProperty("trainer_id", trainerID);
-//            callData.addProperty("user_id", mRating.getRating());
-//            callData.addProperty("start_time", trainerID);
-//            callData.addProperty("end_time", mRating.getRating());
-//            callData.addProperty("call_duration", mRating.getRating());
-//
-//            Call<JsonObject> createCallHistory = retrofitCommnunication.postCallHistory(callData);
+            CallHistory callHistory = new CallHistory(CallData.getInstance().getCallReceiverName(), SharedPreferenceData.getId(this), CallData.getInstance().getStart_time(), CallData.getInstance().getEnd_time(), CallData.getInstance().getCallTime());
 
+            Call<JsonObject> createCallHistory = retrofitCommnunication.postCallHistory(callHistory);
+            createCallHistory.enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    Log.d("callHistory", response.body().toString());
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    Toast.makeText(PopupTrainFinishedActivity.this, "통화 기 실패", Toast.LENGTH_LONG)
+                            .show();
+                    Log.e("TAG", "onFailure: " + t.getMessage());
+                }
+            });
 
 
             // 통화 하고 평가했다 것을 표시기

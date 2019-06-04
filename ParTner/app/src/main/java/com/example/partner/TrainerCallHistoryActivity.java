@@ -15,12 +15,17 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TrainerCallHistoryActivity extends AppCompatActivity {
 
@@ -66,18 +71,40 @@ public class TrainerCallHistoryActivity extends AppCompatActivity {
         );
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        Date from = new Date();
-        Date to = new Date();
+//        Date from = new Date();
+//        Date to = new Date();
+//
+//        // 통화 기록 데이터 추가
+//        ArrayList<CallHistory> callHistories = new ArrayList<>();
+//        callHistories.add(new CallHistory("도경수", "강동원", from, to, new Integer(33)));
+//        callHistories.add(new CallHistory("도경수", "이혁재", from, to, new Integer(34)));
+//        callHistories.add(new CallHistory("도경수", "이승기", from, to, new Integer(35)));
+//        callHistories.add(new CallHistory("도경수", "이홍기", from, to, new Integer(36)));
 
-        // 통화 기록 데이터 추가
-        ArrayList<CallHistory> callHistories = new ArrayList<>();
-        callHistories.add(new CallHistory(from, to, new Integer(33), "도경수", "강동원"));
-        callHistories.add(new CallHistory(from, to, new Integer(34), "도경수", "이혁재"));
-        callHistories.add(new CallHistory(from, to, new Integer(35), "도경수", "이승기"));
-        callHistories.add(new CallHistory(from, to, new Integer(36), "도경수", "이홍기"));
+        ServerComm serverComm = new ServerComm();
+        RetrofitCommnunication retrofitCommnunication = serverComm.init();
 
-        recyclerAdapter = new TrainerCallHistoryRecyclerAdapter(callHistories);
-        recyclerView.setAdapter(recyclerAdapter);
+        Call<List<CallHistory>> callHistory = retrofitCommnunication.getCallHistory(SharedPreferenceData.getId(this), SharedPreferenceData.getType(this));
+
+        callHistory.enqueue(new Callback<List<CallHistory>>() {
+            @Override
+            public void onResponse(Call<List<CallHistory>> call, Response<List<CallHistory>> response) {
+                List<CallHistory> callHistories = response.body();
+
+                recyclerAdapter = new TrainerCallHistoryRecyclerAdapter(callHistories);
+                recyclerView.setAdapter(recyclerAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<CallHistory>> call, Throwable t) {
+                Toast.makeText(TrainerCallHistoryActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG)
+                        .show();
+                Log.e("TAG", "onFailure: " + t.getMessage() );
+            }
+        });
+
+
+
     }
 
     private void setRecyclerView() {

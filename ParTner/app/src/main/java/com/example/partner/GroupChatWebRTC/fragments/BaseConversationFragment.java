@@ -23,6 +23,7 @@ import com.example.partner.GroupChatWebRTC.utils.CollectionsUtils;
 import com.example.partner.GroupChatWebRTC.utils.Consts;
 import com.example.partner.GroupChatWebRTC.utils.UsersUtils;
 import com.example.partner.GroupChatWebRTC.utils.WebRtcSessionManager;
+import com.example.partner.PopupTrainFinishedActivity;
 import com.example.partner.PopupTrainerInfoActivity;
 import com.example.partner.PopupTrainerTrainFinishedActivity;
 import com.example.partner.R;
@@ -33,6 +34,7 @@ import com.quickblox.videochat.webrtc.QBRTCSession;
 import com.quickblox.videochat.webrtc.QBRTCTypes;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import androidx.annotation.Nullable;
 
@@ -171,6 +173,12 @@ public abstract class BaseConversationFragment extends BaseToolBarFragment imple
             Intent intent = new Intent(getContext(), PopupTrainerTrainFinishedActivity.class);
             startActivity(intent);
         }
+        else {
+            if(CallData.getInstance().isCalled()) {
+                Intent intent = new Intent(getContext(), PopupTrainFinishedActivity.class);
+                startActivity(intent);
+            }
+        }
 
     }
 
@@ -223,6 +231,10 @@ public abstract class BaseConversationFragment extends BaseToolBarFragment imple
             timerChronometer.setBase(SystemClock.elapsedRealtime());
             timerChronometer.start();
             CallData.getInstance().setCalled(true);
+
+            long now = System.currentTimeMillis();
+            Date date = new Date(now);
+            CallData.getInstance().setStart_time(date);
             isStarted = true;
         }
     }
@@ -231,6 +243,10 @@ public abstract class BaseConversationFragment extends BaseToolBarFragment imple
         if (timerChronometer != null) {
             timerChronometer.stop();
             CallData.getInstance().setCallTime((SystemClock.elapsedRealtime()-timerChronometer.getBase())/1000);
+
+            long now = System.currentTimeMillis();
+            Date date = new Date(now);
+            CallData.getInstance().setEnd_time(date);
             isStarted = false;
         }
     }
