@@ -47,7 +47,7 @@ router.get('/call/:id/:year/:month',function(req, res, next){
 });
 
 // POST Training History
-router.post('/create', function(req, res, next){
+router.post('/trainhistory/create', function(req, res, next){
     var history = new trainHistModel({
         id: req.body.id,
         start_time: req.body.start_time,
@@ -60,6 +60,22 @@ router.post('/create', function(req, res, next){
     });
 
     res.json({'result': 'saved'})
+});
+
+// POST Call History
+router.post('/callhistory/create', function(req, res, next) {
+    var callhistory  = new callHistModel({
+        trainer_id: req.body.trainer_id,
+        user_id: req.body.user_id,
+        start_time: req.body.start_time,
+        end_time: req.body.end_time,
+        call_duration: req.body.call_duration
+    });
+    callhistory.save(function(err) {
+        if(err) return console.log(err);
+        console.log('call history saved');
+        res.json({ "result": "success" });
+    });
 });
 
 module.exports = router;

@@ -45,8 +45,11 @@ public interface RetrofitCommnunication {
     @GET("/history/training/{id}/{year}/{month}")
     Call<List<TrainingHistory>> getTrainingHist( @Path("id") String id, @Path("year") String year, @Path("month") String month);
 
-    @POST("/history/create")
+    @POST("/history/trainhistory/create")
     Single<JsonObject> postTrainingHist(@Body JsonObject trainingData);
+
+    @POST("/history/callhistory/create")
+    Call<JsonObject> postCallHistory(@Body JsonObject callData);
     
     @GET("/trainers/profile")
     Call<TrainerProfile> trainerProfile(@Query("id") String id);

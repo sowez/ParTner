@@ -79,6 +79,16 @@ public class PopupTrainFinishedActivity extends Activity {
             });
 
 
+//            JsonObject callData = new JsonObject();
+//            callData.addProperty("trainer_id", trainerID);
+//            callData.addProperty("user_id", mRating.getRating());
+//            callData.addProperty("start_time", trainerID);
+//            callData.addProperty("end_time", mRating.getRating());
+//            callData.addProperty("call_duration", mRating.getRating());
+//
+//            Call<JsonObject> createCallHistory = retrofitCommnunication.postCallHistory(callData);
+
+
             // 통화 하고 평가했다 것을 표시기
             CallData.getInstance().setCalled(false);
 
