@@ -424,7 +424,7 @@ public class Camera2BasicFragment extends Fragment
         //exercise에 상속
         switch (exType){
             case 1:
-                exercise = new Flank(exCount);
+                exercise = new Flank(exCount, exDifficulty);
                 img_red = R.drawable.flank_red;
                 img_green = R.drawable.flank_green;
                 break;
@@ -434,7 +434,7 @@ public class Camera2BasicFragment extends Fragment
                 img_green = R.drawable.squat_green;
                 break;
             case 3:
-                exercise = new JumpingJack(exCount);
+                exercise = new JumpingJack(exCount, exDifficulty);
                 img_red = R.drawable.jumping_red;
                 img_green = R.drawable.jumping_green;
                 break;
@@ -961,8 +961,9 @@ public class Camera2BasicFragment extends Fragment
             exercise.setPoint(classifier.mPrintPointArray);
             exercise.setDpPoint(drawView.mDrawPoint);
             startEx(exercise.doExercise(exerciseStep));
+            if(exType==1) showToast("Step: "+ Integer.toString(exerciseStep/100)+", Count : "+Integer.toString(exerciseCounter));
 
-            showToast("Step: "+ Integer.toString(exerciseStep)+", Count : "+Integer.toString(exerciseCounter));
+            else showToast("Step: "+ Integer.toString(exerciseStep)+", Count : "+Integer.toString(exerciseCounter));
 //            showToast2(Double.toString(exercise.getAngle(9, 8, 9, 10)));
 //            showToast3(Double.toString(exercise.getAngle(3,2, 3, 4)));
 

@@ -15,9 +15,24 @@ public class JumpingJack extends Exercise {
     private int Index = -1;
     private double minArmAngle = 180.0;
     private boolean hasSat = false;
+    private double jJDifficulty = 0;
 
-    public JumpingJack(int exCount) {
+    public JumpingJack(int exCount, int difficulty) {
         super(exCount);
+        switch (difficulty){
+            case 0: // super easy
+                jJDifficulty = 0.2;
+                break;
+            case 1: // easy
+                jJDifficulty = 0.1;
+                break;
+            case 2: // default
+                jJDifficulty = 0;
+                break;
+            case 3: // hard
+                jJDifficulty = -0.1;
+                break;
+        }
     }
 
     // 스쿼트 준비자세 체크하는 함수
@@ -78,12 +93,12 @@ public class JumpingJack extends Exercise {
         //step = 4: 다시 정자
         if (currentStep == 1) {
             Log.d(TAG, "운동 시작 또는 ");
-            if(pointNAngle.legAngle>30) {
+            if(pointNAngle.legAngle>35*(1+jJDifficulty)) {
                 res.add(-1);
                 res.add(5);
                 Log.d("error", "5");
             }
-            else if(pointNAngle.r_armAngle<150 || pointNAngle.l_armAngle<150){
+            else if(pointNAngle.r_armAngle<140*(1-jJDifficulty) || pointNAngle.l_armAngle<140*(1+jJDifficulty)){
                 res.add(-1);
                 res.add(4);
 
@@ -92,24 +107,6 @@ public class JumpingJack extends Exercise {
 
             this.headHistory = this.dpPoint.get(0).y;
         }
-//        else if (currentStep == 3) {
-//            if(pointNAngle.legAngle<25) {
-//                res.add(-1);
-//                res.add(6);
-//                Log.d("error", "6");
-//            }
-////            else if(pointNAngle.legAngle>80){
-////                res.add(-1);
-////                res.add(5);
-////
-////                Log.d("error", "5");
-////            }
-//            else if(pointNAngle.r_armAngle>50 || pointNAngle.l_armAngle>50){
-//                res.add(-1);
-//                res.add(3);
-//                Log.d("error", "4");
-//            }
-//        }
         else if (currentStep == 0 ) {
             Log.d(TAG, "점프 체크");
             Log.d(TAG, pointNAngle.currentHeadHeight+", "+headHistory);
@@ -117,7 +114,7 @@ public class JumpingJack extends Exercise {
                 res.add(-1);
                 res.add(7);
             }
-            if(pointNAngle.legAngle<25) {
+            if(pointNAngle.legAngle<25*(1-jJDifficulty)) {
                 res.add(-1);
                 res.add(6);
                 Log.d("error", "6");
@@ -128,30 +125,13 @@ public class JumpingJack extends Exercise {
 //
 //                Log.d("error", "5");
 //            }
-            else if(pointNAngle.r_armAngle>90 || pointNAngle.l_armAngle>90){
+            else if(pointNAngle.r_armAngle>90*(1+jJDifficulty) || pointNAngle.l_armAngle>90*(1+jJDifficulty)){
                 res.add(-1);
                 res.add(3);
                 Log.d("error", "4");
             }
 
         }
-//        else if(currentStep==2){
-//            if(pointNAngle.currentHeadHeight<(headHistory+15)){
-//                res.add(-1);
-//                res.add(7);
-//            }
-//            if(pointNAngle.legAngle>30) {
-//                res.add(-1);
-//                res.add(5);
-//                Log.d("error", "5");
-//            }
-//            else if(pointNAngle.r_armAngle<50 || pointNAngle.l_armAngle<50){
-//                res.add(-1);
-//                res.add(4);
-//
-//                Log.d("error", "3");
-//            }
-//        }
         if(res.size()==0)res.add(1);
 
         return res;
@@ -168,16 +148,16 @@ public class JumpingJack extends Exercise {
             Log.d("error", "0");
             return res;
         }
-        else if(angle.r_hnaAngle<160 || angle.l_hnaAngle<160){
+        else if(angle.r_hnaAngle<160*(1-jJDifficulty) || angle.l_hnaAngle<160*(1-jJDifficulty)){
             res.add(-1);
             res.add(1);
             Log.d("error", "2");
         }
-        else if(angle.r_sewAngle<120 || angle.l_sewAngle < 120){
-            res.add(-1);
-            res.add(2);
-            Log.d("error", "1");
-        }
+//        else if(angle.r_sewAngle<120*(1-jJDifficulty) || angle.l_sewAngle < 120*(1-jJDifficulty)){
+//            res.add(-1);
+//            res.add(2);
+//            Log.d("error", "1");
+//        }
 
 
         // 아무 오류도 안걸림
