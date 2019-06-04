@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,11 +16,13 @@ import com.example.partner.R;
 public class ExStartPopup {
 
     public interface PopupEventListener {
-        public void popupEvent(String exCount);
+        public void popupEvent(String exCount, int exDifficulty);
     }
 
     private PopupEventListener listener;
     private Context context;
+
+    private int exDifficulty;
 
     public ExStartPopup(Context context, int exType, PopupEventListener popupEventListener){
         this.context = context;
@@ -58,6 +61,8 @@ public class ExStartPopup {
         final EditText et_count = dig.findViewById(R.id.et_exCount);
         final Button btn_exCancel = dig.findViewById(R.id.btn_exCancel);
         final Button btn_exStart = dig.findViewById(R.id.btn_exStartonPopup);
+        final TextView tv_difficulty = dig.findViewById(R.id.tv_difficulty);
+        final SeekBar sb = dig.findViewById(R.id.sb_difficulty);
 
         tv_title.setText(exName);
         tv_countType.setText(countType);
@@ -65,7 +70,7 @@ public class ExStartPopup {
         btn_exCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.popupEvent("Cancel");
+                listener.popupEvent("Cancel",exDifficulty);
                 dig.dismiss();
             }
         });
@@ -77,9 +82,28 @@ public class ExStartPopup {
                 if(count.isEmpty())
                     Toast.makeText(context, "숫자를 입력해주세요", Toast.LENGTH_SHORT).show();
                 else {
-                    listener.popupEvent(count);
+                    listener.popupEvent(count, exDifficulty);
                     dig.dismiss();
                 }
+            }
+        });
+
+        sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                String[] text_difficulty = {"매우 쉬움", "쉬움", "보통", "어려움"};
+                tv_difficulty.setText(String.format("난이도: %s", text_difficulty[progress]));
+                exDifficulty = progress;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
     }

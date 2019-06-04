@@ -9,6 +9,7 @@ public class Exercise {
     private float[][] point;
     private int exCount;
     public ArrayList<PointF> dpPoint;
+
     public Exercise(int exCount){
         this.exCount = exCount;
     }

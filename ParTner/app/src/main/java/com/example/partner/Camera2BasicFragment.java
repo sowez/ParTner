@@ -127,6 +127,7 @@ public class Camera2BasicFragment extends Fragment
     private String start_time;
     private int exType;
     private int exCount;
+    private int exDifficulty;
 
     private int img_red;
     private int img_green;
@@ -137,7 +138,7 @@ public class Camera2BasicFragment extends Fragment
     private int exerciseStep = 0;
     private int endStep = 0;
     public static final int READY_BOUND = 15;
-    public static final int RESET_STEP_BOUND = 50;
+    public static final int RESET_STEP_BOUND = 70;
     public TextToSpeech tts;
 
     /**
@@ -408,6 +409,7 @@ public class Camera2BasicFragment extends Fragment
 
         exType = this.getArguments().getInt("exType");
         exCount = this.getArguments().getInt("exCount");
+        exDifficulty = this.getArguments().getInt("exDifficulty");
 
         exCorrection = new ExCorrection();
 
@@ -424,7 +426,7 @@ public class Camera2BasicFragment extends Fragment
                 img_green = R.drawable.flank_green;
                 break;
             case 2:
-                exercise = new Squat(exCount);
+                exercise = new Squat(exCount, exDifficulty);
                 img_red = R.drawable.squat_red;
                 img_green = R.drawable.squat_green;
                 break;

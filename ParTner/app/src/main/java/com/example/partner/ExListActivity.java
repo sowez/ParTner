@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,8 @@ public class ExListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ex_list);
 
+        Log.d("color", "onCreate: " + R.color.color_background);
+
         // side bar
 
         mToolbar = (Toolbar) findViewById(R.id.menu_toolBar);
@@ -63,6 +66,7 @@ public class ExListActivity extends AppCompatActivity {
         btn_ex1.setOnClickListener(listner_exList);
         btn_ex2.setOnClickListener(listner_exList);
         btn_ex3.setOnClickListener(listner_exList);
+
     }
 
     View.OnClickListener listner_exList = new View.OnClickListener() {
@@ -82,7 +86,7 @@ public class ExListActivity extends AppCompatActivity {
             }
             ExStartPopup popup = new ExStartPopup(ExListActivity.this, exType, new ExStartPopup.PopupEventListener() {
                 @Override
-                public void popupEvent(String result) {
+                public void popupEvent(String result, int difficulty) {
                     // 횟수 입력되었으면 운동 프리뷰 액티비티로 넘어가기
                     if (!result.equals("Cancel")){
 //                        Toast.makeText(ExListActivity.this, "count: "+result, Toast.LENGTH_SHORT).show();
@@ -90,6 +94,7 @@ public class ExListActivity extends AppCompatActivity {
                         int exCount = Integer.parseInt(result);
                         intent.putExtra("exCount",exCount);
                         intent.putExtra("exType",exType);
+                        intent.putExtra("exDifficulty",difficulty);
                         startActivity(intent);
                         finish();
                     }
@@ -97,7 +102,6 @@ public class ExListActivity extends AppCompatActivity {
             });
         }
     };
-
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
