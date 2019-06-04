@@ -1,7 +1,9 @@
 package com.example.partner;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.ConditionVariable;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,6 +18,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PopupTrainerTrainFinishedActivity extends Activity {
+
+    private Context context = PopupTrainerTrainFinishedActivity.this;
 
     private TextView trainTime;
     private TextView userName;
@@ -43,9 +47,10 @@ public class PopupTrainerTrainFinishedActivity extends Activity {
     }
 
     public void mOk(View v) {
-
+        ServerComm serverComm = new ServerComm();
+        serverComm.init();
+        serverComm.setTrainerOnline(SharedPreferenceData.getId(context), context);
         finish();
-
     }
 
     @Override

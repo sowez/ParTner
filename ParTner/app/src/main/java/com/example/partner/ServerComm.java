@@ -56,7 +56,7 @@ public class ServerComm {
     * 종합관 509 :  http://192.168.30.96:8000/
     * */
 
-    private static String URL = "http://192.168.54.226:8000/";
+    private static String URL = "http://192.168.51.146:8000/";
 
     public String getURL() {
         return URL;
@@ -138,6 +138,48 @@ public class ServerComm {
             @Override
             public void onFailure(Call<SignUpData> call, Throwable t) {
                 Log.e(TAG, "onFailure: error" + t.getMessage());
+            }
+        });
+    }
+
+    public void setTrainerOffline(String trainer_id, Context context){
+        JsonObject t_id = new JsonObject();
+        t_id.addProperty("id", trainer_id);
+        retrofitCommnunication.trainerOffline(t_id).enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                JsonObject res = response.body();
+                if(res.get("result").getAsString().equals("success")){
+                    Toast.makeText(context, "offline성공", Toast.LENGTH_SHORT).show();
+                }else{
+                    Log.e(TAG, "onResponse: 실패");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                Log.e(TAG, "servercomm settraineroffline onFailure: 오프라인 등록실패!");
+            }
+        });
+    }
+
+    public void setTrainerOnline(String trainer_id, Context context){
+        JsonObject t_id = new JsonObject();
+        t_id.addProperty("id", trainer_id);
+        retrofitCommnunication.trainerOnline(t_id).enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                JsonObject res = response.body();
+                if(res.get("result").getAsString().equals("success")){
+                    Toast.makeText(context, "offline성공", Toast.LENGTH_SHORT).show();
+                }else{
+                    Log.e(TAG, "onResponse: 실패");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                Log.e(TAG, "servercomm settraineroffline onFailure: 오프라인 등록실패!");
             }
         });
     }

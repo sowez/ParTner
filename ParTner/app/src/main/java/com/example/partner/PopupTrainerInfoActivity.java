@@ -201,21 +201,33 @@ public class PopupTrainerInfoActivity extends BaseActivity {
     }
 
     public void mOnClose(View v) {
-        // 영상통화 하는 부분으로 그냥 넘겨줌
-//        Intent intent = new Intent(this,com.example.partner.GroupChatWebRTC.activities.LoginActivity.class);
-//        intent.putExtra("trainer_name", name.getText());
-//        startActivity(intent);
 
-        /* 영상통화 로그인하기 */
+        ServerComm.init().getTrainerState(trainerId).enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                JsonObject res = response.body();
+                String t_state = res.get("result").getAsString();
+                if(t_state.equals("offline")){
+                    Toast.makeText(context, "현재 트레이너가 오프라인 상태입니다", Toast.LENGTH_LONG).show();
+                }else{
+                    /* 영상통화 로그인하기 */
+                    showProgressDialog(R.string.waiting_facetalk);
+                    userId = SharedPreferenceData.getId(context);
+                    startSignUpNewUser(createUserWithEnteredData());
 
-        showProgressDialog(R.string.waiting_facetalk);
-        userId = SharedPreferenceData.getId(context);
-        startSignUpNewUser(createUserWithEnteredData());
+                    // 통화 기록 남기
+                    CallData.getInstance().setCallReceiverID(trainerId);
+                    CallData.getInstance().setCallReceiverName(name_data);
+                    Toast.makeText(PopupTrainerInfoActivity.this, "CallData에 저장"+trainerId, Toast.LENGTH_LONG).show();
+                }
+            }
 
-        // 통화 기록 남기
-        CallData.getInstance().setCallReceiverID(trainerId);
-        CallData.getInstance().setCallReceiverName(name_data);
-        Toast.makeText(PopupTrainerInfoActivity.this, "CallData에 저장"+trainerId, Toast.LENGTH_LONG).show();
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                Log.e("gettraineronline", "popup info gettraineronline onFailure: 실패!");
+            }
+        });
+
     }
 
     @Override
@@ -364,6 +376,10 @@ public class PopupTrainerInfoActivity extends BaseActivity {
     private void startCall(boolean isVideoCall) {
         Log.d("popup_trainer_info", "startCall()");
         Log.d("qbid", "startCall: " + trainer_qb_id);
+
+        ServerComm serverComm = new ServerComm();
+        serverComm.init();
+        serverComm.setTrainerOffline(trainerId, this);
 
         Integer trainerID = Integer.parseInt(trainer_qb_id);
         ArrayList<QBUser> trainer_qb_data = new ArrayList<>();

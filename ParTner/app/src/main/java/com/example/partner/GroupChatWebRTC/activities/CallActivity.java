@@ -38,6 +38,8 @@ import com.example.partner.GroupChatWebRTC.utils.SettingsUtil;
 import com.example.partner.GroupChatWebRTC.utils.UsersUtils;
 import com.example.partner.GroupChatWebRTC.utils.WebRtcSessionManager;
 import com.example.partner.R;
+import com.example.partner.ServerComm;
+import com.example.partner.SharedPreferenceData;
 import com.quickblox.chat.QBChatService;
 import com.quickblox.users.model.QBUser;
 import com.quickblox.videochat.webrtc.AppRTCAudioManager;
@@ -404,6 +406,9 @@ public class CallActivity extends BaseActivity implements QBRTCClientSessionCall
 
     public void rejectCurrentSession() {
         if (getCurrentSession() != null) {
+            ServerComm serverComm = new ServerComm();
+            serverComm.init();
+            serverComm.setTrainerOnline(SharedPreferenceData.getId(this), this);
             getCurrentSession().rejectCall(new HashMap<String, String>());
         }
     }

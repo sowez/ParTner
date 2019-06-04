@@ -105,8 +105,7 @@ public class PopupTrainFinishedActivity extends BaseActivity {
 //
 //            Call<JsonObject> createCallHistory = retrofitCommnunication.postCallHistory(callData);
 
-
-
+            
             // 통화 하고 평가했다 것을 표시기
             CallData.getInstance().setCalled(false);
 

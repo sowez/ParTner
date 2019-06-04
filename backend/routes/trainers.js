@@ -162,4 +162,30 @@ router.post('/qb/id', function(req, res, next){
   });
 });
 
+/* offline 변경 */
+
+router.post('/offline', function(req, res, next){
+  console.log(req.body.id)
+  trainerModel.findOneAndUpdate({id:req.body.id}, {state:"offline"}, function(err,trainer){
+    if(err) console.log(err)
+    res.json({"result":"success"});
+  });
+});
+
+/* online 변경 */
+
+router.post('/online', function(req, res, next){
+  trainerModel.findOneAndUpdate({id:req.body.id}, {state:"online"}, function(err,trainer){
+    if(err) console.log(err)
+    res.json({"result":"success"});
+  });
+});
+
+router.get('/state/:id', function(req, res, next){
+  trainerModel.findOne({id:req.params.id}, function(err, trainer){
+    if(err) console.log(err)
+    res.json({"result":trainer.state});
+  })
+});
+
 module.exports = router;

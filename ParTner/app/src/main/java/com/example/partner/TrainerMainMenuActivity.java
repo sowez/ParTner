@@ -54,7 +54,7 @@ import retrofit2.Response;
 
 public class TrainerMainMenuActivity extends BaseActivity {
 
-    private Context context = this;
+    private Context context = TrainerMainMenuActivity.this;
 
     private String TAG = "TAG";
     private Toolbar mToolbar;
@@ -349,12 +349,14 @@ public class TrainerMainMenuActivity extends BaseActivity {
             public void btnLogout() {
                 Log.d(TAG, "btnLevel btnlogout");
 
+                /*영상통화 로그아웃 */
                 SubscribeService.unSubscribeFromPushes(context);
                 CallService.logout(context);
                 removeAllUserData();
 
-                JsonObject t_id = new JsonObject();
-                t_id.addProperty("trainerID", SharedPreferenceData.getId(context));
+                ServerComm serverComm = new ServerComm();
+                serverComm.init();
+                serverComm.setTrainerOffline(SharedPreferenceData.getId(context), context);
 
                 SharedPreferenceData.clearUserData(context);
                 Toast.makeText(context, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show();
@@ -363,26 +365,6 @@ public class TrainerMainMenuActivity extends BaseActivity {
                 startActivity(intent);
                 finish();
 
-//                ServerComm.init().trainerOffline(t_id).enqueue(new Callback<JsonObject>() {
-//                    @Override
-//                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-//                        if (response.body().get("result").equals("success")) {
-//                            SharedPreferenceData.clearUserData(context);
-//                            Toast.makeText(context, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show();
-//                            isMenuShow = false;
-//                            Intent intent = new Intent(context, LoginActivity.class);
-//                            startActivity(intent);
-//                            finish();
-//                        } else{
-//                            Log.d(TAG, "onResponse: 실패 ");
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<JsonObject> call, Throwable t) {
-//
-//                    }
-//                });
             }
 
             @Override
