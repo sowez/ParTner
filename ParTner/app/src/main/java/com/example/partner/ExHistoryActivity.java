@@ -131,11 +131,12 @@ public class ExHistoryActivity extends AppCompatActivity {
         String today = dateFormat.format(new Date());
         String year = today.split("-")[0];
         String month = today.split("-")[1];
-        Log.d("ExHistoryActivityyy", "<< " + month + "월 >>");
-        Log.d("ExHistoryActivityyy", "id: " + id);
+
+        Log.d("ExHistoryActivityyy", "<< "+month+"월 >>");
         id = SharedPreferenceData.getId(this);
-        searchTraining(id, year, month);
-        searchCall(id, year, month);
+        Log.d("ExHistoryActivityyy", "id: "+id);
+        searchTraining(id,year,month);
+        searchCall(id,year,month);
 
         // Recycler View 설정
         recyclerView = (RecyclerView) findViewById(R.id.rv_calendar);

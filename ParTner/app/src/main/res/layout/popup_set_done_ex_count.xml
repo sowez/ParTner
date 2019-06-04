@@ -40,6 +40,35 @@
             android:textColor="@color/titleTextColor"
             android:textSize="20sp"
             />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="#FFFFFF">
+        <TextView
+            android:id="@+id/tv_done_ex_accuracy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="정확도: "
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/tv_done_ex_accuracy_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:textColor="@color/titleTextColor"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/tv_done_ex_accuracy_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="%"
+            android:textColor="@color/titleTextColor"
+            android:textSize="20sp"
+            />
 
     </LinearLayout>
 

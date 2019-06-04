@@ -32,21 +32,21 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class DrawView extends View {
 
-    public static final int COLOR_TOP = Color.parseColor("#980000");
-    public static final int COLOR_NECK = Color.parseColor("#ff0000");
-    public static final int COLOR_RSHOULDER = Color.parseColor("#ff9900");
-    public static final int COLOR_RELBOW = Color.parseColor("#ffff00");
-    public static final int COLOR_RWRIST = Color.parseColor("#00ff00");
-    public static final int COLOR_LSHOULDER = Color.parseColor("#00ffff");
-    public static final int COLOR_LELBOW = Color.parseColor("#4a86e8");
-    public static final int COLOR_LWRIST = Color.parseColor("#0000ff");
-    public static final int COLOR_RHIP = Color.parseColor("#9900ff");
-    public static final int COLOR_RKNEE = Color.parseColor("#274e13");
-    public static final int COLOR_RANKLE = Color.parseColor("#e6b8af");
-    public static final int COLOR_LHIP = Color.parseColor("#0c343d");
-    public static final int COLOR_LKNEE = Color.parseColor("#1c4587");
-    public static final int COLOR_LANKLE = Color.parseColor("#073763");
-    public static final int COLOR_BACKGROUND = Color.parseColor("#20124d");
+    public static final int COLOR_TOP = Color.parseColor("#000000");
+    public static final int COLOR_NECK = Color.parseColor("#000000");
+    public static final int COLOR_RSHOULDER = Color.parseColor("#000000");
+    public static final int COLOR_RELBOW = Color.parseColor("#000000");
+    public static final int COLOR_RWRIST = Color.parseColor("#00ff00"); // 초록
+    public static final int COLOR_LSHOULDER = Color.parseColor("#000000");
+    public static final int COLOR_LELBOW = Color.parseColor("#000000");
+    public static final int COLOR_LWRIST = Color.parseColor("#0000ff"); // 파랑
+    public static final int COLOR_RHIP = Color.parseColor("#000000");
+    public static final int COLOR_RKNEE = Color.parseColor("#00ff00");
+    public static final int COLOR_RANKLE = Color.parseColor("#000000");
+    public static final int COLOR_LHIP = Color.parseColor("#000000");
+    public static final int COLOR_LKNEE = Color.parseColor("#0000ff");
+    public static final int COLOR_LANKLE = Color.parseColor("#000000");
+    public static final int COLOR_BACKGROUND = Color.parseColor("#000000");
 
     private int mRatioWidth = 0;
     private int mRatioHeight = 0;
@@ -142,7 +142,7 @@ public class DrawView extends View {
         canvas.drawColor(Color.TRANSPARENT);
 
 //        for (PointF pointF : mDrawPoint) {
-        for (int colorIndex = 0;colorIndex<13;colorIndex++){
+        for (int colorIndex = 0;colorIndex<=13;colorIndex++){
 //            if (pointF.x == 0 && pointF.y == 0) {
 //                colorIndex++;
 //                continue;
