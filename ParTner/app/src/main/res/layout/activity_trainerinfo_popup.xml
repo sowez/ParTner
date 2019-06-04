@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="사용자 이름"
-            android:textColor="#585858"
+            android:textColor="@color/color_ParTner_main"
             android:textSize="18sp" />
 
         <TextView

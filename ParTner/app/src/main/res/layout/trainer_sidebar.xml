@@ -82,7 +82,7 @@
                 android:layout_marginRight="10dp"
                 android:text="home"
                 android:drawableRight="@drawable/icons_home"
-                android:background="#FFFFFF"
+                android:background="#00000000"
                 android:textColor="#202735"/>
 
             <FrameLayout
@@ -104,7 +104,7 @@
                 android:layout_marginRight="10dp"
                 android:text="통화 기록 조회"
                 android:drawableRight="@drawable/icons_rightarrow"
-                android:background="#FFFFFF"
+                android:background="#00000000"
                 android:textColor="#202735"/>
 
             <FrameLayout
@@ -126,7 +126,7 @@
                 android:layout_marginRight="10dp"
                 android:text="로그아웃"
                 android:drawableRight="@drawable/icons_rightarrow"
-                android:background="#FFFFFF"
+                android:background="#00000000"
                 android:textColor="#202735"/>
 
             <FrameLayout
@@ -148,7 +148,7 @@
                 android:layout_marginRight="10dp"
                 android:drawableRight="@drawable/icons_setting"
                 android:text="설정"
-                android:background="#FFFFFF"
+                android:background="#00000000"
                 android:textColor="#202735"/>
 
             <FrameLayout
