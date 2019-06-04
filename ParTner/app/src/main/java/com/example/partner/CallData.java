@@ -1,12 +1,19 @@
 package com.example.partner;
 
+import java.util.Date;
+
 public class CallData {
 
     private boolean Called;
     private String callReceiverID;
     private String callReceiverName;
     private long callTime;
+
     private boolean trainerBookmarked;
+
+    private Date start_time;
+    private Date end_time;
+
 
 
     public boolean isCalled() {
@@ -39,6 +46,22 @@ public class CallData {
 
     public void setCallTime(long callTime) {
         this.callTime = callTime;
+    }
+
+    public Date getStart_time() {
+        return start_time;
+    }
+
+    public void setStart_time(Date start_time) {
+        this.start_time = start_time;
+    }
+
+    public Date getEnd_time() {
+        return end_time;
+    }
+
+    public void setEnd_time(Date end_time) {
+        this.end_time = end_time;
     }
 
     private static CallData instance = null;

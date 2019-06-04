@@ -5,18 +5,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CallHistory {
+    private String trainer_id;
+    private String user_id;
     private Date start_time;
     private Date end_time;
-    private Integer call_duration;
-    private String trainer;
-    private String user;
+    private long call_duration;
 
-    public CallHistory(Date start_time, Date end_time, Integer call_duration, String trainer, String user) {
+    public CallHistory(String trainer_id, String user_id, Date start_time, Date end_time, long call_duration) {
+        this.trainer_id = trainer_id;
+        this.user_id = user_id;
         this.start_time = start_time;
         this.end_time = end_time;
         this.call_duration = call_duration;
-        this.trainer = trainer;
-        this.user = user;
     }
 
     public Date getDate() {
@@ -28,6 +28,22 @@ public class CallHistory {
             e.printStackTrace();
         }
         return date;
+    }
+
+    public String getTrainer_id() {
+        return trainer_id;
+    }
+
+    public void setTrainer_id(String trainer_id) {
+        this.trainer_id = trainer_id;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
     public Date getStart_time() {
@@ -46,27 +62,11 @@ public class CallHistory {
         this.end_time = end_time;
     }
 
-    public Integer getCall_duration() {
+    public long getCall_duration() {
         return call_duration;
     }
 
-    public void setCall_duration(Integer call_duration) {
+    public void setCall_duration(long call_duration) {
         this.call_duration = call_duration;
-    }
-
-    public String getTrainer() {
-        return trainer;
-    }
-
-    public void setTrainer(String trainer) {
-        this.trainer = trainer;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
     }
 }

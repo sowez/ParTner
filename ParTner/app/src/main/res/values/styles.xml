@@ -121,5 +121,8 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="EditTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/colorMoreTurbid</item>
+    </style>
 
 </resources>

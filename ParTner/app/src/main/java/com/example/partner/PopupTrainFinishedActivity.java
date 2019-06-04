@@ -120,6 +120,24 @@ public class PopupTrainFinishedActivity extends BaseActivity {
             });
 
 
+            // ID로 주면 오류 발생, 일단은 Name으로 줌.
+            CallHistory callHistory = new CallHistory(CallData.getInstance().getCallReceiverName(), SharedPreferenceData.getId(this), CallData.getInstance().getStart_time(), CallData.getInstance().getEnd_time(), CallData.getInstance().getCallTime());
+
+            Call<JsonObject> createCallHistory = retrofitCommnunication.postCallHistory(callHistory);
+            createCallHistory.enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    Log.d("callHistory", response.body().toString());
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    Toast.makeText(PopupTrainFinishedActivity.this, "통화 기 실패", Toast.LENGTH_LONG)
+                            .show();
+                    Log.e("TAG", "onFailure: " + t.getMessage());
+                }
+            });
+
             // 통화 하고 평가했다 것을 표시기
             CallData.getInstance().setCalled(false);
 

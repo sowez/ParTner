@@ -96,7 +96,9 @@
         <activity android:name=".UserSignUpActivity"/>
         <activity android:name=".TrainerMainMenuActivity"/>
         <activity android:name=".UserMainMenuActivity"/>
-        <activity android:name=".TrainerListActivity"/>
+        <activity
+            android:name=".TrainerListActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:name=".TrainerProfileEditActivity"/>
         <activity android:name=".TrainerCallHistoryActivity"/>
         <activity android:name=".PopupTrainerInfoActivity" android:theme="@style/popupTheme"/>

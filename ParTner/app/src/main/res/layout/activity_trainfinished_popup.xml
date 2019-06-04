@@ -138,7 +138,7 @@
             android:id="@+id/call_btn"
             android:layout_width="match_parent"
             android:layout_height="53dp"
-            android:background="#F8B03A"
+            android:background="@color/colorTurbid"
             android:gravity="center"
             android:padding="16dp"
             android:text="확인"

@@ -14,90 +14,116 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="이름"/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="이름" />
+
     <EditText
         android:id="@+id/edit_name"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:theme="@style/EditTheme" />
 
     <!--자기소개-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:paddingTop="10dp"
         android:text="프로필" />
+
     <EditText
         android:id="@+id/edit_intro"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:gravity="top"
         android:inputType="text|textMultiLine"
-        android:minLines="3" />
+        android:minLines="3"
+        android:theme="@style/EditTheme" />
 
-    <!--분야 요가 근력운동 필라테스 스트레칭-->
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:text="운동 분야" />
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="요가" />
+        android:layout_margin="20dp">
 
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="근력운동" />
-
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="필라테스" />
-
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="스트레칭" />
-
-
-
-    <!--성별-->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:text="성별" />
-    <RadioGroup
-        android:id="@+id/radioGroup1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <RadioButton
-            android:id="@+id/man"
+        <!--분야 요가 근력운동 필라테스 스트레칭-->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="남자" />
+            android:paddingTop="10dp"
+            android:text="운동 분야" />
 
-        <RadioButton
-            android:id="@+id/woman"
+        <CheckBox
+            android:id="@+id/checkBox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="여자" />
+            android:text="요가" />
 
-    </RadioGroup>
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="근력운동" />
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="필라테스" />
+
+        <CheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="스트레칭" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+
+        <!--성별-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="성별" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/man"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="남자" />
+
+            <RadioButton
+                android:id="@+id/woman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="여자" />
+
+        </RadioGroup>
+
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/profile_edit_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="프로필 수정하기"
-        />
+        android:layout_margin="20dp"
+        android:text="프로필 수정하기" />
 
 
 </LinearLayout>

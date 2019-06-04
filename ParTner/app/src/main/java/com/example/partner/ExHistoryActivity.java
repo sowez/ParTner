@@ -115,7 +115,7 @@ public class ExHistoryActivity extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        callHistories.add(new CallHistory(start, end, 20, "트레이너2", "운동인1"));
+        callHistories.add(new CallHistory("트레이너2", "운동인1", start, end, 20));
 
         try {
             start = timeFormat.parse("2019-05-17 13:27");
@@ -123,7 +123,7 @@ public class ExHistoryActivity extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        callHistories.add(new CallHistory(start, end, 20, "트레이너1", "운동인1"));
+        callHistories.add(new CallHistory("트레이너1", "운동인1", start, end, 20));
 
         // --------------------------------------
 
@@ -249,7 +249,7 @@ public class ExHistoryActivity extends AppCompatActivity {
         for (CallHistory hist : callHistories) {
             String histDate = df.format(hist.getDate());
             if (histDate.equals(thisDate)) {
-                histories.add(new History(0, hist.getDate(), hist.getStart_time(), hist.getTrainer(), hist.getCall_duration()));
+                histories.add(new History(0, hist.getDate(), hist.getStart_time(), hist.getTrainer_id(), (int)hist.getCall_duration()));
             }
         }
         Collections.sort(histories, new Comparator<History>() {

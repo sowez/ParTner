@@ -39,7 +39,7 @@
                 android:id="@+id/profile_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#3EFF9800"
+                android:background="@color/colorMoreTurbid"
                 android:elevation="4dp"
                 android:paddingBottom="24dp">
 

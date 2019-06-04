@@ -23,7 +23,8 @@
         <EditText
             android:id="@+id/id_input"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:theme="@style/EditTheme"/>
 
     </LinearLayout>
 
@@ -41,7 +42,8 @@
         <EditText
             android:id="@+id/pw_input"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:theme="@style/EditTheme"/>
 
     </LinearLayout>
 
@@ -58,7 +60,8 @@
         <EditText
             android:id="@+id/name_input"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:theme="@style/EditTheme"/>
 
     </LinearLayout>
 

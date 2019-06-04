@@ -183,7 +183,7 @@ public class TrainerMainMenuActivity extends BaseActivity {
                 selfIntroduction.setText(trainerProfile.getSelf_introduction());
                 trainingType.setText(traintypeList);
                 gender.setText(trainerProfile.getSex());
-                mRating.setRating(trainerProfile.getStar_rate());
+                mRating.setRating(trainerProfile.getStar_rate()/trainerProfile.getStar_rate_num());
 
                 imgpath = trainerProfile.getProfileImg();
                 ServerComm serverComm = new ServerComm();

@@ -62,6 +62,30 @@ router.post('/trainhistory/create', function(req, res, next){
     res.json({'result': 'saved'})
 });
 
+// GET Call History List
+router.get('/callhitory/list', function(req, res, next) {
+
+    if(req.query.status == "trainer") {
+        callHistModel.find({ trainer_id: req.query.id }, function (err, histories) { 
+            if (err) {
+                return res.status(500).send({ error: 'databasefailure' });
+            }
+            console.log(histories);
+            res.send(histories);
+        })
+    }
+    else {
+        callHistModel.find({ user_id: req.query.id }, function (err, histories) { 
+            if (err) {
+                return res.status(500).send({ error: 'databasefailure' });
+            }
+            console.log(histories);
+            res.send(histories);
+        })
+    }
+
+});
+
 // POST Call History
 router.post('/callhistory/create', function(req, res, next) {
     var callhistory  = new callHistModel({

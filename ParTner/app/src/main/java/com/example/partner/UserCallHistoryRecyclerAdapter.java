@@ -5,25 +5,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class TrainerCallHistoryRecyclerAdapter extends RecyclerView.Adapter<TrainerCallHistoryRecyclerAdapter.MyViewHolder> {
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+public class UserCallHistoryRecyclerAdapter extends RecyclerView.Adapter<UserCallHistoryRecyclerAdapter.MyViewHolder> {
 
     private List<CallHistory> listData = new ArrayList<>();
 
-    public TrainerCallHistoryRecyclerAdapter(List<CallHistory> list) {
+    public UserCallHistoryRecyclerAdapter(List<CallHistory> list) {
         this.listData = list;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.username.setText(listData.get(position).getUser_id());
+    public void onBindViewHolder(@NonNull UserCallHistoryRecyclerAdapter.MyViewHolder holder, int position) {
+        holder.username.setText(listData.get(position).getTrainer_id());
         holder.time.setText(Long.toString(listData.get(position).getCall_duration()));
 
         SimpleDateFormat dateFormat = new  SimpleDateFormat("yyyy년 MM월 dd일 HH:mm:ss");
@@ -38,9 +37,9 @@ public class TrainerCallHistoryRecyclerAdapter extends RecyclerView.Adapter<Trai
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public UserCallHistoryRecyclerAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.callhistory_view,parent,false);
-        return new MyViewHolder(view);
+        return new UserCallHistoryRecyclerAdapter.MyViewHolder(view);
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
@@ -56,4 +55,3 @@ public class TrainerCallHistoryRecyclerAdapter extends RecyclerView.Adapter<Trai
         }
     }
 }
-

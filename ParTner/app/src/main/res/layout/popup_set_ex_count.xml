@@ -13,7 +13,7 @@
         android:textColor="#ffffff"
         android:textSize="25sp"
         android:text="Exercise"
-        android:background="@color/colorAccent"/>
+        android:background="@color/colorMain"/>
 
     <View
         android:layout_width="match_parent"

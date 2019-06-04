@@ -149,7 +149,7 @@ router.post('/starrate', function (req, res, next) {
       return res.status(500).send({ error: 'databasefailure' });
     }
     console.log(trainer);
-    res.json({ "editresult": "success" });
+    res.json({ "starrate": "success" });
     
   });
 });

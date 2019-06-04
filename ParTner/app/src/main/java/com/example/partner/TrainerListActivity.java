@@ -176,11 +176,6 @@ public class TrainerListActivity extends AppCompatActivity {
         super.onResume();
         search(name, trainType, gender);
 
-        if(CallData.getInstance().isCalled()) {
-            Intent intent = new Intent(context, PopupTrainFinishedActivity.class);
-            startActivity(intent);
-        }
-
     }
 
 
