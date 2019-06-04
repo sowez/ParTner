@@ -96,6 +96,7 @@ public class PopupTrainFinishedActivity extends BaseActivity {
             });
 
 
+            // ID로 주면 오류 발생, 일단은 Name으로 줌.
             CallHistory callHistory = new CallHistory(CallData.getInstance().getCallReceiverName(), SharedPreferenceData.getId(this), CallData.getInstance().getStart_time(), CallData.getInstance().getEnd_time(), CallData.getInstance().getCallTime());
 
             Call<JsonObject> createCallHistory = retrofitCommnunication.postCallHistory(callHistory);

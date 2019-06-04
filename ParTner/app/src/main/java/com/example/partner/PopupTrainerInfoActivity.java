@@ -145,6 +145,10 @@ public class PopupTrainerInfoActivity extends BaseActivity {
             callBtn.setBackgroundColor(Color.rgb(72,72,72));
         }
 
+        CallData.getInstance().setCallReceiverID(trainerId);
+        CallData.getInstance().setCallReceiverName(name_data);
+        Toast.makeText(PopupTrainerInfoActivity.this, "CallData에 저장"+trainerId, Toast.LENGTH_LONG).show();
+
         RetrofitCommnunication retrofitcomm = ServerComm.init();
         bookmarkBtn.setOnClickListener(v -> {
             if(bookmarkBtn.isChecked()){
@@ -255,9 +259,6 @@ public class PopupTrainerInfoActivity extends BaseActivity {
         startSignUpNewUser(createUserWithEnteredData());
 
         // 통화 기록 남기
-        CallData.getInstance().setCallReceiverID(trainerId);
-        CallData.getInstance().setCallReceiverName(name_data);
-        Toast.makeText(PopupTrainerInfoActivity.this, "CallData에 저장"+trainerId, Toast.LENGTH_LONG).show();
     }
 
     @Override
