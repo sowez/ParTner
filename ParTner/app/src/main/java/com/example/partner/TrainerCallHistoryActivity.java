@@ -23,11 +23,19 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.partner.GroupChatWebRTC.activities.BaseActivity;
+import com.example.partner.GroupChatWebRTC.services.CallService;
+import com.example.partner.GroupChatWebRTC.utils.UsersUtils;
+import com.quickblox.core.QBEntityCallback;
+import com.quickblox.core.exception.QBResponseException;
+import com.quickblox.messages.services.SubscribeService;
+import com.quickblox.users.model.QBUser;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TrainerCallHistoryActivity extends AppCompatActivity {
+public class TrainerCallHistoryActivity extends BaseActivity {
 
     private Toolbar mToolbar;
 
@@ -45,10 +53,14 @@ public class TrainerCallHistoryActivity extends AppCompatActivity {
 
     private ImageButton menu_btn;
 
+    private QBUser currentUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trainer_call_history);
+
+        currentUser = sharedPrefsHelper.getQbUser();
 
         // Toolbar 설정
         mToolbar = (Toolbar) findViewById(R.id.menu_toolBar);
@@ -71,16 +83,6 @@ public class TrainerCallHistoryActivity extends AppCompatActivity {
         );
         recyclerView.setLayoutManager(linearLayoutManager);
 
-//        Date from = new Date();
-//        Date to = new Date();
-//
-//        // 통화 기록 데이터 추가
-//        ArrayList<CallHistory> callHistories = new ArrayList<>();
-//        callHistories.add(new CallHistory("도경수", "강동원", from, to, new Integer(33)));
-//        callHistories.add(new CallHistory("도경수", "이혁재", from, to, new Integer(34)));
-//        callHistories.add(new CallHistory("도경수", "이승기", from, to, new Integer(35)));
-//        callHistories.add(new CallHistory("도경수", "이홍기", from, to, new Integer(36)));
-
         ServerComm serverComm = new ServerComm();
         RetrofitCommnunication retrofitCommnunication = serverComm.init();
 
@@ -102,16 +104,7 @@ public class TrainerCallHistoryActivity extends AppCompatActivity {
                 Log.e("TAG", "onFailure: " + t.getMessage() );
             }
         });
-
-
-
     }
-
-    private void setRecyclerView() {
-
-
-    }
-
 
     @Override
     protected void onStop() {
@@ -122,11 +115,31 @@ public class TrainerCallHistoryActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         if (!SharedPreferenceData.getAutologinChecked(this)) {
             SharedPreferenceData.clearUserData(this);
         }
+    }
+
+    @Override
+    protected View getSnackbarAnchorView()  {
+        return findViewById(R.id.trainer_call_history);
+    }
+
+    private void removeAllUserData() {
+        UsersUtils.removeUserData(getApplicationContext());
+        requestExecutor.deleteCurrentUser(currentUser.getId(), new QBEntityCallback<Void>() {
+            @Override
+            public void onSuccess(Void aVoid, Bundle bundle) {
+                Log.d("removeuser", "Current user was deleted from QB");
+            }
+
+            @Override
+            public void onError(QBResponseException e) {
+                Log.e("removeuser", "Current user wasn't deleted from QB " + e);
+            }
+        });
     }
 
     @Override
@@ -188,6 +201,14 @@ public class TrainerCallHistoryActivity extends AppCompatActivity {
 
             @Override
             public void btnLogout() {
+
+                SubscribeService.unSubscribeFromPushes(context);
+                CallService.logout(context);
+                removeAllUserData();
+
+                ServerComm serverComm = new ServerComm();
+                serverComm.init();
+                serverComm.setTrainerOffline(SharedPreferenceData.getId(context), context);
 
                 SharedPreferenceData.clearUserData(context);
                 Toast.makeText(context, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show();
