@@ -1,6 +1,7 @@
 package com.example.partner;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -23,16 +24,20 @@ import com.quickblox.users.model.QBUser;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 import android.widget.ToggleButton;
 
 public class PopupTrainFinishedActivity extends BaseActivity {
 
-    private TextView trainTime;
-    private TextView trainerName;
+    private Context context = PopupTrainFinishedActivity.this;
+
+    private TextView textView_trainTime;
+    private TextView textView_trainerName;
     private RatingBar mRating;
     private ToggleButton favorites;
 
     private String trainerID;
+    private String trainerName;
     private long exerciseTime;
 
     //영상통화
@@ -45,18 +50,37 @@ public class PopupTrainFinishedActivity extends BaseActivity {
         //타이틀바 없애기
         setContentView(R.layout.activity_trainfinished_popup);
 
-        trainTime = (TextView) findViewById(R.id.popup_finish_training_time);
-        trainerName = (TextView) findViewById(R.id.popup_finish_trainer_name);
+        textView_trainTime = (TextView) findViewById(R.id.popup_finish_training_time);
+        textView_trainerName = (TextView) findViewById(R.id.popup_finish_trainer_name);
         mRating = (RatingBar) findViewById(R.id.popup_finish_ratingbar);
         favorites = (ToggleButton) findViewById(R.id.popup_finish_bookmark);
+        if(CallData.getInstance().getTrainerBookmarked()){
+            favorites.setChecked(true);
+            favorites.setBackgroundDrawable(getResources().getDrawable(R.drawable.icons_star_filled));
+        }
 
-        trainerID = CallData.getInstance().getCallReceiverName();
+        trainerID = CallData.getInstance().getCallReceiverID();
+        trainerName = CallData.getInstance().getCallReceiverName();
         exerciseTime = CallData.getInstance().getCallTime();
 
-        trainerName.setText(trainerID);
-        trainTime.setText(Long.toString(exerciseTime));
+        textView_trainerName.setText(trainerName);
+        textView_trainTime.setText(Long.toString(exerciseTime));
 
         currentUser = sharedPrefsHelper.getQbUser();
+
+        favorites.setOnClickListener(v -> {
+            if (favorites.isChecked()) {
+                favorites.setBackgroundDrawable(getResources().getDrawable(R.drawable.icons_star_filled));
+                ServerComm serverComm = new ServerComm();
+                serverComm.init();
+                serverComm.updateSportsmanBookmarkList(SharedPreferenceData.getId(this), trainerID, context);
+            } else {
+                favorites.setBackgroundDrawable(getResources().getDrawable(R.drawable.icons_star));
+                ServerComm serverComm = new ServerComm();
+                serverComm.init();
+                serverComm.deleteSportsmanBookmarkList(SharedPreferenceData.getId(this), trainerID, context);
+            }
+        });
 
     }
 
@@ -96,16 +120,6 @@ public class PopupTrainFinishedActivity extends BaseActivity {
             });
 
 
-//            JsonObject callData = new JsonObject();
-//            callData.addProperty("trainer_id", trainerID);
-//            callData.addProperty("user_id", mRating.getRating());
-//            callData.addProperty("start_time", trainerID);
-//            callData.addProperty("end_time", mRating.getRating());
-//            callData.addProperty("call_duration", mRating.getRating());
-//
-//            Call<JsonObject> createCallHistory = retrofitCommnunication.postCallHistory(callData);
-
-            
             // 통화 하고 평가했다 것을 표시기
             CallData.getInstance().setCalled(false);
 
@@ -122,7 +136,7 @@ public class PopupTrainFinishedActivity extends BaseActivity {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //바깥레이어 클릭시 안닫히게
-        if(event.getAction()==MotionEvent.ACTION_OUTSIDE){
+        if (event.getAction() == MotionEvent.ACTION_OUTSIDE) {
             return false;
         }
         return true;

@@ -54,7 +54,7 @@ public class UserBookmarkActivity extends AppCompatActivity {
         getBookmark();
     }
 
-    private void init(){
+    private void init() {
         // Toolbar 설정
         mToolbar = (Toolbar) findViewById(R.id.menu_toolBar);
         setSupportActionBar(mToolbar);
@@ -80,7 +80,7 @@ public class UserBookmarkActivity extends AppCompatActivity {
         addSideBar();
     }
 
-    public void getBookmark(){
+    public void getBookmark() {
 
         RetrofitCommnunication retrofitcomm = ServerComm.init();
 
@@ -88,8 +88,10 @@ public class UserBookmarkActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<TrainerProfile>> call, Response<List<TrainerProfile>> response) {
                 List<TrainerProfile> trainerProfiles = response.body();
-                for(int i = 0; i<trainerProfiles.size();i++){
-                    trainerProfiles.get(i).setBookmarked(true);
+                if (trainerProfiles.size() > 0) {
+                    for (int i = 0; i < trainerProfiles.size(); i++) {
+                        trainerProfiles.get(i).setBookmarked(true);
+                    }
                 }
                 recyclerAdapter = new TrainerListRecyclerAdapter(trainerProfiles);
                 recyclerView.setAdapter(recyclerAdapter);
@@ -102,6 +104,7 @@ public class UserBookmarkActivity extends AppCompatActivity {
         });
 
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -125,7 +128,7 @@ public class UserBookmarkActivity extends AppCompatActivity {
         } else {
 
             if (isExitFlag) {
-                if(!SharedPreferenceData.getAutologinChecked(this)){
+                if (!SharedPreferenceData.getAutologinChecked(this)) {
                     SharedPreferenceData.clearUserData(this);
                 }
                 finish();

@@ -6,6 +6,7 @@ public class CallData {
     private String callReceiverID;
     private String callReceiverName;
     private long callTime;
+    private boolean trainerBookmarked;
 
 
     public boolean isCalled() {
@@ -21,7 +22,7 @@ public class CallData {
     }
 
     public void setCallReceiverID(String callReceiver) {
-        this.callReceiverID = callReceiverID;
+        this.callReceiverID = callReceiver;
     }
 
     public String getCallReceiverName() {
@@ -41,6 +42,10 @@ public class CallData {
     }
 
     private static CallData instance = null;
+
+    public void setTrainerBookmarked(boolean checked){this.trainerBookmarked = checked;}
+
+    public boolean getTrainerBookmarked(){return this.trainerBookmarked; }
 
 
     public static synchronized CallData getInstance(){
