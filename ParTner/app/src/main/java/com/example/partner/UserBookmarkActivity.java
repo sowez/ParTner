@@ -90,7 +90,9 @@ public class UserBookmarkActivity extends AppCompatActivity {
                 List<TrainerProfile> trainerProfiles = response.body();
                 if (trainerProfiles.size() > 0) {
                     for (int i = 0; i < trainerProfiles.size(); i++) {
-                        trainerProfiles.get(i).setBookmarked(true);
+                        if (trainerProfiles.get(i) != null) {
+                            trainerProfiles.get(i).setBookmarked(true);
+                        }
                     }
                 }
                 recyclerAdapter = new TrainerListRecyclerAdapter(trainerProfiles);
