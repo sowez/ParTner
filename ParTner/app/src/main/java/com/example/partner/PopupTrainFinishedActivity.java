@@ -11,14 +11,21 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.partner.GroupChatWebRTC.activities.BaseActivity;
+import com.example.partner.GroupChatWebRTC.services.CallService;
+import com.example.partner.GroupChatWebRTC.utils.UsersUtils;
 import com.google.gson.JsonObject;
+import com.quickblox.core.QBEntityCallback;
+import com.quickblox.core.exception.QBResponseException;
+import com.quickblox.messages.services.SubscribeService;
+import com.quickblox.users.model.QBUser;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import android.widget.ToggleButton;
 
-public class PopupTrainFinishedActivity extends Activity {
+public class PopupTrainFinishedActivity extends BaseActivity {
 
     private TextView trainTime;
     private TextView trainerName;
@@ -28,11 +35,14 @@ public class PopupTrainFinishedActivity extends Activity {
     private String trainerID;
     private long exerciseTime;
 
+    //영상통화
+    private QBUser currentUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         //타이틀바 없애기
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_trainfinished_popup);
 
         trainTime = (TextView) findViewById(R.id.popup_finish_training_time);
@@ -46,6 +56,13 @@ public class PopupTrainFinishedActivity extends Activity {
         trainerName.setText(trainerID);
         trainTime.setText(Long.toString(exerciseTime));
 
+        currentUser = sharedPrefsHelper.getQbUser();
+
+    }
+
+    @Override
+    protected View getSnackbarAnchorView() {
+        return findViewById(R.id.id_popup_user_train_finish);
     }
 
     public void mOk(View v) {
@@ -89,11 +106,15 @@ public class PopupTrainFinishedActivity extends Activity {
 //            Call<JsonObject> createCallHistory = retrofitCommnunication.postCallHistory(callData);
 
 
+
             // 통화 하고 평가했다 것을 표시기
             CallData.getInstance().setCalled(false);
 
             // 평가 안하면 안닫히도록
             if (mRating.getRating() > 0) {
+                SubscribeService.unSubscribeFromPushes(this);
+                CallService.logout(this);
+                removeAllUserData();
                 finish();
             }
         }
@@ -112,5 +133,20 @@ public class PopupTrainFinishedActivity extends Activity {
     public void onBackPressed() {
         //안드로이드 백버튼 막기
         return;
+    }
+
+    private void removeAllUserData() {
+        UsersUtils.removeUserData(getApplicationContext());
+        requestExecutor.deleteCurrentUser(currentUser.getId(), new QBEntityCallback<Void>() {
+            @Override
+            public void onSuccess(Void aVoid, Bundle bundle) {
+                Log.d("popupfinish", "Current user was deleted from QB");
+            }
+
+            @Override
+            public void onError(QBResponseException e) {
+                Log.e("popupfinish", "Current user wasn't deleted from QB " + e);
+            }
+        });
     }
 }
