@@ -10,22 +10,25 @@
         layout="@layout/toolbar"/>
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_marginTop="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/user_id"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="아이디" />
+            android:hint="아이디"
+            android:theme="@style/EditTheme" />
 
         <Button
             android:id="@+id/btn_userid_overlap_check"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="아이디 중복 체크"/>
+            android:layout_height="wrap_content"
+            android:text="아이디 중복 체크" />
 
     </LinearLayout>
 
@@ -33,25 +36,33 @@
         android:id="@+id/user_pw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="250dp"
+        android:layout_marginRight="20dp"
+        android:hint="비밀번호"
         android:inputType="textPassword"
-        android:hint="비밀번호" />
+        android:theme="@style/EditTheme" />
 
     <EditText
         android:id="@+id/user_pw_check"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="300dp"
+        android:layout_marginRight="20dp"
+        android:hint="비밀번호 재입력"
         android:inputType="textPassword"
-        android:hint="비밀번호 재입력" />
+        android:theme="@style/EditTheme" />
 
 
     <RadioGroup
         android:id="@+id/user_sex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="350dp">
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/user_male"
@@ -70,8 +81,11 @@
         android:id="@+id/user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="400dp"
-        android:hint="이름" />
+        android:layout_marginRight="20dp"
+        android:hint="이름"
+        android:theme="@style/EditTheme" />
 
     <Button
         android:id="@+id/btn_user_signup"

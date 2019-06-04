@@ -16,7 +16,7 @@
 -->
 <resources>
 
-    <color name="colorPrimary">#F8B03A</color>
+    <color name="colorPrimary">#5D66BA</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#D81B60</color>
 
@@ -113,5 +113,9 @@
     <color name="text_color_other_inc_users">#1f1f1f</color>
     <color name="text_color_caller_name">#1f1f1f</color>
 
+
+    <color name="colorMain">#0011B9</color>
+    <color name="colorTurbid">#5D66BA</color>
+    <color name="colorMoreTurbid">#9599BA</color>
 
 </resources>
