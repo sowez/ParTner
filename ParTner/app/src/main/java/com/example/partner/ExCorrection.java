@@ -33,7 +33,6 @@ public class ExCorrection {
         jJCorrectionContents.add(6, "발을 벌려주세요");
         jJCorrectionContents.add(7, "뛰어주세요");
         jJCorrectionContents.add(8, "");
-//        jJCorrectionContents.add(9,  "발을 벌려주세요");
         jJCorrectionContents.add(9, "운동을 시작하세요");
 
 
@@ -57,7 +56,16 @@ public class ExCorrection {
     }
     public ArrayList<String> getFlankCorrectionContents() {
         ArrayList<String> flankCorrectionContents = new ArrayList<>();
-        flankCorrectionContents.add("");
+        flankCorrectionContents.add(0, "화면 안으로 들어오세요");
+        flankCorrectionContents.add(1, "고개를 내리지 마세요");
+        flankCorrectionContents.add(2, "고개를 올리지 마세요");
+        flankCorrectionContents.add(3, "엉덩이를 내리지 마세요");
+        flankCorrectionContents.add(4, "엉덩이를 올리지 마세요");
+        flankCorrectionContents.add(5, "다리를 구부리지 마세요");
+        flankCorrectionContents.add(6, "팔을 구부리지 마세요");
+        flankCorrectionContents.add(7, "조금 더 앉으세요");
+        flankCorrectionContents.add(8, "무릎이 발보다 많이 나오지 않게 하세요");
+        flankCorrectionContents.add(9, "운동을 시작하세요");
 
         return flankCorrectionContents;
     }

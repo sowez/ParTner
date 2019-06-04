@@ -64,7 +64,6 @@ public class JumpingJack extends Exercise {
         //팔 각도 150~180도 || 0~50도
         //다리
         ArrayList<Integer> res = new ArrayList<>();
-        int headState = 0;//0:아래, 1: 위
 
         PointNAngle pointNAngle = new PointNAngle(super.dpPoint);
         res = checkBasicErr(pointNAngle);
@@ -218,12 +217,11 @@ public class JumpingJack extends Exercise {
         }
     }
 
-    // getter setter
+    @Override
+    public int getSteps() { return 2; }
     public float[][] getPoint() {
         return point;
     }
-
-    public int getSteps() { return 2; }
     public void setPoint(float[][] point) {
         this.point = point;
     }
