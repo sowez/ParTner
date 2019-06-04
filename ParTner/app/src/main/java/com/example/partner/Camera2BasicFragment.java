@@ -140,6 +140,9 @@ public class Camera2BasicFragment extends Fragment
     public static final int READY_BOUND = 15;
     public static final int RESET_STEP_BOUND = 70;
     public TextToSpeech tts;
+    private ArrayList<Integer> errorHistory = new ArrayList<>();
+    private double exAccuracy;
+    private int[] exResult = {0,0};
 
     /**
      * Max preview width that is guaranteed by Camera2 API
@@ -535,7 +538,8 @@ public class Camera2BasicFragment extends Fragment
         if (exerciseCounter != 0)
             postHist();
         closeCamera();
-        ExEndPopup popup = new ExEndPopup(getActivity(), exType, exerciseCounter, new ExEndPopup.PopupEventListener() {
+        exAccuracy = ((double)exResult[0]/((double)exResult[0]+(double)exResult[1]))*100;
+        ExEndPopup popup = new ExEndPopup(getActivity(), exType, exerciseCounter, exAccuracy, new ExEndPopup.PopupEventListener() {
             @Override
             public void popupEvent(String result) {
                 if (result.equals("selectEx")){
@@ -988,7 +992,10 @@ public class Camera2BasicFragment extends Fragment
                     });
         }
     }
-
+    boolean isStart = false;
+    long flankTime = 0;
+    long lastTime = 0;
+    int lastExCounter = 0;
     private void startEx(ArrayList<Integer> isStepDone) {
         final Activity activity = getActivity();
         if (activity != null) {
@@ -1001,26 +1008,77 @@ public class Camera2BasicFragment extends Fragment
                                 if (isStepDone.get(0)==1){
                                     Log.d("Exercise", "다음 step으로");
                                     resetStepCounter = 0;
-//                                personImg.setImageResource(img_green);
-                                    exerciseStep++;
-                                    if(exerciseStep == endStep){
-                                        exerciseCounter++;
-                                        CountSpeak(exerciseCounter);
-                                        if (exerciseCounter == exCount)
-                                            endEx();
-                                        else
-                                            exerciseStep = 0;
+                                    exResult[0]++;
+                                    if(exType==1){
+                                        //시간 운동일 때
+                                        if(isStart==false){
+                                            //전에가 잘못된 자세였다면
+                                            isStart = true;
+                                            lastTime = System.currentTimeMillis();
+                                        }else{
+                                            //전에 잘된 자세였다면 전시각과 현재시각의 차이를 flankTime에 넣고 step에 추가
+                                            flankTime = (System.currentTimeMillis()-lastTime);
+                                            exerciseStep +=flankTime;
+                                            lastTime = System.currentTimeMillis();
+                                            Log.d("flank", lastTime+", "+flankTime);
+                                            //step이 1000(1초) 이상이라면
+                                            if (exerciseStep >= endStep) {
+                                                //count 증가시키기
+                                                exerciseCounter++;
+                                                if(exType==1){
+                                                    if(exerciseCounter%5==0) CountSpeak(exerciseCounter);
+                                                }
+                                                else CountSpeak(exerciseCounter);
+                                                if (exerciseCounter >= exCount)
+                                                    endEx();
+                                                else
+                                                    exerciseStep -= endStep;
+                                            }
+                                        }
                                     }
+                                    else{
+                                        //횟수 운동일 때
+                                        exerciseStep++;
+                                        if (exerciseStep >= endStep) {
+                                            exerciseCounter++;
+                                            CountSpeak(exerciseCounter);
+                                            if (exerciseCounter >= exCount)
+                                                endEx();
+                                            else
+                                                exerciseStep -= endStep;
+                                        }
+                                    }
+
+
                                 }
                                 else if (isStepDone.get(0) == -1){
-                                    Log.d("Exercise", "step 못 넘어감");
+                                    Log.d("Exercise", "step 못 넘어감"+ isStepDone.get(1));
+                                    if(isStepDone.size()>1) errorHistory.add(isStepDone.get(1));
+                                    if(exType==1) {
+                                        isStart = false;
+                                    }
                                     // 너무 오랫동안 다음 Step으로 못넘어가는 경우 Step 초기화
                                     if (++resetStepCounter > RESET_STEP_BOUND){
-                                        Log.d("error", isStepDone.get(0)+""+isStepDone.get(1));
-                                        showToast("error: "+ isStepDone.get(1));
-                                        ErrorSpeak(isStepDone.get(1));
+                                        exResult[1]++;
                                         exerciseStep = 0;
                                         resetStepCounter = 0;
+
+                                        //가장 많았던 오류 찾기
+                                        int[] errorList = new int[10];
+                                        int maxNum = 0;
+                                        int maxWhi = -1;
+                                        for(int i=0;i<10;i++)errorList[i]=0;
+                                        for(int i=0;i<errorHistory.size();i++){
+                                            errorList[errorHistory.get(i)]++;
+                                        }
+                                        for(int i=0;i<10;i++){
+                                            if(errorList[i]>maxNum) {
+                                                maxNum = errorList[i];
+                                                maxWhi=i;
+                                            }
+                                        }
+                                        errorHistory.clear();
+                                        ErrorSpeak(maxWhi);
                                     }
                                 } else if (isStepDone.get(0) == -2){
                                     // 바로 피드백 해주는 오류
@@ -1050,7 +1108,6 @@ public class Camera2BasicFragment extends Fragment
 
     @Override
     public void onInit(int i) {
-//        tts.speak(" 이니",TextToSpeech.QUEUE_FLUSH,null);
     }
 
     private void ErrorSpeak(int i) {

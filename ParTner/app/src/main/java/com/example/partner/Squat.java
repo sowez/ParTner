@@ -288,7 +288,6 @@ public class Squat extends Exercise {
             this.dpPoint.add(new PointF(0,100));  // -> dpPoint(16)
 
             setDpPoint(this.dpPoint);
-
             this.anklePoint = dpPoint.get(10);
 
             // 오른쪽 엉덩이-무릎-발목 사이의 각도 구하기
