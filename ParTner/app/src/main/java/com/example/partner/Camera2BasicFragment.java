@@ -123,7 +123,7 @@ public class Camera2BasicFragment extends Fragment
     private int nowWidth;
 
     private Button btn_endEx;
-    private Button btn_changeView;
+    private ImageView btn_changeView;
     private String mCameraFacing="1";
 
     private String start_time;
@@ -1097,6 +1097,7 @@ public class Camera2BasicFragment extends Fragment
                                     }
                                 } else if (isStepDone.get(0) == -2){
                                     // 바로 피드백 해주는 오류
+                                    exResult[1]++;
                                     ErrorSpeak(isStepDone.get(1));
                                     exerciseStep = 0;
                                     resetStepCounter = 0;

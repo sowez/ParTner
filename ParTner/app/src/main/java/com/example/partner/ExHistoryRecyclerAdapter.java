@@ -29,21 +29,28 @@ public class ExHistoryRecyclerAdapter extends RecyclerView.Adapter<ExHistoryRecy
         int gettype = histories.get(position).getType();
         if (gettype == 0){
             String text1 = "'"+histories.get(position).getName()+"'님과의 영상통화";
-            String text2 = histories.get(position).getCount() + "분";
+            String text2 = histories.get(position).getCount() + "초";
             holder.tv_name.setText(text1);
             holder.tv_count.setText(text2);
+            holder.iv_exIcon.setImageResource(R.drawable.icon_training);
         }
         else{
             String text;
-            if (gettype == 1)
+            if (gettype == 1){
                 text = histories.get(position).getCount() + "초";
-            else
+                holder.iv_exIcon.setImageResource(R.drawable.icon_flank);
+            }
+            else if (gettype == 2){
                 text = histories.get(position).getCount() + "회";
+                holder.iv_exIcon.setImageResource(R.drawable.icon_squat);
+            }
+            else {
+                text = histories.get(position).getCount() + "회";
+                holder.iv_exIcon.setImageResource(R.drawable.icon_jumpingjack);
+            }
             holder.tv_name.setText(histType[histories.get(position).getType()]);
             holder.tv_count.setText(text);
         }
-
-        // 종류에 따라 이미지도 바꿔주기
     }
 
     @Override
