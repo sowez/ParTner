@@ -8,6 +8,7 @@ public class TrainerProfile {
     private String pw;
     private String sex;
     private String name;
+    private String token;
     private String self_introduction;
     private Integer star_rate;
     private Integer star_rate_num;
@@ -18,12 +19,13 @@ public class TrainerProfile {
     private boolean isBookmarked = false;
     private String qb_id;
 
-    public TrainerProfile(String _id, String id, String pw, String sex, String name, String self_introduction, Integer star_rate, Integer star_rate_num, ArrayList<String> training_type, ArrayList<CallHistory> call_history, String state, String profileImg, String qb_id) {
+    public TrainerProfile(String _id, String id, String pw, String sex, String name, String token, String self_introduction, Integer star_rate, Integer star_rate_num, ArrayList<String> training_type, ArrayList<CallHistory> call_history, String state, String profileImg, String qb_id) {
         this._id = _id;
         this.id = id;
         this.pw = pw;
         this.sex = sex;
         this.name = name;
+        this.token = token;
         this.self_introduction = self_introduction;
         this.star_rate = star_rate;
         this.star_rate_num = star_rate_num;

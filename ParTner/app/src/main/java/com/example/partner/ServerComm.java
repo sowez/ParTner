@@ -82,6 +82,25 @@ public class ServerComm {
         return retrofitCommnunication;
     }
 
+    public void userLogout(String id){
+        JsonObject logoutdata = new JsonObject();
+        logoutdata.addProperty("id", id);
+        retrofitCommnunication.logout(logoutdata).enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                JsonObject res = response.body();
+                if(res.get("result").equals("logout_success")){
+                    Log.d("logout", "servercomm logout onResponse: 로그아웃성공");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+            }
+        });
+    }
+
     public void postUploadImg(File profileImg, String trainerId, Context context) {
 
         Log.d(TAG, "postUploadImg: profileIMG > " + profileImg.getAbsolutePath());
