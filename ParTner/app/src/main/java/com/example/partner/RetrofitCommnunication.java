@@ -39,6 +39,9 @@ public interface RetrofitCommnunication {
     @POST("/users/login")
     Single<JsonObject> login(@Body JsonObject logindata);
 
+    @POST("/users/logout")
+    Call<JsonObject> logout(@Body JsonObject logoutdata);
+
     @GET("/trainers/list/{userId}/{trainerName}")
     Call<JsonObject> trainerList( @Path("userId") String id, @Path("trainerName") String name, @Query("traintype") String traintype, @Query("sex") String sex);
 

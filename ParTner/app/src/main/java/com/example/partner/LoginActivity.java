@@ -102,11 +102,15 @@ public class LoginActivity extends BaseActivity {
                     Log.d(TAG, "onClickLogin: " + loginResult);
                     switch (loginResult) {
                         case "fail": {
-                            Toast.makeText(this, "로그인에 실패하였습니다.아이디 또는 비밀번호를 다시 한번 입력해 주세요", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "로그인에 실패하였습니다. 아이디 또는 비밀번호를 다시 한번 입력해 주세요", Toast.LENGTH_SHORT).show();
                             break;
                         }
                         case "diffrent": {
                             Toast.makeText(this, "비밀번호가 일치하지않습니다.", Toast.LENGTH_SHORT).show();
+                            break;
+                        }
+                        case "login_exist":{
+                            Toast.makeText(this, "이미 로그인중인 아이디 입니다.", Toast.LENGTH_SHORT).show();
                             break;
                         }
                         case "login_success": {

@@ -18,6 +18,10 @@ const trainerSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    token: {
+        type: String,
+        default: ""
+    },
     training_type: {
         type: [String,]
     },

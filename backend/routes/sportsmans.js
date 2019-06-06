@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
 
 router.get('/bookmark/:id', function (req, res, next) {
   console.log(req.params);
-  var trainers = new Array();
+
   var sportsmanID = req.params.id;
   sportsmanModel.findOne({ id: sportsmanID }).populate('trainer_bookmark').exec((err, data) => {
     if (err) {
