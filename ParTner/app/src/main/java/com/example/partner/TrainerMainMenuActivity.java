@@ -208,7 +208,8 @@ public class TrainerMainMenuActivity extends BaseActivity {
                     gender.setText("여성");
                 }
 
-                mRating.setRating(trainerProfile.getStar_rate()/trainerProfile.getStar_rate_num());
+                float rating = (float)trainerProfile.getStar_rate()/(float)trainerProfile.getStar_rate_num();
+                mRating.setRating(rating);
 
                 imgpath = trainerProfile.getProfileImg();
                 ServerComm serverComm = new ServerComm();

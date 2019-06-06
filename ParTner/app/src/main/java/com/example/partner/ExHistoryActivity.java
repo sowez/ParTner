@@ -190,8 +190,7 @@ public class ExHistoryActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<TrainingHistory>> call, Throwable t) {
-                Toast.makeText(ExHistoryActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG)
-                        .show();
+                Toast.makeText(ExHistoryActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG).show();
                 Log.e("TAG", "onFailure: " + t.getMessage());
             }
         });
@@ -200,7 +199,21 @@ public class ExHistoryActivity extends AppCompatActivity {
 
     private void searchCall(String id, String year, String month) {
         // response 결과로
-        //        setDots();
+        if (trainingHistories.size() != 0)
+            trainingHistories.clear();
+        ServerComm.init().getCallHistory(id, SharedPreferenceData.getType(context)).enqueue(new Callback<List<CallHistory>>() {
+            @Override
+            public void onResponse(Call<List<CallHistory>> call, Response<List<CallHistory>> response) {
+                callHistories = response.body();
+                setDots();
+            }
+
+            @Override
+            public void onFailure(Call<List<CallHistory>> call, Throwable t) {
+                Toast.makeText(ExHistoryActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG).show();
+                Log.e("TAG", "onFailure: " + t.getMessage());
+            }
+        });
     }
 
     private void setDots() {

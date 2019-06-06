@@ -62,7 +62,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginRight="20dp"
         android:textColor="@color/white"
-        android:backgroundTint="#0011B9"
+        android:backgroundTint="@color/colorTurbid"
         android:text="로그인" />
 
     <Button
@@ -72,7 +72,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:textColor="@color/white"
-        android:backgroundTint="#0011B9"
+        android:backgroundTint="@color/colorTurbid"
         android:text="회원가입" />
 
     <Button

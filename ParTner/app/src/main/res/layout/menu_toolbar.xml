@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?attr/actionBarSize"
-    android:background="@color/color_ParTner_main">
+    android:background="@color/colorTurbid">
 
     <ImageButton
         android:id="@+id/toolbar_menu_btn"
