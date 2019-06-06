@@ -12,7 +12,25 @@ public class Flank extends Exercise{
 
     private float[][] point;
 
-    public Flank(int exCount){ super(exCount); }
+    private double flankDifficulty = 0.0;
+
+    public Flank(int exCount, int difficulty){
+        super(exCount);
+        switch (difficulty){
+            case 0: // super easy
+                flankDifficulty = 0.2;
+                break;
+            case 1: // easy
+                flankDifficulty = 0.1;
+                break;
+            case 2: // default
+                flankDifficulty = 0.0;
+                break;
+            case 3: // hard
+                flankDifficulty = -0.1;
+                break;
+        }
+    }
 
     @Override
     public boolean checkReady(){
@@ -23,23 +41,9 @@ public class Flank extends Exercise{
             return false;
         }
 
-        //head-neck-shoulder-hip은 180도도
-        //hip-knee-ankle은 90도
-        //shoulder-elbow-wrist 90도
-//        double hnsAngle = getAngle(1,0,1,2);
-//        double nshAngle = getAngle(2,1,2,8);
-//        double hkaAngle = getAngle(9,8,9,10);
-//        double sewAngle = getAngle(3,2,3,4);
-
-//        if(hnsAngle>=110 && hnsAngle <=180 &&
-//            nshAngle>=110 && nshAngle<= 180
-//            && hkaAngle>=40 && hkaAngle<=110 &&
-//            sewAngle>=40 && hkaAngle<=110)
-//            isReady=true;
-
-        if(pointNAngle.headAngle>=70 && pointNAngle.headAngle<=110
-                && pointNAngle.legAngle>=60 && pointNAngle.legAngle<=120
-                && pointNAngle.armAngle>=60 && pointNAngle.armAngle<=120)
+        if(pointNAngle.headAngle>=70*(1-flankDifficulty) && pointNAngle.headAngle<=110*(1+flankDifficulty)
+                && pointNAngle.legAngle>=60*(1-flankDifficulty) && pointNAngle.legAngle<=120*(1+flankDifficulty)
+                && pointNAngle.armAngle>=60*(1-flankDifficulty) && pointNAngle.armAngle<=120*(1+flankDifficulty))
            return true;
         Log.d("flank", pointNAngle.headAngle+","+pointNAngle.legAngle+","+pointNAngle.armAngle);
 
@@ -63,35 +67,35 @@ public class Flank extends Exercise{
             return res;
         }
 
-        if(pointNAngle.headAngle<=75){
+        if(pointNAngle.headAngle<=80*(1-flankDifficulty)){
             res.add(-1);
             res.add(1);
             return res;
         }
-        else if(pointNAngle.headAngle>=120){
+        else if(pointNAngle.headAngle>=105*(1+flankDifficulty)){
             res.add(-1);
             res.add(2);
             return res;
         }
 
-        if(pointNAngle.hipAngle<=75) {
+        if(pointNAngle.hipAngle<=80*(1-flankDifficulty)) {
             res.add(-1);
             res.add(3);
             return res;
         }
-        else if(pointNAngle.hipAngle>=105){
+        else if(pointNAngle.hipAngle>=105*(1+flankDifficulty)){
             res.add(-1);
             res.add(4);
             return res;
         }
 
-        if(pointNAngle.legAngle<=150){
+        if(pointNAngle.legAngle<=160*(1-flankDifficulty)){
             res.add(-1);
             res.add(5);
             return res;
         }
 
-        if(pointNAngle.armAngle<=50 || pointNAngle.armAngle >= 140) {
+        if(pointNAngle.armAngle<=60*(1-flankDifficulty) || pointNAngle.armAngle >= 120*(1+flankDifficulty)) {
             res.add(-1);
             res.add(6);
             return res;

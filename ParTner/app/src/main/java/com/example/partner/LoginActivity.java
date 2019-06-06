@@ -41,7 +41,7 @@ public class LoginActivity extends BaseActivity {
     private String TAG = "TAG";
 
     private EditText login_id, login_pw;
-    private Button loginButton, signupButton, nextButton;
+    private Button loginButton, signupButton;
     private CheckBox autologinCheck;
 
     private Context context = LoginActivity.this;
@@ -70,16 +70,10 @@ public class LoginActivity extends BaseActivity {
 
         loginButton = (Button) findViewById(R.id.loginbutton);
         signupButton = (Button) findViewById(R.id.signupbutton);
-        nextButton = (Button) findViewById(R.id.next);
         loginButton.setOnClickListener(this::onClickLogin);
         signupButton.setOnClickListener(view -> {
             Intent intent = new Intent(this, SignUpActivity.class);
             startActivity(intent);
-        });
-        nextButton.setOnClickListener(view -> {
-            Intent intent = new Intent(this, UserMainMenuActivity.class);
-            startActivity(intent);
-            finish();
         });
     }
 

@@ -75,13 +75,5 @@
         android:backgroundTint="@color/colorTurbid"
         android:text="회원가입" />
 
-    <Button
-        android:id="@+id/next"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="next" />
-
 
 </LinearLayout>
