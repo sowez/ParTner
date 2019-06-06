@@ -72,6 +72,7 @@ public class TrainerMainMenuActivity extends BaseActivity {
     private RatingBar mRating;
     private ImageView profileImg;
     private ImageView editImage;
+    private ImageView refreshBtn;
     private ImageButton menu_btn;
     private TextView name;
     private TextView selfIntroduction;
@@ -139,6 +140,11 @@ public class TrainerMainMenuActivity extends BaseActivity {
         selfIntroduction = (TextView) findViewById(R.id.self_introduction);
         trainingType = (TextView) findViewById(R.id.training_type);
         gender = (TextView) findViewById(R.id.sex);
+
+        refreshBtn = findViewById(R.id.refresh);
+        refreshBtn.setOnClickListener(v -> {
+            getProfile();
+        });
 
 
         editImage.setOnClickListener(view -> {

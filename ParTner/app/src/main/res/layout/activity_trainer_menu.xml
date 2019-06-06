@@ -44,6 +44,17 @@
                 android:paddingBottom="24dp">
 
                 <ImageView
+                    android:id="@+id/refresh"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:clickable="true"
+                    android:src="@drawable/icons_refresh" />
+
+                <ImageView
                     android:id="@+id/edit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
