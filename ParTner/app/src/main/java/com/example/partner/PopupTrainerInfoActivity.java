@@ -25,7 +25,6 @@ import com.example.partner.Core.utils.SharedPrefsHelper;
 import com.example.partner.Core.utils.Toaster;
 import com.example.partner.GroupChatWebRTC.activities.BaseActivity;
 import com.example.partner.GroupChatWebRTC.activities.CallActivity;
-import com.example.partner.GroupChatWebRTC.activities.OpponentsActivity;
 import com.example.partner.GroupChatWebRTC.activities.PermissionsActivity;
 import com.example.partner.GroupChatWebRTC.db.QbUsersDbManager;
 import com.example.partner.GroupChatWebRTC.services.CallService;
@@ -53,7 +52,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -142,7 +140,9 @@ public class PopupTrainerInfoActivity extends BaseActivity {
         String trainer_state = intent.getStringExtra("state");
         if(trainer_state.equals("offline")){
             callBtn.setClickable(false);
-            callBtn.setBackgroundColor(Color.rgb(72,72,72));
+            callBtn.setBackgroundColor(Color.rgb(210,210,210));
+            callBtn.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.call_gray),null,null,null);
+
         }
 
         CallData.getInstance().setCallReceiverID(trainerId);

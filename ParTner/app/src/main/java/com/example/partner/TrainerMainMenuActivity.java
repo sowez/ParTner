@@ -175,15 +175,41 @@ public class TrainerMainMenuActivity extends BaseActivity {
                 Log.i("Received", trainerProfile.getStar_rate().toString());
 
                 String traintypeList = "";
+                String temp="";
+
                 for (int i = 0; i < trainerProfile.getTraining_type().size(); i++) {
-                    traintypeList = traintypeList + trainerProfile.getTraining_type().get(i) + " ";
+                    switch (trainerProfile.getTraining_type().get(i)){
+                        case "stretching":{
+                            temp = "스트레칭";
+                            break;
+                        }
+                        case "pilates":{
+                            temp="필라테스";
+                            break;
+                        }
+                        case "muscle":{
+                            temp="근력운동";
+                            break;
+                        }
+                        case "yoga":{
+                            temp="요가";
+                            break;
+                        }
+                    }
+                    traintypeList = traintypeList + temp + " ";
                     traintypeArrayList.add(trainerProfile.getTraining_type().get(i));
                 }
                 name.setText(trainerProfile.getName());
                 selfIntroduction.setText(trainerProfile.getSelf_introduction());
                 trainingType.setText(traintypeList);
-                gender.setText(trainerProfile.getSex());
-                mRating.setRating(trainerProfile.getStar_rate()/trainerProfile.getStar_rate_num());
+                if(trainerProfile.getSex().equals("male")){
+                    gender.setText("남성");
+                }else{
+                    gender.setText("여성");
+                }
+
+                float rating = (float)trainerProfile.getStar_rate()/(float)trainerProfile.getStar_rate_num();
+                mRating.setRating(rating);
 
                 imgpath = trainerProfile.getProfileImg();
                 ServerComm serverComm = new ServerComm();

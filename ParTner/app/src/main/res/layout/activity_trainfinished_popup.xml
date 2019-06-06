@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="00"
-                android:textColor="#49b82c"
+                android:textColor="@color/color_ParTner_main"
                 android:textSize="18sp" />
 
             <TextView
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="( 이름 )"
-                android:textColor="#49b82c"
+                android:textColor="@color/color_ParTner_main"
                 android:textSize="18sp" />
 
             <TextView
@@ -90,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/ll1"
+            android:theme="@style/RatingBar"
             android:rating="0"
             android:stepSize="1" />
 

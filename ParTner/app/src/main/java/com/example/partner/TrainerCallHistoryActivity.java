@@ -23,9 +23,14 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.partner.Core.utils.SharedPrefsHelper;
 import com.example.partner.GroupChatWebRTC.activities.BaseActivity;
+import com.example.partner.GroupChatWebRTC.activities.CallActivity;
+import com.example.partner.GroupChatWebRTC.db.QbUsersDbManager;
 import com.example.partner.GroupChatWebRTC.services.CallService;
+import com.example.partner.GroupChatWebRTC.utils.Consts;
 import com.example.partner.GroupChatWebRTC.utils.UsersUtils;
+import com.example.partner.GroupChatWebRTC.utils.WebRtcSessionManager;
 import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.messages.services.SubscribeService;
@@ -53,7 +58,11 @@ public class TrainerCallHistoryActivity extends BaseActivity {
 
     private ImageButton menu_btn;
 
+    // 영상통화
     private QBUser currentUser;
+    private QbUsersDbManager dbManager;
+    private boolean isRunForCall;
+    private WebRtcSessionManager webRtcSessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +70,8 @@ public class TrainerCallHistoryActivity extends BaseActivity {
         setContentView(R.layout.activity_trainer_call_history);
 
         currentUser = sharedPrefsHelper.getQbUser();
+        initFields();
+        startLoadUsers();
 
         // Toolbar 설정
         mToolbar = (Toolbar) findViewById(R.id.menu_toolBar);
@@ -107,24 +118,50 @@ public class TrainerCallHistoryActivity extends BaseActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        if (!SharedPreferenceData.getAutologinChecked(this)) {
-            SharedPreferenceData.clearUserData(this);
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (!SharedPreferenceData.getAutologinChecked(this)) {
-            SharedPreferenceData.clearUserData(this);
-        }
-    }
-
-    @Override
     protected View getSnackbarAnchorView()  {
         return findViewById(R.id.trainer_call_history);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (intent.getExtras() != null) {
+            isRunForCall = intent.getExtras().getBoolean(Consts.EXTRA_IS_STARTED_FOR_CALL);
+            if (isRunForCall && webRtcSessionManager.getCurrentSession() != null) {
+                CallActivity.start(context, true);
+            }
+        }
+    }
+
+    private void initFields() {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            isRunForCall = extras.getBoolean(Consts.EXTRA_IS_STARTED_FOR_CALL);
+        }
+
+        currentUser = sharedPrefsHelper.getQbUser();
+        dbManager = QbUsersDbManager.getInstance(getApplicationContext());
+        webRtcSessionManager = WebRtcSessionManager.getInstance(getApplicationContext());
+    }
+
+    private void startLoadUsers() {
+        String currentRoomName = SharedPrefsHelper.getInstance().get(Consts.PREF_CURREN_ROOM_NAME);
+        requestExecutor.loadUsersByTag(currentRoomName, new QBEntityCallback<ArrayList<QBUser>>() {
+            @Override
+            public void onSuccess(ArrayList<QBUser> result, Bundle params) {
+                dbManager.saveAllUsers(result, true);
+            }
+
+            @Override
+            public void onError(QBResponseException responseException) {
+                showErrorSnackbar(R.string.loading_users_error, responseException, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startLoadUsers();
+                    }
+                });
+            }
+        });
     }
 
     private void removeAllUserData() {
@@ -141,6 +178,23 @@ public class TrainerCallHistoryActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (!SharedPreferenceData.getAutologinChecked(this)) {
+            SharedPreferenceData.clearUserData(this);
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (!SharedPreferenceData.getAutologinChecked(this)) {
+            SharedPreferenceData.clearUserData(this);
+        }
+    }
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

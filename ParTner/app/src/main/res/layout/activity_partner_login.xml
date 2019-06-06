@@ -14,12 +14,21 @@
         android:layout_height="wrap_content"
         layout="@layout/toolbar"/>
 
+    <ImageView
+        android:layout_height="100dp"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/partner_logo"/>
+
     <EditText
         android:id="@+id/login_id"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="150dp"
         android:layout_marginRight="20dp"
         android:hint="ID"
         android:theme="@style/EditTheme" />
@@ -41,6 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:theme="@style/CheckTheme"
+        android:backgroundTint="#0011B9"
         android:text="자동로그인" />
 
     <Button
@@ -50,6 +61,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="24dp"
         android:layout_marginRight="20dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/colorTurbid"
         android:text="로그인" />
 
     <Button
@@ -58,6 +71,8 @@
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/colorTurbid"
         android:text="회원가입" />
 
     <Button

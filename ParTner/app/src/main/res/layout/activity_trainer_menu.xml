@@ -72,6 +72,7 @@
                     android:layout_below="@+id/name"
                     android:layout_centerHorizontal="true"
                     android:isIndicator="true"
+                    android:theme="@style/RatingBar"
                     android:rating="3"
                     android:stepSize="0.5" />
 

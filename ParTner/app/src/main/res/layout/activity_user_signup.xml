@@ -28,6 +28,8 @@
             android:id="@+id/btn_userid_overlap_check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/color_ParTner_sub"
+            android:textColor="@color/white"
             android:text="아이디 중복 체크" />
 
     </LinearLayout>
@@ -68,12 +70,14 @@
             android:id="@+id/user_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:theme="@style/CheckTheme"
             android:text="남성" />
 
         <RadioButton
             android:id="@+id/user_female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:theme="@style/CheckTheme"
             android:text="여성" />
     </RadioGroup>
 
@@ -93,6 +97,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="450dp"
+        android:backgroundTint="@color/color_ParTner_sub"
+        android:textColor="@color/white"
         android:text="회원가입 완료!" />
 
 

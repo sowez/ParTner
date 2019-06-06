@@ -44,6 +44,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:backgroundTint="@color/color_ParTner_main"
+            android:theme="@style/RatingBar"
             android:rating="3"
             android:clickable="false"
             android:stepSize="0.5" />
@@ -55,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="사용자 이름"
-            android:textColor="#585858"
+            android:textColor="@color/color_ParTner_main"
             android:textSize="18sp" />
 
         <TextView
@@ -100,6 +102,7 @@
             android:gravity="center"
             android:padding="16dp"
             android:text="통화 연결"
+            android:drawableLeft="@drawable/call_green"
             android:textColor="#000000"
             android:textSize="15sp"
             android:onClick="mOnClose"/>
