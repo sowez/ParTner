@@ -1007,6 +1007,7 @@ public class Camera2BasicFragment extends Fragment
                         public void run() {
                             personImg.setVisibility(View.INVISIBLE);
                             if (!isStepDone.isEmpty()){
+                                if(exerciseCounter>=exCount) return;
                                 if (isStepDone.get(0)==1){
                                     Log.d("Exercise", "다음 step으로");
                                     resetStepCounter = 0;
@@ -1031,7 +1032,7 @@ public class Camera2BasicFragment extends Fragment
                                                     if(exerciseCounter%5==0) CountSpeak(exerciseCounter);
                                                 }
                                                 else CountSpeak(exerciseCounter);
-                                                if (exerciseCounter >= exCount)
+                                                if (exerciseCounter == exCount)
                                                     endEx();
                                                 else
                                                     exerciseStep -= endStep;
@@ -1084,6 +1085,7 @@ public class Camera2BasicFragment extends Fragment
                                     }
                                 } else if (isStepDone.get(0) == -2){
                                     // 바로 피드백 해주는 오류
+                                    exResult[1]++;
                                     ErrorSpeak(isStepDone.get(1));
                                     exerciseStep = 0;
                                     resetStepCounter = 0;

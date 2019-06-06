@@ -139,7 +139,7 @@ public class Squat extends Exercise {
         int legState;
         if (pointNAngle.legAngle2 >= 160)
             legState = 0;
-        else if (pointNAngle.legAngle2 >= 120)  // 서있는 것도, 운동중도 아닌 상태
+        else if (pointNAngle.legAngle2 >= 130)  // 서있는 것도, 운동중도 아닌 상태
             legState = -1;
         else
             legState = 1;
@@ -214,11 +214,12 @@ public class Squat extends Exercise {
             Log.d(TAG, "doExercise: step 2, ankleStart("+ankleStart.x+", "+ankleStart.y+")");
             Log.d(TAG, "doExercise: step 2, squat.anklePoint("+squat.anklePoint.x+", "+squat.anklePoint.y+")");
 
-            if (dist(ankleStart,squat.anklePoint) > 100){
+            if (dist(ankleStart,squat.anklePoint) > 300){
                 Log.d(TAG, "doExercise: step 2, 발이 움직임");
                 res.add(-2);
                 res.add(1);
-            } else if (squat.legAngle2 < squatDifficulty[0]){ // 너무 많이 앉음(err 6)
+            } else
+                if (squat.legAngle2 < squatDifficulty[0]){ // 너무 많이 앉음(err 6)
                 Log.d(TAG, "doExercise: step 2, 너무 많이 앉음");
                 res.add(-2);
                 res.add(6);
