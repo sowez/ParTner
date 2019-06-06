@@ -54,7 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/partner_logo_backwhite" />
+                android:background="@drawable/partner_logo2" />
+
 
 
         </FrameLayout>

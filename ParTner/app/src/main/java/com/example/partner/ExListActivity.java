@@ -14,6 +14,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +26,7 @@ import com.example.partner.R;
 
 public class ExListActivity extends AppCompatActivity {
 
-    private Button btn_ex1, btn_ex2, btn_ex3;
+    private ImageView iv_ex1, iv_ex2, iv_ex3, iv_ex4, iv_ex5, iv_ex6;
     int exType = 0;
 
     // side bar
@@ -62,12 +63,18 @@ public class ExListActivity extends AppCompatActivity {
 
         addSideBar();
 
-        btn_ex1 = (Button) findViewById(R.id.btn_ex1);
-        btn_ex2 = (Button) findViewById(R.id.btn_ex2);
-        btn_ex3 = (Button) findViewById(R.id.btn_ex3);
-        btn_ex1.setOnClickListener(listner_exList);
-        btn_ex2.setOnClickListener(listner_exList);
-        btn_ex3.setOnClickListener(listner_exList);
+        iv_ex1 = (ImageView) findViewById(R.id.iv_ex1);
+        iv_ex2 = (ImageView) findViewById(R.id.iv_ex2);
+        iv_ex3 = (ImageView) findViewById(R.id.iv_ex3);
+        iv_ex4 = (ImageView) findViewById(R.id.iv_ex4);
+        iv_ex5 = (ImageView) findViewById(R.id.iv_ex5);
+        iv_ex6 = (ImageView) findViewById(R.id.iv_ex6);
+        iv_ex1.setOnClickListener(listner_exList);
+        iv_ex2.setOnClickListener(listner_exList);
+        iv_ex3.setOnClickListener(listner_exList);
+        iv_ex4.setOnClickListener(listner_comingsoon);
+        iv_ex5.setOnClickListener(listner_comingsoon);
+        iv_ex6.setOnClickListener(listner_comingsoon);
 
     }
 
@@ -75,13 +82,13 @@ public class ExListActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.btn_ex1:
+                case R.id.iv_ex1:
                     exType = 1;
                     break;
-                case R.id.btn_ex2:
+                case R.id.iv_ex2:
                     exType = 2;
                     break;
-                case R.id.btn_ex3:
+                case R.id.iv_ex3:
                     exType = 3;
                     break;
                 default:
@@ -105,6 +112,13 @@ public class ExListActivity extends AppCompatActivity {
                     }
                 }
             });
+        }
+    };
+
+    View.OnClickListener listner_comingsoon = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(context, "추후에 업데이트 될 예정입니다!", Toast.LENGTH_SHORT).show();
         }
     };
 

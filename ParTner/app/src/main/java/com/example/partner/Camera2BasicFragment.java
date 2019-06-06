@@ -123,7 +123,7 @@ public class Camera2BasicFragment extends Fragment
     private int nowWidth;
 
     private Button btn_endEx;
-    private Button btn_changeView;
+    private ImageView btn_changeView;
     private String mCameraFacing="1";
 
     private String start_time;
@@ -145,6 +145,8 @@ public class Camera2BasicFragment extends Fragment
     private ArrayList<Integer> errorHistory = new ArrayList<>();
     private double exAccuracy;
     private int[] exResult = {0,0};
+    private boolean readyTts = false;
+    private boolean exTts = false;
 
     /**
      * Max preview width that is guaranteed by Camera2 API
@@ -955,6 +957,10 @@ public class Camera2BasicFragment extends Fragment
             // 여기에서 함수 호출해서 결과값 받아서 UI 변경
             exercise.setPoint(classifier.mPrintPointArray);
             exercise.setDpPoint(drawView.mDrawPoint);
+            if(readyTts==false){
+                tts.speak("그림에 맞춰 서주세요", TextToSpeech.QUEUE_ADD,null);
+                readyTts=true;
+            }
             readyEx(exercise.checkReady());
 //            showToast("readyCounter: "+readyCounter);
         } else {
@@ -962,9 +968,14 @@ public class Camera2BasicFragment extends Fragment
             // 운동 실행하는 함수 호출
             exercise.setPoint(classifier.mPrintPointArray);
             exercise.setDpPoint(drawView.mDrawPoint);
+            if(exTts==false){
+                tts.speak("운동을 시작해 주세요", TextToSpeech.QUEUE_ADD,null);
+                exTts=true;
+            }
             startEx(exercise.doExercise(exerciseStep));
-
-            showToast("Step: "+ Integer.toString(exerciseStep)+", Count : "+Integer.toString(exerciseCounter));
+            Log.d(TAG, exerciseStep+", "+exerciseStep/100);
+            if(exType==1) showToast("Step: "+ Integer.toString((exerciseStep/100))+", Count : "+Integer.toString(exerciseCounter));
+            else showToast("Step: "+ Integer.toString(exerciseStep)+", Count : "+Integer.toString(exerciseCounter));
 //            showToast2(Double.toString(exercise.getAngle(9, 8, 9, 10)));
 //            showToast3(Double.toString(exercise.getAngle(3,2, 3, 4)));
 
@@ -1005,8 +1016,10 @@ public class Camera2BasicFragment extends Fragment
                     new Runnable() {
                         @Override
                         public void run() {
+                            if(exerciseCounter>=exCount) return;
                             personImg.setVisibility(View.INVISIBLE);
                             if (!isStepDone.isEmpty()){
+                                if(exerciseCounter>=exCount) return;
                                 if (isStepDone.get(0)==1){
                                     Log.d("Exercise", "다음 step으로");
                                     resetStepCounter = 0;
@@ -1031,7 +1044,7 @@ public class Camera2BasicFragment extends Fragment
                                                     if(exerciseCounter%5==0) CountSpeak(exerciseCounter);
                                                 }
                                                 else CountSpeak(exerciseCounter);
-                                                if (exerciseCounter >= exCount)
+                                                if (exerciseCounter == exCount)
                                                     endEx();
                                                 else
                                                     exerciseStep -= endStep;
@@ -1044,7 +1057,7 @@ public class Camera2BasicFragment extends Fragment
                                         if (exerciseStep >= endStep) {
                                             exerciseCounter++;
                                             CountSpeak(exerciseCounter);
-                                            if (exerciseCounter >= exCount)
+                                            if (exerciseCounter == exCount)
                                                 endEx();
                                             else
                                                 exerciseStep -= endStep;
@@ -1084,6 +1097,7 @@ public class Camera2BasicFragment extends Fragment
                                     }
                                 } else if (isStepDone.get(0) == -2){
                                     // 바로 피드백 해주는 오류
+                                    exResult[1]++;
                                     ErrorSpeak(isStepDone.get(1));
                                     exerciseStep = 0;
                                     resetStepCounter = 0;

@@ -34,7 +34,8 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="Exercise"
-            android:textSize="25sp" />
+            android:textColor="@color/colorMain"
+            android:textSize="30sp" />
 
         <VideoView
             android:id="@+id/vv_exPreview"
@@ -51,9 +52,11 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_alignParentBottom="true"
-            android:padding="10dp"
-            android:text="운동 시작!"
-            android:textSize="20sp" />
+            android:layout_margin="10dp"
+            android:text="운동 시작"
+            android:background="@color/colorMain"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
         </LinearLayout>
 
         <FrameLayout
