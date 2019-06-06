@@ -1043,7 +1043,7 @@ public class Camera2BasicFragment extends Fragment
                                                 //count 증가시키기
                                                 exerciseCounter++;
                                                 if(exType==1){
-                                                    if(exerciseCounter%5==0) CountSpeak(exerciseCounter);
+                                                    if(exerciseCounter<=5 || exerciseCounter%5==0)CountSpeak(exerciseCounter);
                                                 }
                                                 else CountSpeak(exerciseCounter);
                                                 if (exerciseCounter == exCount)

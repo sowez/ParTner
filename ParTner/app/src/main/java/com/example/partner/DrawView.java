@@ -141,20 +141,20 @@ public class DrawView extends View {
 
         canvas.drawColor(Color.TRANSPARENT);
 
-//        for (PointF pointF : mDrawPoint) {
-//        for (int colorIndex = 0;colorIndex<=13;colorIndex++){
-////            if (pointF.x == 0 && pointF.y == 0) {
-////                colorIndex++;
-////                continue;
-////            }
-//
-//
-//            mPaint.setColor(mColorArray[colorIndex]);
-//            canvas.drawCircle(mDrawPoint.get(colorIndex).x, mDrawPoint.get(colorIndex).y, 8, mPaint);
-//        }
+        for (PointF pointF : mDrawPoint) {
+            for (int colorIndex = 0; colorIndex <= 13; colorIndex++) {
+                if (pointF.x == 0 && pointF.y == 0) {
+                    colorIndex++;
+                    continue;
+                }
+
+                mPaint.setColor(Color.parseColor("#00ff00"));
+                canvas.drawCircle(mDrawPoint.get(colorIndex).x, mDrawPoint.get(colorIndex).y, 20, mPaint);
+            }
+        }
 
         mPaint.setColor(Color.parseColor("#00ff00"));
-        mPaint.setStrokeWidth(30);
+        mPaint.setStrokeWidth(20);
 
         if (mDrawPoint.size() <= 0)
             return;

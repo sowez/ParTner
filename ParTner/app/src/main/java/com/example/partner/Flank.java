@@ -13,6 +13,7 @@ public class Flank extends Exercise{
     private float[][] point;
 
     private double flankDifficulty = 0.0;
+    private static final String TAG = "Squat";
 
     public Flank(int exCount, int difficulty){
         super(exCount);
@@ -41,11 +42,11 @@ public class Flank extends Exercise{
             return false;
         }
 
-        if(pointNAngle.headAngle>=70*(1-flankDifficulty) && pointNAngle.headAngle<=110*(1+flankDifficulty)
-                && pointNAngle.legAngle>=60*(1-flankDifficulty) && pointNAngle.legAngle<=120*(1+flankDifficulty)
-                && pointNAngle.armAngle>=60*(1-flankDifficulty) && pointNAngle.armAngle<=120*(1+flankDifficulty))
+        if(pointNAngle.headAngle>=60*(1-flankDifficulty) && pointNAngle.headAngle<=120*(1+flankDifficulty)
+                && pointNAngle.legAngle>=50*(1-flankDifficulty) && pointNAngle.legAngle<=140*(1+flankDifficulty)
+                && pointNAngle.armAngle>=50*(1-flankDifficulty) && pointNAngle.armAngle<=140*(1+flankDifficulty))
            return true;
-        Log.d("flank", pointNAngle.headAngle+","+pointNAngle.legAngle+","+pointNAngle.armAngle);
+        Log.d(TAG, pointNAngle.headAngle+","+pointNAngle.legAngle+","+pointNAngle.armAngle);
 
         return isReady;
     }
@@ -59,7 +60,7 @@ public class Flank extends Exercise{
         ArrayList<Integer> res = new ArrayList<>();
 
         Flank.PointNAngle pointNAngle = new Flank.PointNAngle(super.dpPoint);
-        Log.d("flank", pointNAngle.headAngle+","+pointNAngle.hipAngle+","+pointNAngle.legAngle+","+pointNAngle.armAngle);
+        Log.d(TAG, pointNAngle.headAngle+","+pointNAngle.hipAngle+","+pointNAngle.legAngle+","+pointNAngle.armAngle);
 
         if(isNaN(pointNAngle.headAngle)|| isNaN(pointNAngle.hipAngle) || isNaN(pointNAngle.legAngle) || isNaN(pointNAngle.armAngle)){
             res.add(-1);
@@ -72,7 +73,7 @@ public class Flank extends Exercise{
             res.add(1);
             return res;
         }
-        else if(pointNAngle.headAngle>=105*(1+flankDifficulty)){
+        else if(pointNAngle.headAngle>=115*(1+flankDifficulty)){
             res.add(-1);
             res.add(2);
             return res;
@@ -89,13 +90,13 @@ public class Flank extends Exercise{
             return res;
         }
 
-        if(pointNAngle.legAngle<=160*(1-flankDifficulty)){
+        if(pointNAngle.legAngle<=150*(1-flankDifficulty)){
             res.add(-1);
             res.add(5);
             return res;
         }
 
-        if(pointNAngle.armAngle<=60*(1-flankDifficulty) || pointNAngle.armAngle >= 120*(1+flankDifficulty)) {
+        if(pointNAngle.armAngle<=60*(1-flankDifficulty) || pointNAngle.armAngle >= 135*(1+flankDifficulty)) {
             res.add(-1);
             res.add(6);
             return res;

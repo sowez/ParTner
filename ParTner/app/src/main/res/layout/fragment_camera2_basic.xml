@@ -57,13 +57,15 @@
         android:paddingEnd="0dp">
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/btn_endEx"
+            android:layout_width="127dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="63dp"
+            android:layout_marginBottom="50dp"
+            android:backgroundTint="@color/black_transparent_30"
             android:text="운동 끝"
-            android:id="@+id/btn_endEx"/>
+            android:textSize="25dp" />
 
         <ImageView
             android:id="@+id/btn_changeView"

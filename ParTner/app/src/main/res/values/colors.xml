@@ -90,7 +90,7 @@
     <color name="red">#FF0000</color>
     <color name="green">#45D100</color>
     <color name="white_green">#A9FF80</color>
-    <color name="black_transparent_30">#30000000</color>
+    <color name="black_transparent_30">#00000000</color>
     <color name="black_transparent_50">#50000000</color>
     <color name="white_transparent_80">#80FFFFFF</color>
     <color name="white_transparent_50">#50FFFFFF</color>
