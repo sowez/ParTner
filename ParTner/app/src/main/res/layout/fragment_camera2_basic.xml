@@ -65,7 +65,7 @@
             android:text="운동 끝"
             android:id="@+id/btn_endEx"/>
      
-        <Button
+        <ImageButton
             android:id="@+id/btn_changeView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
