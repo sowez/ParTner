@@ -56,7 +56,7 @@ public class ServerComm {
     * 종합관 509 :  http://192.168.30.96:8000/
     * */
 
-    private static String URL = "http://192.168.52.249:8000/";
+    private static String URL = "http://192.168.51.146:8000/";
 
     public String getURL() {
         return URL;
@@ -80,6 +80,25 @@ public class ServerComm {
 
         retrofitCommnunication = retrofit.create(RetrofitCommnunication.class);
         return retrofitCommnunication;
+    }
+
+    public void userLogout(String id){
+        JsonObject logoutdata = new JsonObject();
+        logoutdata.addProperty("id", id);
+        retrofitCommnunication.logout(logoutdata).enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                JsonObject res = response.body();
+                if(res.get("result").equals("logout_success")){
+                    Log.d("logout", "servercomm logout onResponse: 로그아웃성공");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+            }
+        });
     }
 
     public void postUploadImg(File profileImg, String trainerId, Context context) {

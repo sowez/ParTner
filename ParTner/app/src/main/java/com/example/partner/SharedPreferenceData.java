@@ -52,6 +52,10 @@ public class SharedPreferenceData {
 
     // 로그아웃
     public static void clearUserData(Context context) {
+        String userid = getId(context);
+        ServerComm serverComm = new ServerComm();
+        serverComm.init();
+        serverComm.userLogout(userid);
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.clear();
         editor.commit();

@@ -18,6 +18,11 @@ const sportsmanSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+
+    token: {
+        type: String,
+        default: ""
+    },
     
     trainer_bookmark:[{ type: mongoose.Schema.Types.ObjectId, ref: 'trainer' }],
 

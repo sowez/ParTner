@@ -95,6 +95,7 @@ router.post('/signup', function (req, res, next) {
         pw: req.body.pw,
         sex: req.body.sex,
         name: req.body.name,
+        token: null
       });
 
       sportsman.save(function (err) {
@@ -112,6 +113,7 @@ router.post('/signup', function (req, res, next) {
         pw: req.body.pw,
         sex: req.body.sex,
         name: req.body.name,
+        token: null,
         training_type: req.body.training_type,
         profileImg: null
       });
@@ -143,7 +145,7 @@ router.post('/login', function (req, res, next) {
   sportsmanModel.findOne({ id: userId }, function (err, sportsman) {
 
     /* 운동인 로그인 */
-    if (sportsman != null) {
+    if (sportsman != null && sportsman.token == null) {
 
       sportsmanExist = true;
       console.log(sportsman)
@@ -160,43 +162,54 @@ router.post('/login', function (req, res, next) {
 
         jwt.sign(payload, secret, options, function (err, token) {
           if (err) return console.log(err);
-          res.json({
-            loginResult: "login_success",
-            token: token,
-            id: sportsman.id,
-            username: sportsman.name,
-            type: "sportsman"
-          });
+          sportsmanModel.findOneAndUpdate({id:sportsman.id}, {token: token}, function(err){
+            if(err) console.log(err);
+            res.json({
+              loginResult: "login_success",
+              token: token,
+              id: sportsman.id,
+              username: sportsman.name,
+              type: "sportsman"
+            });
+          })
         });
       }
-    } else {
+    } else if(sportsman != null && sportsman.token != null){
+       res.json({ loginResult: "login_exist" });
+    } else{
 
       /*트레이너 로그인 */
       trainerModel.findOne({ id: userId }, function (err, trainer) {
         if (trainer == null) {
           res.json({ "loginResult": "fail" })
-        } else {
-          trainerExist = true;
-          if (userPw != trainer.pw) {
-            res.json({ "loginResult": "diffrent" })
-          } else {
-            var payload = {
-              _id: trainer._id,
-              id: trainer.id,
-              type: "trainer"
-            };
-
-            jwt.sign(payload, secret, options, function (err, token) {
-              if (err) return console.log(err);
-              res.json({
-                loginResult: "login_success",
-                token: token,
+        } else if(trainer.token == null) {
+            trainerExist = true;
+            if (userPw != trainer.pw) {
+              res.json({ "loginResult": "diffrent" })
+            } else {
+              var payload = {
+                _id: trainer._id,
                 id: trainer.id,
-                username: trainer.name,
                 type: "trainer"
+              };
+
+              jwt.sign(payload, secret, options, function (err, token) {
+                if (err) return console.log(err);
+
+                trainerModel.findOneAndUpdate({id:trainer.id}, {token: token}, function(err){
+                  if(err) console.log(err);
+                  res.json({
+                    loginResult: "login_success",
+                    token: token,
+                    id: trainer.id,
+                    username: trainer.name,
+                    type: "trainer"
+                  });
+                })
               });
-            });
-          }
+            }
+        } else{
+          res.json({"loginResult":"login_exist"});
         }
       });
     }
@@ -211,6 +224,22 @@ router.post('/verify', function (req, res, next) {
     res.send(decoded)
   });
 });
+
+router.post('/logout', function(req, res, next){
+  sportsmanModel.findOne({id:req.body.id}, function(err, sportsman){
+    if(sportsman != null){
+      sportsmanModel.findOneAndUpdate({id:req.body.id},{token:null}, function(err){
+        if(err) console.log(err);
+        res.json({result:"logout_success"});
+      })
+    }else{
+      trainerModel.findOneAndUpdate({id:req.body.id},{token:null}, function(err){
+        if(err) console.log(err);
+        res.json({result:"logout_success"});
+      })
+    }
+  });
+})
 
 
 
