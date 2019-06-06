@@ -22,7 +22,11 @@ public class ExStartPopup {
     private PopupEventListener listener;
     private Context context;
 
-    private int exDifficulty;
+    public void setExDifficulty(int exDifficulty) {
+        this.exDifficulty = exDifficulty;
+    }
+
+    private int exDifficulty = 2;
 
     public ExStartPopup(Context context, int exType, PopupEventListener popupEventListener){
         this.context = context;
@@ -93,16 +97,16 @@ public class ExStartPopup {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 String[] text_difficulty = {"매우 쉬움", "쉬움", "보통", "어려움"};
                 tv_difficulty.setText(String.format("난이도: %s", text_difficulty[progress]));
-                exDifficulty = progress;
+                setExDifficulty(progress);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
 
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+
 
             }
         });

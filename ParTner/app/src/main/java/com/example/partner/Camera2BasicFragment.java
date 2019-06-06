@@ -417,7 +417,6 @@ public class Camera2BasicFragment extends Fragment
         exType = this.getArguments().getInt("exType");
         exCount = this.getArguments().getInt("exCount");
         exDifficulty = this.getArguments().getInt("exDifficulty");
-
         exCorrection = new ExCorrection();
 
         tts= new TextToSpeech(getActivity().getApplicationContext(),this);
@@ -539,10 +538,9 @@ public class Camera2BasicFragment extends Fragment
 
     };
     public void endEx(){
-        if (exerciseCounter != 0)
-            postHist();
+
         closeCamera();
-        exAccuracy = ((double)exResult[0]/((double)exResult[0]+(double)exResult[1]))*100;
+        exAccuracy = (int)(((double)exResult[0]/((double)exResult[0]+(double)exResult[1]))*100);
         ExEndPopup popup = new ExEndPopup(getActivity(), exType, exerciseCounter, exAccuracy, new ExEndPopup.PopupEventListener() {
             @Override
             public void popupEvent(String result) {
@@ -560,6 +558,8 @@ public class Camera2BasicFragment extends Fragment
                 }
             }
         });
+        if (exerciseCounter != 0)
+            postHist();
     }
 
     private void postHist(){
@@ -571,7 +571,9 @@ public class Camera2BasicFragment extends Fragment
         trainingHist.addProperty("start_time", start_time);
         trainingHist.addProperty("ex_count",exerciseCounter);
         trainingHist.addProperty("ex_type",exType);
-
+        trainingHist.addProperty("ex_difficulty", exDifficulty);
+        trainingHist.addProperty("ex_accuracy", exAccuracy);
+        Log.d(TAG, exDifficulty+","+exAccuracy);
         retrofitComm.postTrainingHist(trainingHist)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

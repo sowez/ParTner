@@ -244,7 +244,7 @@ public class ExHistoryActivity extends AppCompatActivity {
         for (TrainingHistory hist : trainingHistories) {
             String histDate = df.format(hist.getDate());
             if (histDate.equals(thisDate)) {
-                histories.add(new History(hist.getEx_type(), hist.getDate(), hist.getStart_time(), hist.getEx_count()));
+                histories.add(new History(hist.getEx_type(), hist.getDate(), hist.getStart_time(), hist.getEx_count(), hist.getEx_difficulty(), hist.getEx_accuracy()));
             }
         }
         for (CallHistory hist : callHistories) {
@@ -300,7 +300,11 @@ public class ExHistoryActivity extends AppCompatActivity {
     public class History {
 
         private String date, time, name;
-        private int count, type;
+        private int count;
+        private int type;
+
+        private int diff;
+        private int ac;
 
         public History(int type, Date date, Date start_time, String name, int count) {
             this.type = type;
@@ -310,11 +314,13 @@ public class ExHistoryActivity extends AppCompatActivity {
             this.count = count;
         }
 
-        public History(int type, Date date, Date start_time, int count) {
+        public History(int type, Date date, Date start_time, int count, int diff, int ac) {
             this.type = type;
             this.date = new SimpleDateFormat("yyyy/MM/dd").format(date);
             this.time = new SimpleDateFormat("HH : mm").format(start_time);
             this.count = count;
+            this.diff = diff;
+            this.ac = ac;
         }
 
         public String getDate() {
@@ -355,6 +361,22 @@ public class ExHistoryActivity extends AppCompatActivity {
 
         public void setType(int type) {
             this.type = type;
+        }
+
+        public int getDiff() {
+            return diff;
+        }
+
+        public void setDiff(int diff) {
+            this.diff = diff;
+        }
+
+        public int getAc() {
+            return ac;
+        }
+
+        public void setAc(int ac) {
+            this.ac = ac;
         }
 
     }

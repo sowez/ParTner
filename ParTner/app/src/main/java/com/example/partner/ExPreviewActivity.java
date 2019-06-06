@@ -64,7 +64,9 @@ public class ExPreviewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int exType = intent.getExtras().getInt("exType");
         int exCount = intent.getExtras().getInt("exCount");
+        int exDifficulty = intent.getExtras().getInt("exDifficulty");
 
+//        Toast.makeText(context, "diff1: "+exDifficulty, Toast.LENGTH_SHORT).show();
         tv_title = (TextView) findViewById(R.id.tv_exPreview);
         vv_preview = (VideoView) findViewById(R.id.vv_exPreview);
 
@@ -78,6 +80,7 @@ public class ExPreviewActivity extends AppCompatActivity {
 //                Intent i = new Intent(ExPreviewActivity.this,ExHistoryActivity.class);
                 i.putExtra("exCount",exCount);
                 i.putExtra("exType",exType);
+                i.putExtra("exDifficulty", exDifficulty);
                 startActivity(i);
                 finish();
             }

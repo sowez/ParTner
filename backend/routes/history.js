@@ -20,7 +20,7 @@ router.get('/training/:id/:year/:month',function(req, res, next){
     console.log(e_d);
     trainHistModel.find({id : req.params.id, 
         start_time : {$gte: s_d,$lte: e_d}
-    }, {start_time:true, ex_count:true, ex_type:true} , function(err, histories){
+    }, {start_time:true, ex_count:true, ex_type:true, ex_difficulty:true, ex_accuracy:true} , function(err, histories){
             if(err){
                 return res.status(500).send({error: 'databasefailure'});
             }
@@ -52,7 +52,9 @@ router.post('/trainhistory/create', function(req, res, next){
         id: req.body.id,
         start_time: req.body.start_time,
         ex_count: req.body.ex_count,
-        ex_type: req.body.ex_type
+        ex_type: req.body.ex_type,
+	ex_accuracy: req.body.ex_accuracy,
+	ex_difficulty: req.body.ex_difficulty
     });
     history.save(function(err){
         if (err) return console.log(err);

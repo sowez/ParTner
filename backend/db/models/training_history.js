@@ -16,7 +16,16 @@ const training_historySchema = new mongoose.Schema({
     ex_type:{
         type:Number,
         required:true
+    },
+    ex_difficulty:{
+        type:Number,
+        required:true
+    },
+    ex_accuracy:{
+        type:Number,
+        required:true
     }
 });
 
 module.exports = mongoose.model('training_history', training_historySchema);
+

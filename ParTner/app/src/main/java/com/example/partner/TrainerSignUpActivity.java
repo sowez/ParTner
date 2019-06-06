@@ -177,13 +177,13 @@ public class TrainerSignUpActivity extends AppCompatActivity {
         //영어, 숫자, 특수문자 포함 6자리
         String idPattern = "^[A-Za-z0-9+]{3,12}$";
         String pwPattern = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{6,}$";
-        if (Pattern.matches(pwPattern, pw) && pw.equals(pw_check) && overlapCheck) {
+        if (Pattern.matches(idPattern, id) && Pattern.matches(pwPattern, pw) && pw.equals(pw_check) && overlapCheck) {
             SignUpData signUpData = new SignUpData("trainer", id, pw, name, sex, trainingTypes);
             ServerComm serverComm = new ServerComm();
             serverComm.init();
             serverComm.postUploadImg(profileImg, id, this);
             serverComm.postSignUp(signUpData, this);
-        } else if(Pattern.matches(idPattern, id)){
+        } else if(!Pattern.matches(idPattern, id)){
             Toast.makeText(this, "아이디는 영문자와 숫자만 포함하여 3자리 이상 12자리 이하로 만들어주세요", Toast.LENGTH_LONG).show();
         } else if (pw.equals(pw_check) && overlapCheck) {
             Toast.makeText(this, "비밀번호는 영문자, 숫자, 특수문자($,@,$,!,%,*,#,?,&)를 포함하여 6자리 이상으로 만들어주세요", Toast.LENGTH_LONG).show();

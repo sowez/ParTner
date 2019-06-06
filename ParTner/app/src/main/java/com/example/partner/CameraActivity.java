@@ -19,6 +19,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.partner.R;
 
@@ -40,6 +41,7 @@ public class CameraActivity extends Activity {
 
     private int exType;
     private int exCount;
+    private int exDifficulty;
 
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
@@ -73,12 +75,15 @@ public class CameraActivity extends Activity {
         Intent intent = getIntent();
         exType = intent.getExtras().getInt("exType");
         exCount = intent.getExtras().getInt("exCount");
+        exDifficulty = intent.getExtras().getInt("exDifficulty");
 
+//        Toast.makeText(getApplicationContext(), "diff2: "+exDifficulty, Toast.LENGTH_SHORT).show();
         if (null == savedInstanceState) {
             Camera2BasicFragment c2bf = new Camera2BasicFragment();
             Bundle bundle = new Bundle();
             bundle.putInt("exType", exType);
             bundle.putInt("exCount", exCount);
+            bundle.putInt("exDifficulty", exDifficulty);
             c2bf.setArguments(bundle);
 
             getFragmentManager()

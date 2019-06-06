@@ -45,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:rating="3"
+            android:clickable="false"
             android:stepSize="0.5" />
 
 

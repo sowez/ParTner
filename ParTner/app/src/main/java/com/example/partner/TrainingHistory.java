@@ -6,12 +6,15 @@ import java.util.Date;
 
 public class TrainingHistory {
     private Date start_time;
-    private int ex_count, ex_type;
+    private int ex_count, ex_type, ex_difficulty, ex_accuracy;
 
-    public TrainingHistory(Date start_time, int ex_count, int ex_type){
+    public TrainingHistory(Date start_time, int ex_count, int ex_type, int ex_difficulty, int ex_accuracy){
         this.start_time = start_time;
         this.ex_count = ex_count;
         this.ex_type = ex_type;
+        this.ex_difficulty = ex_difficulty;
+        this.ex_accuracy = ex_accuracy;
+
     }
 
     public Date getDate() {
@@ -48,4 +51,21 @@ public class TrainingHistory {
     public void setEx_type(int ex_type) {
         this.ex_type = ex_type;
     }
+
+    public int getEx_difficulty() {
+        return ex_difficulty;
+    }
+
+    public void setEx_difficulty(int ex_difficulty) {
+        this.ex_difficulty = ex_difficulty;
+    }
+
+    public int getEx_accuracy() {
+        return ex_accuracy;
+    }
+
+    public void setEx_accuracy(int ex_accuracy) {
+        this.ex_accuracy = ex_accuracy;
+    }
+
 }

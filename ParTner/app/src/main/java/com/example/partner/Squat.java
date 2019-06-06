@@ -55,7 +55,6 @@ public class Squat extends Exercise {
     @Override
     public boolean checkReady() {
         boolean isReady = true;
-
         // 1. 모든 x좌표가 38.5~72.85 사이에 있어야 함(0<=x<=96)
         for(int i=0;i<=13;i++){
             float tX = point[0][i];
@@ -213,6 +212,7 @@ public class Squat extends Exercise {
             Log.d(TAG, "doExercise: step 2, dist="+dist(ankleStart,squat.anklePoint));
             Log.d(TAG, "doExercise: step 2, ankleStart("+ankleStart.x+", "+ankleStart.y+")");
             Log.d(TAG, "doExercise: step 2, squat.anklePoint("+squat.anklePoint.x+", "+squat.anklePoint.y+")");
+
 
             if (dist(ankleStart,squat.anklePoint) > 300){
                 Log.d(TAG, "doExercise: step 2, 발이 움직임");

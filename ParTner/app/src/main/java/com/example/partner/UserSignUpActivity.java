@@ -85,13 +85,13 @@ public class UserSignUpActivity extends AppCompatActivity {
         //영어, 숫자, 특수문자 포함 6자리
         String idPattern = "^[A-Za-z0-9+]{3,12}$";
         String pwPattern = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{6,}$";
-        if (Pattern.matches(pwPattern, pw) && pw.equals(pw_check)) {
+        if (Pattern.matches(idPattern, id) && Pattern.matches(pwPattern, pw) && pw.equals(pw_check)) {
             SignUpData signUpData = new SignUpData("sportsman", id, pw, name, sex, null);
             ServerComm serverComm = new ServerComm();
             serverComm.init();
             serverComm.postSignUp(signUpData, this);
             finish();
-        } else if(Pattern.matches(idPattern, id)){
+        } else if(!Pattern.matches(idPattern, id)){
             Toast.makeText(this, "아이디는 영문자와 숫자만 포함하여 3자리 이상 12자리 이하로 만들어주세요", Toast.LENGTH_LONG).show();
         } else if (pw.equals(pw_check)) {
             Toast.makeText(this, "비밀번호는 영문자, 숫자, 특수문자($,@,$,!,%,*,#,?,&)를 포함하여 6자리 이상으로 만들어주세요", Toast.LENGTH_LONG).show();
