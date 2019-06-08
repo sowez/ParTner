@@ -56,7 +56,8 @@ public class ServerComm {
     * 종합관 509 :  http://192.168.30.96:8000/
     * */
 
-    private static String URL = "http://192.168.51.146:8000/";
+    private static String URL = "http://ec2-34-203-233-238.compute-1.amazonaws.com:8000/";
+
 
     public String getURL() {
         return URL;
