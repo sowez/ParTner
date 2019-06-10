@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TimeZone;
 
 public class UserCallHistoryRecyclerAdapter extends RecyclerView.Adapter<UserCallHistoryRecyclerAdapter.MyViewHolder> {
 
@@ -26,6 +27,7 @@ public class UserCallHistoryRecyclerAdapter extends RecyclerView.Adapter<UserCal
         holder.time.setText(Long.toString(listData.get(position).getCall_duration()));
 
         SimpleDateFormat dateFormat = new  SimpleDateFormat("yyyy년 MM월 dd일 HH:mm:ss");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         String date = dateFormat.format(listData.get(position).getStart_time());
         holder.startTime.setText(date);
     }

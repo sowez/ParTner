@@ -578,6 +578,7 @@ public class Camera2BasicFragment extends Fragment
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(data->{
+                    Log.e("datedate", "postHist: " + trainingHist);
                     String histResult = data.get("result").getAsString();
                     if (!histResult.equals("saved")){
                         Log.d(TAG, "endEx: 운동기록 저장 실패");

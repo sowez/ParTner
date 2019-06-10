@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,6 +28,7 @@ public class TrainerCallHistoryRecyclerAdapter extends RecyclerView.Adapter<Trai
         holder.time.setText(Long.toString(listData.get(position).getCall_duration()));
 
         SimpleDateFormat dateFormat = new  SimpleDateFormat("yyyy년 MM월 dd일 HH:mm:ss");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         String date = dateFormat.format(listData.get(position).getStart_time());
         holder.startTime.setText(date);
     }

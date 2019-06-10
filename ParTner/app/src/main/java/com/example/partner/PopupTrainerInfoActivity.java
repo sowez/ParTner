@@ -148,7 +148,7 @@ public class PopupTrainerInfoActivity extends BaseActivity {
         CallData.getInstance().setCallReceiverID(trainerId);
         CallData.getInstance().setCallReceiverName(name_data);
         CallData.getInstance().setTrainerBookmarked(bookmarkBtn.isChecked());
-        Toast.makeText(PopupTrainerInfoActivity.this, "CallData에 저장"+trainerId, Toast.LENGTH_LONG).show();
+       // Toast.makeText(PopupTrainerInfoActivity.this, "CallData에 저장"+trainerId, Toast.LENGTH_LONG).show();
 
         RetrofitCommnunication retrofitcomm = ServerComm.init();
 
@@ -232,7 +232,7 @@ public class PopupTrainerInfoActivity extends BaseActivity {
                     CallData.getInstance().setCallReceiverID(trainerId);
                     CallData.getInstance().setCallReceiverName(name_data);
                     CallData.getInstance().setTrainerBookmarked(bookmarkBtn.isChecked());
-                    Toast.makeText(PopupTrainerInfoActivity.this, "CallData에 저장"+trainerId, Toast.LENGTH_LONG).show();
+                    //Toast.makeText(PopupTrainerInfoActivity.this, "CallData에 저장"+trainerId, Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -293,7 +293,7 @@ public class PopupTrainerInfoActivity extends BaseActivity {
                 signInCreatedUser(userForSave, false);
             } else {
                 hideProgressDialog();
-                Toaster.longToast(getString(R.string.login_chat_login_error) + " / onActivityResult : " + errorMessage);
+               // Toaster.longToast(getString(R.string.login_chat_login_error) + " / onActivityResult : " + errorMessage);
             }
         }
     }
@@ -317,7 +317,7 @@ public class PopupTrainerInfoActivity extends BaseActivity {
                             signInCreatedUser(newUser, true);
                         } else {
                             hideProgressDialog();
-                            Toaster.longToast(R.string.sign_up_error + " / startSignUpNewUser");
+                      //      Toaster.longToast(R.string.sign_up_error + " / startSignUpNewUser");
                             Log.d("loginlogin", "onError: startSignUpNewUser :// " + e.getMessage());
                             signInCreatedUser(newUser, true);
                         }
@@ -366,14 +366,14 @@ public class PopupTrainerInfoActivity extends BaseActivity {
             @Override
             public void onError(QBResponseException responseException) {
                 hideProgressDialog();
-                Toaster.longToast(R.string.sign_up_error + " / SigninCreateUser");
+              //  Toaster.longToast(R.string.sign_up_error + " / SigninCreateUser");
             }
         });
     }
 
     private boolean isLoggedInChat() {
         if (!QBChatService.getInstance().isLoggedIn()) {
-            Toaster.shortToast(R.string.dlg_signal_error);
+           // Toaster.shortToast(R.string.dlg_signal_error);
             tryReLoginToChat();
             return false;
         }
@@ -461,7 +461,7 @@ public class PopupTrainerInfoActivity extends BaseActivity {
             @Override
             public void onError(QBResponseException e) {
                 hideProgressDialog();
-                Toaster.longToast(R.string.sign_up_error + " / removeAllUserData");
+               // Toaster.longToast(R.string.sign_up_error + " / removeAllUserData");
             }
         });
     }

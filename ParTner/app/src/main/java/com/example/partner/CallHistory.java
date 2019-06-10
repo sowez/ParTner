@@ -3,6 +3,7 @@ package com.example.partner;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class CallHistory {
     private String trainer_id;
@@ -22,6 +23,7 @@ public class CallHistory {
     public Date getDate() {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         try {
             date = dateFormat.parse(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(start_time));
         } catch (ParseException e) {

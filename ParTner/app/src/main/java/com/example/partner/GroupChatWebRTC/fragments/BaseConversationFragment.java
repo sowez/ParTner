@@ -166,7 +166,7 @@ public abstract class BaseConversationFragment extends BaseToolBarFragment imple
     public void onDestroy() {
         conversationFragmentCallbackListener.removeCurrentCallStateCallback(this);
         super.onDestroy();
-        Toast.makeText(getActivity(), "통화종료료료 - ondestroy", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getActivity(), "통화종료료료 - ondestroy", Toast.LENGTH_SHORT).show();
 
         if(SharedPreferenceData.getType(getContext()).equals("trainer")) {
             CallData.getInstance().setCallReceiverName(CollectionsUtils.makeStringFromUsersFullNames(opponents));
@@ -270,7 +270,7 @@ public abstract class BaseConversationFragment extends BaseToolBarFragment imple
         }
         stopTimer();
         actionButtonsEnabled(false);
-        Toast.makeText(getActivity(), "통화종료료료 - oncallstopped", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getActivity(), "통화종료료료 - oncallstopped", Toast.LENGTH_SHORT).show();
     }
 
     @Override

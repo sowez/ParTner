@@ -3,6 +3,7 @@ package com.example.partner;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -33,6 +34,7 @@ public class TrainerProfileEditActivity extends AppCompatActivity {
 
     private Button editDoneBtn;
 
+    private Boolean isExitFlag = false;
 
     private EditText nameEditText;
     private EditText introEditText;
@@ -138,5 +140,20 @@ public class TrainerProfileEditActivity extends AppCompatActivity {
             finish();
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (isExitFlag) {
+            if (!SharedPreferenceData.getAutologinChecked(this)) {
+                SharedPreferenceData.clearUserData(this);
+            }
+            finish();
+        } else {
+            isExitFlag = true;
+            Toast.makeText(this, "뒤로가기를 한번더 누르시면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(() -> isExitFlag = false, 2000);
+        }
     }
 }

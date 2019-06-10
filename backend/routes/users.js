@@ -182,7 +182,7 @@ router.post('/login', function (req, res, next) {
       trainerModel.findOne({ id: userId }, function (err, trainer) {
         if (trainer == null) {
           res.json({ "loginResult": "fail" })
-        } else if(trainer.token == null) {
+        } else if(trainer.token == null || trainer.qb_id == null) {
             trainerExist = true;
             if (userPw != trainer.pw) {
               res.json({ "loginResult": "diffrent" })

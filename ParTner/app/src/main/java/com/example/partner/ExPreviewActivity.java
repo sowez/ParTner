@@ -154,10 +154,12 @@ public class ExPreviewActivity extends AppCompatActivity {
     private void addSideBar() {
 
         UserSideBarView sidebar = new UserSideBarView(context);
-
         sideLayout.addView(sidebar);
-        viewLayout.setOnTouchListener((v, event) -> true);
-        mainLayout.setOnTouchListener((v, event) -> true);
+
+
+        viewLayout.setOnClickListener(view -> {
+            closeMenu();
+        });
 
         sidebar.setEventListener(new UserSideBarView.EventListener() {
 
@@ -192,7 +194,6 @@ public class ExPreviewActivity extends AppCompatActivity {
 
             @Override
             public void btnBookmark() {
-                Toast.makeText(context, "Trainer bookmark", Toast.LENGTH_LONG).show();
                 closeMenu();
             }
 
@@ -224,26 +225,17 @@ public class ExPreviewActivity extends AppCompatActivity {
             viewLayout.setVisibility(View.GONE);
             viewLayout.setEnabled(false);
             mainLayout.setEnabled(true);
-            viewLayout.setOnTouchListener((v,event)->false);
-
         }, 450);
     }
-
 
     public void showMenu() {
         isMenuShow = true;
         Animation slide = AnimationUtils.loadAnimation(this, R.anim.sidebar_show);
         sideLayout.setVisibility(View.VISIBLE);
-        sideLayout.setClickable(true);
         sideLayout.startAnimation(slide);
         viewLayout.setVisibility(View.VISIBLE);
         viewLayout.setEnabled(true);
         mainLayout.setEnabled(false);
-        mainLayout.setOnTouchListener((v, event) -> true);
-
-        viewLayout.setOnClickListener(v -> {
-        });
-        viewLayout.setOnTouchListener((v,event)->true);
-        Log.e("TAG", "메뉴버튼 클릭");
+        mainLayout.setClickable(false);
     }
 }

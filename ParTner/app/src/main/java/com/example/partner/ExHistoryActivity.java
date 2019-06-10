@@ -29,6 +29,7 @@ import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 import com.prolificinteractive.materialcalendarview.spans.DotSpan;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -39,6 +40,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.TimeZone;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -319,18 +321,25 @@ public class ExHistoryActivity extends AppCompatActivity {
         private int diff;
         private int ac;
 
+        private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        private SimpleDateFormat timeFormat = new SimpleDateFormat("HH : mm");
+
         public History(int type, Date date, Date start_time, String name, int count) {
             this.type = type;
-            this.date = new SimpleDateFormat("yyyy/MM/dd").format(date);
-            this.time = new SimpleDateFormat("HH : mm").format(start_time);
+            dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+            this.date = dateFormat.format(date);
+            timeFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+            this.time = timeFormat.format(start_time);
             this.name = name;
             this.count = count;
         }
 
         public History(int type, Date date, Date start_time, int count, int diff, int ac) {
             this.type = type;
-            this.date = new SimpleDateFormat("yyyy/MM/dd").format(date);
-            this.time = new SimpleDateFormat("HH : mm").format(start_time);
+            dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+            this.date = dateFormat.format(date);
+            timeFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+            this.time = timeFormat.format(start_time);
             this.count = count;
             this.diff = diff;
             this.ac = ac;

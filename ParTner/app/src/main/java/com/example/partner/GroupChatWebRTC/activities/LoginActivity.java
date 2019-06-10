@@ -123,7 +123,7 @@ public class LoginActivity extends BaseActivity {
                             signInCreatedUser(newUser, true);
                         } else {
                             hideProgressDialog();
-                            Toaster.longToast(R.string.sign_up_error);
+                           // Toaster.longToast(R.string.sign_up_error);
                         }
                     }
                 }
@@ -182,7 +182,7 @@ public class LoginActivity extends BaseActivity {
 
                 signInCreatedUser(userForSave, false);
             } else {
-                Toaster.longToast(getString(R.string.login_chat_login_error) + errorMessage);
+                //Toaster.longToast(getString(R.string.login_chat_login_error) + errorMessage);
                 userNameEditText.setText(userForSave.getFullName());
                 chatRoomNameEditText.setText(userForSave.getTags().get(0));
             }
@@ -203,7 +203,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onError(QBResponseException responseException) {
                 hideProgressDialog();
-                Toaster.longToast(R.string.sign_up_error);
+              //  Toaster.longToast(R.string.sign_up_error);
             }
         });
     }
@@ -219,7 +219,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onError(QBResponseException e) {
                 hideProgressDialog();
-                Toaster.longToast(R.string.sign_up_error);
+               // Toaster.longToast(R.string.sign_up_error);
             }
         });
     }

@@ -159,7 +159,7 @@ public class CallActivity extends BaseActivity implements QBRTCClientSessionCall
 
     private void startAudioManager() {
         audioManager.start((selectedAudioDevice, availableAudioDevices) -> {
-            Toaster.shortToast("Audio device switched to  " + selectedAudioDevice);
+           // Toaster.shortToast("Audio device switched to  " + selectedAudioDevice);
 
             if (onChangeAudioDeviceCallback != null) {
                 onChangeAudioDeviceCallback.audioDeviceChanged(selectedAudioDevice);
@@ -274,13 +274,13 @@ public class CallActivity extends BaseActivity implements QBRTCClientSessionCall
 
         audioManager.setOnWiredHeadsetStateListener((plugged, hasMicrophone) -> {
             if (callStarted) {
-                Toaster.shortToast("Headset " + (plugged ? "plugged" : "unplugged"));
+               // Toaster.shortToast("Headset " + (plugged ? "plugged" : "unplugged"));
             }
         });
 
         audioManager.setBluetoothAudioDeviceStateListener(connected -> {
             if (callStarted) {
-                Toaster.shortToast("Bluetooth " + (connected ? "connected" : "disconnected"));
+               // Toaster.shortToast("Bluetooth " + (connected ? "connected" : "disconnected"));
             }
         });
     }
@@ -292,7 +292,7 @@ public class CallActivity extends BaseActivity implements QBRTCClientSessionCall
             @Override
             public void onCameraError(final String s) {
 
-                showToast("Camera error: " + s);
+               // showToast("Camera error: " + s);
             }
 
             @Override
@@ -302,18 +302,18 @@ public class CallActivity extends BaseActivity implements QBRTCClientSessionCall
 
             @Override
             public void onCameraFreezed(String s) {
-                showToast("Camera freezed: " + s);
+               // showToast("Camera freezed: " + s);
                 hangUpCurrentSession();
             }
 
             @Override
             public void onCameraOpening(String s) {
-                showToast("Camera aOpening: " + s);
+                //showToast("Camera aOpening: " + s);
             }
 
             @Override
             public void onFirstFrameAvailable() {
-                showToast("onFirstFrameAvailable: ");
+                // showToast("onFirstFrameAvailable: ");
             }
 
             @Override
@@ -353,7 +353,7 @@ public class CallActivity extends BaseActivity implements QBRTCClientSessionCall
     @Override
     public void connectivityChanged(boolean availableNow) {
         if (callStarted) {
-            showToast("Internet connection " + (availableNow ? "available" : " unavailable"));
+            //showToast("Internet connection " + (availableNow ? "available" : " unavailable"));
         }
     }
 
@@ -394,7 +394,7 @@ public class CallActivity extends BaseActivity implements QBRTCClientSessionCall
                     ringtonePlayer.stop();
                     hangUpCurrentSession();
                 }
-                Toaster.longToast("Call was stopped by timer");
+               // Toaster.longToast("Call was stopped by timer");
             }
         };
     }
@@ -612,7 +612,7 @@ public class CallActivity extends BaseActivity implements QBRTCClientSessionCall
             QBUser participant = dbManager.getUserById(userID);
             final String participantName = participant != null ? participant.getFullName() : String.valueOf(userID);
 
-            showToast("User " + participantName + " " + getString(R.string.text_status_hang_up) + " conversation");
+           // showToast("User " + participantName + " " + getString(R.string.text_status_hang_up) + " conversation");
         }
     }
 
@@ -650,7 +650,7 @@ public class CallActivity extends BaseActivity implements QBRTCClientSessionCall
 
     @Override
     public void onErrorSendingPacket(QBSignalingSpec.QBSignalCMD qbSignalCMD, Integer userId, QBRTCSignalException e) {
-        showToast(R.string.dlg_signal_error);
+     //   showToast(R.string.dlg_signal_error);
     }
 
 

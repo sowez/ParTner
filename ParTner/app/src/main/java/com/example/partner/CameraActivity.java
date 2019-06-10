@@ -18,6 +18,7 @@ package com.example.partner;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -42,7 +43,7 @@ public class CameraActivity extends Activity {
     private int exType;
     private int exCount;
     private int exDifficulty;
-
+    private Boolean isExitFlag = false;
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
@@ -108,5 +109,19 @@ public class CameraActivity extends Activity {
         super.onDestroy();
     }
 
+    @Override
+    public void onBackPressed() {
+
+        if (isExitFlag) {
+            if (!SharedPreferenceData.getAutologinChecked(this)) {
+                SharedPreferenceData.clearUserData(this);
+            }
+            finish();
+        } else {
+            isExitFlag = true;
+            Toast.makeText(this, "뒤로가기를 한번더 누르시면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(() -> isExitFlag = false, 2000);
+        }
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.example.partner;
 
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,9 @@ public class ExHistoryRecyclerAdapter extends RecyclerView.Adapter<ExHistoryRecy
     @Override
     public void onBindViewHolder(ExHistoryRecyclerAdapter.MyViewHolder holder, int position) {
         holder.tv_date.setText(histories.get(position).getDate());
+        Log.e("datedatedate", "onBindViewHolder: " + histories.get(position).getDate());
         holder.tv_time.setText(histories.get(position).getTime());
+        Log.e("datedatedate", "onBindViewHolder: " + histories.get(position).getTime());
         int gettype = histories.get(position).getType();
         if (gettype == 0){  // call history
             String text1 = "'"+histories.get(position).getName()+"'님과의 영상통화";
