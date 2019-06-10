@@ -96,7 +96,6 @@ public class TrainerMainMenuActivity extends BaseActivity {
         setContentView(R.layout.activity_trainer_menu);
 
         initFields();
-        startLoadUsers();
         init();
 
     }
@@ -181,24 +180,24 @@ public class TrainerMainMenuActivity extends BaseActivity {
                 Log.i("Received", trainerProfile.getStar_rate().toString());
 
                 String traintypeList = "";
-                String temp="";
+                String temp = "";
 
                 for (int i = 0; i < trainerProfile.getTraining_type().size(); i++) {
-                    switch (trainerProfile.getTraining_type().get(i)){
-                        case "stretching":{
+                    switch (trainerProfile.getTraining_type().get(i)) {
+                        case "stretching": {
                             temp = "스트레칭";
                             break;
                         }
-                        case "pilates":{
-                            temp="필라테스";
+                        case "pilates": {
+                            temp = "필라테스";
                             break;
                         }
-                        case "muscle":{
-                            temp="근력운동";
+                        case "muscle": {
+                            temp = "근력운동";
                             break;
                         }
-                        case "yoga":{
-                            temp="요가";
+                        case "yoga": {
+                            temp = "요가";
                             break;
                         }
                     }
@@ -208,13 +207,13 @@ public class TrainerMainMenuActivity extends BaseActivity {
                 name.setText(trainerProfile.getName());
                 selfIntroduction.setText(trainerProfile.getSelf_introduction());
                 trainingType.setText(traintypeList);
-                if(trainerProfile.getSex().equals("male")){
+                if (trainerProfile.getSex().equals("male")) {
                     gender.setText("남성");
-                }else{
+                } else {
                     gender.setText("여성");
                 }
 
-                float rating = (float)trainerProfile.getStar_rate()/(float)trainerProfile.getStar_rate_num();
+                float rating = (float) trainerProfile.getStar_rate() / (float) trainerProfile.getStar_rate_num();
                 mRating.setRating(rating);
 
                 imgpath = trainerProfile.getProfileImg();
@@ -266,28 +265,22 @@ public class TrainerMainMenuActivity extends BaseActivity {
         }
 
         currentUser = sharedPrefsHelper.getQbUser();
+        if(currentUser == null){
+            Toast.makeText(this,"세션이 만료되었습니다. 다시 로그인 해주세요.", Toast.LENGTH_LONG).show();
+
+            ServerComm serverComm = new ServerComm();
+            serverComm.init();
+            serverComm.setTrainerOffline(SharedPreferenceData.getId(context), context);
+
+            SharedPreferenceData.clearUserData(context);
+            Toast.makeText(context, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show();
+            isMenuShow = false;
+            Intent intent = new Intent(context, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
         dbManager = QbUsersDbManager.getInstance(getApplicationContext());
         webRtcSessionManager = WebRtcSessionManager.getInstance(getApplicationContext());
-    }
-
-    private void startLoadUsers() {
-        String currentRoomName = SharedPrefsHelper.getInstance().get(Consts.PREF_CURREN_ROOM_NAME);
-        requestExecutor.loadUsersByTag(currentRoomName, new QBEntityCallback<ArrayList<QBUser>>() {
-            @Override
-            public void onSuccess(ArrayList<QBUser> result, Bundle params) {
-                dbManager.saveAllUsers(result, true);
-            }
-
-            @Override
-            public void onError(QBResponseException responseException) {
-                showErrorSnackbar(R.string.loading_users_error, responseException, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startLoadUsers();
-                    }
-                });
-            }
-        });
     }
 
     private void removeAllUserData() {
@@ -332,6 +325,9 @@ public class TrainerMainMenuActivity extends BaseActivity {
                     SharedPreferenceData.clearUserData(this);
                     SubscribeService.unSubscribeFromPushes(context);
                     CallService.logout(context);
+                    ServerComm serverComm = new ServerComm();
+                    serverComm.init();
+                    serverComm.setTrainerOffline(SharedPreferenceData.getId(context), context);
                     removeAllUserData();
                 }
                 finish();
@@ -382,9 +378,11 @@ public class TrainerMainMenuActivity extends BaseActivity {
                 Log.d(TAG, "btnLevel btnlogout");
 
                 /*영상통화 로그아웃 */
-                SubscribeService.unSubscribeFromPushes(context);
-                CallService.logout(context);
-                removeAllUserData();
+                if (currentUser != null) {
+                    SubscribeService.unSubscribeFromPushes(context);
+                    CallService.logout(context);
+                    removeAllUserData();
+                }
 
                 ServerComm serverComm = new ServerComm();
                 serverComm.init();

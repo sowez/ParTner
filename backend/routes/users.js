@@ -233,7 +233,7 @@ router.post('/logout', function(req, res, next){
         res.json({result:"logout_success"});
       })
     }else{
-      trainerModel.findOneAndUpdate({id:req.body.id},{token:null}, function(err){
+      trainerModel.findOneAndUpdate({id:req.body.id},{token:null,qb_id:null}, function(err){
         if(err) console.log(err);
         res.json({result:"logout_success"});
       })

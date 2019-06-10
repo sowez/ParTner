@@ -71,7 +71,6 @@ public class TrainerCallHistoryActivity extends BaseActivity {
 
         currentUser = sharedPrefsHelper.getQbUser();
         initFields();
-        startLoadUsers();
 
         // Toolbar 설정
         mToolbar = (Toolbar) findViewById(R.id.menu_toolBar);
@@ -140,28 +139,22 @@ public class TrainerCallHistoryActivity extends BaseActivity {
         }
 
         currentUser = sharedPrefsHelper.getQbUser();
+        if(currentUser == null){
+            Toast.makeText(this,"세션이 만료되었습니다. 다시 로그인 해주세요.", Toast.LENGTH_LONG).show();
+
+            ServerComm serverComm = new ServerComm();
+            serverComm.init();
+            serverComm.setTrainerOffline(SharedPreferenceData.getId(context), context);
+
+            SharedPreferenceData.clearUserData(context);
+            Toast.makeText(context, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show();
+            isMenuShow = false;
+            Intent intent = new Intent(context, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
         dbManager = QbUsersDbManager.getInstance(getApplicationContext());
         webRtcSessionManager = WebRtcSessionManager.getInstance(getApplicationContext());
-    }
-
-    private void startLoadUsers() {
-        String currentRoomName = SharedPrefsHelper.getInstance().get(Consts.PREF_CURREN_ROOM_NAME);
-        requestExecutor.loadUsersByTag(currentRoomName, new QBEntityCallback<ArrayList<QBUser>>() {
-            @Override
-            public void onSuccess(ArrayList<QBUser> result, Bundle params) {
-                dbManager.saveAllUsers(result, true);
-            }
-
-            @Override
-            public void onError(QBResponseException responseException) {
-                showErrorSnackbar(R.string.loading_users_error, responseException, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startLoadUsers();
-                    }
-                });
-            }
-        });
     }
 
     private void removeAllUserData() {
@@ -213,6 +206,12 @@ public class TrainerCallHistoryActivity extends BaseActivity {
         } else {
 
             if (isExitFlag) {
+                if (!SharedPreferenceData.getAutologinChecked(this)) {
+                    SharedPreferenceData.clearUserData(this);
+                    ServerComm serverComm = new ServerComm();
+                    serverComm.init();
+                    serverComm.setTrainerOffline(SharedPreferenceData.getId(context), context);
+                }
                 finish();
             } else {
                 isExitFlag = true;

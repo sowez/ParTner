@@ -148,6 +148,9 @@ public class TrainerProfileEditActivity extends AppCompatActivity {
         if (isExitFlag) {
             if (!SharedPreferenceData.getAutologinChecked(this)) {
                 SharedPreferenceData.clearUserData(this);
+                ServerComm serverComm = new ServerComm();
+                serverComm.init();
+                serverComm.setTrainerOffline(SharedPreferenceData.getId(context), context);
             }
             finish();
         } else {
