@@ -33,8 +33,7 @@ public class TrainerProfileEditActivity extends AppCompatActivity {
     private Toolbar mToolbar;
 
     private Button editDoneBtn;
-
-    private Boolean isExitFlag = false;
+    
 
     private EditText nameEditText;
     private EditText introEditText;
@@ -140,23 +139,5 @@ public class TrainerProfileEditActivity extends AppCompatActivity {
             finish();
         });
 
-    }
-
-    @Override
-    public void onBackPressed() {
-
-        if (isExitFlag) {
-            if (!SharedPreferenceData.getAutologinChecked(this)) {
-                SharedPreferenceData.clearUserData(this);
-                ServerComm serverComm = new ServerComm();
-                serverComm.init();
-                serverComm.setTrainerOffline(SharedPreferenceData.getId(context), context);
-            }
-            finish();
-        } else {
-            isExitFlag = true;
-            Toast.makeText(this, "뒤로가기를 한번더 누르시면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(() -> isExitFlag = false, 2000);
-        }
     }
 }
