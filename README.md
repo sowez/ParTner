@@ -1,5 +1,5 @@
 # ParTner
-Capstone Design Project
+## Capstone Design Project
 
 컨셉 기획 발표: https://docs.google.com/presentation/d/1iprsY3la4MsRIYwYvJWwuXkHbfbsYWK0o2BuCcwU6KQ/edit?usp=sharing
 
